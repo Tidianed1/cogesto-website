@@ -1,0 +1,26 @@
+---
+import { urlFor } from '../utils/sanityClient'
+
+export interface Props {
+  logo?: any
+  tagline: string
+}
+
+const { logo, tagline } = Astro.props
+---
+
+<section class="bg-sick-blue py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-center space-x-4">
+      {logo && (
+        <img 
+          src={urlFor(logo).width(100).url()} 
+          alt={logo.alt || 'Logo'}
+          class="h-8 w-auto"
+        />
+      )}
+      <span class="text-white text-lg font-medium">{tagline}</span>
+    </div>
+  </div>
+</section>
+

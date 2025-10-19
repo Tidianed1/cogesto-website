@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../layouts/Header.astro'
+import Footer from '../layouts/Footer.astro'
+import Hero from '../sections/Hero.astro'
+import BrandTagline from '../sections/BrandTagline.astro'
+import ContentWithNav from '../sections/ContentWithNav.astro'
+import ImageTextSplit from '../sections/ImageTextSplit.astro'
+import CardGrid from '../sections/CardGrid.astro'
+import BlogShowcase from '../sections/BlogShowcase.astro'
+import Advantages from '../sections/Advantages.astro'
+
+// Sample data - in production, this would come from Sanity
+const heroData = {
+  kicker: "Our Promise",
+  heading: "Strategic Excellence for Your Business",
+  subheading: "We provide comprehensive consulting services to help organizations achieve their strategic goals and drive sustainable growth.",
+  ctaButton: {
+    text: "Get Started",
+    url: "/contact"
+  }
+}
+
+const brandTaglineData = {
+  tagline: "Professional Consulting Excellence"
+}
+
+const contentWithNavData = {
+  kicker: "COGESTO-PORTFOLIO",
+  heading: "What We Do",
+  text: "Cogesto Consulting SAS provides comprehensive consulting and training services to public and private organizations. We specialize in strategic and financial policy development, organizational support, and performance management.",
+  navLinks: [
+    { text: "Strategic Consulting", url: "/services/strategic" },
+    { text: "Financial Consulting", url: "/services/financial" },
+    { text: "Organizational Development", url: "/services/organizational" },
+    { text: "Performance Management", url: "/services/performance" }
+  ]
+}
+
+const imageTextSplitData = {
+  image: {
+    asset: { _ref: "image-placeholder" },
+    alt: "Consulting team meeting"
+  },
+  imagePosition: "left",
+  kicker: "Our Expertise",
+  heading: "Functional Expertise",
+  text: "COGESTO Consulting offers expertise to support business growth. We have developed proven tools and methods through the deep experience of our high-level specialists to help companies achieve operational excellence.",
+  ctaButton: {
+    text: "Learn More",
+    url: "/about"
+  }
+}
+
+const cardGridData = {
+  cards: [
+    {
+      heading: "Strategic Planning",
+      text: "Comprehensive strategic planning services to align your organization with market opportunities.",
+      link: "/services/strategic-planning",
+      style: "primary"
+    },
+    {
+      heading: "Financial Management",
+      text: "Expert financial consulting to optimize your organization's financial performance.",
+      link: "/services/financial-management",
+      style: "light"
+    },
+    {
+      heading: "Organizational Development",
+      text: "Transform your organization with our proven organizational development methodologies.",
+      link: "/services/organizational-development",
+      style: "primary"
+    }
+  ]
+}
+
+const advantagesData = {
+  heading: "Why Choose Cogesto Consulting",
+  advantageItems: [
+    {
+      heading: "30+ Years Experience",
+      text: "Our team brings decades of experience in strategic planning and organizational development."
+    },
+    {
+      heading: "International Presence",
+      text: "Operating in Senegal, Morocco, and Canada with global reach and local expertise."
+    },
+    {
+      heading: "Proven Results",
+      text: "Track record of successful projects and satisfied clients across various industries."
+    }
+  ]
+}
+
+const blogShowcaseData = {
+  kicker: "Latest Insights",
+  heading: "Our Latest Case Studies",
+  ctaButton: {
+    text: "View All Case Studies",
+    url: "/case-studies"
+  }
+}
+---
+
+<BaseLayout title="Cogesto Consulting - Strategic Excellence" description="Professional consulting services specializing in strategic planning, financial management, and organizational development.">
+  <Header />
+  
+  <main>
+    <Hero {...heroData} />
+    <BrandTagline {...brandTaglineData} />
+    <ContentWithNav {...contentWithNavData} />
+    <ImageTextSplit {...imageTextSplitData} />
+    <CardGrid {...cardGridData} />
+    <Advantages {...advantagesData} />
+    <BlogShowcase {...blogShowcaseData} />
+  </main>
+  
+  <Footer />
+</BaseLayout>
+

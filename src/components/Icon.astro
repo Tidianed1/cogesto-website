@@ -1,0 +1,40 @@
+---
+import { urlFor } from '../utils/sanityClient'
+
+export interface Props {
+  name: string
+  size?: 'sm' | 'md' | 'lg'
+  className?: string
+}
+
+const { name, size = 'md', className = '' } = Astro.props
+
+const getSizeClasses = () => {
+  switch (size) {
+    case 'sm':
+      return 'w-4 h-4'
+    case 'md':
+      return 'w-6 h-6'
+    case 'lg':
+      return 'w-8 h-8'
+    default:
+      return 'w-6 h-6'
+  }
+}
+
+// Simple icon component - in a real project, you'd use an icon library
+const getIconSvg = (iconName: string) => {
+  const icons: Record<string, string> = {
+    'arrow-right': '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>',
+    'check': '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>',
+    'star': '<svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>',
+    'phone': '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>',
+    'email': '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
+  }
+  
+  return icons[iconName] || icons['check']
+}
+---
+
+<div class={`${getSizeClasses()} ${className}`} set:html={getIconSvg(name)}></div>
+

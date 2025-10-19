@@ -1,0 +1,61 @@
+---
+import { urlFor } from '../utils/sanityClient'
+
+export interface Props {
+  kicker?: string
+  heading: string
+  subheading?: string
+  backgroundImage?: any
+  ctaButton?: {
+    text: string
+    url: string
+  }
+}
+
+const { kicker, heading, subheading, backgroundImage, ctaButton } = Astro.props
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  {backgroundImage && (
+    <div class="absolute inset-0 z-0">
+      <img 
+        src={urlFor(backgroundImage).width(1920).height(1080).url()} 
+        alt={backgroundImage.alt || ''}
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    </div>
+  )}
+  
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    {kicker && (
+      <p class="text-lg sm:text-xl mb-4 font-medium text-sick-light">
+        {kicker}
+      </p>
+    )}
+    
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      {heading}
+    </h1>
+    
+    {subheading && (
+      <p class="text-xl sm:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+        {subheading}
+      </p>
+    )}
+    
+    {ctaButton && (
+      <div class="mt-8">
+        <a 
+          href={ctaButton.url}
+          class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-sick-navy bg-sick-blue hover:bg-blue-600 transition-colors duration-200"
+        >
+          {ctaButton.text}
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+

@@ -1,0 +1,42 @@
+---
+export interface Props {
+  category: string
+  title: string
+  image: {
+    src: string
+    alt: string
+  }
+  href?: string
+}
+
+const { category, title, image, href } = Astro.props
+---
+
+{href ? (
+  <a href={href} class="group cursor-pointer">
+    <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
+      <img 
+        src={image.src} 
+        alt={image.alt} 
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+    <p class="text-sm font-semibold mb-2 uppercase tracking-wider text-white/70">{category}</p>
+    <h3 class="text-xl font-bold mb-4">{title}</h3>
+    <span class="text-xl">→</span>
+  </a>
+) : (
+  <div class="group cursor-pointer">
+    <div class="relative h-48 mb-4 overflow-hidden rounded-lg">
+      <img 
+        src={image.src} 
+        alt={image.alt} 
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+    <p class="text-sm font-semibold mb-2 uppercase tracking-wider text-white/70">{category}</p>
+    <h3 class="text-xl font-bold mb-4">{title}</h3>
+    <span class="text-xl">→</span>
+  </div>
+)}
+

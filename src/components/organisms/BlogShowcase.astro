@@ -1,0 +1,55 @@
+---
+import BlogCard from '../molecules/BlogCard.astro'
+
+export interface Props {
+  kicker: string
+  heading: string
+  ctaButton: {
+    text: string
+    href: string
+  }
+  blogPosts: Array<{
+    category: string
+    title: string
+    image: {
+      src: string
+      alt: string
+    }
+    href?: string
+  }>
+}
+
+const { kicker, heading, ctaButton, blogPosts } = Astro.props
+---
+
+<section class="bg-sick-navy text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <div>
+        <p class="text-sm font-semibold mb-4 uppercase tracking-wider">{kicker}</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-8">{heading}</h2>
+        <a 
+          href={ctaButton.href} 
+          class="inline-flex items-center px-6 py-3 bg-sick-blue text-white font-semibold rounded-full hover:bg-blue-600 transition-colors"
+        >
+          {ctaButton.text}
+          <span class="ml-2">→</span>
+        </a>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="grid md:grid-cols-2 gap-6">
+          {blogPosts.map((post) => (
+            <BlogCard 
+              category={post.category}
+              title={post.title}
+              image={post.image}
+              href={post.href}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

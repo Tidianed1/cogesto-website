@@ -1,0 +1,33 @@
+---
+import { urlFor } from '../utils/sanityClient'
+import Card from '../components/Card.astro'
+
+export interface Props {
+  cards: Array<{
+    heading: string
+    text: string
+    link?: string
+    style: 'primary' | 'light' | 'image'
+    backgroundImage?: any
+  }>
+}
+
+const { cards } = Astro.props
+---
+
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {cards.map((card) => (
+        <Card 
+          heading={card.heading}
+          text={card.text}
+          link={card.link}
+          style={card.style}
+          backgroundImage={card.backgroundImage}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+

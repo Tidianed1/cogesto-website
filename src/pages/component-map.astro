@@ -1,0 +1,439 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/organisms/Header.astro'
+import Footer from '../components/organisms/Footer.astro'
+
+// Header data
+const headerData = {
+  logoSrc: "https://placehold.co/200x60/ffffff/055bf8?text=COGESTO",
+  navLinks: [
+    { text: "Accueil", href: "/" },
+    { text: "Services", href: "/services" },
+    { text: "Expertises", href: "/expertises" },
+    { text: "À propos", href: "/apropos" },
+    { text: "Contact", href: "/contact" },
+    { text: "🗺️ Map", href: "/component-map" },
+    { text: "📋 Annotated", href: "/annotated-homepage" }
+  ],
+  iconLinks: [
+    { icon: "search" },
+    { icon: "globe" },
+    { icon: "user" }
+  ]
+}
+
+// Footer data
+const footerData = {
+  newsletter: {
+    title: "Lettre d'information",
+    description: "Restez informé de nos actualités",
+    ctaText: "S'inscrire maintenant",
+    ctaHref: "/newsletter"
+  },
+  linkColumns: [
+    {
+      title: "Services",
+      links: [
+        { text: "Expertise fonctionnelle", href: "/services/expertise-fonctionnelle" },
+        { text: "Expertise sectorielle", href: "/services/expertise-sectorielle" },
+        { text: "Formation", href: "/formation" }
+      ]
+    },
+    {
+      title: "Entreprise",
+      links: [
+        { text: "À propos", href: "/apropos" },
+        { text: "Notre équipe", href: "/equipe" },
+        { text: "Carrières", href: "/carrieres" }
+      ]
+    },
+    {
+      title: "Contact",
+      links: [
+        { text: "Nous contacter", href: "/contact" },
+        { text: "Support", href: "/support" }
+      ]
+    }
+  ],
+  socialLinks: [
+    { text: "LinkedIn", href: "#" },
+    { text: "Twitter", href: "#" },
+    { text: "Facebook", href: "#" }
+  ],
+  legalLinks: [
+    { text: "Mentions légales", href: "/mentions-legales" },
+    { text: "Politique de confidentialité", href: "/confidentialite" }
+  ],
+  copyright: "© 2025 Cogesto Consulting"
+}
+---
+
+<BaseLayout title="Cogesto Consulting - Component Map" description="Visual reference of component structure and hierarchy">
+  <Header {...headerData} />
+  
+  <main class="bg-gray-50 min-h-screen">
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            🗺️ Component Map
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            Visual Reference of Cogesto Homepage Component Structure & Hierarchy
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component Map Content -->
+    <section class="py-16 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Page Structure Overview -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📋 Page Structure Overview</h2>
+          
+          <div class="bg-gray-50 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+            <pre class="whitespace-pre-wrap">┌─────────────────────────────────────────────────────────────────┐
+│                        BaseLayout.astro                        │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                    Header.astro                            │ │
+│  │  ┌─────────────┐ ┌─────────────┐ ┌─────────────────────┐ │ │
+│  │  │ Logo.astro  │ │Navigation.astro│ │ IconGroup.astro    │ │ │
+│  │  │            │ │ ┌─────────┐  │ │ ┌─────────────────┐ │ │ │
+│  │  │            │ │ │NavLink.astro│ │ │ IconButton.astro│ │ │ │
+│  │  │            │ │ └─────────┘  │ │ └─────────────────┘ │ │ │
+│  │  └─────────────┘ └─────────────┘ └─────────────────────┘ │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                        MAIN CONTENT                        │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │                Hero.astro                           │   │ │
+│  │  │  ┌─────────────┐ ┌─────────────────────────────────┐ │   │ │
+│  │  │  │   Content   │ │         Background Image        │ │   │ │
+│  │  │  │   Side      │ │                                 │ │   │ │
+│  │  │  │             │ │                                 │ │   │ │
+│  │  │  └─────────────┘ └─────────────────────────────────┘ │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  │                                                             │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │            BrandTagline.astro                       │   │ │
+│  │  │  ┌─────────────┐ ┌─────────────────────────────────┐ │   │ │
+│  │  │  │ Logo.astro  │ │         Tagline Text           │ │   │ │
+│  │  │  └─────────────┘ └─────────────────────────────────┘ │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  │                                                             │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │          ContentWithLinks.astro                     │   │ │
+│  │  │  ┌─────────────┐ ┌─────────────────────────────────┐ │   │ │
+│  │  │  │   Content   │ │         Links List              │ │   │ │
+│  │  │  │   Side      │ │  ┌─────────────────────────────┐ │ │   │ │
+│  │  │  │             │ │  │        Link Items          │ │ │   │ │
+│  │  │  └─────────────┘ │  └─────────────────────────────┘ │ │   │ │
+│  │  │                  └─────────────────────────────────┘ │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  │                                                             │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │         ImageTextSplit.astro                       │   │ │
+│  │  │  ┌─────────────┐ ┌─────────────────────────────────┐ │   │ │
+│  │  │  │   Image     │ │         Content Side            │ │   │ │
+│  │  │  │   Side      │ │  ┌─────────────────────────────┐ │ │   │ │
+│  │  │  │             │ │  │        Button.astro        │ │ │   │ │
+│  │  │  └─────────────┘ │  └─────────────────────────────┘ │ │   │ │
+│  │  │                  └─────────────────────────────────┘ │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  │                                                             │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │            SectionDivider.astro                    │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  │                                                             │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │         ImageTextSplit.astro                       │   │ │
+│  │  │  ┌─────────────┐ ┌─────────────────────────────────┐ │   │ │
+│  │  │  │   Content   │ │         Image Side              │ │   │ │
+│  │  │  │   Side      │ │                                 │ │   │ │
+│  │  │  │  ┌─────────┐│ │                                 │ │   │ │
+│  │  │  │  │Button.astro│ │                                 │ │   │ │
+│  │  │  │  └─────────┘│ │                                 │ │   │ │
+│  │  │  └─────────────┘ └─────────────────────────────────┘ │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  │                                                             │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │              CardGrid.astro                         │   │ │
+│  │  │  ┌─────────────────────────────────────────────────┐ │   │ │
+│  │  │  │              Grid Container                     │ │   │ │
+│  │  │  │  ┌─────────┐ ┌─────────┐ ┌─────────────────┐   │ │   │ │
+│  │  │  │  │Card.astro│ │Card.astro│ │   Card.astro    │   │ │   │ │
+│  │  │  │  │Primary  │ │ Light   │ │   Default        │   │ │   │ │
+│  │  │  │  └─────────┘ └─────────┘ └─────────────────┘   │ │   │ │
+│  │  │  │  ┌─────────┐ ┌─────────┐ ┌─────────────────┐   │ │   │ │
+│  │  │  │  │Card.astro│ │Card.astro│ │   Card.astro    │   │ │   │ │
+│  │  │  │  │ Light   │ │ Light   │ │   Image         │   │ │   │ │
+│  │  │  │  └─────────┘ └─────────┘ └─────────────────┘   │ │   │ │
+│  │  │  └─────────────────────────────────────────────────┘ │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  │                                                             │ │
+│  │  ┌─────────────────────────────────────────────────────┐   │ │
+│  │  │            Advantages.astro                         │   │ │
+│  │  │  ┌─────────────────────────────────────────────────┐ │   │ │
+│  │  │  │              Advantages Grid                   │ │   │ │
+│  │  │  │  ┌─────────┐ ┌─────────┐ ┌─────────────────┐   │ │   │ │
+│  │  │  │  │AdvantageItem│ │AdvantageItem│ │ AdvantageItem │   │ │   │ │
+│  │  │  │  │.astro   │ │.astro   │ │   .astro        │   │ │   │ │
+│  │  │  │  └─────────┘ └─────────┘ └─────────────────┘   │ │   │ │
+│  │  │  └─────────────────────────────────────────────────┘ │   │ │
+│  │  │  ┌─────────────────────────────────────────────────┐ │   │ │
+│  │  │  │              Button.astro                      │ │   │ │
+│  │  │  └─────────────────────────────────────────────────┘ │   │ │
+│  │  └─────────────────────────────────────────────────────┘   │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────────┐ │
+│  │                    Footer.astro                            │ │
+│  │  ┌─────────────┐ ┌─────────────┐ ┌─────────────────────┐ │ │
+│  │  │ Newsletter  │ │ Link Columns│ │   Social & Legal   │ │ │
+│  │  │ Section     │ │             │ │                     │ │ │
+│  │  │ ┌─────────┐ │ │ ┌─────────┐ │ │ ┌─────────────────┐ │ │ │
+│  │  │ │Button.astro│ │ │ Link Lists│ │ │ Social Links    │ │ │ │
+│  │  │ └─────────┘ │ │ └─────────┘ │ │ └─────────────────┘ │ │ │
+│  │  └─────────────┘ └─────────────┘ └─────────────────────┘ │ │
+│  └─────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘</pre>
+          </div>
+        </div>
+
+        <!-- Component Hierarchy -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          
+          <!-- Layouts -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">📁 Layouts</h3>
+            <div class="space-y-3">
+              <div class="bg-blue-50 rounded-lg p-3">
+                <h4 class="font-semibold text-blue-900">BaseLayout.astro</h4>
+                <ul class="text-sm text-blue-700 mt-1 space-y-1">
+                  <li>• HTML Document Structure</li>
+                  <li>• Meta Tags & SEO</li>
+                  <li>• Global CSS Import</li>
+                  <li>• &lt;slot /&gt; for page content</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Organisms -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">🏗️ Organisms</h3>
+            <div class="space-y-3">
+              <div class="bg-green-50 rounded-lg p-3">
+                <h4 class="font-semibold text-green-900">Header.astro</h4>
+                <p class="text-sm text-green-700">Logo + Navigation + IconGroup</p>
+              </div>
+              <div class="bg-green-50 rounded-lg p-3">
+                <h4 class="font-semibold text-green-900">Hero.astro</h4>
+                <p class="text-sm text-green-700">Content Side + Image Side</p>
+              </div>
+              <div class="bg-green-50 rounded-lg p-3">
+                <h4 class="font-semibold text-green-900">CardGrid.astro</h4>
+                <p class="text-sm text-green-700">Grid Container + 6 Cards</p>
+              </div>
+              <div class="bg-green-50 rounded-lg p-3">
+                <h4 class="font-semibold text-green-900">Footer.astro</h4>
+                <p class="text-sm text-green-700">Newsletter + Links + Social</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Molecules -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">🧬 Molecules</h3>
+            <div class="space-y-3">
+              <div class="bg-yellow-50 rounded-lg p-3">
+                <h4 class="font-semibold text-yellow-900">Navigation.astro</h4>
+                <p class="text-sm text-yellow-700">NavLink.astro × 5</p>
+              </div>
+              <div class="bg-yellow-50 rounded-lg p-3">
+                <h4 class="font-semibold text-yellow-900">Card.astro</h4>
+                <p class="text-sm text-yellow-700">Title + Description + Arrow</p>
+              </div>
+              <div class="bg-yellow-50 rounded-lg p-3">
+                <h4 class="font-semibold text-yellow-900">AdvantageItem.astro</h4>
+                <p class="text-sm text-yellow-700">Icon + Title + Description</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Atoms -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">⚛️ Atoms</h3>
+            <div class="space-y-3">
+              <div class="bg-purple-50 rounded-lg p-3">
+                <h4 class="font-semibold text-purple-900">Logo.astro</h4>
+                <p class="text-sm text-purple-700">Image element</p>
+              </div>
+              <div class="bg-purple-50 rounded-lg p-3">
+                <h4 class="font-semibold text-purple-900">Button.astro</h4>
+                <p class="text-sm text-purple-700">Multiple variants & sizes</p>
+              </div>
+              <div class="bg-purple-50 rounded-lg p-3">
+                <h4 class="font-semibold text-purple-900">Icon.astro</h4>
+                <p class="text-sm text-purple-700">SVG icon system</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Color Flow -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎨 Color Flow Through Page</h2>
+          <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="bg-blue-600 text-white rounded-lg p-4 text-center">
+              <div class="font-bold">1. Hero</div>
+              <div class="text-sm opacity-90">bg-blue-600</div>
+            </div>
+            <div class="bg-blue-600 text-white rounded-lg p-4 text-center">
+              <div class="font-bold">2. BrandTagline</div>
+              <div class="text-sm opacity-90">bg-blue-600</div>
+            </div>
+            <div class="bg-gray-50 text-gray-900 rounded-lg p-4 text-center border border-gray-200">
+              <div class="font-bold">3. ContentWithLinks</div>
+              <div class="text-sm text-gray-600">bg-gray-50</div>
+            </div>
+            <div class="bg-blue-900 text-white rounded-lg p-4 text-center">
+              <div class="font-bold">4. ImageTextSplit</div>
+              <div class="text-sm opacity-90">bg-blue-900</div>
+            </div>
+            <div class="bg-white text-gray-900 rounded-lg p-4 text-center border border-gray-200">
+              <div class="font-bold">5. SectionDivider</div>
+              <div class="text-sm text-gray-600">bg-white</div>
+            </div>
+            <div class="bg-gray-50 text-gray-900 rounded-lg p-4 text-center border border-gray-200">
+              <div class="font-bold">6. ImageTextSplit</div>
+              <div class="text-sm text-gray-600">bg-gray-50</div>
+            </div>
+            <div class="bg-gray-50 text-gray-900 rounded-lg p-4 text-center border border-gray-200">
+              <div class="font-bold">7. CardGrid</div>
+              <div class="text-sm text-gray-600">bg-gray-50</div>
+            </div>
+            <div class="bg-white text-gray-900 rounded-lg p-4 text-center border border-gray-200">
+              <div class="font-bold">8. Advantages</div>
+              <div class="text-sm text-gray-600">bg-white</div>
+            </div>
+            <div class="bg-blue-900 text-white rounded-lg p-4 text-center">
+              <div class="font-bold">9. Footer</div>
+              <div class="text-sm opacity-90">bg-blue-900</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Grid Layout -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">📊 Card Styles in Grid</h2>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-blue-600 text-white rounded-lg p-6 text-center">
+              <div class="font-bold text-xl">Primary</div>
+              <div class="text-sm opacity-90">(Blue)</div>
+            </div>
+            <div class="bg-gray-50 text-gray-900 rounded-lg p-6 text-center border border-gray-200">
+              <div class="font-bold text-xl">Light</div>
+              <div class="text-sm text-gray-600">(Gray)</div>
+            </div>
+            <div class="bg-gray-50 text-gray-900 rounded-lg p-6 text-center border border-gray-200">
+              <div class="font-bold text-xl">Light</div>
+              <div class="text-sm text-gray-600">(Gray)</div>
+            </div>
+            <div class="bg-gray-50 text-gray-900 rounded-lg p-6 text-center border border-gray-200">
+              <div class="font-bold text-xl">Light</div>
+              <div class="text-sm text-gray-600">(Gray)</div>
+            </div>
+            <div class="bg-white text-gray-900 rounded-lg p-6 text-center border border-gray-200">
+              <div class="font-bold text-xl">Default</div>
+              <div class="text-sm text-gray-600">(White)</div>
+            </div>
+            <div class="bg-gray-100 text-gray-900 rounded-lg p-6 text-center border border-gray-200">
+              <div class="font-bold text-xl">Image</div>
+              <div class="text-sm text-gray-600">(Background)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Key Features</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Interactive Elements</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Sticky header with scroll behavior
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Hover states on all cards
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Button variants and states
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Icon buttons with hover effects
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Smooth transitions (200-300ms)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Visual Elements</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Alternating background colors
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Bordered grid container
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Circular icon containers
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Gradient overlays on images
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✅</span>
+                  Typography hierarchy
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Back to Homepage -->
+        <div class="text-center mt-12">
+          <a 
+            href="/" 
+            class="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors duration-200"
+          >
+            ← Back to Homepage
+            <span class="ml-2">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  
+  <Footer {...footerData} />
+</BaseLayout>

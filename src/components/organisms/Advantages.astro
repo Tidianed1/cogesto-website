@@ -1,0 +1,51 @@
+---
+import AdvantageItem from '../molecules/AdvantageItem.astro'
+import Button from '../atoms/Button.astro'
+
+export interface Props {
+  heading: string
+  advantages: Array<{
+    icon: string
+    title: string
+    description: string
+  }>
+  ctaButton?: {
+    text: string
+    href: string
+  }
+}
+
+const { heading, advantages, ctaButton } = Astro.props
+---
+
+<section class="bg-white py-16 md:py-20 min-h-[500px]">
+  <div class="mx-auto px-8 md:px-12 lg:px-20 xl:px-32">
+    
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16 md:mb-20">
+      {heading}
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-12 md:gap-16 mb-12 md:mb-16">
+      {advantages.map((advantage) => (
+        <AdvantageItem 
+          icon={advantage.icon}
+          title={advantage.title}
+          description={advantage.description}
+        />
+      ))}
+    </div>
+
+    {ctaButton && (
+      <div class="text-center pt-12">
+        <a 
+          href={ctaButton.href}
+          class="inline-flex items-center px-12 py-6 text-xl bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors"
+        >
+          {ctaButton.text}
+          <span class="ml-2">→</span>
+        </a>
+      </div>
+    )}
+  </div>
+</section>
+

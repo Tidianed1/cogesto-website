@@ -1,0 +1,40 @@
+---
+import Card from '../molecules/Card.astro'
+
+export interface Props {
+  cards: Array<{
+    title: string
+    description: string
+    href?: string
+    style: 'primary' | 'light' | 'image' | 'default'
+    image?: {
+      src: string
+      alt: string
+    }
+  }>
+}
+
+const { cards } = Astro.props
+---
+
+<section class="py-16 md:py-20 bg-gray-50 min-h-[500px]">
+  <div class="mx-auto px-8 md:px-12 lg:px-20">
+    
+    <!-- Grid Container -->
+    <div class="border border-gray-200 rounded-none overflow-hidden">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-0">
+        {cards.map((card, index) => (
+          <Card 
+            title={card.title}
+            description={card.description}
+            href={card.href}
+            style={card.style}
+            image={card.image}
+            className={index > 0 ? 'border-l border-t md:border-t-0' : ''}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+

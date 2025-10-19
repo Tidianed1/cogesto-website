@@ -1,0 +1,19 @@
+{
+  "name": "receptive-rotation",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@sanity/client": "^7.12.0",
+    "@sanity/image-url": "^1.2.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "astro": "^5.14.6",
+    "sanity": "^4.10.3",
+    "tailwindcss": "^4.1.14"
+  }
+}

@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/organisms/Header.astro'
+import Hero from '../components/organisms/Hero.astro'
+import ContentWithLinks from '../components/organisms/ContentWithLinks.astro'
+import ImageTextSplit from '../components/organisms/ImageTextSplit.astro'
+import CardGrid from '../components/organisms/CardGrid.astro'
+import Advantages from '../components/organisms/Advantages.astro'
+import Footer from '../components/organisms/Footer.astro'
+
+// Static data for Cogesto homepage
+const headerData = {
+  logoSrc: "https://placehold.co/200x60/ffffff/055bf8?text=COGESTO",
+  navLinks: [
+    { text: "Accueil", href: "/" },
+    { text: "Services", href: "/services" },
+    { text: "Expertises", href: "/expertises" },
+    { text: "À propos", href: "/apropos" },
+    { text: "Contact", href: "/contact" },
+    { text: "🗺️ Map", href: "/component-map" },
+    { text: "📋 Annotated", href: "/annotated-homepage" }
+  ],
+  iconLinks: [
+    { icon: "search" },
+    { icon: "globe" },
+    { icon: "user" }
+  ]
+}
+
+const heroData = {
+  kicker: "Excellence en conseil",
+  heading: "Votre partenaire stratégique pour la performance durable",
+  subheading: "Expertise fonctionnelle et sectorielle au service de votre croissance",
+  backgroundImage: { 
+    src: "/Media/Index/Generated Image October 19, 2025 - 11_17PM.png", 
+    alt: "Professionnels en réunion stratégique" 
+  },
+  logoSrc: "https://placehold.co/200x60/ffffff/055bf8?text=COGESTO",
+  tagline: "Excellence & Performance"
+}
+
+const servicesData = {
+  kicker: "COGESTO CONSULTING",
+  heading: "Ce que nous faisons",
+  text: "Cogesto Consulting SAS est une société qui fournit des services de conseil et de formation aux entreprises publiques et privées. Spécialisé en élaboration et opérationnalisation de politiques stratégiques et financières, en accompagnement organisationnel et en management de la performance.",
+  links: [
+    { text: "Expertise fonctionnelle", href: "/services/expertise-fonctionnelle" },
+    { text: "Expertise sectorielle", href: "/services/expertise-sectorielle" },
+    { text: "Secteurs d'activité", href: "/secteurs" },
+    { text: "Nos références", href: "/references" }
+  ]
+}
+
+const expertiseFonctionnelleData = {
+  kicker: "NOTRE EXPERTISE",
+  heading: "Expertise fonctionnelle",
+  text: "COGESTO Consulting offre son expertise pour accompagner la croissance des entreprises. Nous avons développé des outils et des méthodes éprouvés pour permettre aux entreprises d'atteindre l'excellence opérationnelle.",
+  image: { 
+    src: "/Media/Index/pexels-kublackphotography-9225155.jpg", 
+    alt: "Expertise en gestion et stratégie" 
+  },
+  ctaButton: { text: "En savoir plus", href: "/services/expertise-fonctionnelle" },
+  imagePosition: "left",
+  backgroundColor: "blue-900"
+}
+
+const expertiseSectorielleData = {
+  kicker: "NOS SECTEURS",
+  heading: "Expertise sectorielle",
+  text: "L'expertise sectorielle de COGESTO Consulting est au cœur de sa proposition de valeur. Notre connaissance approfondie de divers secteurs d'activités nous permet de créer de la valeur pour nos clients.",
+  image: { 
+    src: "/Media/Index/pexels-shvetsa-3727458.jpg", 
+    alt: "Expertise sectorielle et analyse" 
+  },
+  ctaButton: { text: "Découvrir", href: "/services/expertise-sectorielle" },
+  imagePosition: "right",
+  backgroundColor: "gray-50"
+}
+
+const statisticsData = {
+  cards: [
+    { title: "+500", description: "Cadres et personnes formés", style: "primary" },
+    { title: "+30", description: "Années d'expériences", style: "light" },
+    { title: "+700", description: "Heures de formation", style: "light" },
+    { title: "3", description: "Bureaux internationaux", style: "light" },
+    { title: "Nos accréditations", description: "Certifications professionnelles", style: "default" },
+    { 
+      title: "", 
+      description: "", 
+      style: "image", 
+      image: { 
+        src: "/Media/Index/pexels-malick-cisse-145487700-10486819.jpg", 
+        alt: "Équipe Cogesto Consulting" 
+      }
+    }
+  ]
+}
+
+const advantagesData = {
+  heading: "Vos avantages avec Cogesto",
+  advantages: [
+    {
+      icon: "team",
+      title: "Un partenaire solide à vos côtés",
+      description: "Bénéficiez de notre expertise et d'un service mondial. Ensemble, faisons de votre projet un succès."
+    },
+    {
+      icon: "lightbulb",
+      title: "Des solutions innovantes",
+      description: "Pour automatiser vos processus, notre portefeuille de solutions répond à vos enjeux spécifiques."
+    },
+    {
+      icon: "integration",
+      title: "Une intégration durable",
+      description: "Libérez le potentiel de vos données grâce à l'intégration de nos solutions dans vos écosystèmes."
+    }
+  ],
+  ctaButton: { text: "En savoir plus", href: "/apropos" }
+}
+
+const footerData = {
+  newsletter: {
+    title: "Lettre d'information",
+    description: "Restez informé de nos actualités",
+    ctaText: "S'inscrire maintenant",
+    ctaHref: "/newsletter"
+  },
+  linkColumns: [
+    {
+      title: "Services",
+      links: [
+        { text: "Expertise fonctionnelle", href: "/services/expertise-fonctionnelle" },
+        { text: "Expertise sectorielle", href: "/services/expertise-sectorielle" },
+        { text: "Formation", href: "/formation" }
+      ]
+    },
+    {
+      title: "Entreprise",
+      links: [
+        { text: "À propos", href: "/apropos" },
+        { text: "Notre équipe", href: "/equipe" },
+        { text: "Carrières", href: "/carrieres" }
+      ]
+    },
+    {
+      title: "Contact",
+      links: [
+        { text: "Nous contacter", href: "/contact" },
+        { text: "Support", href: "/support" }
+      ]
+    }
+  ],
+  socialLinks: [
+    { text: "LinkedIn", href: "#" },
+    { text: "Twitter", href: "#" },
+    { text: "Facebook", href: "#" }
+  ],
+  legalLinks: [
+    { text: "Mentions légales", href: "/mentions-legales" },
+    { text: "Politique de confidentialité", href: "/confidentialite" }
+  ],
+  copyright: "© 2025 Cogesto Consulting"
+}
+---
+
+<BaseLayout title="Cogesto Consulting - Accueil" description="Services de conseil et formation pour entreprises">
+  <Header {...headerData} />
+  
+  <main>
+    <Hero {...heroData} />
+    <ContentWithLinks {...servicesData} />
+    <ImageTextSplit {...expertiseFonctionnelleData} />
+    <ImageTextSplit {...expertiseSectorielleData} />
+    <CardGrid {...statisticsData} />
+    <Advantages {...advantagesData} />
+  </main>
+  
+  <Footer {...footerData} />
+</BaseLayout>

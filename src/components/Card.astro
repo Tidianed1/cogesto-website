@@ -1,0 +1,66 @@
+---
+import { urlFor } from '../utils/sanityClient'
+
+export interface Props {
+  heading: string
+  text: string
+  link?: string
+  style: 'primary' | 'light' | 'image'
+  backgroundImage?: any
+}
+
+const { heading, text, link, style, backgroundImage } = Astro.props
+
+const getCardClasses = () => {
+  switch (style) {
+    case 'primary':
+      return 'bg-sick-blue text-white'
+    case 'light':
+      return 'bg-sick-light text-sick-navy'
+    case 'image':
+      return 'text-white relative overflow-hidden'
+    default:
+      return 'bg-white text-sick-navy'
+  }
+}
+
+const getCardContent = () => {
+  if (style === 'image' && backgroundImage) {
+    return (
+      <div class="relative">
+        <img 
+          src={urlFor(backgroundImage).width(400).height(300).url()} 
+          alt={backgroundImage.alt || ''}
+          class="w-full h-48 object-cover"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 class="text-xl font-bold mb-2">{heading}</h3>
+          <p class="text-sm opacity-90">{text}</p>
+        </div>
+      </div>
+    )
+  }
+  
+  return (
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-3">{heading}</h3>
+      <p class="text-sm leading-relaxed">{text}</p>
+    </div>
+  )
+}
+---
+
+{link ? (
+  <a 
+    href={link}
+    class={`block rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 ${getCardClasses()}`}
+  >
+    {getCardContent()}
+  </a>
+) : (
+  <div class={`rounded-lg shadow-lg ${getCardClasses()}`}>
+    {getCardContent()}
+  </div>
+)}
+

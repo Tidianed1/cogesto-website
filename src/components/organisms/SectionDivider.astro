@@ -1,0 +1,28 @@
+---
+export interface Props {
+  backgroundColor?: 'white' | 'sick-light' | 'sick-blue' | 'sick-navy'
+}
+
+const { backgroundColor = 'white' } = Astro.props
+
+const getBackgroundClass = () => {
+  switch (backgroundColor) {
+    case 'white':
+      return 'bg-white'
+    case 'sick-light':
+      return 'bg-sick-light'
+    case 'sick-blue':
+      return 'bg-sick-blue'
+    case 'sick-navy':
+      return 'bg-sick-navy'
+    default:
+      return 'bg-white'
+  }
+}
+---
+
+<section class={`${getBackgroundClass()} py-8 md:py-12`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</section>

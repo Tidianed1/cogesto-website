@@ -1,0 +1,55 @@
+---
+export interface Props {
+  children: any
+}
+
+const { children } = Astro.props
+---
+
+<footer class="bg-sick-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Company Info -->
+      <div class="col-span-1 md:col-span-2">
+        <h3 class="text-lg font-semibold mb-4">Cogesto Consulting</h3>
+        <p class="text-gray-300 mb-4">
+          Professional consulting services specializing in strategic planning, 
+          financial management, and organizational development.
+        </p>
+        <div class="space-y-2">
+          <p class="text-sm text-gray-300">Senegal • Morocco • Canada</p>
+          <p class="text-sm text-gray-300">International Operations</p>
+        </div>
+      </div>
+      
+      <!-- Services -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Services</h4>
+        <ul class="space-y-2 text-gray-300">
+          <li><a href="/services/strategic-consulting" class="hover:text-white transition-colors">Strategic Consulting</a></li>
+          <li><a href="/services/financial-consulting" class="hover:text-white transition-colors">Financial Consulting</a></li>
+          <li><a href="/services/organizational-development" class="hover:text-white transition-colors">Organizational Development</a></li>
+          <li><a href="/services/performance-management" class="hover:text-white transition-colors">Performance Management</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Contact</h4>
+        <div class="space-y-2 text-gray-300">
+          <p>Email: info@cogesto.com</p>
+          <p>Phone: +221 33 XXX XX XX</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+            <a href="#" class="hover:text-white transition-colors">Twitter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+      <p>&copy; 2024 Cogesto Consulting. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
