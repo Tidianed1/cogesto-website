@@ -1,0 +1,336 @@
+---
+// About page - Overview (French)
+import NewHeader from '../../components/NewHeader.astro';
+import NewFooter from '../../components/NewFooter.astro';
+import AboutHero from '../../components/AboutHero.astro';
+import SubNavigation from '../../components/SubNavigation.astro';
+import StatsSection from '../../components/StatsSection.astro';
+import TwoColumnContent from '../../components/TwoColumnContent.astro';
+import { fr } from '../../content/fr';
+
+// Sub-navigation items (French)
+const subNavItems = [
+  { text: fr.nav.about, href: '/about/overview/', isActive: true },
+  { text: fr.nav.ourStory, href: '/about/our-story/' },
+  { text: fr.nav.ourPeople, href: '/about/our-people/' },
+  { text: fr.nav.ourValues, href: '/about/our-values/' },
+  { text: fr.nav.ourCulture, href: '/about/our-culture/' },
+  { text: fr.nav.ourCustomers, href: '/about/our-customers/' },
+  { text: fr.nav.ourLocations, href: '/about/our-locations/' },
+];
+
+// Stats data (French)
+const statsData = fr.about.stats.stats;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>À propos - Cogesto Consulting</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="/styles/screen.css" media="screen">
+    <link rel="stylesheet" href="/styles/print.css" media="print">
+    <link rel="stylesheet" href="/styles/inline.css">
+  </head>
+  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skip">
+    <a class="btn btn-skip" tabindex="0" href="#content">Passer au contenu principal</a>
+</div>
+
+<header>
+  <NewHeader />
+</header>
+
+<main class="content start" id="content">
+  <div class="about-page-wrapper">
+    <!-- Hero Section -->
+    <div id="about-hero-cobalt" class="hero-homepage-cobalt-template__container hero-block">
+      <div class="hero-homepage-cobalt-template__section_flex_container">
+        <div class="hero-homepage-cobalt-template__summary">
+          <h1 class="hero-homepage-cobalt__title">{fr.about.hero.title}</h1>
+          <div class="hero-homepage-cobalt__introduction">
+            <p>{fr.about.hero.description}</p>
+          </div>
+          <div>
+            <a href="/about/contact-us/" class="btn btn--primary hero-homepage__button" data-cta-location="abouthero" data-cta-type="link" role="button">
+              {fr.about.hero.cta}
+              <span class="hero-button__arrow">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/53edb0cb75fb4102beca96c21babb216/woodmac_background_website_v2-1.jpg?w=1800&h=900&mode=crop&center=0.5,0.5); background-position: 50% 50%;"></div>
+      </div>
+    </div>
+
+    <!-- Sub-navigation -->
+    <SubNavigation items={subNavItems} />
+
+    <!-- Stats Section -->
+    <StatsSection 
+      stats={statsData}
+      intro={fr.about.stats.intro}
+    />
+
+    <!-- Who we are Section -->
+    <TwoColumnContent
+      title={fr.about.whoWeAre.title}
+      paragraphs={fr.about.whoWeAre.paragraphs}
+      image={{
+        src: "https://www.woodmac.com/contentassets/example-image.jpg",
+        alt: "Équipe Cogesto Consulting"
+      }}
+      imagePosition="left"
+      ctaButtons={[
+        { text: fr.about.whoWeAre.cta, href: "/about/our-story/", variant: "primary" }
+      ]}
+    />
+
+    <!-- Why Cogesto Section -->
+    <TwoColumnContent
+      title={fr.about.whyCogesto.title}
+      paragraphs={fr.about.whyCogesto.paragraphs}
+      image={{
+        src: "https://www.woodmac.com/contentassets/example-image-2.jpg",
+        alt: "Équipe diversifiée de professionnels collaborant"
+      }}
+      imagePosition="right"
+      ctaButtons={[
+        { text: fr.about.whyCogesto.cta, href: "/about/our-customers/", variant: "primary" }
+      ]}
+    />
+
+    <!-- Our culture Section -->
+    <TwoColumnContent
+      title={fr.about.ourCulture.title}
+      paragraphs={fr.about.ourCulture.paragraphs}
+      image={{
+        src: "https://www.woodmac.com/contentassets/example-image-3.jpg",
+        alt: "Membres de l'équipe collaborant en réunion"
+      }}
+      imagePosition="left"
+      ctaButtons={[
+        { text: fr.cta.meetOurPeople, href: "/about/our-people/", variant: "primary" },
+        { text: fr.cta.ourValues, href: "/about/our-values/", variant: "secondary" }
+      ]}
+    />
+
+    <!-- Transforming the way we support businesses Section -->
+    <TwoColumnContent
+      title={fr.about.transforming.title}
+      paragraphs={fr.about.transforming.paragraphs}
+      image={{
+        src: "https://www.woodmac.com/contentassets/example-image-4.jpg",
+        alt: "Transformation des entreprises"
+      }}
+      imagePosition="left"
+      backgroundColor="white"
+    />
+  </div>
+</main>
+
+<footer>
+  <NewFooter />
+</footer>
+
+<script is:inline>
+  // Navigation dropdown functionality - same as homepage
+  (function() {
+    'use strict';
+
+    function toggleElement(targetId, button) {
+      const target = document.querySelector(targetId);
+      if (!target) {
+        console.warn('Target not found:', targetId);
+        return;
+      }
+
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      const newState = !isExpanded;
+
+      button.setAttribute('aria-expanded', newState);
+      
+      if (newState) {
+        target.classList.add('is-open');
+        target.style.visibility = 'visible';
+        target.style.clip = 'auto';
+      } else {
+        target.classList.remove('is-open', 'is-active');
+        target.style.visibility = 'hidden';
+        target.style.clip = 'rect(0 0 0 0)';
+      }
+    }
+
+    function init() {
+      console.log('Navigation script initializing...');
+
+      document.addEventListener('click', function(e) {
+        const toggleBtn = e.target.closest('.js-toggle');
+        if (toggleBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('href');
+          if (targetId) {
+            toggleElement(targetId, toggleBtn);
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        const toggleBtn = e.target.closest('.js-toggle-local');
+        if (toggleBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = toggleBtn.getAttribute('data-target');
+          if (targetId) {
+            toggleElement(targetId, toggleBtn);
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        const toggleBtn = e.target.closest('.js-toggle__header-group');
+        if (toggleBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('aria-controls');
+          if (targetId) {
+            toggleElement(targetId, toggleBtn);
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        const desktopBtn = e.target.closest('.desktop-nav[data-target]');
+        if (desktopBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = desktopBtn.getAttribute('data-target');
+          if (targetId) {
+            const target = document.querySelector(targetId);
+            if (target) {
+              const isOpen = target.classList.contains('is-open');
+              if (isOpen) {
+                target.classList.remove('is-open');
+                target.style.visibility = 'hidden';
+                target.style.clip = 'rect(0 0 0 0)';
+                desktopBtn.setAttribute('aria-expanded', 'false');
+              } else {
+                document.querySelectorAll('.js-navigation__secondary.is-open').forEach(dd => {
+                  dd.classList.remove('is-open');
+                  dd.style.visibility = 'hidden';
+                  dd.style.clip = 'rect(0 0 0 0)';
+                  const btn = document.querySelector(`[data-target="#${dd.id}"]`);
+                  if (btn) btn.setAttribute('aria-expanded', 'false');
+                });
+                target.classList.add('is-open');
+                target.style.visibility = 'visible';
+                target.style.clip = 'auto';
+                desktopBtn.setAttribute('aria-expanded', 'true');
+              }
+            }
+          }
+        }
+      });
+
+      document.addEventListener('mouseenter', function(e) {
+        const navItem = e.target.closest('.js-navigation__item');
+        if (navItem) {
+          const desktopBtn = navItem.querySelector('.desktop-nav[data-target]');
+          if (desktopBtn) {
+            const targetId = desktopBtn.getAttribute('data-target');
+            if (targetId) {
+              const target = document.querySelector(targetId);
+              if (target) {
+                document.querySelectorAll('.js-navigation__secondary.is-open').forEach(dd => {
+                  if (dd.id !== target.id) {
+                    dd.classList.remove('is-open');
+                    dd.style.visibility = 'hidden';
+                    dd.style.clip = 'rect(0 0 0 0)';
+                    const btn = document.querySelector(`[data-target="#${dd.id}"]`);
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                  }
+                });
+                target.classList.add('is-open');
+                target.style.visibility = 'visible';
+                target.style.clip = 'auto';
+                desktopBtn.setAttribute('aria-expanded', 'true');
+                const fakeBg = document.getElementById('fake-bg');
+                if (fakeBg) fakeBg.classList.add('is-active');
+              }
+            }
+          }
+        }
+      }, true);
+
+      document.addEventListener('mouseleave', function(e) {
+        const navSecondary = e.target.closest('.js-navigation__secondary');
+        if (navSecondary && !navSecondary.matches(':hover')) {
+          navSecondary.classList.remove('is-open', 'is-active');
+          navSecondary.style.visibility = 'hidden';
+          navSecondary.style.clip = 'rect(0 0 0 0)';
+          const relatedBtn = document.querySelector(`[data-target="#${navSecondary.id}"]`);
+          if (relatedBtn) {
+            relatedBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.js-navigation__item') && !e.target.closest('.js-navigation__secondary')) {
+          const openDropdowns = document.querySelectorAll('.js-navigation__secondary.is-open');
+          openDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('is-open', 'is-active');
+            dropdown.style.visibility = 'hidden';
+            dropdown.style.clip = 'rect(0 0 0 0)';
+            const relatedBtn = document.querySelector(`[data-target="#${dropdown.id}"]`);
+            if (relatedBtn) {
+              relatedBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+          const fakeBg = document.getElementById('fake-bg');
+          if (fakeBg) fakeBg.classList.remove('is-active');
+        }
+      });
+
+      const allDropdowns = document.querySelectorAll('.js-navigation__secondary');
+      allDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('is-active', 'is-open');
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.clip = 'rect(0 0 0 0)';
+      });
+
+      console.log('Navigation initialized successfully');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+  </body>
+</html>
+
+<style>
+  /* About page wrapper */
+  .about-page-wrapper {
+    width: 100%;
+  }
+
+  /* Ensure main content has no gap with nav */
+  main.content.start {
+    margin-top: 0;
+    padding-top: 0;
+  }
+</style>
+

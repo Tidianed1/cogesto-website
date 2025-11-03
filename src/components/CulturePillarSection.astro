@@ -1,0 +1,178 @@
+---
+// Culture pillar section component - for the 4 pillars of culture
+export interface Props {
+  title: string;
+  paragraphs: string[];
+  image?: {
+    src: string;
+    alt: string;
+    position?: 'left' | 'right';
+  };
+  imagePosition?: 'left' | 'right';
+}
+
+const { 
+  title, 
+  paragraphs,
+  image,
+  imagePosition = 'left'
+} = Astro.props;
+---
+
+<section class="culture-pillar-section">
+  <div class="culture-pillar-section__container">
+    <div class={`culture-pillar-section__grid ${imagePosition === 'right' ? 'culture-pillar-section__grid--reversed' : ''}`}>
+      {image && imagePosition === 'left' && (
+        <div class="culture-pillar-section__image">
+          <img src={image.src} alt={image.alt} />
+        </div>
+      )}
+      
+      <div class="culture-pillar-section__content">
+        <h2 class="culture-pillar-section__title">{title}</h2>
+        <div class="culture-pillar-section__underline"></div>
+        <div class="culture-pillar-section__text">
+          {paragraphs.map((paragraph) => (
+            <p class="culture-pillar-section__paragraph">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+
+      {image && imagePosition === 'right' && (
+        <div class="culture-pillar-section__image">
+          <img src={image.src} alt={image.alt} />
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Culture pillar section styling - matches reference */
+  .culture-pillar-section {
+    width: 100%;
+    padding: 64px 0;
+    background: #ffffff;
+  }
+
+  @media (min-width: 62.5em) {
+    .culture-pillar-section {
+      padding: 96px 0;
+    }
+  }
+
+  .culture-pillar-section__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 62.5em) {
+    .culture-pillar-section__container {
+      padding: 0 24px;
+    }
+  }
+
+  .culture-pillar-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (min-width: 62.5em) {
+    .culture-pillar-section__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+  }
+
+  @media (min-width: 62.5em) {
+    .culture-pillar-section__grid--reversed {
+      direction: rtl;
+    }
+
+    .culture-pillar-section__grid--reversed > * {
+      direction: ltr;
+    }
+  }
+
+  .culture-pillar-section__image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  @media (min-width: 62.5em) {
+    .culture-pillar-section__image {
+      min-height: 400px;
+    }
+  }
+
+  .culture-pillar-section__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .culture-pillar-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .culture-pillar-section__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0000ff;
+    margin: 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .culture-pillar-section__title {
+      font-size: 3.5rem;
+    }
+  }
+
+  .culture-pillar-section__underline {
+    width: 48px;
+    height: 4px;
+    background: #0000ff;
+    margin-top: -8px;
+  }
+
+  .culture-pillar-section__text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .culture-pillar-section__paragraph {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #2d2d2d;
+    margin: 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .culture-pillar-section__paragraph {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Mobile: Image first when on left */
+  @media (max-width: 61.99em) {
+    .culture-pillar-section__grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .culture-pillar-section__image {
+      order: -1;
+    }
+  }
+</style>
+

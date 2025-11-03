@@ -1,0 +1,276 @@
+---
+// Outcomes Block with tabbed interface and 2-column layout
+interface Props {
+  // Optional: can add props later for dynamic content
+}
+
+const tabs = [
+  {
+    id: 'trusted-data',
+    label: 'Trusted data',
+    sectionId: 'section-90acd8d8cb3a4aad9446faf3de2cf306',
+    imageId: 'image-90acd8d8cb3a4aad9446faf3de2cf306',
+    imageSrc: 'https://www.woodmac.com/siteassets/homepage/trusted-data-1.jpg?mode=crop&center=0.5,0.5',
+    preTitle: 'Trusted data',
+    title: 'Access the data others wish they had',
+    description: "Get the industry's deepest, broadest and most accurate data. Covering the whole energy transition supply chain.",
+    links: [
+      { text: 'Lens Subsurface', href: '/lens/subsurface/' },
+      { text: 'Lens Metals & Mining', href: '/lens/metals-and-mining/' },
+      { text: 'Commodity Trading Analytics', href: '/industry/commodity-trading-analytics/' },
+      { text: 'Power Trading Analytics', href: '/industry/power-and-renewables/power-trading-analytics/' },
+      { text: 'Supply Chain Analytics', href: '/products/supply-chain-analytics/' }
+    ]
+  },
+  {
+    id: 'market-experts',
+    label: 'Market experts',
+    sectionId: 'section-367983ee699140d9b3e1240f9fabf1e6',
+    imageId: 'image-367983ee699140d9b3e1240f9fabf1e6',
+    imageSrc: 'https://www.woodmac.com/siteassets/homepage/expert-advice-1.jpg?mode=crop&center=0.5,0.5',
+    preTitle: 'Market experts',
+    title: 'Understand the stories behind the data',
+    description: "Add 2,600+ market experts, data scientists and thought leaders to your team – with direct access to senior analysts to guide your decisions.",
+    links: [
+      { text: 'Lens Gas & LNG', href: '/lens/gas-lng/' },
+      { text: 'Lens Power & Renewables', href: '/lens/power-and-renewables/' },
+      { text: 'Corporate Strategy & Analytics Service', href: '/industry/corporates/corporate-strategy-analytics-service/' },
+      { text: 'Upstream Service', href: '/industry/oil-and-gas/upstream/upstream-service/' }
+    ]
+  },
+  {
+    id: 'proprietary-methodology',
+    label: 'Proprietary methodology',
+    sectionId: 'section-2460c57976eb4f97b099a397d9a0205e',
+    imageId: 'image-2460c57976eb4f97b099a397d9a0205e',
+    imageSrc: 'https://www.woodmac.com/siteassets/homepage/predictive-decisions-1.jpg?mode=crop&center=0.5,0.5',
+    preTitle: 'Proprietary methodology',
+    title: 'Value with pinpoint accuracy',
+    description: "Get the cross-commodity insights and valuation models you need to set your course in an increasingly complex world.",
+    links: [
+      { text: 'Lens Upstream', href: '/lens/upstream/' },
+      { text: 'Lens Hydrogen', href: '/lens/hydrogen/' },
+      { text: 'Lens Carbon', href: '/lens/carbon/' }
+    ]
+  }
+];
+---
+
+<div class="homepage-outcomes-block section-marker" id="HomePageOutcomesBlock" data-section-name="[6] OUTCOMES BLOCK" data-section-id="#HomePageOutcomesBlock">
+  <div class="homepage-outcomes-block__container wrap">
+    <!-- Tab Navigation -->
+    <div class="homepage-outcomes-block__tab-list subsection-marker" data-subsection-name="Outcomes Tabs">
+      {tabs.map((tab, index) => (
+        <button
+          type="button"
+          class={`homepage-outcomes-block__tab-item ${index === 0 ? 'active-tab' : ''}`}
+          data-tab-id={tab.id}
+          data-section-id={tab.sectionId}
+          data-image-id={tab.imageId}
+          aria-selected={index === 0 ? 'true' : 'false'}
+          role="tab"
+        >
+          <span>{tab.label}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Tab Content - 2 Column Layout -->
+    <div class="homepage-outcomes-block__section-items">
+      {tabs.map((tab, index) => (
+        <div
+          id={tab.sectionId}
+          class={`homepage-outcomes-block__tab-content ${index === 0 ? 'active-tab-content' : ''}`}
+          data-tab-id={tab.id}
+          role="tabpanel"
+        >
+          <div class="homepage-outcomes-block__grid">
+            <!-- Left Column: Text Content -->
+            <div class="homepage-outcomes-block__text-column subsection-marker" data-subsection-name="Outcomes Text">
+              <div class="homepage-outcomes-block__text-section-content">
+                <h6 class="homepage-outcomes-block__pre-title">{tab.preTitle}</h6>
+                <h2 class="homepage-outcomes-block__text-title h400">{tab.title}</h2>
+                <div class="editor homepage-outcomes-block__description">
+                  <p>{tab.description}</p>
+                </div>
+                <ul class="homepage-outcomes-block__link-list">
+                  {tab.links.map((link) => (
+                    <li class="homepage-outcomes-block__link-container">
+                      <a class="homepage-outcomes-block__link" href={link.href}>
+                        <p class="info-style">{link.text}</p>
+                        <span><img src="/assets/icon-arrow--cobalt.svg" alt=""></span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Column: Image -->
+            <div class="homepage-outcomes-block__image-column subsection-marker" data-subsection-name="Outcomes Image">
+              <div class="homepage-outcomes-block__image-wrapper">
+                <img
+                  id={tab.imageId}
+                  alt=""
+                  class="homepage-outcomes-block__section-image"
+                  src={tab.imageSrc}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Outcomes Block - 2 Column Tabbed Layout */
+  #HomePageOutcomesBlock {
+    background-color: #ffffff;
+    padding: 4rem 0;
+  }
+
+  .homepage-outcomes-block__tab-list {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #e4e4e4;
+  }
+
+  .homepage-outcomes-block__tab-item {
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #666;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .homepage-outcomes-block__tab-item:hover {
+    color: #010063;
+  }
+
+  .homepage-outcomes-block__tab-item.active-tab {
+    font-weight: 700;
+    color: #010063;
+  }
+
+  .homepage-outcomes-block__tab-item.active-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #0024ff;
+  }
+
+  .homepage-outcomes-block__tab-content {
+    display: none;
+  }
+
+  .homepage-outcomes-block__tab-content.active-tab-content {
+    display: block;
+  }
+
+  .homepage-outcomes-block__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 48em) {
+    .homepage-outcomes-block__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .homepage-outcomes-block__text-column {
+    color: #010063;
+  }
+
+  .homepage-outcomes-block__pre-title,
+  .homepage-outcomes-block__text-title,
+  .homepage-outcomes-block__description,
+  .homepage-outcomes-block__description p {
+    color: #010063;
+  }
+
+  .homepage-outcomes-block__link {
+    color: #010063;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e4e4e4;
+    transition: color 0.2s;
+  }
+
+  .homepage-outcomes-block__link:hover {
+    color: #0024ff;
+  }
+
+  .homepage-outcomes-block__image-wrapper {
+    width: 100%;
+    height: auto;
+  }
+
+  .homepage-outcomes-block__section-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+</style>
+
+<script is:inline>
+  // Outcomes Block Tab Functionality
+  (function() {
+    'use strict';
+
+    function initOutcomesTabs() {
+      const tabButtons = document.querySelectorAll('#HomePageOutcomesBlock .homepage-outcomes-block__tab-item');
+      const tabContents = document.querySelectorAll('#HomePageOutcomesBlock .homepage-outcomes-block__tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const tabId = this.getAttribute('data-tab-id');
+          
+          // Remove active class from all tabs and contents
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active-tab');
+            btn.setAttribute('aria-selected', 'false');
+          });
+          tabContents.forEach(content => {
+            content.classList.remove('active-tab-content');
+          });
+
+          // Add active class to clicked tab
+          this.classList.add('active-tab');
+          this.setAttribute('aria-selected', 'true');
+
+          // Show corresponding content
+          const targetContent = document.querySelector(`#HomePageOutcomesBlock .homepage-outcomes-block__tab-content[data-tab-id="${tabId}"]`);
+          if (targetContent) {
+            targetContent.classList.add('active-tab-content');
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initOutcomesTabs);
+    } else {
+      initOutcomesTabs();
+    }
+  })();
+</script>
+
+
+

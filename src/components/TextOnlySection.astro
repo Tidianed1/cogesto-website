@@ -1,0 +1,133 @@
+---
+// Text-only section component - two columns of text content
+export interface Props {
+  title: string;
+  paragraphs: string[];
+  titlePosition?: 'left' | 'right';
+  backgroundColor?: 'white' | 'light';
+}
+
+const { 
+  title, 
+  paragraphs, 
+  titlePosition = 'left',
+  backgroundColor = 'white'
+} = Astro.props;
+
+const bgColor = backgroundColor === 'white' ? '#ffffff' : '#f5f5f5';
+const textColor = '#2d2d2d';
+---
+
+<section class="text-only-section" style={`background-color: ${bgColor}; color: ${textColor};`}>
+  <div class="text-only-section__container">
+    <div class="text-only-section__grid">
+      <div class={`text-only-section__title-column ${titlePosition === 'right' ? 'text-only-section__title-column--right' : ''}`}>
+        <h2 class="text-only-section__title">{title}</h2>
+        <div class="text-only-section__underline"></div>
+      </div>
+      <div class="text-only-section__content-column">
+        {paragraphs.map((paragraph) => (
+          <p class="text-only-section__paragraph">{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Text-only section styling - matches reference */
+  .text-only-section {
+    width: 100%;
+    padding: 64px 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .text-only-section {
+      padding: 96px 0;
+    }
+  }
+
+  .text-only-section__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 62.5em) {
+    .text-only-section__container {
+      padding: 0 24px;
+    }
+  }
+
+  .text-only-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (min-width: 62.5em) {
+    .text-only-section__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+  }
+
+  .text-only-section__title-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .text-only-section__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0000ff;
+    margin: 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .text-only-section__title {
+      font-size: 3.5rem;
+    }
+  }
+
+  .text-only-section__underline {
+    width: 48px;
+    height: 4px;
+    background: #0000ff;
+  }
+
+  .text-only-section__content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .text-only-section__paragraph {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #2d2d2d;
+    margin: 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .text-only-section__paragraph {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Right-aligned title variant */
+  @media (min-width: 62.5em) {
+    .text-only-section__title-column--right {
+      order: 2;
+    }
+
+    .text-only-section__content-column {
+      order: 1;
+    }
+  }
+</style>
+

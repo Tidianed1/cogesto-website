@@ -1,0 +1,141 @@
+---
+// Our People page hero section - diagonal split design
+---
+
+<div id="our-people-hero" class="hero-homepage-cobalt-template__container hero-block">
+    <div class="hero-homepage-cobalt-template__section_flex_container">
+        <div class="hero-homepage-cobalt-template__summary">
+            <h1 class="hero-homepage-cobalt__title">Meet our people</h1>
+            <div class="hero-homepage-cobalt__introduction">
+                <p>As a global community of 2,000 employees, we are proud of our work and the impact it has on the world. Our diverse team of analysts, consultants, data scientists, creators and strategists helps us stay close to you and your needs. Meet the team driving our vision.</p>
+            </div>
+        </div>
+        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/diverse-team-office.jpg); background-position: center; background-size: cover;"></div>
+    </div>
+</div>
+
+<style>
+  /* Our People hero uses same styling as homepage hero */
+  #our-people-hero {
+    min-height: 500px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    background: #0000ff;
+  }
+
+  @media (max-width: 47.99em) {
+    #our-people-hero {
+      height: auto;
+      min-height: 400px;
+    }
+  }
+
+  #our-people-hero .hero-homepage-cobalt-template__section_flex_container {
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  @media (max-width: 47.99em) {
+    #our-people-hero .hero-homepage-cobalt-template__section_flex_container {
+      flex-direction: column;
+    }
+  }
+
+  #our-people-hero .hero-homepage-cobalt-template__summary {
+    flex: 0 0 55%;
+    background: #0000ff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 80px;
+    z-index: 2;
+    position: relative;
+  }
+
+  @media (min-width: 75em) {
+    #our-people-hero .hero-homepage-cobalt-template__summary {
+      padding: 64px 120px;
+    }
+  }
+
+  @media (max-width: 47.99em) {
+    #our-people-hero .hero-homepage-cobalt-template__summary {
+      flex: 1 1 auto;
+      padding: 40px 24px;
+    }
+  }
+
+  #our-people-hero .hero-homepage-cobalt-template__image {
+    flex: 0 0 45%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    background-color: #0000ff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 47.99em) {
+    #our-people-hero .hero-homepage-cobalt-template__image {
+      flex: 1 1 auto;
+      min-height: 300px;
+      clip-path: none;
+    }
+  }
+
+  #our-people-hero .hero-homepage-cobalt__title {
+    color: white;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 48em) {
+    #our-people-hero .hero-homepage-cobalt__title {
+      font-size: 3rem;
+      line-height: 1.15;
+    }
+  }
+
+  @media (min-width: 60em) {
+    #our-people-hero .hero-homepage-cobalt__title {
+      font-size: 4rem;
+      line-height: 1.2;
+    }
+  }
+
+  #our-people-hero .hero-homepage-cobalt__introduction {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-top: 0;
+  }
+
+  @media (min-width: 60em) {
+    #our-people-hero .hero-homepage-cobalt__introduction {
+      font-size: 1.25rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+</style>
+

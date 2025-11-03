@@ -1,0 +1,182 @@
+---
+// Our Story page (French)
+import NewHeader from '../../components/NewHeader.astro';
+import NewFooter from '../../components/NewFooter.astro';
+import SubNavigation from '../../components/SubNavigation.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import TextOnlySection from '../../components/TextOnlySection.astro';
+import TwoColumnContent from '../../components/TwoColumnContent.astro';
+import { fr } from '../../content/fr';
+
+// Sub-navigation items (French)
+const subNavItems = [
+  { text: fr.nav.about, href: '/about/overview/' },
+  { text: fr.nav.ourStory, href: '/about/our-story/', isActive: true },
+  { text: fr.nav.ourPeople, href: '/about/our-people/' },
+  { text: fr.nav.ourValues, href: '/about/our-values/' },
+  { text: fr.nav.ourCulture, href: '/about/our-culture/' },
+  { text: fr.nav.ourCustomers, href: '/about/our-customers/' },
+  { text: fr.nav.ourLocations, href: '/about/our-locations/' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notre histoire - Cogesto Consulting</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="/styles/screen.css" media="screen">
+    <link rel="stylesheet" href="/styles/print.css" media="print">
+    <link rel="stylesheet" href="/styles/inline.css">
+  </head>
+  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skip">
+    <a class="btn btn-skip" tabindex="0" href="#content">Passer au contenu principal</a>
+</div>
+
+<header>
+  <NewHeader />
+</header>
+
+<main class="content start" id="content">
+  <div class="our-story-page-wrapper">
+    <!-- Hero Section -->
+    <div id="our-story-hero" class="hero-homepage-cobalt-template__container hero-block">
+      <div class="hero-homepage-cobalt-template__section_flex_container">
+        <div class="hero-homepage-cobalt-template__summary">
+          <h1 class="hero-homepage-cobalt__title">{fr.ourStory.hero.title}</h1>
+          <div class="hero-homepage-cobalt__introduction">
+            <p>{fr.ourStory.hero.description}</p>
+          </div>
+          <div>
+            <a href="/about/contact-us/" class="btn btn--primary hero-homepage__button" data-cta-location="ourstoryhero" data-cta-type="link" role="button">
+              {fr.ourStory.hero.cta}
+              <span class="hero-button__arrow">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/wind-farm-image.jpg); background-position: center; background-size: cover;"></div>
+      </div>
+    </div>
+
+    <!-- Sub-navigation -->
+    <SubNavigation items={subNavItems} />
+
+    <!-- Our purpose Section (Text Only) -->
+    <TextOnlySection
+      title={fr.ourStory.ourPurpose.title}
+      paragraphs={fr.ourStory.ourPurpose.paragraphs}
+    />
+
+    <!-- Quote Section -->
+    <QuoteSection
+      quote={fr.ourStory.quote.text}
+      attribution={fr.ourStory.quote.attribution}
+      image={{
+        src: "https://www.woodmac.com/contentassets/presentation-meeting.jpg",
+        alt: "Présentation en réunion"
+      }}
+    />
+
+    <!-- Our foundations Section -->
+    <TwoColumnContent
+      title={fr.ourStory.foundations.title}
+      paragraphs={fr.ourStory.foundations.paragraphs}
+      image={{
+        src: "https://www.woodmac.com/contentassets/office-meeting-city.jpg",
+        alt: "Réunion d'équipe"
+      }}
+      imagePosition="left"
+      backgroundColor="white"
+    />
+
+    <!-- Our growth and expansion Section -->
+    <TwoColumnContent
+      title={fr.ourStory.growth.title}
+      paragraphs={fr.ourStory.growth.paragraphs}
+      image={{
+        src: "https://www.woodmac.com/contentassets/team-meeting-discussion.jpg",
+        alt: "Discussion d'équipe"
+      }}
+      imagePosition="right"
+      backgroundColor="white"
+    />
+
+    <!-- Our partnerships Section -->
+    <TwoColumnContent
+      title={fr.ourStory.partnerships.title}
+      paragraphs={fr.ourStory.partnerships.paragraphs}
+      image={{
+        src: "https://www.woodmac.com/contentassets/partnerships-image.jpg",
+        alt: "Partenariats"
+      }}
+      imagePosition="left"
+      backgroundColor="white"
+    />
+  </div>
+</main>
+
+<footer>
+  <NewFooter />
+</footer>
+
+<script is:inline>
+  // Navigation script (same as other pages)
+  (function() {
+    'use strict';
+    function toggleElement(targetId, button) {
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      const newState = !isExpanded;
+      button.setAttribute('aria-expanded', newState);
+      if (newState) {
+        target.classList.add('is-open');
+        target.style.visibility = 'visible';
+        target.style.clip = 'auto';
+      } else {
+        target.classList.remove('is-open', 'is-active');
+        target.style.visibility = 'hidden';
+        target.style.clip = 'rect(0 0 0 0)';
+      }
+    }
+    function init() {
+      document.addEventListener('click', function(e) {
+        const toggleBtn = e.target.closest('.js-toggle, .js-toggle-local, .js-toggle__header-group, .desktop-nav[data-target]');
+        if (toggleBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('href') || toggleBtn.getAttribute('aria-controls');
+          if (targetId) toggleElement(targetId, toggleBtn);
+        }
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+<style>
+  .our-story-page-wrapper {
+    width: 100%;
+  }
+
+  main.content.start {
+    margin-top: 0;
+    padding-top: 0;
+  }
+</style>
+
+  </body>
+</html>

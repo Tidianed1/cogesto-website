@@ -1,0 +1,164 @@
+---
+// Stats section component - displays three key statistics
+export interface Props {
+  stats: Array<{
+    number: string;
+    label: string;
+  }>;
+  intro?: string;
+}
+
+const { stats, intro = "" } = Astro.props;
+---
+
+<section id="about-stats-section" class="stats-section">
+  <div class="stats-section__container">
+    <div class="stats-section__content">
+      {intro && (
+        <p class="stats-section__intro">
+          {intro}
+        </p>
+      )}
+      <div class="stats-section__grid">
+        {stats.map((stat, index) => (
+          <div class={`stats-section__stat ${index < stats.length - 1 ? 'stats-section__stat--separator' : ''}`}>
+            <div class="stats-section__number">{stat.number}</div>
+            <div class="stats-section__label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Stats section styling - matches reference */
+  #about-stats-section {
+    background: #0000ff;
+    color: white;
+    padding: 64px 0;
+    width: 100%;
+  }
+
+  @media (min-width: 62.5em) {
+    #about-stats-section {
+      padding: 80px 0;
+    }
+  }
+
+  .stats-section__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 62.5em) {
+    .stats-section__container {
+      padding: 0 24px;
+    }
+  }
+
+  .stats-section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 62.5em) {
+    .stats-section__content {
+      flex-direction: row;
+      align-items: center;
+      gap: 64px;
+    }
+  }
+
+  .stats-section__intro {
+    flex: 0 0 auto;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: white;
+    margin: 0;
+    max-width: 600px;
+  }
+
+  @media (min-width: 62.5em) {
+    .stats-section__intro {
+      font-size: 1.25rem;
+      max-width: 700px;
+    }
+  }
+
+  .stats-section__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1;
+    width: 100%;
+  }
+
+  @media (min-width: 48em) {
+    .stats-section__grid {
+      flex-direction: row;
+      gap: 0;
+      width: auto;
+    }
+  }
+
+  .stats-section__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 48em) {
+    .stats-section__stat {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+
+    .stats-section__stat:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .stats-section__stat--separator {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  @media (max-width: 47.99em) {
+    .stats-section__stat--separator {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 32px;
+    }
+  }
+
+  .stats-section__number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  @media (min-width: 62.5em) {
+    .stats-section__number {
+      font-size: 4rem;
+    }
+  }
+
+  .stats-section__label {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+  }
+
+  @media (min-width: 62.5em) {
+    .stats-section__label {
+      font-size: 1.125rem;
+    }
+  }
+</style>
+

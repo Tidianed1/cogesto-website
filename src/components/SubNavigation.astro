@@ -1,0 +1,109 @@
+---
+// Sub-navigation bar component - white background, sticky below main nav
+export interface Props {
+  items: Array<{
+    text: string;
+    href: string;
+    isActive?: boolean;
+  }>;
+}
+
+const { items } = Astro.props;
+---
+
+<nav id="sub-navigation" class="sub-navigation">
+  <div class="sub-navigation__container">
+    <ul class="sub-navigation__list">
+      {items.map((item) => (
+        <li class={`sub-navigation__item ${item.isActive ? 'sub-navigation__item--active' : ''}`}>
+          <a href={item.href} class="sub-navigation__link">
+            {item.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  /* Sub-navigation bar styling - matches reference */
+  #sub-navigation {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 78px; /* Below fixed main nav (78px on desktop) */
+    z-index: 99997; /* Below main nav (99998) but above content */
+    width: 100%;
+  }
+
+  @media (max-width: 62.49em) {
+    #sub-navigation {
+      top: 55px; /* Mobile nav height is 55px */
+    }
+  }
+
+  .sub-navigation__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 62.5em) {
+    .sub-navigation__container {
+      padding: 0 24px;
+    }
+  }
+
+  .sub-navigation__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .sub-navigation__list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .sub-navigation__item {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sub-navigation__link {
+    display: block;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2d2d2d;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+  }
+
+  @media (min-width: 62.5em) {
+    .sub-navigation__link {
+      font-size: 16px;
+      padding: 16px 20px;
+    }
+  }
+
+  .sub-navigation__link:hover {
+    color: #0000ff;
+    border-bottom-color: #0000ff;
+  }
+
+  .sub-navigation__item--active .sub-navigation__link {
+    background: #f5f5f5;
+    border-bottom-color: #0000ff;
+    color: #2d2d2d;
+    font-weight: 600;
+  }
+</style>
+

@@ -1,0 +1,293 @@
+---
+// Video testimonial component - for customer testimonials
+export interface Props {
+  company: string;
+  quote?: string;
+  description?: string;
+  speaker: {
+    name: string;
+    title: string;
+    image?: string;
+  };
+  video: {
+    thumbnail: string;
+    videoId?: string;
+  };
+  layout?: 'left' | 'right';
+}
+
+const { company, quote, description, speaker, video, layout = 'left' } = Astro.props;
+---
+
+<section class="video-testimonial">
+  <div class="video-testimonial__container">
+    <div class={`video-testimonial__grid ${layout === 'right' ? 'video-testimonial__grid--reversed' : ''}`}>
+      {layout === 'left' ? (
+        <>
+          <!-- Video on left -->
+          <div class="video-testimonial__video">
+            <div class="video-testimonial__thumbnail">
+              <img src={video.thumbnail} alt={`${speaker.name} video thumbnail`} />
+              <div class="video-testimonial__play-button">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="40" fill="#0000FF" />
+                  <path d="M32 24L32 56L56 40L32 24Z" fill="white" />
+                </svg>
+              </div>
+            </div>
+            <div class="video-testimonial__banner">
+              <div class="video-testimonial__logo">M</div>
+              <div class="video-testimonial__speaker-info">
+                <div class="video-testimonial__speaker-name">{speaker.name}</div>
+                <div class="video-testimonial__speaker-title">{speaker.title}</div>
+              </div>
+            </div>
+          </div>
+          <!-- Content on right -->
+          <div class="video-testimonial__content">
+            <h2 class="video-testimonial__company">{company}</h2>
+            {description && (
+              <p class="video-testimonial__description">{description}</p>
+            )}
+            {quote && (
+              <blockquote class="video-testimonial__quote">{quote}</blockquote>
+            )}
+            <div class="video-testimonial__speaker">
+              <div class="video-testimonial__speaker-name-text">{speaker.name}</div>
+              <div class="video-testimonial__speaker-title-text">{speaker.title}</div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <!-- Content on left -->
+          <div class="video-testimonial__content">
+            <h2 class="video-testimonial__company">{company}</h2>
+            {description && (
+              <p class="video-testimonial__description">{description}</p>
+            )}
+            {quote && (
+              <blockquote class="video-testimonial__quote">{quote}</blockquote>
+            )}
+            <div class="video-testimonial__speaker">
+              <div class="video-testimonial__speaker-name-text">{speaker.name}</div>
+              <div class="video-testimonial__speaker-title-text">{speaker.title}</div>
+            </div>
+          </div>
+          <!-- Video on right -->
+          <div class="video-testimonial__video">
+            <div class="video-testimonial__thumbnail">
+              <img src={video.thumbnail} alt={`${speaker.name} video thumbnail`} />
+              <div class="video-testimonial__play-button">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="40" fill="#0000FF" />
+                  <path d="M32 24L32 56L56 40L32 24Z" fill="white" />
+                </svg>
+              </div>
+            </div>
+            <div class="video-testimonial__banner">
+              <div class="video-testimonial__logo">M</div>
+              <div class="video-testimonial__speaker-info">
+                <div class="video-testimonial__speaker-name">{speaker.name}</div>
+                <div class="video-testimonial__speaker-title">{speaker.title}</div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Video testimonial styling - matches reference */
+  .video-testimonial {
+    width: 100%;
+    padding: 64px 0;
+    background: #ffffff;
+  }
+
+  @media (min-width: 62.5em) {
+    .video-testimonial {
+      padding: 96px 0;
+    }
+  }
+
+  .video-testimonial__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 62.5em) {
+    .video-testimonial__container {
+      padding: 0 24px;
+    }
+  }
+
+  .video-testimonial__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (min-width: 62.5em) {
+    .video-testimonial__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+  }
+
+  @media (min-width: 62.5em) {
+    .video-testimonial__grid--reversed {
+      direction: rtl;
+    }
+
+    .video-testimonial__grid--reversed > * {
+      direction: ltr;
+    }
+  }
+
+  .video-testimonial__video {
+    width: 100%;
+  }
+
+  .video-testimonial__thumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+
+  .video-testimonial__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .video-testimonial__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .video-testimonial__play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .video-testimonial__banner {
+    background: #0000ff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: -4px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .video-testimonial__logo {
+    width: 32px;
+    height: 32px;
+    background: white;
+    color: #0000ff;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .video-testimonial__speaker-info {
+    flex: 1;
+  }
+
+  .video-testimonial__speaker-name {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .video-testimonial__speaker-title {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .video-testimonial__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .video-testimonial__company {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0000ff;
+    margin: 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .video-testimonial__company {
+      font-size: 3.5rem;
+    }
+  }
+
+  .video-testimonial__description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #2d2d2d;
+    margin: 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .video-testimonial__description {
+      font-size: 1.25rem;
+    }
+  }
+
+  .video-testimonial__quote {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #2d2d2d;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  @media (min-width: 62.5em) {
+    .video-testimonial__quote {
+      font-size: 1.5rem;
+    }
+  }
+
+  .video-testimonial__speaker {
+    margin-top: 8px;
+  }
+
+  .video-testimonial__speaker-name-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin-bottom: 4px;
+  }
+
+  .video-testimonial__speaker-title-text {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: #666666;
+  }
+</style>
+

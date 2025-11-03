@@ -1,0 +1,209 @@
+---
+// Values tabs component - similar to OutcomesBlock but for company values
+export interface Props {
+  values: Array<{
+    id: string;
+    label: string;
+    description?: string;
+    content?: string[];
+  }>;
+  defaultActiveIndex?: number;
+}
+
+const { values, defaultActiveIndex = 2 } = Astro.props;
+---
+
+<section class="values-tabs-section">
+  <div class="values-tabs-section__container">
+    <!-- Tab Navigation -->
+    <div class="values-tabs-section__tab-list">
+      {values.map((value, index) => (
+        <button
+          type="button"
+          class={`values-tabs-section__tab-item ${index === defaultActiveIndex ? 'active-tab' : ''}`}
+          data-tab-id={value.id}
+          data-index={index}
+          aria-selected={index === defaultActiveIndex ? 'true' : 'false'}
+          role="tab"
+        >
+          <span>{value.label}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Tab Content -->
+    <div class="values-tabs-section__content">
+      {values.map((value, index) => (
+        <div
+          class={`values-tabs-section__tab-content ${index === defaultActiveIndex ? 'active-tab-content' : ''}`}
+          data-tab-id={value.id}
+          role="tabpanel"
+        >
+          {value.content ? (
+            <div class="values-tabs-section__content-inner">
+              {value.content.map((paragraph) => (
+                <p class="values-tabs-section__paragraph">{paragraph}</p>
+              ))}
+            </div>
+          ) : (
+            <p class="values-tabs-section__paragraph">{value.description}</p>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Values tabs section styling - matches reference */
+  .values-tabs-section {
+    width: 100%;
+    padding: 64px 0;
+    background: #ffffff;
+  }
+
+  @media (min-width: 62.5em) {
+    .values-tabs-section {
+      padding: 96px 0;
+    }
+  }
+
+  .values-tabs-section__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 62.5em) {
+    .values-tabs-section__container {
+      padding: 0 24px;
+    }
+  }
+
+  .values-tabs-section__tab-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 47.99em) {
+    .values-tabs-section__tab-list {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .values-tabs-section__tab-list::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .values-tabs-section__tab-item {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 62.5em) {
+    .values-tabs-section__tab-item {
+      padding: 16px 32px;
+      font-size: 18px;
+    }
+  }
+
+  .values-tabs-section__tab-item:hover {
+    color: #0000ff;
+  }
+
+  .values-tabs-section__tab-item.active-tab {
+    color: #0000ff;
+    font-weight: 600;
+    border-bottom-color: #0000ff;
+  }
+
+  .values-tabs-section__content {
+    position: relative;
+    min-height: 200px;
+  }
+
+  .values-tabs-section__tab-content {
+    display: none;
+  }
+
+  .values-tabs-section__tab-content.active-tab-content {
+    display: block;
+  }
+
+  .values-tabs-section__content-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .values-tabs-section__paragraph {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #2d2d2d;
+    margin: 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .values-tabs-section__paragraph {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Values Tabs Functionality
+  (function() {
+    'use strict';
+
+    function initValuesTabs() {
+      const tabButtons = document.querySelectorAll('.values-tabs-section__tab-item');
+      const tabContents = document.querySelectorAll('.values-tabs-section__tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const tabId = this.getAttribute('data-tab-id');
+          
+          // Remove active class from all tabs and contents
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active-tab');
+            btn.setAttribute('aria-selected', 'false');
+          });
+          tabContents.forEach(content => {
+            content.classList.remove('active-tab-content');
+          });
+
+          // Add active class to clicked tab
+          this.classList.add('active-tab');
+          this.setAttribute('aria-selected', 'true');
+
+          // Show corresponding content
+          const targetContent = document.querySelector(`.values-tabs-section__tab-content[data-tab-id="${tabId}"]`);
+          if (targetContent) {
+            targetContent.classList.add('active-tab-content');
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initValuesTabs);
+    } else {
+      initValuesTabs();
+    }
+  })();
+</script>
+

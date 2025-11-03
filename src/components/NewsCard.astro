@@ -1,0 +1,126 @@
+---
+interface Props {
+  category?: string;
+  date?: string;
+  readTime?: string;
+  title: string;
+  href?: string;
+  imageUrl?: string;
+}
+
+const { category = 'OPINION', date, readTime, title, href = '#', imageUrl } = Astro.props;
+---
+
+<article class="news-card">
+  {imageUrl && (
+    <div class="news-card__image">
+      <img src={imageUrl} alt={title} />
+      <div class="news-card__category">{category}</div>
+    </div>
+  )}
+  <div class="news-card__content">
+    {!imageUrl && category && (
+      <div class="news-card__category-text">{category}</div>
+    )}
+    {date && readTime && (
+      <div class="news-card__meta">
+        {date} {readTime}
+      </div>
+    )}
+    <h3 class="news-card__title">
+      <a href={href}>{title}</a>
+    </h3>
+  </div>
+</article>
+
+<style>
+  .news-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .news-card__image {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+  }
+
+  .news-card__image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .news-card__category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #0024ff;
+    color: white;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .news-card__content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card__category-text {
+    background: #0024ff;
+    color: white;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+
+  .news-card__meta {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+  }
+
+  .news-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    flex: 1;
+  }
+
+  .news-card__title a {
+    color: #010063;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .news-card__title a:hover {
+    color: #0024ff;
+  }
+</style>
+
+
+

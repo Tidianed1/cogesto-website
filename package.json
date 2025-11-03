@@ -9,11 +9,24 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.1",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@react-three/fiber": "^9.4.0",
+    "@react-three/postprocessing": "^3.0.4",
     "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
     "@tailwindcss/vite": "^4.1.14",
     "astro": "^5.14.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.552.0",
+    "postprocessing": "^6.37.8",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "sanity": "^4.10.3",
-    "tailwindcss": "^4.1.14"
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.14",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.180.0"
   }
 }

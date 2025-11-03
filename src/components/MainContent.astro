@@ -1,0 +1,320 @@
+---
+// Main content sections (hero excluded, main wrapper handled in new_index.astro)
+import OutcomesBlock from './OutcomesBlock.astro';
+import NewsCard from './NewsCard.astro';
+
+// Placeholder news data - replace with Sanity CMS data later
+const newsArticles = [
+  {
+    category: 'HORIZONS',
+    date: '30 October 2025',
+    readTime: '4 minute read',
+    title: 'Five things to watch at COP30',
+    href: '/news/cop30',
+    imageUrl: '/assets/placeholder-news-1.jpg'
+  },
+  {
+    category: 'OPINION',
+    date: '30 October 2025',
+    readTime: '',
+    title: 'AI could break the electricity grid',
+    href: '/news/ai-electricity-grid'
+  },
+  {
+    category: 'OPINION',
+    date: '29 October 2025',
+    readTime: '',
+    title: 'Energy transition outlook 2025',
+    href: '/news/energy-transition'
+  },
+  {
+    category: 'NEWS RELEASE',
+    date: '28 October 2025',
+    readTime: '',
+    title: 'New renewable energy report published',
+    href: '/news/renewable-report'
+  }
+];
+---
+
+
+
+<div class="module box-cards homepage-gradients homepage-gradients--panel-container-block bg-secondary-color white soft-lens--ends section-marker" id="promopanel" data-section-name="[3] BOX CARDS" data-section-id="#promopanel">
+    <div class="wrap">
+        <div class="col small-12">
+            <div class="box-cards__title-wrapper subsection-marker" data-subsection-name="Box Cards Title">
+                <h2 class="giga text-center--medium">Get an interconnected view</h2>
+                <div class="editor">
+<h5 style="text-align: center;"><a href="/intelligence-connected/" class="link--light">Find out more</a></h5></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="col small-12">
+            <div class="box-cards__wrapper SingleRow">
+<div class="box-cards__wrapper--blocks"><div>
+
+<div class="box-cards__card flexbox direction-column justify-between subsection-marker" id="promopanelblock" data-subsection-name="Card 1: Think Beyond">
+    <div>
+        <div class="flexbox align-center push-half--bottom justify-center">
+            <h3 class="giga show-for-small-only push-half--left">Think beyond the silos</h3>
+        </div>
+        <div class="flexbox direction-column align-center">
+            <h3 class="giga show-for-medium-up push-half--bottom">Think beyond the silos</h3>
+            <div class="editor">
+<p>Break away from fragmented data to thrive in a complex world that demands an interconnected view of the entire energy and natural resources supply chain.</p></div>
+        </div>
+    </div>
+</div>
+</div><div>
+
+<div class="box-cards__card flexbox direction-column justify-between subsection-marker" id="promopanelblock" data-subsection-name="Card 2: Uncover Deep">
+    <div>
+        <div class="flexbox align-center push-half--bottom justify-center">
+            <h3 class="giga show-for-small-only push-half--left">Uncover deep relationships</h3>
+        </div>
+        <div class="flexbox direction-column align-center">
+            <h3 class="giga show-for-medium-up push-half--bottom">Uncover deep relationships</h3>
+            <div class="editor">
+<p>Explore connections between assets, technologies and industries, and the interplay across supply chains, government policies and global economies.</p></div>
+        </div>
+    </div>
+</div>
+</div><div>
+
+<div class="box-cards__card flexbox direction-column justify-between subsection-marker" id="promopanelblock" data-subsection-name="Card 3: Absolute Clarity">
+    <div>
+        <div class="flexbox align-center push-half--bottom justify-center">
+            <h3 class="giga show-for-small-only push-half--left">See with absolute clarity</h3>
+        </div>
+        <div class="flexbox direction-column align-center">
+            <h3 class="giga show-for-medium-up push-half--bottom">See with absolute clarity</h3>
+            <div class="editor">
+<p>Understand connections between commodities and make confident investment decisions in a complex energy landscape.</p></div>
+        </div>
+    </div>
+</div>
+</div></div>            </div>
+        </div>
+    </div>
+</div>                
+
+<div class="homepage-message-block homepage-gradients homepage-gradients--message section-marker" id="HomePageMessageBlock" data-section-name="[4] MESSAGE BLOCK" data-section-id="#HomePageMessageBlock">
+    <div class="wrap">
+        <div class="subsection-marker" data-subsection-name="Message Text">
+        <p class="h500">The future of energy data and insights</p>
+            <p class="synoptic-title">Synoptic</p>
+        </div>
+        <div class="subsection-marker" data-subsection-name="Message Link">
+            <a class="homepage-message-block__link info-style link-icon--arrow" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJNZXNzYWdlIEJsb2NrIENsaWNrIiwidGl0bGUiOiJUaGUgZnV0dXJlIG9mIGVuZXJneSBkYXRhIGFuZCBpbnNpZ2h0cyArIFN5bm9wdGljIiwidXJsIjoiL3N5bm9wdGljLyJ9" href="/synoptic/">
+                    Find out more
+                </a>
+        </div>
+    </div>
+</div>            </div>
+
+
+<div class="body-copy-image__section section-marker" id="bodycopyimage" data-io-animation-chain="true" data-section-name="[5] ENERGY TRANSITION" data-section-id="#bodycopyimage">
+    <div class="wrap">
+        <div class="body-copy-image__content-container flexbox align-start reverse">
+            <div class="image-left body-copy-image__text-container medium-6 subsection-marker" data-subsection-name="Energy Text Column">
+                
+                <h3 class="body-copy-image__section-title">Energy transition outlook</h3>
+                <div class="" data-io-type="fade" data-io-direction="bottom-top">
+                    <div class="editor body-copy-image__description">
+<p>Our 2025-26 Energy Transition Outlook is out now, and reveals an energy system more complex, more interconnected and more volatile than ever.&nbsp;</p>
+<p>The report maps out four distinct energy transition scenarios to 2060, combining the full scope of our energy and commodities market intelligence.</p></div>
+                </div>
+
+
+
+                <div class="body-copy-image__buttons-container">
+                        <a class="body-copy-image__button btn btn--primary" data-io-type="fade" data-io-direction="bottom-top" data-cta-location="bodycopywithimage" data-cta-type="link" href="/market-insights/topics/energy-transition-outlook/">Explore the outlook</a>
+                                    </div>
+            </div>
+            <div class="body-copy-image__image-container medium-6 subsection-marker" data-subsection-name="Energy Image Column">
+                    <picture>
+                        <source data-srcset="/assets/eto_keyvisual_final-four.png" media="(min-width: 960px)" srcset="https://www.woodmac.com/globalassets/eto_keyvisual_final-four.png?w=1000&mode=crop&center=0.5,0.5">
+                        <img class="body-copy-image__image-1-1 lazyloaded" data-src="/assets/eto_keyvisual_final-four.png" src="https://www.woodmac.com/globalassets/eto_keyvisual_final-four.png?w=800&mode=crop&center=0.5,0.5">
+                    </picture>
+                <p class="body-copy-image__image-caption"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<OutcomesBlock />
+<div class="homepage-outcomes-block-mobile__container wrap subsection-marker" data-subsection-name="Outcomes Mobile">
+
+<section class="homepage-outcomes-block-mobile__outcome-section">
+    <header class="homepage-outcomes-block-mobile__header">
+        <h3 class="homepage-outcomes-block-mobile__subtitle">Trusted data</h3>
+
+        <h2 class="homepage-outcomes-block-mobile__title">Access the data others wish they had</h2>
+    </header>
+
+    <div class="homepage-outcomes-block-mobile__main-content">
+<p>Get the industry’s deepest, broadest and most accurate data. Covering the whole energy transition supply chain.</p></div>
+
+    <ul class="homepage-outcomes-block-mobile__product-list">
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/lens/subsurface/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJMZW5zIFN1YnN1cmZhY2UiLCJ1cmwiOiIvbGVucy9zdWJzdXJmYWNlLyJ9">
+                        <p>Lens Subsurface</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/lens/metals-and-mining/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJMZW5zIE1ldGFscyAmIE1pbmluZyIsInVybCI6Ii9sZW5zL21ldGFscy1hbmQtbWluaW5nLyJ9">
+                        <p>Lens Metals &amp; Mining</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/industry/commodity-trading-analytics/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJDb21tb2RpdHkgVHJhZGluZyBBbmFseXRpY3MiLCJ1cmwiOiIvaW5kdXN0cnkvY29tbW9kaXR5LXRyYWRpbmctYW5hbHl0aWNzLyJ9">
+                        <p>Commodity Trading Analytics</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/industry/power-and-renewables/power-trading-analytics/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJQb3dlciBUcmFkaW5nIEFuYWx5dGljcyIsInVybCI6Ii9pbmR1c3RyeS9wb3dlci1hbmQtcmVuZXdhYmxlcy9wb3dlci10cmFkaW5nLWFuYWx5dGljcy8ifQ==">
+                        <p>Power Trading Analytics</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/products/supply-chain-analytics/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJTdXBwbHkgQ2hhaW4gQW5hbHl0aWNzIiwidXJsIjoiL3Byb2R1Y3RzL3N1cHBseS1jaGFpbi1hbmFseXRpY3MvIn0=">
+                        <p>Supply Chain Analytics</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+    </ul>
+    <div class="homepage-outcomes-block-mobile__section-image-container">
+        <img class="homepage-outcomes-block-mobile__section-image" src="https://www.woodmac.com/siteassets/homepage/trusted-data-1.jpg?mode=crop&center=0.5,0.5">
+    </div>
+</section>
+
+
+<section class="homepage-outcomes-block-mobile__outcome-section">
+    <header class="homepage-outcomes-block-mobile__header">
+        <h3 class="homepage-outcomes-block-mobile__subtitle">Market experts</h3>
+
+        <h2 class="homepage-outcomes-block-mobile__title">Understand the stories behind the data</h2>
+    </header>
+
+    <div class="homepage-outcomes-block-mobile__main-content">
+<p>Add 2,600+ market experts, data scientists and thought leaders to your team – with direct access to senior analysts to guide your decisions.</p></div>
+
+    <ul class="homepage-outcomes-block-mobile__product-list">
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/lens/gas-lng/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJMZW5zIEdhcyAmIExORyIsInVybCI6Ii9sZW5zL2dhcy1sbmcvIn0=">
+                        <p>Lens Gas &amp; LNG</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/lens/power-and-renewables/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJMZW5zIFBvd2VyICYgUmVuZXdhYmxlcyIsInVybCI6Ii9sZW5zL3Bvd2VyLWFuZC1yZW5ld2FibGVzLyJ9">
+                        <p>Lens Power &amp; Renewables</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/industry/corporates/corporate-strategy-analytics-service/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJDb3Jwb3JhdGUgU3RyYXRlZ3kgJiBBbmFseXRpY3MgU2VydmljZSIsInVybCI6Ii9pbmR1c3RyeS9jb3Jwb3JhdGVzL2NvcnBvcmF0ZS1zdHJhdGVneS1hbmFseXRpY3Mtc2VydmljZS8ifQ==">
+                        <p>Corporate Strategy &amp; Analytics Service</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/industry/oil-and-gas/upstream/upstream-service/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJVcHN0cmVhbSBTZXJ2aWNlIiwidXJsIjoiL2luZHVzdHJ5L29pbC1hbmQtZ2FzL3Vwc3RyZWFtL3Vwc3RyZWFtLXNlcnZpY2UvIn0=">
+                        <p>Upstream Service</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+    </ul>
+    <div class="homepage-outcomes-block-mobile__section-image-container">
+        <img class="homepage-outcomes-block-mobile__section-image" src="https://www.woodmac.com/siteassets/homepage/expert-advice-1.jpg?mode=crop&center=0.5,0.5">
+    </div>
+</section>
+
+
+<section class="homepage-outcomes-block-mobile__outcome-section">
+    <header class="homepage-outcomes-block-mobile__header">
+        <h3 class="homepage-outcomes-block-mobile__subtitle">Proprietary methodology</h3>
+
+        <h2 class="homepage-outcomes-block-mobile__title">Value with pinpoint accuracy</h2>
+    </header>
+
+    <div class="homepage-outcomes-block-mobile__main-content">
+<p>Get the cross-commodity insights and valuation models you need to set your course in an increasingly complex world.</p></div>
+
+    <ul class="homepage-outcomes-block-mobile__product-list">
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/lens/upstream/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJMZW5zIFVwc3RyZWFtIiwidXJsIjoiL2xlbnMvdXBzdHJlYW0vIn0=">
+                        <p>Lens Upstream</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/lens/hydrogen/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJMZW5zIEh5ZHJvZ2VuIiwidXJsIjoiL2xlbnMvaHlkcm9nZW4vIn0=">
+                        <p>Lens Hydrogen</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+                <li class="homepage-outcomes-block-mobile__product-link-container">
+                    <a class="homepage-outcomes-block-mobile__product-link" href="/lens/carbon/" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJIb21lcGFnZSBPdXRjb21lcyBQcm9kdWN0IENsaWNrIiwidGl0bGUiOiJMZW5zIENhcmJvbiIsInVybCI6Ii9sZW5zL2NhcmJvbi8ifQ==">
+                        <p>Lens Carbon</p> <span><img src="/content/img/icons/icon-arrow--cobalt.svg" alt=""></span>
+                    </a>
+                </li>
+    </ul>
+    <div class="homepage-outcomes-block-mobile__section-image-container">
+        <img class="homepage-outcomes-block-mobile__section-image" src="https://www.woodmac.com/siteassets/homepage/predictive-decisions-1.jpg?mode=crop&center=0.5,0.5">
+    </div>
+</section>
+
+    </div>
+</div>
+
+<div class="body-copy-image__section section-marker" id="bodycopyimage-book" data-io-animation-chain="true" data-section-name="[7] BOOK/CONNECTED" data-section-id="#bodycopyimage-book">
+    <div class="wrap">
+        <div class="body-copy-image__content-container flexbox align-start reverse">
+            <div class="image-left body-copy-image__text-container medium-6 subsection-marker" data-subsection-name="Book Text Column">
+                
+                <h3 class="body-copy-image__section-title">Business as usual is over</h3>
+                <div class="" data-io-type="fade" data-io-direction="bottom-top">
+                    <div class="editor body-copy-image__description">
+<p>Introducing the latest insight from our thought leaders, the book <em>Connected</em>: Bringing predictability to the increasingly uncertain world of energy. </p>
+<p>As climate change accelerates and geopolitical tensions reshape global markets, the energy landscape has become increasingly interconnected.<em> Connected</em> explores why those interconnections have developed, and how they bring clarity to the most important decisions we make about the future of energy.</p></div>
+                </div>
+
+
+
+                <div class="body-copy-image__buttons-container">
+                        <a class="body-copy-image__button btn btn--primary" data-io-type="fade" data-io-direction="bottom-top" data-cta-location="bodycopywithimage" data-cta-type="link" href="/connected-book/">Find out more</a>
+                                    </div>
+            </div>
+            <div class="body-copy-image__image-container medium-6 subsection-marker" data-subsection-name="Book Image Column">
+                    <picture>
+                        <source data-srcset="/assets/jason-book---hard-back-2.png" media="(min-width: 960px)">
+                        <img class="lazyload" data-src="/assets/jason-book---hard-back-2.png">
+                    </picture>
+                <p class="body-copy-image__image-caption"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="latest-thinking" class="section-marker" data-section-name="[8] NEWS GRID" data-section-id="#latest-thinking">
+    <div class="module news-grid-container latest-thinking-block bg-light-grey-1" id="copy">
+            <div class="wrap">
+            <div class="col small-12 text-center push--bottom subsection-marker" data-subsection-name="News Grid Title">
+                        <h2 class="text-left tera push-half--bottom soft--bottom latest-thinking-block__title">
+                            <a href="/market-insights/market-insights-news-listing-page/" class="core-branding-cobalt">
+                        Explore news and thought leadership
+                    </a>
+                        </h2>
+            </div>
+
+            <div class="news-grid-wrapper subsection-marker" data-subsection-name="News Grid Content">
+                {newsArticles.map((article) => (
+                    <NewsCard
+                        category={article.category}
+                        date={article.date}
+                        readTime={article.readTime}
+                        title={article.title}
+                        href={article.href}
+                        imageUrl={article.imageUrl}
+                    />
+                ))}
+            </div>
+        </div>
+</div>
+</div>

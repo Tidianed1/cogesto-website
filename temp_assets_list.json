@@ -1,0 +1,314 @@
+[
+  {
+    "url": "https://www.woodmac.com/siteassets/wm_brand/lets-share-the-sun/navigation-bar.png?mode=crop&amp;center=0.5,0.5",
+    "filename": "navigation-bar.png",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/wm_brand/lets-share-the-sun/navigation-bar.png?mode=crop&amp;center=0.5,0.5",
+    "filename": "navigation-bar.png",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1325134720.jpg?mode=crop&amp;center=0.42,0.62875",
+    "filename": "micro_people_gettyimages-1325134720.jpg",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1325134720.jpg?mode=crop&amp;center=0.42,0.62875",
+    "filename": "micro_people_gettyimages-1325134720.jpg",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/contentassets/2fbe1a2449604034b214ff3d48c3ae49/eto-menu.png?mode=crop&amp;center=0.5,0.5",
+    "filename": "eto-menu.png",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/contentassets/2fbe1a2449604034b214ff3d48c3ae49/eto-menu.png?mode=crop&amp;center=0.5,0.5",
+    "filename": "eto-menu.png",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/frontify_media_download/photography/power/micro_power/micro_power_gettyimages-1162866631.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "micro_power_gettyimages-1162866631.jpg",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/frontify_media_download/photography/power/micro_power/micro_power_gettyimages-1162866631.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "micro_power_gettyimages-1162866631.jpg",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-969226050.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "micro_people_gettyimages-969226050.jpg",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-969226050.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "micro_people_gettyimages-969226050.jpg",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/lens/lens-subsurface/valuations-screenshot.png?mode=crop&amp;center=0.5,0.5",
+    "filename": "valuations-screenshot.png",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/lens/lens-subsurface/valuations-screenshot.png?mode=crop&amp;center=0.5,0.5",
+    "filename": "valuations-screenshot.png",
+    "component": "NewHeader.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/contentassets/602784e4c464420cbd295e8e09359b24/woodmac_background_website_v2-1.jpg?w=1800&amp;h=900&amp;mode=crop&amp;center=0.5,0.5 ",
+    "filename": "woodmac_background_website_v2-1.jpg",
+    "component": "HeroSection.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/globalassets/eto_keyvisual_final-four.png?w=800&amp;mode=crop&amp;center=0.5,0.5",
+    "filename": "eto_keyvisual_final-four.png",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/globalassets/eto_keyvisual_final-four.png?w=800&amp;mode=crop&amp;center=0.5,0.5",
+    "filename": "eto_keyvisual_final-four.png",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/homepage/trusted-data-1.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "trusted-data-1.jpg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/homepage/expert-advice-1.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "expert-advice-1.jpg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/homepage/predictive-decisions-1.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "predictive-decisions-1.jpg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/homepage/trusted-data-1.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "trusted-data-1.jpg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/homepage/expert-advice-1.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "expert-advice-1.jpg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/content/img/icons/icon-arrow--cobalt.svg",
+    "filename": "icon-arrow--cobalt.svg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/siteassets/homepage/predictive-decisions-1.jpg?mode=crop&amp;center=0.5,0.5",
+    "filename": "predictive-decisions-1.jpg",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/globalassets/intelligence-connected/jason-book---hard-back-2.png?w=800&amp;mode=crop&amp;center=0.5,0.5",
+    "filename": "jason-book---hard-back-2.png",
+    "component": "MainContent.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://dl.episerver.net/13.6.1/epi-util/find.js",
+    "filename": "find.js",
+    "component": "NewFooter.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://platform.twitter.com/widgets.js",
+    "filename": "widgets.js",
+    "component": "NewFooter.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://cdn.cookielaw.org/logos/e1139271-720a-4942-bb21-7705fe911f1b/0d18bff2-dc25-4371-bb7d-579acba518a3/d767d675-4dff-4b94-808a-b2245f2be928/WM-Logo.png",
+    "filename": "WM-Logo.png",
+    "component": "NewFooter.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+    "filename": "powered_by_logo.svg",
+    "component": "NewFooter.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+    "filename": "powered_by_logo.svg",
+    "component": "NewFooter.astro",
+    "type": "image"
+  },
+  {
+    "url": "https://www.woodmac.com/&quot;https:/cdn.cookielaw.org/logos/static/ot_close.svg&quot",
+    "filename": "ot_close.svg&quot",
+    "component": "NewFooter.astro",
+    "type": "image"
+  }
+]

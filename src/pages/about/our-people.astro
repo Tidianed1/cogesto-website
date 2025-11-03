@@ -1,0 +1,381 @@
+---
+// Our People page (French)
+import NewHeader from '../../components/NewHeader.astro';
+import NewFooter from '../../components/NewFooter.astro';
+import SubNavigation from '../../components/SubNavigation.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import LeadershipTeamSection from '../../components/LeadershipTeamSection.astro';
+import { fr } from '../../content/fr';
+
+// Sub-navigation items (French)
+const subNavItems = [
+  { text: fr.nav.about, href: '/about/overview/' },
+  { text: fr.nav.ourStory, href: '/about/our-story/' },
+  { text: fr.nav.ourPeople, href: '/about/our-people/', isActive: true },
+  { text: fr.nav.ourValues, href: '/about/our-values/' },
+  { text: fr.nav.ourCulture, href: '/about/our-culture/' },
+  { text: fr.nav.ourCustomers, href: '/about/our-customers/' },
+  { text: fr.nav.ourLocations, href: '/about/our-locations/' },
+];
+
+// Leadership team data
+const leadershipTeam = [
+  {
+    name: "Jason Liu",
+    title: "Chief Executive Officer",
+    image: "https://www.woodmac.com/contentassets/jason-liu.jpg",
+    imageAlt: "Jason Liu, Chief Executive Officer"
+  },
+  {
+    name: "Valerie Purvis",
+    title: "Executive Vice President, Head of Commodities",
+    image: "https://www.woodmac.com/contentassets/valerie-purvis.jpg",
+    imageAlt: "Valerie Purvis, Executive Vice President, Head of Commodities"
+  },
+  {
+    name: "Xizhou Zhou",
+    title: "Executive Vice President, Head of Power and Renewables",
+    image: "https://www.woodmac.com/contentassets/xizhou-zhou.jpg",
+    imageAlt: "Xizhou Zhou, Executive Vice President, Head of Power and Renewables"
+  },
+  {
+    name: "Joe Midgley",
+    title: "Executive Vice President, Head of Upstream, Corporate and Carbon Solutions",
+    image: "https://www.woodmac.com/contentassets/joe-midgley.jpg",
+    imageAlt: "Joe Midgley, Executive Vice President"
+  },
+  {
+    name: "Garet Guthrie",
+    title: "Executive Vice President, Chief Financial Officer",
+    image: "https://www.woodmac.com/contentassets/garet-guthrie.jpg",
+    imageAlt: "Garet Guthrie, Executive Vice President, Chief Financial Officer"
+  },
+  {
+    name: "Louise Noble",
+    title: "Executive Vice President, Head of Marketing",
+    image: "https://www.woodmac.com/contentassets/louise-noble.jpg",
+    imageAlt: "Louise Noble, Executive Vice President, Head of Marketing"
+  },
+  {
+    name: "Lindsey Bernard",
+    title: "Senior Vice President, Global Sales",
+    image: "https://www.woodmac.com/contentassets/lindsey-bernard.jpg",
+    imageAlt: "Lindsey Bernard, Senior Vice President, Global Sales"
+  },
+  {
+    name: "Chris Grieve",
+    title: "Executive Vice President, Head of Strategy and Corporate Development",
+    image: "https://www.woodmac.com/contentassets/chris-grieve.jpg",
+    imageAlt: "Chris Grieve, Executive Vice President, Head of Strategy and Corporate Development"
+  },
+  {
+    name: "Eilish Henson",
+    title: "Executive Vice President, Head of Human Resources",
+    image: "https://www.woodmac.com/contentassets/eilish-henson.jpg",
+    imageAlt: "Eilish Henson, Executive Vice President, Head of Human Resources"
+  },
+  {
+    name: "Thijs van Koppen",
+    title: "Executive Vice President, Head of Consulting",
+    image: "https://www.woodmac.com/contentassets/thijs-van-koppen.jpg",
+    imageAlt: "Thijs van Koppen, Executive Vice President, Head of Consulting"
+  },
+  {
+    name: "Bernardo Rodriguez",
+    title: "Executive Vice President, Chief Product & Technology Officer",
+    image: "https://www.woodmac.com/contentassets/bernardo-rodriguez.jpg",
+    imageAlt: "Bernardo Rodriguez, Executive Vice President, Chief Product & Technology Officer"
+  },
+  {
+    name: "Louise Onikoyi",
+    title: "Senior Vice President, Head of Legal, Risk and Compliance",
+    image: "https://www.woodmac.com/contentassets/louise-onikoyi.jpg",
+    imageAlt: "Louise Onikoyi, Senior Vice President, Head of Legal, Risk and Compliance"
+  },
+  {
+    name: "Nick Gaubinger",
+    title: "Senior Vice President, Head of Product",
+    image: "https://www.woodmac.com/contentassets/nick-gaubinger.jpg",
+    imageAlt: "Nick Gaubinger, Senior Vice President, Head of Product"
+  },
+  {
+    name: "Jenny Sulak",
+    title: "Senior Vice President, Head of Operations",
+    image: "https://www.woodmac.com/contentassets/jenny-sulak.jpg",
+    imageAlt: "Jenny Sulak, Senior Vice President, Head of Operations"
+  },
+  {
+    name: "Stuart Millar",
+    title: "Senior Vice President, Head of IT",
+    image: "https://www.woodmac.com/contentassets/stuart-millar.jpg",
+    imageAlt: "Stuart Millar, Senior Vice President, Head of IT"
+  },
+  {
+    name: "Amy Altman",
+    title: "Senior Vice President, Head of Technology",
+    image: "https://www.woodmac.com/contentassets/amy-altman.jpg",
+    imageAlt: "Amy Altman, Senior Vice President, Head of Technology"
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notre équipe - Cogesto Consulting</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="/styles/screen.css" media="screen">
+    <link rel="stylesheet" href="/styles/print.css" media="print">
+    <link rel="stylesheet" href="/styles/inline.css">
+  </head>
+  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skip">
+    <a class="btn btn-skip" tabindex="0" href="#content">Passer au contenu principal</a>
+</div>
+
+<header>
+  <NewHeader />
+</header>
+
+<main class="content start" id="content">
+  <div class="our-people-page-wrapper">
+    <!-- Hero Section -->
+    <div id="our-people-hero" class="hero-homepage-cobalt-template__container hero-block">
+      <div class="hero-homepage-cobalt-template__section_flex_container">
+        <div class="hero-homepage-cobalt-template__summary">
+          <h1 class="hero-homepage-cobalt__title">{fr.ourPeople.hero.title}</h1>
+          <div class="hero-homepage-cobalt__introduction">
+            <p>{fr.ourPeople.hero.description}</p>
+          </div>
+        </div>
+        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/diverse-team-office.jpg); background-position: center; background-size: cover;"></div>
+      </div>
+    </div>
+
+    <!-- Sub-navigation -->
+    <SubNavigation items={subNavItems} />
+
+    <!-- Quote Section -->
+    <QuoteSection
+      quote={fr.ourPeople.quote.text}
+      attribution={fr.ourPeople.quote.attribution}
+      image={{
+        src: "https://www.woodmac.com/contentassets/team-meeting-discussion.jpg",
+        alt: "Trois personnes en discussion"
+      }}
+    />
+
+    <!-- Leadership Team Section -->
+    <LeadershipTeamSection 
+      title={fr.ourPeople.leadership.title}
+      teamMembers={leadershipTeam} 
+    />
+  </div>
+</main>
+
+<footer>
+  <NewFooter />
+</footer>
+
+<script is:inline>
+  // Navigation dropdown functionality - same as homepage
+  (function() {
+    'use strict';
+
+    function toggleElement(targetId, button) {
+      const target = document.querySelector(targetId);
+      if (!target) {
+        console.warn('Target not found:', targetId);
+        return;
+      }
+
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      const newState = !isExpanded;
+
+      button.setAttribute('aria-expanded', newState);
+      
+      if (newState) {
+        target.classList.add('is-open');
+        target.style.visibility = 'visible';
+        target.style.clip = 'auto';
+      } else {
+        target.classList.remove('is-open', 'is-active');
+        target.style.visibility = 'hidden';
+        target.style.clip = 'rect(0 0 0 0)';
+      }
+    }
+
+    function init() {
+      console.log('Navigation script initializing...');
+
+      document.addEventListener('click', function(e) {
+        const toggleBtn = e.target.closest('.js-toggle');
+        if (toggleBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('href');
+          if (targetId) {
+            toggleElement(targetId, toggleBtn);
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        const toggleBtn = e.target.closest('.js-toggle-local');
+        if (toggleBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = toggleBtn.getAttribute('data-target');
+          if (targetId) {
+            toggleElement(targetId, toggleBtn);
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        const toggleBtn = e.target.closest('.js-toggle__header-group');
+        if (toggleBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('aria-controls');
+          if (targetId) {
+            toggleElement(targetId, toggleBtn);
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        const desktopBtn = e.target.closest('.desktop-nav[data-target]');
+        if (desktopBtn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const targetId = desktopBtn.getAttribute('data-target');
+          if (targetId) {
+            const target = document.querySelector(targetId);
+            if (target) {
+              const isOpen = target.classList.contains('is-open');
+              if (isOpen) {
+                target.classList.remove('is-open');
+                target.style.visibility = 'hidden';
+                target.style.clip = 'rect(0 0 0 0)';
+                desktopBtn.setAttribute('aria-expanded', 'false');
+              } else {
+                document.querySelectorAll('.js-navigation__secondary.is-open').forEach(dd => {
+                  dd.classList.remove('is-open');
+                  dd.style.visibility = 'hidden';
+                  dd.style.clip = 'rect(0 0 0 0)';
+                  const btn = document.querySelector(`[data-target="#${dd.id}"]`);
+                  if (btn) btn.setAttribute('aria-expanded', 'false');
+                });
+                target.classList.add('is-open');
+                target.style.visibility = 'visible';
+                target.style.clip = 'auto';
+                desktopBtn.setAttribute('aria-expanded', 'true');
+              }
+            }
+          }
+        }
+      });
+
+      document.addEventListener('mouseenter', function(e) {
+        const navItem = e.target.closest('.js-navigation__item');
+        if (navItem) {
+          const desktopBtn = navItem.querySelector('.desktop-nav[data-target]');
+          if (desktopBtn) {
+            const targetId = desktopBtn.getAttribute('data-target');
+            if (targetId) {
+              const target = document.querySelector(targetId);
+              if (target) {
+                document.querySelectorAll('.js-navigation__secondary.is-open').forEach(dd => {
+                  if (dd.id !== target.id) {
+                    dd.classList.remove('is-open');
+                    dd.style.visibility = 'hidden';
+                    dd.style.clip = 'rect(0 0 0 0)';
+                    const btn = document.querySelector(`[data-target="#${dd.id}"]`);
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                  }
+                });
+                target.classList.add('is-open');
+                target.style.visibility = 'visible';
+                target.style.clip = 'auto';
+                desktopBtn.setAttribute('aria-expanded', 'true');
+                const fakeBg = document.getElementById('fake-bg');
+                if (fakeBg) fakeBg.classList.add('is-active');
+              }
+            }
+          }
+        }
+      }, true);
+
+      document.addEventListener('mouseleave', function(e) {
+        const navSecondary = e.target.closest('.js-navigation__secondary');
+        if (navSecondary && !navSecondary.matches(':hover')) {
+          navSecondary.classList.remove('is-open', 'is-active');
+          navSecondary.style.visibility = 'hidden';
+          navSecondary.style.clip = 'rect(0 0 0 0)';
+          const relatedBtn = document.querySelector(`[data-target="#${navSecondary.id}"]`);
+          if (relatedBtn) {
+            relatedBtn.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.js-navigation__item') && !e.target.closest('.js-navigation__secondary')) {
+          const openDropdowns = document.querySelectorAll('.js-navigation__secondary.is-open');
+          openDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('is-open', 'is-active');
+            dropdown.style.visibility = 'hidden';
+            dropdown.style.clip = 'rect(0 0 0 0)';
+            const relatedBtn = document.querySelector(`[data-target="#${dropdown.id}"]`);
+            if (relatedBtn) {
+              relatedBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+          const fakeBg = document.getElementById('fake-bg');
+          if (fakeBg) fakeBg.classList.remove('is-active');
+        }
+      });
+
+      const allDropdowns = document.querySelectorAll('.js-navigation__secondary');
+      allDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('is-active', 'is-open');
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.clip = 'rect(0 0 0 0)';
+      });
+
+      console.log('Navigation initialized successfully');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+<style>
+  /* Our People page wrapper */
+  .our-people-page-wrapper {
+    width: 100%;
+  }
+
+  /* Ensure main content has no gap with nav */
+  main.content.start {
+    margin-top: 0;
+    padding-top: 0;
+  }
+</style>
+
+  </body>
+</html>
+

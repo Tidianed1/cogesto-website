@@ -1,0 +1,487 @@
+---
+// Static replica of target website - Prompt 3: Componentized
+import NewHeader from '../components/NewHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
+import MainContent from '../components/MainContent.astro';
+import NewFooter from '../components/NewFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>New Index - Target Style Adoption</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="/styles/screen.css" media="screen">
+    <link rel="stylesheet" href="/styles/print.css" media="print">
+    <link rel="stylesheet" href="/styles/inline.css">
+  </head>
+  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="skip">
+    <a class="btn btn-skip" tabindex="0" href="#content">Skip to main content</a>
+</div>
+
+<!-- TEMPORARY: Section Mapping Overlay -->
+<style is:inline>
+  .section-marker {
+    position: relative;
+    border: 3px dashed rgba(255, 0, 0, 0.5) !important;
+    margin: 2px 0 !important;
+    overflow: visible !important; /* Allow sticky children */
+  }
+  
+  /* Don't wrap header in section-marker - it breaks sticky */
+  #menu-header,
+  .new-mega-menu.banner {
+    /* Remove any wrapper constraints */
+  }
+  .section-marker::before {
+    content: attr(data-section-name);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10000;
+    border-radius: 4px;
+    font-family: monospace;
+    pointer-events: none;
+  }
+  .section-marker::after {
+    content: "ID: " attr(data-section-id);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 255, 0.9);
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10000;
+    border-radius: 4px;
+    font-family: monospace;
+    pointer-events: none;
+  }
+  .subsection-marker {
+    position: relative;
+    border: 2px dashed rgba(0, 255, 0, 0.4) !important;
+    margin: 4px 0 !important;
+    padding: 2px !important;
+  }
+  .subsection-marker::before {
+    content: attr(data-subsection-name);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(0, 255, 0, 0.85);
+    color: black;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 9999;
+    border-radius: 3px;
+    font-family: monospace;
+    pointer-events: none;
+  }
+</style>
+
+
+<NewHeader />
+        <main class="content start">
+            <div class="homepage-gradients-wrapper">
+                <div class="section-marker" data-section-name="[2] HERO SECTION" data-section-id="#homepage-hero-cobalt">
+                    <HeroSection />
+                </div>
+                <MainContent />
+            </div>
+        </main>
+<div class="section-marker" data-section-name="[9] FOOTER" data-section-id="footer">
+  <NewFooter />
+</div>
+
+  <script is:inline>
+    // Navigation dropdown functionality - inline for immediate execution
+    (function() {
+      'use strict';
+
+      // Toggle visibility of elements
+      function toggleElement(targetId, button) {
+        const target = document.querySelector(targetId);
+        if (!target) {
+          console.warn('Target not found:', targetId);
+          return;
+        }
+
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const newState = !isExpanded;
+        const isMobile = window.innerWidth < 1000;
+
+        // Update button state
+        button.setAttribute('aria-expanded', newState);
+        
+        // Get parent nav item for mobile menus
+        const navItem = button.closest('.js-navigation__item');
+        
+        // Toggle target visibility
+        if (newState) {
+          target.classList.add('is-open');
+          // Mobile: add active class to parent nav item (critical for mobile CSS)
+          if (navItem && isMobile) {
+            navItem.classList.add('active');
+            console.log('Added active to nav item:', navItem);
+          }
+          // Force visibility for mobile
+          if (isMobile) {
+            target.style.display = 'block';
+            target.style.maxHeight = '1000px';
+            target.style.opacity = '1';
+            target.style.visibility = 'visible';
+            target.style.overflow = 'visible';
+          } else {
+            target.style.visibility = 'visible';
+            target.style.clip = 'auto';
+          }
+          console.log('Opened:', targetId, 'Mobile:', isMobile);
+        } else {
+          target.classList.remove('is-open', 'is-active');
+          // Mobile: remove active class from parent nav item
+          if (navItem) {
+            navItem.classList.remove('active');
+            console.log('Removed active from nav item:', navItem);
+          }
+          if (!isMobile) {
+            // Desktop: hide with clip
+            target.style.visibility = 'hidden';
+            target.style.clip = 'rect(0 0 0 0)';
+          } else {
+            // Mobile: collapse
+            target.style.maxHeight = '0';
+            target.style.opacity = '0';
+            target.style.overflow = 'hidden';
+          }
+          console.log('Closed:', targetId, 'Mobile:', isMobile);
+        }
+      }
+
+      // Wait for DOM
+      function init() {
+        console.log('Navigation script initializing...');
+
+        // Handle js-toggle elements
+        document.addEventListener('click', function(e) {
+          const toggleBtn = e.target.closest('.js-toggle');
+          if (toggleBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('href');
+            if (targetId) {
+              console.log('Toggle clicked:', targetId);
+              toggleElement(targetId, toggleBtn);
+            }
+          }
+        });
+
+        // Handle js-toggle-local elements (mobile navigation)
+        document.addEventListener('click', function(e) {
+          const toggleBtn = e.target.closest('.js-toggle-local');
+          if (toggleBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetId = toggleBtn.getAttribute('data-target');
+            if (targetId) {
+              console.log('Mobile toggle clicked:', targetId);
+              toggleElement(targetId, toggleBtn);
+            }
+          }
+        });
+
+        // Handle js-toggle__header-group (hamburger, search)
+        document.addEventListener('click', function(e) {
+          const toggleBtn = e.target.closest('.js-toggle__header-group');
+          if (toggleBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            let targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('aria-controls');
+            // Handle href fallback for hamburger
+            if (!targetId && toggleBtn.hasAttribute('href')) {
+              targetId = toggleBtn.getAttribute('href');
+            }
+            if (targetId) {
+              // Add # if missing
+              if (!targetId.startsWith('#')) {
+                targetId = '#' + targetId;
+              }
+              console.log('Header group clicked:', targetId);
+              
+              // Special handling for hamburger menu - toggle body class
+              if (targetId === '#navigation') {
+                const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+                const newState = !isExpanded;
+                toggleBtn.setAttribute('aria-expanded', newState);
+                
+                if (newState) {
+                  document.body.classList.add('on--navigation');
+                  console.log('Navigation menu opened');
+                } else {
+                  document.body.classList.remove('on--navigation');
+                  console.log('Navigation menu closed');
+                }
+              } else {
+                toggleElement(targetId, toggleBtn);
+              }
+            }
+          }
+        });
+
+        // Desktop navigation click handlers
+        document.addEventListener('click', function(e) {
+          const desktopBtn = e.target.closest('.desktop-nav[data-target]');
+          if (desktopBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const targetId = desktopBtn.getAttribute('data-target');
+            if (targetId) {
+              console.log('Desktop nav clicked:', targetId);
+              const target = document.querySelector(targetId);
+              if (target) {
+                const isOpen = target.classList.contains('is-open');
+                if (isOpen) {
+                  target.classList.remove('is-open');
+                  target.style.visibility = 'hidden';
+                  target.style.clip = 'rect(0 0 0 0)';
+                  desktopBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                  // Close other dropdowns
+                  document.querySelectorAll('.js-navigation__secondary.is-open').forEach(dd => {
+                    dd.classList.remove('is-open');
+                    dd.style.visibility = 'hidden';
+                    dd.style.clip = 'rect(0 0 0 0)';
+                    const btn = document.querySelector(`[data-target="#${dd.id}"]`);
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                  });
+                  target.classList.add('is-open');
+                  target.style.visibility = 'visible';
+                  target.style.clip = 'auto';
+                  desktopBtn.setAttribute('aria-expanded', 'true');
+                  console.log('Dropdown opened:', targetId);
+                }
+              } else {
+                console.error('Target element not found:', targetId);
+              }
+            }
+          }
+        });
+
+        // Desktop hover handlers - work with fixed mega-menus
+        document.addEventListener('mouseenter', function(e) {
+          const navItem = e.target.closest('.js-navigation__item');
+          if (navItem && window.innerWidth >= 1000) {
+            const desktopBtn = navItem.querySelector('.desktop-nav[data-target]');
+            if (desktopBtn) {
+              const targetId = desktopBtn.getAttribute('data-target');
+              if (targetId) {
+                const target = document.querySelector(targetId);
+                if (target) {
+                  // Close other dropdowns
+                  document.querySelectorAll('.js-navigation__secondary.is-open, .js-navigation__secondary.is--active').forEach(dd => {
+                    if (dd.id !== target.id) {
+                      dd.classList.remove('is-open', 'is--active');
+                      dd.style.visibility = 'hidden';
+                      dd.style.clip = 'rect(0, 0, 0, 0)';
+                      dd.style.opacity = '0';
+                    }
+                  });
+                  // Open current mega-menu
+                  target.classList.add('is-open', 'is--active');
+                  target.style.visibility = 'visible';
+                  target.style.clip = 'auto';
+                  target.style.opacity = '1';
+                  navItem.classList.add('is--active');
+                  desktopBtn.setAttribute('aria-expanded', 'true');
+                }
+              }
+            }
+          }
+        }, true);
+
+        // Close on mouse leave - improved for fixed mega-menus
+        document.addEventListener('mouseleave', function(e) {
+          if (window.innerWidth < 1000) return; // Only desktop
+          
+          const navItem = e.target.closest('.js-navigation__item');
+          const navSecondary = e.target.closest('.js-navigation__secondary');
+          const relatedTarget = e.relatedTarget;
+          
+          // Close if leaving nav item and not entering mega-menu or another nav item
+          if (navItem && relatedTarget) {
+            const stillInNav = relatedTarget.closest('.js-navigation__item') === navItem ||
+                               relatedTarget.closest('.js-navigation__secondary');
+            if (!stillInNav) {
+              navItem.classList.remove('is--active');
+              const targetId = navItem.querySelector('.desktop-nav[data-target]')?.getAttribute('data-target');
+              if (targetId) {
+                const target = document.querySelector(targetId);
+                if (target) {
+                  target.classList.remove('is-open', 'is--active');
+                  target.style.visibility = 'hidden';
+                  target.style.clip = 'rect(0, 0, 0, 0)';
+                  target.style.opacity = '0';
+                  navItem.querySelector('.desktop-nav[data-target]')?.setAttribute('aria-expanded', 'false');
+                }
+              }
+            }
+          }
+          
+          // Close if leaving mega-menu and not entering nav item or another mega-menu
+          if (navSecondary && relatedTarget) {
+            const stillInMega = relatedTarget.closest('.js-navigation__secondary') === navSecondary ||
+                               relatedTarget.closest('.js-navigation__item');
+            if (!stillInMega) {
+              navSecondary.classList.remove('is-open', 'is--active');
+              navSecondary.style.visibility = 'hidden';
+              navSecondary.style.clip = 'rect(0, 0, 0, 0)';
+              navSecondary.style.opacity = '0';
+              const relatedBtn = document.querySelector(`[data-target="#${navSecondary.id}"]`);
+              if (relatedBtn) {
+                relatedBtn.setAttribute('aria-expanded', 'false');
+                relatedBtn.closest('.js-navigation__item')?.classList.remove('is--active');
+              }
+            }
+          }
+        });
+
+        // Click outside to close
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.js-navigation__item') && !e.target.closest('.js-navigation__secondary')) {
+            const openDropdowns = document.querySelectorAll('.js-navigation__secondary.is-open');
+            openDropdowns.forEach(dropdown => {
+              dropdown.classList.remove('is-open', 'is-active');
+              dropdown.style.visibility = 'hidden';
+              dropdown.style.clip = 'rect(0 0 0 0)';
+              const relatedBtn = document.querySelector(`[data-target="#${dropdown.id}"]`);
+              if (relatedBtn) {
+                relatedBtn.setAttribute('aria-expanded', 'false');
+              }
+            });
+            const fakeBg = document.getElementById('fake-bg');
+            if (fakeBg) fakeBg.classList.remove('is-active');
+          }
+        });
+
+        // Initialize
+        const allDropdowns = document.querySelectorAll('.js-navigation__secondary');
+        console.log('Found', allDropdowns.length, 'dropdowns');
+        allDropdowns.forEach(dropdown => {
+          dropdown.classList.remove('is-active', 'is-open');
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.clip = 'rect(0 0 0 0)';
+        });
+
+        const navButtons = document.querySelectorAll('.desktop-nav[data-target]');
+        console.log('Found', navButtons.length, 'desktop nav buttons');
+        console.log('Navigation initialized successfully');
+      }
+
+      // Navigation color changer based on scroll position (Desktop only)
+      function initNavColorChanger() {
+        if (window.innerWidth < 1000) {
+          console.log('Nav color changer: mobile, skipping');
+          return; // Only on desktop
+        }
+        
+        const menuHeader = document.getElementById('menu-header');
+        const banner = document.querySelector('.new-mega-menu.banner');
+        if (!menuHeader) {
+          console.error('Nav color changer: menu-header not found');
+          return;
+        }
+        if (!banner) {
+          console.error('Nav color changer: banner not found');
+          return;
+        }
+
+        console.log('Nav color changer: elements found', menuHeader, banner);
+
+        // Sections that should have blue nav: hero
+        const blueSectionIds = ['homepage-hero-cobalt'];
+
+        function updateNavColor() {
+          // Simple check: if hero bottom is visible, nav is blue, else white
+          const heroSection = document.querySelector('#homepage-hero-cobalt');
+          if (!heroSection) return;
+          
+          const heroRect = heroSection.getBoundingClientRect();
+          const navHeight = 78;
+          
+          // If hero bottom is below nav bar = blue, else white
+          const shouldBeBlue = heroRect.bottom > navHeight;
+          const bgColor = shouldBeBlue ? '#0000FF' : '#ffffff';
+          
+          // Update colors
+          menuHeader.style.backgroundColor = bgColor;
+          menuHeader.style.background = bgColor;
+          banner.style.backgroundColor = bgColor;
+          banner.style.background = bgColor;
+        }
+
+        // Set initial color immediately (blue - hero section)
+        updateNavColor();
+        
+        // Wait a bit for layout to settle and update again
+        setTimeout(function() {
+          updateNavColor();
+        }, 100);
+
+        // Throttle scroll events for performance
+        let ticking = false;
+        function onScroll() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              updateNavColor();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }
+
+        // Listen to scroll events
+        window.addEventListener('scroll', onScroll, { passive: true });
+        
+        // Also update on resize and after images load
+        window.addEventListener('resize', function() {
+          if (window.innerWidth >= 1000) {
+            setTimeout(updateNavColor, 50);
+          }
+        });
+
+        // Update when images load (might change layout)
+        window.addEventListener('load', function() {
+          setTimeout(updateNavColor, 100);
+        });
+
+        console.log('Nav color changer initialized');
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          init();
+          initNavColorChanger();
+        });
+      } else {
+        init();
+        initNavColorChanger();
+      }
+    })();
+  </script>
+
+  </body>
+</html>
