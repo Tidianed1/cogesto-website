@@ -270,6 +270,58 @@ export const fr = {
     meetOurCustomers: "Rencontrer nos clients",
     meetOurPeople: "Rencontrer notre équipe",
     ourValues: "Nos valeurs"
+  },
+
+  // Expertises
+  expertises: {
+    strategy: {
+      hero: {
+        title: "Stratégie d'entreprises",
+        description: "Nous accompagnons les entreprises dans l'élaboration et la mise en œuvre de leurs stratégies de développement pour créer une valeur durable.",
+        cta: "Contactez-nous"
+      },
+      overview: {
+        intro: "Notre expertise en stratégie d'entreprises",
+        description: "Nous aidons les organisations à définir et exécuter des stratégies qui créent de la valeur à long terme pour toutes leurs parties prenantes."
+      },
+      challenges: {
+        title: "Les défis stratégiques d'aujourd'hui",
+        description: "Dans un environnement économique en constante évolution, les entreprises doivent faire face à de nombreux défis stratégiques :",
+        conclusion: "Nos consultants en stratégie vous accompagnent pour surmonter ces défis et transformer votre organisation.",
+        items: [
+          "Adaptation aux changements technologiques rapides",
+          "Gestion de la transformation digitale",
+          "Optimisation des performances opérationnelles",
+          "Développement de nouveaux modèles d'affaires"
+        ]
+      },
+      expertise: {
+        title: "Notre expertise",
+        description: "Notre équipe combine une expertise approfondie en stratégie avec une compréhension pratique des enjeux opérationnels.",
+        items: [
+          "Planification stratégique et vision long terme",
+          "Analyse de marché et benchmarking",
+          "Restructuration et optimisation organisationnelle",
+          "Conseil en transformation digitale"
+        ]
+      },
+      strengths: {
+        title: "Nos points forts",
+        description: "Ce qui nous distingue dans le conseil en stratégie :",
+        items: [
+          "Approche personnalisée adaptée à chaque client",
+          "Expertise locale combinée à une vision internationale",
+          "Focus sur la mise en œuvre pratique des stratégies",
+          "Accompagnement continu jusqu'à la réalisation des résultats"
+        ]
+      },
+      cta: {
+        title: "Prêt à transformer votre stratégie ?",
+        description: "Contactez-nous pour discuter de la façon dont nous pouvons vous aider à définir et exécuter une stratégie qui propulse votre entreprise vers le succès.",
+        button: "Contactez-nous",
+        buttonHref: "/about/contact-us/"
+      }
+    }
   }
 };
 

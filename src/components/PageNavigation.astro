@@ -1,0 +1,155 @@
+---
+// Page navigation component - sticky subnav (matches page-nav structure from reference)
+export interface NavLink {
+  text: string;
+  href: string;
+  isActive?: boolean;
+}
+
+export interface Props {
+  links: NavLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<nav id="page-nav" class="page-nav subnav z8 relative nav-sticky-content">
+  <div class="page-nav__controls">
+    <button class="left-arrow arrow hidden" aria-label="Scroll left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" aria-hidden="true" focusable="false">
+        <path stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" d="M6 12l-4-4 4-4M2 8h12"></path>
+      </svg>
+    </button>
+    <button class="right-arrow arrow" aria-label="Scroll right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" aria-hidden="true" focusable="false">
+        <path stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" d="M10 4l4 4-4 4M14 8H2"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="subnav-links">
+    <div class="page-nav__container">
+      {links.map((link) => (
+        <a 
+          href={link.href} 
+          class={`page-nav__link font-semibold ${link.isActive ? 'is-active' : ''}`}
+        >
+          {link.text}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Exact CSS from dev tools - page-nav */
+  .page-nav {
+    background-color: #fff;
+    padding: 12px 0px;
+    color: #010063;
+    font-family: Manrope, sans-serif;
+    font-weight: 300;
+    line-height: 24px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 78px; /* Below fixed main nav */
+    z-index: 8;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 62.49em) {
+    .page-nav {
+      top: 55px; /* Mobile nav height */
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .page-nav::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .page-nav__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  @media (max-width: 62.49em) {
+    .page-nav__container {
+      padding: 0 16px;
+      min-width: max-content;
+    }
+  }
+
+  /* Scroll buttons - required by woodmac.scripts.js */
+  .page-nav__controls {
+    position: relative;
+    display: none;
+  }
+
+  @media (max-width: 62.49em) {
+    .page-nav__controls {
+      display: block;
+    }
+  }
+
+  .subnav-links {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .subnav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 62.5em) {
+    .subnav-links {
+      overflow-x: visible;
+    }
+  }
+
+  .page-nav__link {
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.6px;
+    color: #5a5a5a;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-nav__link:hover {
+    color: #0024ff;
+    border-bottom-color: rgba(0, 36, 255, 0.3);
+  }
+
+  .page-nav__link.is-active {
+    color: #0024ff;
+    border-bottom-color: #0024ff;
+    font-weight: 600;
+  }
+
+  .page-nav__link.font-semibold {
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  // Remove custom script - woodmac.scripts.js handles all navigation functionality
+  // This script is intentionally empty to avoid conflicts
+</script>
+

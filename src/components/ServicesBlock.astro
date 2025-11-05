@@ -1,0 +1,140 @@
+---
+// Services block component - matches exact services-block structure from reference
+import ServicesCard from './ServicesCard.astro';
+
+export interface Service {
+  title: string;
+  description: string;
+  href: string;
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  services: Service[];
+}
+
+const { title, description, services } = Astro.props;
+---
+
+<div class="services-block" id="services-block">
+  <div class="wrap">
+    <div class="wrap services-block__summary">
+      <div class="services-block__title-container col small-12 large-6 soft--double-right--large">
+        <h2 class="peta services-block__title">
+          {title}
+        </h2>
+      </div>
+      <div class="col small-12 large-6">
+        <div class="editor services-block__description">
+          <p>{description}</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-card-container services-card-container-grid">
+        {services.map((service) => (
+          <ServicesCard
+            title={service.title}
+            description={service.description}
+            href={service.href}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Exact CSS from dev tools - services-block */
+  .services-block {
+    background-color: #fff;
+    padding: 64px 0;
+  }
+
+  @media (min-width: 62.5em) {
+    .services-block {
+      padding: 96px 0;
+    }
+  }
+
+  .services-block__summary {
+    margin-bottom: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+
+  .services-block__title-container {
+    flex: 0 0 50%;
+  }
+
+  @media (max-width: 61.99em) {
+    .services-block__title-container {
+      flex: 0 0 100%;
+    }
+  }
+
+  .services-block__title.peta {
+    font-family: Manrope, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #010063;
+    margin: 0;
+  }
+
+  @media (max-width: 61.99em) {
+    .services-block__title.peta {
+      font-size: 36px;
+    }
+  }
+
+  .services-block__description {
+    font-family: Manrope, sans-serif;
+    color: #010063;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  .services-block__description p {
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  .services-card-container-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    color: #010063;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  @media (min-width: 48em) {
+    .services-card-container-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (min-width: 75em) {
+    .services-card-container-grid {
+      grid-template-columns: repeat(4, 1fr);
+      /* Each column 338px as per dev tools */
+      grid-template-columns: 338px 338px 338px 338px;
+      gap: 24px;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .services-card-container-grid {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+

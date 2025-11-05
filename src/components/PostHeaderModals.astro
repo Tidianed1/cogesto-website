@@ -1,36 +1,3 @@
----
-// Homepage - Static replica of target website
-import NewHeader from '../components/NewHeader.astro';
-import HeroSection from '../components/HeroSection.astro';
-import MainContent from '../components/MainContent.astro';
-import NewFooter from '../components/NewFooter.astro';
----
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cogesto Consulting - Strategic Excellence</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
-    <link rel="stylesheet" href="/styles/screen.css" media="screen">
-    <link rel="stylesheet" href="/styles/print.css" media="print">
-    <link rel="stylesheet" href="/styles/inline.css">
-  </head>
-  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true">
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
-              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<div class="skip">
-    <a class="btn btn-skip" tabindex="0" href="#content">Skip to main content</a>
-</div>
-
-<header id="menu-header">
-    <NewHeader />
-</header>
-
 <div id="accounts" class="nav-accounts">
     <div class="wrap">
         <div class="flex__equal-height">
@@ -94,19 +61,65 @@ import NewFooter from '../components/NewFooter.astro';
     </div>
 </div>
 
-<main class="content start" id="content">
-  <div class="homepage-gradients-wrapper">
-    <HeroSection />
-    <MainContent />
-  </div>
-</main>
+    <div class="wrap">
+        <div class="flex__equal-height">
+            <div class="col small-12 medium-9 large-6 editor nav-accounts-intro">
+                <div>
+<h2>Access our research platforms</h2>
+<p>Sign-in to our platforms to access our extensive research, our latest insight, data and analytics and to connect to our industry experts.</p></div>
+            </div>
 
-<footer>
-  <NewFooter />
-</footer>
+            <ul class="col small-12 pull-4--medium medium-9 pull-2--large large-4 nav-accounts-list">
+        <li class="nav-accounts-list__item">
+            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fidentity.woodmac.com%2fsign-in">My WoodMac</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens.woodmac.com%2f">Wood Mackenzie Lens®</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens-direct.woodmac.com%2f">Lens Direct</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fpower-and-renewables.woodmac.com%2f">Power and Renewables</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="/products/trading-analytics/login/">Trading Analytics</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="https://www.poweradvocate.com/login.jsp">Supply Chain Analytics platform (previously PowerAdvocate)</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2faccount.woodmac.com%2fdetails">Account and preferences management</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="/products/training/">Product training</a>
+        </li>
+        <li class="nav-accounts-list__item">
+            <a href="https://lens-help.woodmac.com/en/">Help and support</a>
+        </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-<!-- Use shared navigation script for consistency -->
-<script src="/js/woodmac.scripts.js" defer></script>
 
-</body>
-</html>
+<div id="fake-bg" class="nav-primary__fake-bg js-navigation__fake-bg mega-menu"></div>
+<div id="search-modal" class="search-overlay">
+    <div class="wrap">
+        <form id="search__form" class="col small-12 large-10 push-1--large pull-1--large global-search" method="get" action="/search/">
+            <label for="name" class="visuallyhidden">
+                Search label
+            </label>
+            <input type="text" id="q" name="q" class="global-search__input" placeholder="Search the site..." autocomplete="off" role="combobox" aria-haspopup="true" aria-expanded="false" aria-controls="autoComplete_list" aria-autocomplete="both">
+
+            <button type="submit" class="global-search__btn">
+                <div class="search-loader hide"></div>
+                <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g id="Frame" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#clip0_982_19)"><title>Search</title><path id="Vector" d="M.64 7.04a6.4 6.4 0 1 0 12.8 0 6.4 6.4 0 0 0-12.8 0Z"></path><path id="Vector_2" d="m15.36 15.36-3.795-3.795"></path></g><defs><clipPath id="clip0_982_19"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
+                <span class="visuallyhidden">
+                    Search
+                </span>
+            </button>
+        </form>
+    </div>
+</div>
+

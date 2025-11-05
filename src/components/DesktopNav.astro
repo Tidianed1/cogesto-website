@@ -1,0 +1,32 @@
+---
+import { navigation } from '../content/navigation';
+---
+
+{navigation.map((navItem, index) => (
+    <div id={`menuitem_${index}-desktop`} class="nav-secondary js-navigation__secondary">
+        <div class="just-desktop wrap mega-menu__wrap flexbox">
+            <div class="mega-menu__columns-container">
+                {navItem.sections.map(section => (
+                    <div class="mega-menu__column-flex">
+                        <a href={section.url} class="mega-menu__column-section-title-container mega-menu__section-title-hover">
+                            <h3 class="mega-menu__column-section-title">{section.name}</h3>
+                            {section.url && (
+                                <div class="mega-menu__column-section-label-container">
+                                    <span class="mega-menu__column-section-label">Explore</span>
+                                    <img class="mega-menu__column-section-label-icon" src="/assets/icon-arrow--cobalt.svg">
+                                </div>
+                            )}
+                        </a>
+                        <div class="mega-menu__column-items-container">
+                            {section.links.map(link => (
+                                <a href={link.url} class="mega-menu__column-item">
+                                    <h3 class="mega-menu__column-item-title">{link.name}</h3>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+))}

@@ -1,0 +1,87 @@
+---
+// CTA section component for expertise pages
+interface Props {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref?: string;
+}
+
+const { title, description, buttonText, buttonHref = "/about/contact-us/" } = Astro.props;
+---
+
+<section class="expertise-cta-section">
+  <div class="expertise-cta-section__content">
+    <h2 class="expertise-cta-section__title">{title}</h2>
+    <p class="expertise-cta-section__description">{description}</p>
+    <a href={buttonHref} class="btn btn--primary expertise-cta-section__button" role="button">
+      {buttonText}
+      <span class="hero-button__arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  .expertise-cta-section {
+    background-color: #0000FF;
+    color: #ffffff;
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  @media (min-width: 62.5em) {
+    .expertise-cta-section {
+      padding: 120px 48px;
+    }
+  }
+
+  .expertise-cta-section__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .expertise-cta-section__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 48em) {
+    .expertise-cta-section__title {
+      font-size: 3.5rem;
+    }
+  }
+
+  .expertise-cta-section__description {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .expertise-cta-section__button {
+    background-color: #A3FF85;
+    color: #010063;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .expertise-cta-section__button:hover {
+    background-color: #92EE74;
+    transform: translateY(-2px);
+  }
+
+  .hero-button__arrow {
+    margin-left: 8px;
+    display: inline-block;
+  }
+</style>
+

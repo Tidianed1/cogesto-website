@@ -1,0 +1,29 @@
+
+---
+import { navigation } from '../content/navigation';
+---
+
+{navigation.map((navItem, index) => (
+    <div id={`menuitem_${index}`} class="just-mobile nav-secondary js-navigation__secondary">
+        <div class="just-mobile mega-menu__nav-secondary__col medium-6 nav-secondary__fade">
+            {navItem.sections.map(section => (
+                <>
+                    <a href={section.url} class="mega-menu__nav-secondary__title">
+                        <span class="mega-menu__nav-secondary__title-link icon">
+                            {section.name}
+                        </span>
+                        <span class="mega-menu__link-label"></span>
+                        <img class="mega-menu__link-label-icon" src="/assets/icon-arrow--cobalt.svg">
+                    </a>
+                    <ul class="mega-menu__list-container">
+                        {section.links.map(link => (
+                            <li class="mega-menu__nav-secondary__item">
+                                <a href={link.url} class="mega-menu__nav-secondary__item__link">{link.name}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            ))}
+        </div>
+    </div>
+))}

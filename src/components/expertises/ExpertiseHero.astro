@@ -1,0 +1,171 @@
+---
+// ============================================
+// ❌ DELETE - REPLACED BY HeroMultiTemplate.astro
+// ============================================
+// This component has been REPLACED by HeroMultiTemplate.astro
+// Used on expertise pages - NO LONGER USED.
+// ============================================
+// Expertise page hero section - reusing diagonal split pattern from AboutHero
+interface Props {
+  title: string;
+  description: string;
+  cta?: string;
+  ctaHref?: string;
+  imageUrl?: string;
+}
+
+const { title, description, cta = "Contactez-nous", ctaHref = "/about/contact-us/", imageUrl = "https://www.woodmac.com/contentassets/53edb0cb75fb4102beca96c21babb216/woodmac_background_website_v2-1.jpg?w=1800&h=900&mode=crop&center=0.5,0.5" } = Astro.props;
+---
+
+<div id="expertise-hero-cobalt" class="hero-homepage-cobalt-template__container hero-block">
+    <div class="hero-homepage-cobalt-template__section_flex_container">
+        <div class="hero-homepage-cobalt-template__summary">
+            <h1 class="hero-homepage-cobalt__title">{title}</h1>
+            <div class="hero-homepage-cobalt__introduction">
+                <p>{description}</p>
+            </div>
+            <div>
+                <a href={ctaHref} class="btn btn--primary hero-homepage__button" role="button">
+                    {cta}
+                    <span class="hero-button__arrow">→</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-homepage-cobalt-template__image" style={`background-image: url(${imageUrl}); background-position: 50% 50%;`}></div>
+    </div>
+</div>
+
+<style>
+  /* Expertise hero uses same styling as About hero - diagonal split design */
+  #expertise-hero-cobalt {
+    min-height: 500px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    background: #0000ff;
+  }
+
+  @media (max-width: 47.99em) {
+    #expertise-hero-cobalt {
+      height: auto;
+      min-height: 400px;
+    }
+  }
+
+  #expertise-hero-cobalt .hero-homepage-cobalt-template__section_flex_container {
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  @media (max-width: 47.99em) {
+    #expertise-hero-cobalt .hero-homepage-cobalt-template__section_flex_container {
+      flex-direction: column;
+    }
+  }
+
+  #expertise-hero-cobalt .hero-homepage-cobalt-template__summary {
+    flex: 0 0 55%;
+    background: #0000ff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 80px;
+    z-index: 2;
+    position: relative;
+  }
+
+  @media (min-width: 75em) {
+    #expertise-hero-cobalt .hero-homepage-cobalt-template__summary {
+      padding: 64px 120px;
+    }
+  }
+
+  @media (max-width: 47.99em) {
+    #expertise-hero-cobalt .hero-homepage-cobalt-template__summary {
+      flex: 1 1 auto;
+      padding: 40px 24px;
+    }
+  }
+
+  #expertise-hero-cobalt .hero-homepage-cobalt-template__image {
+    flex: 0 0 45%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    background-color: #0000ff;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 47.99em) {
+    #expertise-hero-cobalt .hero-homepage-cobalt-template__image {
+      flex: 1 1 auto;
+      min-height: 300px;
+      clip-path: none;
+    }
+  }
+
+  #expertise-hero-cobalt .hero-homepage-cobalt__title {
+    color: white;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 48em) {
+    #expertise-hero-cobalt .hero-homepage-cobalt__title {
+      font-size: 3rem;
+      line-height: 1.15;
+    }
+  }
+
+  @media (min-width: 60em) {
+    #expertise-hero-cobalt .hero-homepage-cobalt__title {
+      font-size: 4rem;
+      line-height: 1.2;
+    }
+  }
+
+  #expertise-hero-cobalt .hero-homepage-cobalt__introduction {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.7;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-top: 0;
+  }
+
+  @media (min-width: 60em) {
+    #expertise-hero-cobalt .hero-homepage-cobalt__introduction {
+      font-size: 1.25rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  #expertise-hero-cobalt .hero-homepage__button {
+    margin-top: 1rem;
+  }
+
+  .hero-button__arrow {
+    margin-left: 8px;
+    display: inline-block;
+  }
+</style>
+

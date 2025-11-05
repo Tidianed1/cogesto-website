@@ -1,0 +1,95 @@
+---
+// Services card component - matches exact services-card structure from reference
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+}
+
+const { title, description, href } = Astro.props;
+---
+
+<div class="services-card">
+  <div class="services-card__copy">
+    <div class="services-card__title">
+      <h3 class="kilo">{title}</h3>
+    </div>
+    <p>{description}</p>
+  </div>
+  <div class="services-card__cta">
+    <span class="services-card__link link-icon--arrow gamma">Learn more</span>
+  </div>
+  <a href={href}></a>
+</div>
+
+<style>
+  /* Exact CSS from dev tools - services-card */
+  .services-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .services-card > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .services-card__copy {
+    flex: 1;
+    padding: 24px;
+  }
+
+  .services-card__title {
+    margin-bottom: 16px;
+  }
+
+  .services-card__title .kilo {
+    font-family: Manrope, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #010063;
+    margin: 0;
+  }
+
+  .services-card__copy p {
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    color: #010063;
+    margin: 0;
+  }
+
+  .services-card__cta {
+    padding: 0 24px 24px;
+    margin-top: auto;
+  }
+
+  .services-card__link {
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #0024ff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .services-card__link.link-icon--arrow::after {
+    content: "→";
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .services-card:hover .services-card__link.link-icon--arrow::after {
+    transform: translateX(4px);
+  }
+</style>
+

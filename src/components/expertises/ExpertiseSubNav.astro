@@ -1,0 +1,171 @@
+---
+// ============================================
+// ❌ DELETE - REPLACED BY PageNavigation.astro
+// ============================================
+// This component has been REPLACED by PageNavigation.astro
+// Used on expertise pages - NO LONGER USED.
+// ============================================
+// Sub-navigation bar for expertise pages (inspired by Bain's design)
+interface Props {
+  currentTab?: string;
+}
+
+const { currentTab = "notre-activite" } = Astro.props;
+---
+
+<nav id="expertise-sub-nav" class="expertise-sub-nav">
+  <div class="expertise-sub-nav__container">
+    <a href="#notre-activite" class={`expertise-sub-nav__link ${currentTab === "notre-activite" ? "is-active" : ""}`}>
+      Notre activité
+    </a>
+    <a href="#points-de-vue" class={`expertise-sub-nav__link ${currentTab === "points-de-vue" ? "is-active" : ""}`}>
+      Points de vue
+    </a>
+    <a href="#notre-impact" class={`expertise-sub-nav__link ${currentTab === "notre-impact" ? "is-active" : ""}`}>
+      Notre Impact
+    </a>
+    <a href="#notre-equipe" class={`expertise-sub-nav__link ${currentTab === "notre-equipe" ? "is-active" : ""}`}>
+      Notre équipe
+    </a>
+  </div>
+</nav>
+
+<style>
+  .expertise-sub-nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 78px; /* Below fixed main nav (78px on desktop) */
+    z-index: 99997; /* Below main nav (99998) but above content */
+    width: 100%;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 62.49em) {
+    .expertise-sub-nav {
+      top: 55px; /* Mobile nav height is 55px */
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .expertise-sub-nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+  }
+
+  .expertise-sub-nav__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  @media (max-width: 62.49em) {
+    .expertise-sub-nav__container {
+      padding: 0 16px;
+      min-width: max-content; /* Allow horizontal scroll on mobile */
+    }
+  }
+
+  .expertise-sub-nav__link {
+    display: inline-block;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2D2D2D;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap; /* Prevent text wrapping on mobile */
+  }
+
+  @media (min-width: 62.5em) {
+    .expertise-sub-nav__link {
+      padding: 16px 32px;
+    }
+  }
+
+  .expertise-sub-nav__link:hover {
+    color: #0000FF;
+    border-bottom-color: rgba(0, 0, 255, 0.3);
+  }
+
+  .expertise-sub-nav__link.is-active {
+    color: #0000FF;
+    border-bottom-color: #0000FF;
+    font-weight: 600;
+  }
+
+  /* Scroll margin for anchor links */
+  section[id] {
+    scroll-margin-top: 140px; /* Account for both nav bars */
+  }
+
+  @media (max-width: 62.49em) {
+    section[id] {
+      scroll-margin-top: 120px;
+    }
+  }
+</style>
+
+<script>
+  // Smooth scroll and active state management for sub-nav links
+  document.addEventListener('DOMContentLoaded', function() {
+    const subNavLinks = document.querySelectorAll('.expertise-sub-nav__link');
+    
+    subNavLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            // Update active state
+            subNavLinks.forEach(l => l.classList.remove('is-active'));
+            this.classList.add('is-active');
+            
+            // Smooth scroll to section
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+
+    // Update active state on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const observerOptions = {
+      root: null,
+      rootMargin: '-140px 0px -66%',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          subNavLinks.forEach(link => {
+            link.classList.remove('is-active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('is-active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
+

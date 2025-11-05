@@ -1,0 +1,107 @@
+---
+// Section intro component - matches Intro module structure from reference
+export interface Props {
+  title: string;
+  content: string | string[];
+  id?: string;
+  noMargin?: boolean;
+}
+
+const { title, content, id = "Intro", noMargin = false } = Astro.props;
+const contentArray = Array.isArray(content) ? content : [content];
+---
+
+<div id={id} class={`module ${noMargin ? 'no-margin-lower' : ''}`}>
+  <div class="wrap">
+    <h2 class="giga title-underline soft--bottom push--bottom">{title}</h2>
+    <div class="editor">
+      {contentArray.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Exact CSS from dev tools - Intro section */
+  .module {
+    padding: 28.8px 0px;
+    color: #010063;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  .module.no-margin-lower {
+    margin-bottom: 0;
+  }
+
+  .module .wrap {
+    max-width: 1400px;
+    margin: 0 140px;
+    padding: 0px 12px;
+  }
+
+  @media (max-width: 61.99em) {
+    .module .wrap {
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+  }
+
+  .module .giga.title-underline {
+    font-family: Manrope, sans-serif;
+    font-size: 30.4px;
+    font-weight: 500;
+    line-height: 36.48px;
+    color: #010063;
+    margin: 0px 0px 24px;
+    padding: 0px 0px 24px;
+    position: relative;
+  }
+
+  .module .giga.title-underline::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 48px;
+    height: 4px;
+    background-color: #0024ff;
+  }
+
+  @media (max-width: 61.99em) {
+    .module .giga.title-underline {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  .module .giga.title-underline.soft--bottom {
+    padding-bottom: 24px;
+  }
+
+  .module .giga.title-underline.push--bottom {
+    margin-bottom: 24px;
+  }
+
+  .module .editor {
+    font-family: Manrope, sans-serif;
+    color: #010063;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  .module .editor p {
+    font-size: 20.8px;
+    line-height: 31.2px;
+    margin: 0 0 1.5rem 0;
+  }
+
+  @media (max-width: 61.99em) {
+    .module .editor p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+</style>
+

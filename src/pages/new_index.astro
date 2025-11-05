@@ -37,7 +37,6 @@ import NewFooter from '../components/NewFooter.astro';
   }
   
   /* Don't wrap header in section-marker - it breaks sticky */
-  #menu-header,
   .new-mega-menu.banner {
     /* Remove any wrapper constraints */
   }
@@ -398,18 +397,13 @@ import NewFooter from '../components/NewFooter.astro';
           return; // Only on desktop
         }
         
-        const menuHeader = document.getElementById('menu-header');
         const banner = document.querySelector('.new-mega-menu.banner');
-        if (!menuHeader) {
-          console.error('Nav color changer: menu-header not found');
-          return;
-        }
         if (!banner) {
           console.error('Nav color changer: banner not found');
           return;
         }
 
-        console.log('Nav color changer: elements found', menuHeader, banner);
+        console.log('Nav color changer: banner found', banner);
 
         // Sections that should have blue nav: hero
         const blueSectionIds = ['homepage-hero-cobalt'];
@@ -426,9 +420,7 @@ import NewFooter from '../components/NewFooter.astro';
           const shouldBeBlue = heroRect.bottom > navHeight;
           const bgColor = shouldBeBlue ? '#0000FF' : '#ffffff';
           
-          // Update colors
-          menuHeader.style.backgroundColor = bgColor;
-          menuHeader.style.background = bgColor;
+          // Update colors (removed menuHeader - only update banner)
           banner.style.backgroundColor = bgColor;
           banner.style.background = bgColor;
         }

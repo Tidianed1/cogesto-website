@@ -1,0 +1,106 @@
+---
+// Points de vue section - Uses REAL WoodMac CSS classes from versioned CSS files
+// Structure matches homepage news grid: .module.latest-thinking-block .flex__equal-height
+import ArticleCard from '../ArticleCard.astro';
+
+interface Article {
+  title: string;
+  category?: string;
+  date?: string;
+  readTime?: string;
+  href?: string;
+  imageUrl?: string;
+}
+
+interface Props {
+  title?: string;
+  articles?: Article[];
+  showMoreButton?: boolean;
+}
+
+const { 
+  title = "Points de vue",
+  articles = [
+    {
+      title: "Transformation digitale dans les entreprises ouest-africaines",
+      category: "OPINION",
+      date: "15 Jan 2024",
+      readTime: "3 minute",
+      imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+      href: "#"
+    },
+    {
+      title: "Stratégies de croissance durable pour les PME",
+      category: "OPINION",
+      date: "10 Jan 2024",
+      readTime: "1 minute",
+      imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+      href: "#"
+    },
+    {
+      title: "Gestion de la performance en période d'incertitude",
+      category: "OPINION",
+      date: "5 Jan 2024",
+      readTime: "4 minute",
+      imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+      href: "#"
+    },
+    {
+      title: "Leadership et transformation culturelle",
+      category: "OPINION",
+      date: "1 Jan 2024",
+      readTime: "1 minute",
+      imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
+      href: "#"
+    },
+    {
+      title: "Innovation et transformation digitale",
+      category: "OPINION",
+      date: "28 Dec 2023",
+      readTime: "4 minute",
+      imageUrl: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop",
+      href: "#"
+    },
+    {
+      title: "Stratégie d'expansion internationale",
+      category: "OPINION",
+      date: "20 Dec 2023",
+      readTime: "9 minute",
+      imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+      href: "#"
+    }
+  ],
+  showMoreButton = true
+} = Astro.props;
+---
+
+<section id="points-de-vue" class="module latest-thinking-block">
+  <div class="wrap">
+    <div class="col small-12 text-center push--bottom">
+      <h2 class="tera push-half--bottom soft--bottom latest-thinking-block__title">
+        <a href="/points-de-vue/" class="core-branding-cobalt">{title}</a>
+      </h2>
+    </div>
+
+    <div class="flex__equal-height">
+      {articles.map((article) => (
+        <ArticleCard
+          title={article.title}
+          category={article.category}
+          date={article.date}
+          readTime={article.readTime}
+          href={article.href}
+          imageUrl={article.imageUrl}
+        />
+      ))}
+    </div>
+
+    {showMoreButton && (
+      <div class="text-center push--top">
+        <a href="/points-de-vue/" class="btn btn--primary">
+          <span>En savoir plus</span>
+        </a>
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+// ============================================
+// ✅ KEEP - ACTIVELY USED
+// ============================================
+// Article card - Used by PointsDeVue component
+// Uses REAL WoodMac CSS classes from versioned CSS files
+// ============================================
+// Article card component - Uses REAL WoodMac CSS classes from versioned CSS
+// Structure: .related .related__link .related__image (with related__ratio) .related__summary
+// Reference: versioned CSS files (screen: YfCRKR7N..., print: vYR7kuam...)
+export interface Props {
+  title: string;
+  category?: string;
+  date?: string;
+  readTime?: string;
+  href?: string;
+  imageUrl?: string;
+}
+
+const { title, category = "OPINION", date, readTime, href = "#", imageUrl } = Astro.props;
+---
+
+<div class="related related--flexi">
+  <a href={href} class="related__link tile-link">
+    {imageUrl && (
+      <div class="related__image img-overlay" style={`background-image: url(${imageUrl});`}>
+        <div class="related__ratio"></div>
+        {category && (
+          <span class="badge">{category}</span>
+        )}
+      </div>
+    )}
+    <div class="related__summary">
+      <div class="related__content">
+        {!imageUrl && category && (
+          <span class="badge">{category}</span>
+        )}
+        {date && readTime && (
+          <time class="beta italic inline">{date} {readTime} read</time>
+        )}
+        {date && !readTime && (
+          <time class="beta italic inline">{date}</time>
+        )}
+        {!date && readTime && (
+          <time class="beta italic inline">{readTime} read</time>
+        )}
+        <h3 class="tile-link__title--blue tile-link_hover-blue kilo font-600">
+          {title}
+        </h3>
+      </div>
+    </div>
+  </a>
+</div>

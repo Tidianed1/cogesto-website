@@ -1,0 +1,115 @@
+---
+// Content section component for expertise pages
+interface Props {
+  title?: string;
+  description?: string;
+  items?: string[];
+  conclusion?: string;
+}
+
+const { title, description, items = [], conclusion } = Astro.props;
+---
+
+<section class="expertise-section">
+  {title && (
+    <h2 class="expertise-section__title">{title}</h2>
+  )}
+  
+  {description && (
+    <p class="expertise-section__description">{description}</p>
+  )}
+  
+  {items.length > 0 && (
+    <ul class="expertise-section__list">
+      {items.map((item) => (
+        <li class="expertise-section__list-item">{item}</li>
+      ))}
+    </ul>
+  )}
+  
+  {conclusion && (
+    <p class="expertise-section__conclusion">{conclusion}</p>
+  )}
+</section>
+
+<style>
+  .expertise-section {
+    padding: 64px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: #010063;
+  }
+
+  @media (min-width: 62.5em) {
+    .expertise-section {
+      padding: 96px 48px;
+    }
+  }
+
+  .expertise-section__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0000FF;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 48em) {
+    .expertise-section__title {
+      font-size: 3rem;
+    }
+  }
+
+  .expertise-section__description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #010063;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 60em) {
+    .expertise-section__description {
+      font-size: 1.25rem;
+    }
+  }
+
+  .expertise-section__list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .expertise-section__list-item {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #010063;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .expertise-section__list-item::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #0000FF;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .expertise-section__conclusion {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #010063;
+    margin-top: 1.5rem;
+    font-weight: 500;
+  }
+
+  @media (min-width: 60em) {
+    .expertise-section__conclusion {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+

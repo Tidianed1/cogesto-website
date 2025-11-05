@@ -1,0 +1,113 @@
+---
+// Video/text section component - matches new-woodmac-video structure from reference
+export interface Props {
+  title: string;
+  description: string;
+  videoId?: string;
+  videoUrl?: string;
+  backgroundColor?: 'white';
+}
+
+const { title, description, videoId, videoUrl, backgroundColor = 'white' } = Astro.props;
+---
+
+<div class={`new-woodmac-video c-wm-video new-woodmac-video--${backgroundColor.charAt(0).toUpperCase() + backgroundColor.slice(1)}`} id="videoblock">
+  <div class="wrap">
+    <div class="new-woodmac-video__container new-woodmac-video--swapLeftRight col small-12 medium-12">
+      <div class="new-woodmac-video__text">
+        <div class="new-woodmac-video__title">
+          {title}
+        </div>
+        <div class="editor new-woodmac-video__description">
+          <p>{description}</p>
+        </div>
+      </div>
+      {videoId && (
+        <div class="new-woodmac-video__video">
+          <div class="c-wm-video__wrapper">
+            <!-- Video embed placeholder - replace with actual video embed -->
+            <div class="video js-video">
+              <div class="wistia_responsive_padding js-video__w-custom" data-video-id={videoId} style="padding: 56.25% 0 0 0; position: relative;">
+                <div class="wistia_responsive_wrapper" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%;">
+                  <!-- Video embed will be inserted here -->
+                  <p style="background: #f5f5f5; padding: 40% 20px; text-align: center; color: #666;">Video placeholder</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Exact CSS from dev tools - new-woodmac-video */
+  .new-woodmac-video {
+    padding: 64px 0px 80px;
+    color: #010063;
+    font-weight: 300;
+    line-height: 24px;
+    background-color: #fff;
+  }
+
+  .new-woodmac-video__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+  }
+
+  @media (max-width: 61.99em) {
+    .new-woodmac-video__container {
+      flex-direction: column;
+    }
+    
+    .new-woodmac-video--swapLeftRight {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .new-woodmac-video__text {
+    flex: 1;
+  }
+
+  .new-woodmac-video__title {
+    font-family: Manrope, sans-serif;
+    font-size: 38px;
+    line-height: 44.004px;
+    color: #0024ff;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 61.99em) {
+    .new-woodmac-video__title {
+      font-size: 28px;
+      line-height: 32px;
+    }
+  }
+
+  .new-woodmac-video__description {
+    font-family: Manrope, sans-serif;
+    color: #010063;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  .new-woodmac-video__description p {
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  .new-woodmac-video__video {
+    flex: 1;
+    position: relative;
+  }
+
+  .new-woodmac-video__video .c-wm-video__wrapper {
+    width: 100%;
+    position: relative;
+  }
+</style>
+
