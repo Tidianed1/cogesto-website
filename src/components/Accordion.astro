@@ -1,0 +1,91 @@
+---
+// src/components/Accordion.astro
+
+export interface Props {
+  title: string;
+  description: string;
+  items: { question: string; answer: string; }[];
+}
+
+const { title, description, items } = Astro.props;
+---
+
+<accordion-component>
+    <div class="c-accordion--block" id="accordion-block">
+        <div class="c-accordionblock__wrapper wrap relative">
+            <div class="col c-accordionblock__descrption">
+                <h2 class="text-left soft--bottom h300 core-branding-rich-blue">{title}</h2>
+                <div class="primary-color alpha editor push--bottom primary-font--regular">
+                    <div>
+                        <div>
+                            <p set:html={description}></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-accordionblock__acordion__section">
+                <div class="c-accordionblock__inner">
+                    <div class="js-accordion c-accordionblock__bordertop__grey">
+                        {items.map((item, index) => {
+                            const accordionId = `accordion-section-${index}`;
+                            const buttonId = `accordion-button-${index}`;
+                            return (
+                                <div class="c-accordion__wrapper">
+                                    <h3 class="small-12">
+                                        <button
+                                            aria-expanded="false"
+                                            class="c-accordionblock__trigger js-accordion__trigger c-accordionblock__item__title"
+                                            aria-controls={accordionId}
+                                            id={buttonId}
+                                            data-title={item.question}
+                                            data-block-name="Product FAQ Block"
+                                        >
+                                            <p>{item.question}</p>
+                                        </button>
+                                    </h3>
+                                    <div
+                                        class="c-accordion__panel"
+                                        id={accordionId}
+                                        role="region"
+                                        aria-labelledby={buttonId}
+                                    >
+                                        <div class="c-accordionblock__item editor push--bottom">
+                                            <div set:html={item.answer}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</accordion-component>
+
+<script>
+    class AccordionComponent extends HTMLElement {
+        constructor() {
+            super();
+            const triggers = this.querySelectorAll('.js-accordion__trigger');
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const panel = this.querySelector(`#${trigger.getAttribute('aria-controls')}`);
+                    if (!panel) {
+                        return;
+                    }
+                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+                    if (isExpanded) {
+                        trigger.setAttribute('aria-expanded', 'false');
+                        panel.classList.remove('is-open');
+                    } else {
+                        trigger.setAttribute('aria-expanded', 'true');
+                        panel.classList.add('is-open');
+                    }
+                });
+            });
+        }
+    }
+    customElements.define('accordion-component', AccordionComponent);
+</script>

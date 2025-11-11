@@ -1,0 +1,136 @@
+---
+// src/components/BodyCopyImage.astro
+
+export interface Props {
+  preTitle?: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+  imageUrl: string;
+  imageAlt: string;
+  reverseLayout?: boolean;
+  titleColorClass?: string;
+  buttonClass?: string;
+}
+
+const {
+  preTitle,
+  title,
+  description,
+  buttonText,
+  buttonHref,
+  imageUrl,
+  imageAlt,
+  reverseLayout = false,
+  titleColorClass = 'core-branding-cobalt',
+  buttonClass = 'btn--secondary',
+} = Astro.props;
+
+const contentContainerClasses = [
+  'body-copy-image__content-container',
+  'flexbox',
+  'align-start',
+  'bg-light-100',
+].join(' ');
+
+const textContainerClasses = [
+  'body-copy-image__text-container',
+  'medium-6',
+  reverseLayout ? 'image-left' : 'image-right'
+].filter(Boolean).join(' ');
+
+const imageContainerClasses = [
+  'body-copy-image__image-container',
+  'medium-6'
+].join(' ');
+---
+<div class="body-copy-image__section bg-light-100" data-io-animation-chain="true">
+    <div class="wrap">
+        <div class={contentContainerClasses}>
+            {reverseLayout ? (
+                <>
+                    <div class={imageContainerClasses}>
+                        <picture>
+                            <source
+                                srcset={`${imageUrl}?width=1000&rmode=crop&rxy=0.5,0.5`}
+                                media="(min-width: 960px)"
+                            />
+                            <img
+                                class="lazyloaded"
+                                src={`${imageUrl}?width=800&rmode=crop&rxy=0.5,0.5`}
+                                alt={imageAlt}
+                            />
+                        </picture>
+                        <p class="body-copy-image__image-caption"></p>
+                    </div>
+                    <div class={textContainerClasses}>
+                        {preTitle && <h4 class="body-copy-image__pre-title">{preTitle}</h4>}
+                        <h3 class:list={['body-copy-image__section-title', titleColorClass]}>{title}</h3>
+                        <div class="" data-io-type="fade" data-io-direction="bottom-top">
+                            <div class="editor body-copy-image__description">
+                                <p set:html={description} />
+                            </div>
+                        </div>
+                        <slot name="after-description" />
+                        {buttonText && buttonHref && (
+                            <div class="body-copy-image__buttons-container">
+                                <a
+                                    class:list={['body-copy-image__button', 'btn', buttonClass]}
+                                    data-io-type="fade"
+                                    data-io-direction="bottom-top"
+                                    data-cta-location="bodycopywithimage"
+                                    data-cta-type="link"
+                                    href={buttonHref}
+                                >
+                                    {buttonText}
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div class={textContainerClasses}>
+                        {preTitle && <h4 class="body-copy-image__pre-title">{preTitle}</h4>}
+                        <h3 class:list={['body-copy-image__section-title', titleColorClass]}>{title}</h3>
+                        <div class="" data-io-type="fade" data-io-direction="bottom-top">
+                            <div class="editor body-copy-image__description">
+                                <p set:html={description} />
+                            </div>
+                        </div>
+                        <slot name="after-description" />
+                        {buttonText && buttonHref && (
+                            <div class="body-copy-image__buttons-container">
+                                <a
+                                    class:list={['body-copy-image__button', 'btn', buttonClass]}
+                                    data-io-type="fade"
+                                    data-io-direction="bottom-top"
+                                    data-cta-location="bodycopywithimage"
+                                    data-cta-type="link"
+                                    href={buttonHref}
+                                >
+                                    {buttonText}
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                    <div class={imageContainerClasses}>
+                        <picture>
+                            <source
+                                srcset={`${imageUrl}?width=1000&rmode=crop&rxy=0.5,0.5`}
+                                media="(min-width: 960px)"
+                            />
+                            <img
+                                class="lazyloaded"
+                                src={`${imageUrl}?width=800&rmode=crop&rxy=0.5,0.5`}
+                                alt={imageAlt}
+                            />
+                        </picture>
+                        <p class="body-copy-image__image-caption"></p>
+                    </div>
+                </>
+            )}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+---
+// src/pages/oils-and-chemicals.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BodyCopyImage from '../components/BodyCopyImage.astro';
+
+const pageTitle = "Oils and Chemicals";
+
+const oilsAndChemicalsData = {
+  title: "Navigating the evolving the oils and chemicals landscape",
+  description: "<p>Having transformed the modern economy through the way we travel, our food systems, and the clothes we wear, the oils and chemicals sector is in the midst of a revolutionary transformation.&nbsp;</p><p>Access industry-leading analysis of market fundamentals and critical asset details to make well informed, data-driven decisions.&nbsp;&nbsp;</p>",
+  imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/refining-and-oil-products/_micro/micro_refining_gettyimages-516575872.jpg",
+  imageAlt: "Refinery plant area at twilight with reflection in river",
+  reverseLayout: true,
+  titleColorClass: 'core-branding-rich-blue',
+  // Button props are omitted as they were not in the provided HTML
+  buttonText: 'Learn More',
+  buttonHref: '/learn-more'
+};
+---
+<BaseLayout title={pageTitle}>
+  <div class="body-copy-image" id="bodycopyimagecontainer">
+    <BodyCopyImage
+      title={oilsAndChemicalsData.title}
+      description={oilsAndChemicalsData.description}
+      imageUrl={oilsAndChemicalsData.imageUrl}
+      imageAlt={oilsAndChemicalsData.imageAlt}
+      reverseLayout={oilsAndChemicalsData.reverseLayout}
+      titleColorClass={oilsAndChemicalsData.titleColorClass}
+      buttonText={oilsAndChemicalsData.buttonText}
+      buttonHref={oilsAndChemicalsData.buttonHref}
+    />
+  </div>
+</BaseLayout>

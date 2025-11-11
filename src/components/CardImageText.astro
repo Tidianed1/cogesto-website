@@ -1,28 +1,34 @@
 ---
-// src/components/VideoTextSection.astro
+// src/components/VideoSection.astro
 
 export interface Props {
-  quote: string;
-  author: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
   imageUrl: string;
   imageAlt: string;
-  videoPosition?: 'left' | 'right';
-  backgroundImageUrl?: string;
+  videoPosition?: 'left' | 'right'; // Controls c-wm-video--video-right vs c-wm-video--video-left
+  backgroundColorClass?: string; // e.g., 'bg-secondary-color'
+  backgroundImageUrl?: string; // Optional, for the inline styles
 }
 
 const {
-  quote,
-  author,
+  title,
+  description,
+  buttonText,
+  buttonHref,
   imageUrl,
   imageAlt,
   videoPosition = 'right',
+  backgroundColorClass = 'bg-secondary-color', // Default to secondary if not provided
   backgroundImageUrl = '',
 } = Astro.props;
 
 const videoSectionClasses = [
   'bg--small',
   'c-wm-video',
-  'c-wm-video--50-50',
+  'c-wm-video--60-40', // Assuming this is fixed for this component type
   videoPosition === 'right' ? 'c-wm-video--video-right' : 'c-wm-video--video-left'
 ].join(' ');
 
@@ -34,16 +40,17 @@ const backgroundStyle = backgroundImageUrl ? `background-image:url(${backgroundI
         <div class="module bg--large soft-lens--ends" style={backgroundStyle}>
             <div class="wrap">
                 <div class="col small-12">
-                    <div class="c-wm-video__wrapper bg-primary-color white">
+                    <div class:list={['c-wm-video__wrapper', backgroundColorClass, 'white']}>
                         <div class="c-wm-video__video-col">
-                            <img class="img-overlay__image full-width ls-is-cached lazyloaded" data-src={imageUrl} alt={imageAlt} src={imageUrl}>
+                            <img class="img-overlay__image full-width lazyloaded" data-src={imageUrl} alt={imageAlt} src={imageUrl}>
                         </div>
                         <div class="c-wm-video__info-col">
+                            <h2 class="text-left giga push--bottom title-underline soft--bottom title-underline--white">{title}</h2>
                             <div>
                                 <div class="editor white">
-                                    <p set:html={quote} />
-                                    <p>{author}</p>
+                                    <p set:html={description} />
                                 </div>
+                                <a class="btn btn--primary push--top btn--light" href={buttonHref}>{buttonText}</a>
                             </div>
                         </div>
                     </div>

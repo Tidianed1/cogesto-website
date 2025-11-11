@@ -1,0 +1,40 @@
+---
+import type { ImageMetadata } from "astro";
+
+export interface Pillar {
+  icon: ImageMetadata | string;
+  name: string;
+}
+
+export interface Props {
+  title: string;
+  subtitle: string;
+  pillars: Pillar[];
+}
+
+const { title, subtitle, pillars } = Astro.props;
+---
+
+<div class="module bg-light-grey-1">
+  <div class="wrap">
+    <div class="section-intro">
+      <h2 class="peta">{title}</h2>
+      <p>{subtitle}</p>
+    </div>
+
+    <div class="flexbox advantage-container">
+      {
+        pillars.map((pillar) => (
+          <div class="advantage-item">
+            <div class="advantage-item__icon">
+              <img src={typeof pillar.icon === 'string' ? pillar.icon : pillar.icon.src} alt={`${pillar.name} icon`} />
+            </div>
+            <div class="advantage-item__title">
+              <h3 class="kilo">{pillar.name}</h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

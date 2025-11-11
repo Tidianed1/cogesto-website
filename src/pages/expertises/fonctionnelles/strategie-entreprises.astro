@@ -178,6 +178,35 @@ const pageNavLinks = [
   <!-- Points de vue Section -->
   <PointsDeVue />
 
+  <!-- Notre Impact Section -->
+  <section id="notre-impact" class="expertise-content-section">
+    <TextOnlySection
+      title="Notre Impact"
+      paragraphs={[
+        "Nous mesurons notre succès à travers les résultats tangibles de nos clients. Nos interventions en stratégie d'entreprises ont permis à des organisations de divers secteurs d'atteindre leurs objectifs de transformation et de croissance.",
+        "De l'optimisation des processus à la refonte des modèles d'affaires, nos solutions sur mesure créent une valeur durable et positionnent nos clients comme leaders dans leurs marchés respectifs."
+      ]}
+      backgroundColor="light"
+    />
+  </section>
+
+  <!-- Notre équipe Section -->
+  <section id="notre-equipe" class="expertise-content-section">
+    <TwoColumnContent
+      title="Notre équipe d'experts"
+      paragraphs={[
+        "Nos consultants en stratégie combinent une expertise sectorielle approfondie avec des méthodologies éprouvées pour delivering des solutions adaptées à vos défis spécifiques.",
+        "Avec des années d'expérience dans divers secteurs, notre équipe vous accompagne à chaque étape de votre transformation stratégique."
+      ]}
+      image={{
+        src: "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/micro/_micro_people_gettyimages-1325134720.jpg?w=1000&mode=crop&center=0.5,0.5",
+        alt: "Notre équipe d'experts"
+      }}
+      imagePosition="left"
+      backgroundColor="white"
+    />
+  </section>
+
   <!-- CTA Section - Using TwoColumnContent -->
   <TwoColumnContent
     title={content.cta.title}

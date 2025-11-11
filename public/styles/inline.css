@@ -1,83 +1,129 @@
-/* ==========================================================================
-   COGNESTO CUSTOM OVERRIDES V1.0
-   ========================================================================== */
-
-/*
- * FIX 1: MEGA-MENU VISIBILITY
- * --------------------------------------------------------------------------
- * The original script correctly adds the 'is--active' class, but the CSS
- * is not making the menu visible. This rule forces the active menu to appear.
- * It also ensures the menu appears above all other page content.
- * 
- * CSS Specificity Analysis:
- * - Base rule: .nav-secondary.is--active (specificity: 0,0,2,0)
- * - Problem: .new-mega-menu .nav-secondary (specificity: 0,0,2,0) comes AFTER
- *   and overrides visibility with clip: rect(0 0 0 0) and visibility: hidden
- * - Solution: Use more specific selector .nav-secondary.js-navigation__secondary.is--active
- *   (specificity: 0,0,3,0) to override the base rule
- */
-.nav-secondary.js-navigation__secondary.is--active {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    clip: auto !important;
-    z-index: 99999 !important; /* Must be higher than the header's z-index (99998) */
+/* ==========================================================================           
+   COGNESTO CUSTOM OVERRIDES V1.0                                                       
+   ========================================================================== */        
+                                                                                        
+/*                                                                                      
+ * FIX 1: MEGA-MENU VISIBILITY                                                          
+ * --------------------------------------------------------------------------           
+ * The original script correctly adds the 'is--active' class, but the CSS               
+ * is not making the menu visible. This rule forces the active menu to appear.          
+ * It also ensures the menu appears above all other page content.                       
+ *                                                                                      
+ * CSS Specificity Analysis:                                                            
+ * - Base rule: .nav-secondary.is--active (specificity: 0,0,2,0)                        
+ * - Problem: .new-mega-menu .nav-secondary (specificity: 0,0,2,0) comes AFTER          
+ *   and overrides visibility with clip: rect(0 0 0 0) and visibility: hidden           
+ * - Solution: Use more specific selector .nav-secondary.js-navigation__secondary.is--ac
+tive                                                                                    
+ *   (specificity: 0,0,3,0) to override the base rule                                   
+ */                                                                                     
+.nav-secondary.js-navigation__secondary.is--active {                                    
+    display: block !important;                                                          
+    visibility: visible !important;                                                     
+    opacity: 1 !important;                                                              
+    clip: auto !important;                                                              
+    z-index: 99999 !important; /* Must be higher than the header's z-index (99998) */   
+}                                                                                       
+                                                                                        
+/*                                                                                      
+ * FIX 2: STICKY NAVIGATION                                                             
+ * --------------------------------------------------------------------------           
+ * position: sticky requires:                                                           
+ * 1. A 'top' value (missing in base CSS for sticky-desktop variant)                    
+ * 2. No parent with overflow: hidden/scroll/auto                                       
+ * 3. Proper z-index stacking                                                           
+ *                                                                                      
+ * Reference: CSS specification states that sticky positioning requires                 
+ * overflow: visible on all ancestors AND a top/bottom/left/right value.                
+ */                                                                                     
+.new-mega-menu.banner.sticky-desktop {                                                  
+    position: sticky !important;                                                        
+    position: -webkit-sticky !important;                                                
+    top: 0 !important;                                                                  
+    z-index: 99998 !important;                                                          
+}                                                                                       
+                                                                                        
+/* Ensure all parent containers allow sticky positioning */                             
+body,                                                                                   
+html,                                                                                   
+header#menu-header {                                                                    
+    overflow: visible !important;                                                       
+    overflow-x: visible !important;                                                     
+}                                                                                       
+                                                                                        
+/* Ensure wrapper divs don't break sticky */                                            
+.new-mega-menu.banner.sticky-desktop .wrap,                                             
+.homepage-gradients-wrapper {                                                           
+    overflow: visible !important;                                                       
+}                                                                                       
+                                                                                        
+/*                                                                                      
+ * RESPONSIVE VISIBILITY FIXES                                                          
+ * --------------------------------------------------------------------------           
+ * Ensure mobile/desktop navigation elements display correctly                          
+ */                                                                                     
+@media (min-width: 62.5em) {                                                            
+    .just-mobile {                                                                      
+        display: none !important;                                                       
+    }                                                                                   
+    .mobile-nav {                                                                       
+        display: none !important;                                                       
+    }                                                                                   
+    .nav-utility--mobile {                                                              
+        display: none !important;                                                       
+    }                                                                                   
+}                                                                                       
+                                                                                        
+@media (max-width: 62.49em) {                                                           
+    .desktop-nav {                                                                      
+        display: none !important;                                                       
+    }                                                                                   
+    .nav-utility--desktop {                                                             
+        display: none !important;                                                       
+    }                                                                                   
 }
 
 /*
- * FIX 2: STICKY NAVIGATION
+ * FIX 3: BODY COPY IMAGE LAYOUT
  * --------------------------------------------------------------------------
- * position: sticky requires:
- * 1. A 'top' value (missing in base CSS for sticky-desktop variant)
- * 2. No parent with overflow: hidden/scroll/auto
- * 3. Proper z-index stacking
- * 
- * Reference: CSS specification states that sticky positioning requires
- * overflow: visible on all ancestors AND a top/bottom/left/right value.
+ * The global stylesheets (screen.css, styles.css) have conflicting
+ * grid/flexbox systems. These rules are added here to override all other
+ * rules and force the correct two-column layout for this component.
  */
-.new-mega-menu.banner.sticky-desktop {
-    position: sticky !important;
-    position: -webkit-sticky !important;
-    top: 0 !important;
-    z-index: 99998 !important;
+.body-copy-image__content-container.flexbox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex !important;
 }
 
-/* Ensure all parent containers allow sticky positioning */
-body,
-html,
-header#menu-header {
-    overflow: visible !important;
-    overflow-x: visible !important;
+.body-copy-image__content-container.align-start {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start !important;
 }
 
-/* Ensure wrapper divs don't break sticky */
-.new-mega-menu.banner.sticky-desktop .wrap,
-.homepage-gradients-wrapper {
-    overflow: visible !important;
+.body-copy-image__content-container.reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse !important;
 }
 
-/*
- * RESPONSIVE VISIBILITY FIXES
- * --------------------------------------------------------------------------
- * Ensure mobile/desktop navigation elements display correctly
- */
-@media (min-width: 62.5em) {
-    .just-mobile {
-        display: none !important;
-    }
-    .mobile-nav {
-        display: none !important;
-    }
-    .nav-utility--mobile {
-        display: none !important;
+@media (min-width: 48em) {
+    .body-copy-image__content-container .medium-6 {
+        width: 50% !important;
     }
 }
 
-@media (max-width: 62.49em) {
-    .desktop-nav {
-        display: none !important;
-    }
-    .nav-utility--desktop {
-        display: none !important;
+@media (max-width: 47.99em) {
+    .body-copy-image__content-container {
+      flex-direction: column!important;
     }
 }

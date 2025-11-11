@@ -1,0 +1,115 @@
+---
+// Payment Success Card Component
+// Based on payment success UI from reference screenshot
+export interface Props {
+  title?: string;
+  message?: string;
+  customerName?: string;
+  productName?: string;
+  reference?: string;
+  buttonLabel?: string;
+  onButtonClick?: string;
+}
+
+const {
+  title = "Thank you for your payment!",
+  message = "Your payment has been successfully processed.",
+  customerName = "John Doe",
+  productName = "Premium Service",
+  reference = "REF-123456789",
+  buttonLabel = "View Receipt",
+  onButtonClick = "/receipt"
+} = Astro.props;
+---
+
+<div class="payment-success-card bg-success-primary-green rounded-lg shadow-lg p-8 max-w-md mx-auto">
+  <!-- Success Icon -->
+  <div class="success-icon-container flex justify-center mb-6">
+    <div class="success-icon bg-success-light-green rounded-full w-16 h-16 flex items-center justify-center">
+      <svg class="success-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Success Title -->
+  <div class="success-content text-center">
+    <h2 class="success-title text-white text-2xl font-bold mb-3">{title}</h2>
+    <p class="success-message text-success-light-green text-base mb-6">{message}</p>
+
+    <!-- Payment Details -->
+    <div class="payment-details bg-success-dark-contrast-green rounded-lg p-4 mb-6">
+      <div class="detail-row flex justify-between mb-2">
+        <span class="detail-label text-success-light-green text-sm">Customer:</span>
+        <span class="detail-value text-white text-sm font-medium">{customerName}</span>
+      </div>
+      <div class="detail-row flex justify-between mb-2">
+        <span class="detail-label text-success-light-green text-sm">Product:</span>
+        <span class="detail-value text-white text-sm font-medium">{productName}</span>
+      </div>
+      <div class="detail-row flex justify-between">
+        <span class="detail-label text-success-light-green text-sm">Reference:</span>
+        <span class="detail-value text-white text-sm font-medium">{reference}</span>
+      </div>
+    </div>
+
+    <!-- Action Button -->
+    <a href={onButtonClick} class="success-button bg-white text-success-primary-green px-6 py-3 rounded-lg font-semibold text-base hover:bg-success-light-green transition-colors duration-200 inline-block">
+      {buttonLabel}
+    </a>
+  </div>
+</div>
+
+<style>
+  /* Payment Success Card Styles */
+  .payment-success-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .success-icon {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .success-check {
+    animation: checkmark 0.3s ease-in-out;
+  }
+
+  @keyframes checkmark {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .detail-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .success-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .payment-success-card {
+      margin: 0 16px;
+      padding: 24px;
+    }
+
+    .success-title {
+      font-size: 1.5rem;
+    }
+
+    .payment-details {
+      padding: 16px;
+    }
+  }
+</style>

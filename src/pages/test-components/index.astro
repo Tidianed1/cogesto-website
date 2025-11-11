@@ -1,0 +1,381 @@
+---import BaseLayout from "../../layouts/BaseLayout.astro";
+import BodyCopyImage from "../../components/BodyCopyImage.astro";
+import CardImageText from "../../components/CardImageText.astro";
+import CardQuote from "../../components/CardQuote.astro";
+import Accordion from "../../components/Accordion.astro";
+import NarrowBodyCopy from "../../components/NarrowBodyCopy.astro";
+import ValuesTabs from "../../components/ValuesTabs.astro";
+import CommoditySelector from "../../components/CommoditySelector.astro";
+import CenteredTextSection from "../../components/CenteredTextSection.astro";
+
+const faqItems = [
+    {
+        question: "What scenarios are available in the Energy Transition Service?",
+        answer: `<p>We have 4 types of scenarios available:</p>
+<ul>
+<li>Our Energy Transition Outlook base case scenario</li>
+<li>Our 2 Advanced Energy Transition scenarios: AET-2 and AET-1.5</li>
+<li>Our Delayed energy transition scenario</li>
+</ul>
+<p>Our scenarios include:</p>
+<ul>
+<li>Sub-sector analyses: road transport, aviation, shipping, steel, cement, chemicals and other industry, and process emissions</li>
+<li>Granular country and region analyses: EU27, UK, Asia Pacific, Canada, Africa, Middle East, US, China, Germany, Australia, and other markets</li>
+</ul>`
+    },
+    {
+        question: "What deliverables do I get with the Energy Transition Service?",
+        answer: `<p>The deliverables for the Energy Transition Service include:</p>
+<ul>
+<li>Base case ETO</li>
+<li>AET-2 and AET-1.5 scenarios</li>
+<li>Regular deep-dive technology reports</li>
+<li>Quarterly Carbon Policy Tracker</li>
+<li>Country-level reports</li>
+<li>Thought-leadership insights</li>
+<li>Access to the Energy Transition Tool</li>
+</ul>`
+    }
+];
+
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer.replace(/<[^>]*>?/gm, '') // Strip HTML tags for plain text answer
+        }
+    }))
+};
+
+const valuesTabsData = {
+  summaryTitle: "Our values",
+  summaryDescription: "Our values guide our decisions, actions, and interactions we have with each other, our customers and the wider community. They drive us to achieve our mission; to provide our customers with the data, analytics and insight they need to accelerate the world’s transition to a more sustainable future.",
+  tabs: [
+    {
+      id: "tab-870050",
+      title: "Inclusive",
+      content: "<p><strong>We succeed together</strong></p><p>Real impact happens when we work together as one team. We unite around our shared goals, and create a work environment where every individual feels valued and able to thrive.</p>"
+    },
+    {
+      id: "tab-870051",
+      title: "Trusting",
+      content: "<p><strong>We choose to trust each other</strong></p><div><div id=\"copynarrow\"><div><div><div><p>Trust is the foundation of every high-performing team. It gives us the ability to collaborate on timely decisions, agree on priorities and embrace change. We value transparency and integrity as ways to build mutual trust between colleagues.</p></div></div></div></div></div><div><div id=\"copynarrow\" class=\"module narrow-body-copy no-margin-upper no-margin-lower\"><div class=\"wrap content-container\"><div class=\"col left-copy-container\"><h2 class=\"h500 core-branding-cobalt\">\u00A0</h2></div></div></div></div>"
+    },
+    {
+      id: "tab-870052",
+      title: "Customer committed",
+      content: "<p><strong>We put customers at the heart of our decisions</strong></p><p>When our customers succeed, we succeed. Our goal is to provide them with the best experience, and the strategic support they need to make critical decisions.</p>"
+    },
+    {
+      id: "tab-870053",
+      title: "Future focused",
+      content: "<p><strong>We accelerate change</strong></p><p>We want to drive progress at pace, and deliver. We attract, retain and develop smart people who are passionate about our customers, our markets and the future of our planet.</p>"
+    },
+    {
+      id: "tab-870054",
+      title: "Curious",
+      content: "<p><strong>We turn knowledge into action</strong></p><p>The more we know, the more innovative and valuable our solutions become. We continuously seek to better understand our customer’s challenges and shifting market dynamics to provide a connected view across the energy and natural resources industries.</p>"
+    }
+  ]
+};
+
+const commodityData = {
+  title: "Commodities coverage",
+  commodities: [
+    {
+      id: "copper",
+      thumbTitle: "Copper",
+      content: {
+        title: "Copper",
+        description: "<p>The global copper mining industry is evolving rapidly, reshaping copper markets as exploration projects, resource nationalism, and sustainability pressures impact supply dynamics.</p><p>Lens Metals &amp; Mining provides asset and market intelligence, combined with supply chain insights, delivering a holistic view of the copper value chain to identify bankable opportunities for your business.&nbsp;Access asset-level copper mining data, including detailed project pipelines, production costs, reserves, cost curves and long-term supply and demand forecasts through 2050.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-1193102584-copper.jpg",
+        imageAlt: "A pile of copper wire on a metal surface.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Assets Discovery", href: "/lens/lens-metals-and-mining-assets-discovery/" },
+          { text: "Assets Valuations", href: "/lens/lens-metals-and-mining-assets-valuations/" },
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+          { text: "Markets Scenarios", href: "/lens/lens-metals-and-mining-market-scenarios/" },
+          { text: "Supply Chain", href: "/lens/lens-metals-and-mining-supply-chain/" },
+        ]
+      }
+    },
+    {
+      id: "aluminium",
+      thumbTitle: "Aluminium",
+      content: {
+        title: "Aluminium",
+        description: "<p>Aluminium market is rapidly transforming amid oversupply, rising energy costs, sustainability demands, geopolitical shifts, and the impact of the Carbon Border Adjustment Mechanism (CBAM) on imports.</p><p>Lens Metals &amp; Mining offers comprehensive aluminium market data, including supply and demand dynamics, production costs, trade flows, and long-term price forecasts through 2050. Gain critical aluminium market insights and supply chain intelligence to navigate market volatility, manage risks, and seize growth opportunities in the aluminium industry.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_micro/micro_metalsandmining_gettyimages-156830448.jpg",
+        imageAlt: "A vast and deep quarry site.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "gold",
+      thumbTitle: "Gold",
+      content: {
+        title: "Gold",
+        description: "<p data-pm-slice=\"1 1 []\">The global gold mining sector relies on precise gold asset intelligence to stay ahead amid fluctuating gold prices, exploration activity, and production cost pressures.</p><p data-pm-slice=\"1 1 []\">Lens Metals &amp; Mining offers granular data on gold mining assets, including reserve estimates, project pipelines, cost curves, operational costs, and long-term gold supply forecasts. Access critical gold asset analytics, market insights, and risk management tools to support investment decisions and identify growth opportunities in gold production and exploration.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-869481918.jpg",
+        imageAlt: "Close-up of gold bullion.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Assets Discovery", href: "/lens/lens-metals-and-mining-assets-discovery/" },
+        ]
+      }
+    },
+    {
+      id: "nickel",
+      thumbTitle: "Nickel",
+      content: {
+        title: "Nickel",
+        description: "<p>The global nickel market is navigating significant shifts driven by evolving demand, supply challenges, and geopolitical developments. Regulatory changes and strategic stockpiling efforts are impacting nickel availability and pricing, particularly in key sectors like electric vehicle batteries and stainless steel manufacturing.</p><p>Lens Metals &amp; Mining provides comprehensive nickel market intelligence, including supply-demand forecasts, production cost analyses, trade flow insights, and long-term price projections. Leverage our data analytics platform to navigate market volatility, manage risks, and uncover strategic opportunities in the nickel industry.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-696368766.jpg",
+        imageAlt: "A large quarry in the hills.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "lead",
+      thumbTitle: "Lead",
+      content: {
+        title: "Lead",
+        description: "<p>Despite increasing pressure from battery technology shifts and environmental regulations, lead remains a critical component in global energy storage, automotive, and industrial applications.</p><p>We provide comprehensive lead market fundamentals, including long-term supply and demand forecasts, primary and secondary production outlooks, and global trade flow analysis through 2050. Our data analytics platform support miners, battery manufacturers, and investors in assessing market risks, navigating regulatory changes, and identifying opportunities across the evolving lead value chain.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-723508147.jpg",
+        imageAlt: "A pile of stack steel rods.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Assets Discovery", href: "/lens/lens-metals-and-mining-assets-discovery/" },
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "zinc",
+      thumbTitle: "Zinc",
+      content: {
+        title: "Zinc",
+        description: "<p>With growing demand from construction, automotive, and clean energy sectors, the zinc market is undergoing structural shifts influenced by global infrastructure investment and tightening environmental regulations.</p><p>We provide detailed zinc market fundamentals, including long-term supply and demand forecasts, mine production outlooks, and refined zinc trade flow analysis through 2050. Our data analytics platform support miners, smelters, traders, and investors in navigating price volatility, assessing supply chain risks, and identifying long-term strategic opportunities in the global zinc market.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-149316775.jpg",
+        imageAlt: "An excavator is scooping coal out of a pile.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Assets Discovery", href: "/lens/lens-metals-and-mining-assets-discovery/" },
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "lithium",
+      thumbTitle: "Lithium",
+      content: {
+        title: "Lithium",
+        description: "<p>The global lithium market is rapidly evolving amid price volatility, shifting supply-demand dynamics, and geopolitical pressures. China’s export controls on EV battery technologies and the U.S.’s push for domestic lithium production highlight the urgent need for secure, resilient lithium supply chains.</p><p>Lens Metals &amp; Mining provides comprehensive lithium market intelligence, including detailed asset-level data on lithium mining projects, production costs, reserves, and long-term supply forecasts. Navigate market volatility with speed, assess investment opportunities, and make informed decisions in the rapidly evolving lithium sector.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-180405196.jpg",
+        imageAlt: "Excavating taking place in a large quarry.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Assets Discovery", href: "/lens/lens-metals-and-mining-assets-discovery/" },
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "cobalt",
+      thumbTitle: "Cobalt",
+      content: {
+        title: "Cobalt",
+        description: "<p>Cobalt markets have experienced significant price volatility, with recent surges driven by supply disruptions such as the DRC’s export suspension, despite an ongoing market surplus.</p><p>Lens Metals &amp; Mining delivers trusted cobalt market intelligence, including supply-demand outlooks, trade flow analysis, and accurate cobalt price forecasts. Gain the insights you need to navigate market volatility and make confident decisions in the dynamic cobalt industry.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/electric-vehicles/macro/macro_electricvehicles_shutterstock_1394908439.jpg",
+        imageAlt: "A close-up of a computer rack or electric vehicle battery, with a light shining on it.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "graphite",
+      thumbTitle: "Graphite",
+      content: {
+        title: "Graphite",
+        description: "<p>Recent volatility in graphite markets, driven by supply disruptions and surging demand for battery-grade graphite in electric vehicles, highlights the need for trusted market intelligence.</p><p>Lens Metals &amp; Mining provides detailed graphite supply-demand forecasts through 2050, price trends, and insights into graphite used in EV batteries to help you navigate this dynamic market and uncover growth opportunities.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-472110181.jpg",
+        imageAlt: "An open pit mine at dusk.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "rare-earths",
+      thumbTitle: "Rare Earths",
+      content: {
+        title: "Rare Earths",
+        description: "<p>The rare earths market is rapidly evolving as supply constraints, surging demand for clean energy technologies, and geopolitical risks drive pricing and trade volatility.</p><p>Lens Metals &amp; Mining provides comprehensive rare earths market intelligence, including detailed market data on neodymium, dysprosium, terbium, praseodymium, and other critical elements. Access global supply-demand fundamentals, market balances and long-term price forecasts to manage sourcing risks and uncover strategic growth opportunities across the rare earths value chain.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/electric-vehicles/macro/macro_electricvehicles_thinkstockphotos-594907500.jpg",
+        imageAlt: "An image of a circuit board with blue lights.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "coal",
+      thumbTitle: "Coal",
+      content: {
+        title: "Coal",
+        description: `<div class="" data-io-type="fade" data-io-direction="bottom-top"><div class="editor body-copy-image__description"><p>Amid sustained global reliance on coal for power generation and steelmaking, despite accelerating decarbonisation efforts, coal market is entering a new phase of heightened volatility and long-term uncertainty.</p><p>We provide access to comprehensive thermal and metallurgical coal market fundamentals, including long-term supply and demand forecasts, detailed coal trade flow analysis, and import/export projections through 2050. Our data analytics platform support strategic planning, investment decisions, and market risk assessments for industry stakeholders navigating this evolving landscape.</p></div></div>`,
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-149316775.jpg",
+        imageAlt: "An excavator is scooping coal out of a pile.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "iron-ore",
+      thumbTitle: "Iron Ore",
+      content: {
+        title: "Iron Ore",
+        description: "<p>As global steel production remains a key driver of industrial growth, particularly in emerging markets, iron ore demand continues to evolve amid shifting trade dynamics and supply constraints.</p><p>Lens Metals &amp; Mining provides in-depth iron ore market fundamentals, including long-term supply and demand forecasts and import/export flows through 2050. Our data analytics platform support miners, traders, and investors in evaluating project viability, optimising procurement strategies, and navigating iron ore market volatility.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-156830448.jpg",
+        imageAlt: "A vast and deep quarry site.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+    {
+      id: "steel",
+      thumbTitle: "Steel",
+      content: {
+        title: "Steel",
+        description: "<p>As global infrastructure, energy transition, and manufacturing demand drive continued growth in steel consumption, the industry faces increasing pressure from decarbonization policies and shifting cost dynamics.</p><p>We provide comprehensive steel market fundamentals, including long-term supply and demand forecasts, production outlooks, and import/export flow analysis through 2050. Our data analytics platform help producers, traders, and financial stakeholders evaluate market risks, assess capacity trends, and identify strategic investment opportunities in the evolving steel value chain.</p>",
+        imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-927411772---steel-processing-plant.jpg",
+        imageAlt: "A worker is grinding metal with sparks.",
+        reverseLayout: true,
+        highlightLinks: [
+          { text: "Markets Forecast", href: "/lens/lens-metals-and-mining-markets-forecast/" },
+        ]
+      }
+    },
+  ]
+};
+
+const centeredTextData = {
+  title: "Embrace your potential",
+  content: `<p><span class=\"TextRun Highlight SCXW162827715 BCX0\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW162827715 BCX0\">When you work with dedicated teams all aligned to a single purpose, t</span><span class=\"NormalTextRun SCXW162827715 BCX0\">here is </span><span class=\"NormalTextRun SCXW162827715 BCX0\">unlimited potential</span> <span class=\"NormalTextRun SCXW162827715 BCX0\">in</span><span class=\"NormalTextRun SCXW162827715 BCX0\"> </span><span class=\"NormalTextRun SCXW162827715 BCX0\">what you can achieve</span><span class=\"NormalTextRun SCXW162827715 BCX0\">. </span><span class=\"NormalTextRun SCXW162827715 BCX0\">Wood</span> <span class=\"NormalTextRun SCXW162827715 BCX0\">Mac</span><span class=\"NormalTextRun SCXW162827715 BCX0\">kenzie</span> <span class=\"NormalTextRun SCXW162827715 BCX0\">offers</span><span class=\"NormalTextRun SCXW162827715 BCX0\"> a career</span><span class=\"NormalTextRun SCXW162827715 BCX0\"> with passion, innovation, and determination. As a global leader at the forefront of the energy revolution, every day presents a</span><span class=\"NormalTextRun SCXW162827715 BCX0\"> new </span><span class=\"NormalTextRun SCXW162827715 BCX0\">opportunity to have a meaningful impact</span><span class=\"NormalTextRun SCXW162827715 BCX0\">, inspiring a more sustainable future for our planet.</span></span> <span class=\"EOP SCXW162827715 BCX0\" data-ccp-props=\"{\"134233118\":false,\"201341983\":1,\"335559739\":160,\"335559740\":240}\">&nbsp;</span></p>
+<p><span class=\"EOP SCXW162827715 BCX0\" data-ccp-props=\"{\"134233118\":false,\"201341983\":1,\"335559739\":160,\"335559740\":240}\"><span class=\"TextRun Highlight SCXW154135385 BCX0\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW154135385 BCX0\">We embrace flexible working hours and a dynamic hybrid work model, empowering our employees to </span><span class=\"NormalTextRun SCXW154135385 BCX0\">maintain</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> a healthy work-life balance</span><span class=\"NormalTextRun SCXW154135385 BCX0\">.</span></span> <span class=\"TextRun Highlight SCXW154135385 BCX0\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW154135385 BCX0\">Collaborating with </span><span class=\"NormalTextRun SCXW154135385 BCX0\">some of </span><span class=\"NormalTextRun SCXW154135385 BCX0\"> the brightest minds in the industry,</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> b</span><span class=\"NormalTextRun SCXW154135385 BCX0\">e</span><span class=\"NormalTextRun SCXW154135385 BCX0\">coming</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> a </span><span class=\"NormalTextRun SCXW154135385 BCX0\">Woodmacker</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> means be</span><span class=\"NormalTextRun SCXW154135385 BCX0\">ing</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> part of a dynamic team that supports your growth and celebrates your accomplishments</span><span class=\"NormalTextRun SCXW154135385 BCX0\">.</span></span> <span class=\"EOP SCXW154135385 BCX0\" data-ccp-props=\"{\"134233118\":false,\"201341983\":1,\"335559739\":160,\"335559740\":240}\">&nbsp;</span></span></p>`,
+  id: "copy"
+};
+---
+
+<BaseLayout title="Test Components">
+  <div slot="head">
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify(faqSchema)}
+    </script>
+  </div>
+  <main>
+    <div class="body-copy-image" id="bodycopyimagecontainer">
+      <div class="wrap body-copy-image__container">
+        <BodyCopyImage
+          title="Understand corporate challenges and opportunities"
+          description="With corporate strategies evolving with the competition and supply chain landscape, we help you analyse and benchmark across multiple markets for profitable decisions."
+          buttonText="Find out more"
+          buttonHref="/industry/corporates/"
+          imageUrl="https://www.woodmac.com/siteassets/frontify_media_download/photography/corporate/micro/_micro_corporate_gettyimages-185207257.jpg"
+          imageAlt="Modern angled corporate building, the sunlight reflecting against the glass."
+          reverseLayout={true}
+        />
+        <BodyCopyImage
+          title="Bespoke consulting service"
+          description="We leverage contemporary component-based cost metrics for key renewable energy technologies, so you can strategise effectively and align with industry pricing. Our consulting team helps you navigate opportunities and risks with transactional support, commercial advisory, strategic advice, and market evaluations.&nbsp;"
+          buttonText="Find out more"
+          buttonHref="/products/consulting/"
+          imageUrl="https://www.woodmac.com/siteassets/frontify_media_download/photography/corporate/micro/_micro_corporate_gettyimages-913259606.jpg"
+          imageAlt="Skyscraper or modern building in the city with sunlight reflecting on the glass facade."
+        />
+        <BodyCopyImage
+          title="Make smarter decisions in a volatile market with our bespoke consulting services"
+          description="Expert advisory services with a global team of consultants, leveraging the industry standard – our data and research.  We support customers to find and develop opportunities and manage risks.&nbsp;<ul><li>Transaction support&nbsp;</li><li>Commercial advisory&nbsp;</li><li>Strategic advice&nbsp;</li><li>Business environment &amp; market evaluation&nbsp;</li></ul>"
+          buttonText="Find out more"
+          buttonHref="/products/consulting/"
+          imageUrl="https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1346145497.jpg?width=800&rmode=crop&rxy=0.5,0.5"
+          imageAlt="A close-up of a group of managers in a meeting in their offices in Hexham in the North East of England. They are doing ice breakers and introductions as they get to know each other before the meeting starts."
+          reverseLayout={true}
+          titleColorClass="core-branding-rich-blue"
+          buttonClass="btn--primary"
+        />
+      </div>
+    </div>
+
+    <CardQuote
+      quote="<strong><br>“As the industry undergoes substantial change, Wood Mackenzie remains at the forefront, delivering the information solutions critical for our customers to navigate these complexities.”</strong>"
+      author="Jason Liu, <br>CEO Wood Mackenzie"
+      imageUrl="https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1373296586.jpg?rmode=crop&rxy=0.5,0.5"
+      imageAlt="Empower Your Teams to Work Together More Effectively. A Female Business team leader present on new business workflows with her team for brainstorm ideas to manage customer project."
+      videoPosition="right"
+      backgroundColorClass="bg-primary-color"
+    />
+
+    <CardImageText
+      title="Our purpose in action"
+      description="Discover how Wood Mackenzie’s partnership with Let’s Share the Sun is transforming lives through clean, reliable energy, creating lasting change for communities in need.&nbsp;"
+      buttonText="Explore the story"
+      buttonHref="/nslp/lets-share-the-sun/"
+      imageUrl="https://www.woodmac.com/siteassets/frontify_media_download/photography/solar/micro_solar/micro_power_gettyimages-1292835353.jpg?rmode=crop&rxy=0.5,0.5"
+      imageAlt="Solar panels on top of a hill overlooking an illuminated city at night."
+      videoPosition="right"
+      backgroundColorClass="bg-secondary-color"
+    />
+
+    <Accordion
+      client:load
+      title="Frequently asked questions"
+      description="Here you’ll find answers to the most common questions you may have on Wood Mackenzie’s Energy Transition Service. If you have any other questions, get in touch."
+      items={faqItems}
+    />
+
+    <NarrowBodyCopy
+      leftTitle="Leverage an unrivalled depth of expert analysis"
+      leftParagraph='<p><span lang="EN-GB" xml:lang="EN-GB" data-contrast="none">Identify emerging trends, forecast prices, assess competitors, and target growth opportunities with trusted market intelligence, expert analysis, proprietary tools, and robust modelling capabilities. </span>&nbsp;</p>'
+      rightTitle="Get ahead in the oils and chemicals markets"
+      rightParagraph='<p><span lang="EN-GB" xml:lang="EN-GB" data-contrast="none">Address the energy and material transitions underway in the global economy with integrated, cross-commodity, market and asset analysis from the well head through to end-use applications.</span>&nbsp;</p>'
+    />
+
+    <ValuesTabs
+      summaryTitle={valuesTabsData.summaryTitle}
+      summaryDescription={valuesTabsData.summaryDescription}
+      tabs={valuesTabsData.tabs}
+    />
+
+    <CommoditySelector
+      title={commodityData.title}
+      commodities={commodityData.commodities}
+    />
+
+    <CenteredTextSection
+      title={centeredTextData.title}
+      content={centeredTextData.content}
+      id={centeredTextData.id}
+    />
+
+  </main>
+</BaseLayout>

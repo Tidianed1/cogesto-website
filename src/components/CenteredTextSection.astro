@@ -1,0 +1,19 @@
+---
+// src/components/CenteredTextSection.astro
+export interface Props {
+  title: string;
+  content: string;
+  id?: string;
+}
+
+const { title, content, id } = Astro.props;
+---
+
+<div class="module bg-light-100" id={id}>
+    <div class="wrap">
+        <div class="col small-12 large-10 push-2--large">
+            <h2 class="h300 core-branding-cobalt push--bottom--16" set:html={title}></h2>
+            <div class="editor" set:html={content}></div>
+        </div>
+    </div>
+</div>

@@ -1,209 +1,136 @@
 ---
-// Values tabs component - similar to OutcomesBlock but for company values
-export interface Props {
-  values: Array<{
-    id: string;
-    label: string;
-    description?: string;
-    content?: string[];
-  }>;
-  defaultActiveIndex?: number;
+// Values tabs component - matches tabbed__block structure from reference
+export interface TabItem {
+  id: string;
+  title: string;
+  content: string;
+  active?: boolean;
 }
 
-const { values, defaultActiveIndex = 2 } = Astro.props;
+export interface Props {
+  summaryTitle: string;
+  summaryDescription: string;
+  tabs: TabItem[];
+}
+
+const { summaryTitle, summaryDescription, tabs } = Astro.props;
+
+// Determine the initially active tab
+const initialActiveTabId = tabs.find(tab => tab.active)?.id || tabs[0]?.id;
 ---
 
-<section class="values-tabs-section">
-  <div class="values-tabs-section__container">
-    <!-- Tab Navigation -->
-    <div class="values-tabs-section__tab-list">
-      {values.map((value, index) => (
-        <button
-          type="button"
-          class={`values-tabs-section__tab-item ${index === defaultActiveIndex ? 'active-tab' : ''}`}
-          data-tab-id={value.id}
-          data-index={index}
-          aria-selected={index === defaultActiveIndex ? 'true' : 'false'}
-          role="tab"
-        >
-          <span>{value.label}</span>
-        </button>
-      ))}
-    </div>
-
-    <!-- Tab Content -->
-    <div class="values-tabs-section__content">
-      {values.map((value, index) => (
-        <div
-          class={`values-tabs-section__tab-content ${index === defaultActiveIndex ? 'active-tab-content' : ''}`}
-          data-tab-id={value.id}
-          role="tabpanel"
-        >
-          {value.content ? (
-            <div class="values-tabs-section__content-inner">
-              {value.content.map((paragraph) => (
-                <p class="values-tabs-section__paragraph">{paragraph}</p>
-              ))}
+<div class="tabbed__block" id="tabbed-component">
+    <div class="wrap">
+        <div class="tabbed__block-container small-12">
+            <div class="tabbed__summary col small-12 medium-4">
+                <h3 class="tabbed__summary-title h300">
+                    {summaryTitle}
+                </h3>
+                <p class="tabbed__summary-description" set:html={summaryDescription}></p>
             </div>
-          ) : (
-            <p class="values-tabs-section__paragraph">{value.description}</p>
-          )}
+            <div class="tabbed__tabs col small-12 medium-8">
+                <div class="tabbed__tabs-list">
+                    {tabs.map((tab) => (
+                        <a
+                            class:list={["tabbed__tabs-list-item", { "active": tab.id === initialActiveTabId }]}
+                            data-target={tab.id}
+                            role="tab"
+                            tabindex="0"
+                            ga4-component-tracking={`{"event":"component_click","type":"Tabbed Component Tab Click","title":"${tab.title}"}`}
+                        >
+                            {tab.title}
+                        </a>
+                    ))}
+                </div>
+                <!-- DROPDOWN -->
+                <div class="tabbed__tabs-dropdown">
+                    <select class="form-select" data-val="true" data-val-required="The Tabbed Sections field is required." id="tabDropdown" name="CurrentPage.Body.TabbedComponentContent">
+                        {tabs.map((tab) => (
+                            <option value={tab.id} selected={tab.id === initialActiveTabId}>
+                                {tab.title}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+                <div class="tabbed__content">
+                    {tabs.map((tab) => (
+                        <div
+                            id={tab.id}
+                            class:list={["tabbed__content-container", { "active": tab.id === initialActiveTabId }]}
+                            role="tabpanel"
+                        >
+                            <div class="editor" set:html={tab.content}></div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
-      ))}
     </div>
-  </div>
-</section>
-
-<style>
-  /* Values tabs section styling - matches reference */
-  .values-tabs-section {
-    width: 100%;
-    padding: 64px 0;
-    background: #ffffff;
-  }
-
-  @media (min-width: 62.5em) {
-    .values-tabs-section {
-      padding: 96px 0;
-    }
-  }
-
-  .values-tabs-section__container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-
-  @media (min-width: 62.5em) {
-    .values-tabs-section__container {
-      padding: 0 24px;
-    }
-  }
-
-  .values-tabs-section__tab-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    margin-bottom: 32px;
-  }
-
-  @media (max-width: 47.99em) {
-    .values-tabs-section__tab-list {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .values-tabs-section__tab-list::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .values-tabs-section__tab-item {
-    position: relative;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #666666;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-  }
-
-  @media (min-width: 62.5em) {
-    .values-tabs-section__tab-item {
-      padding: 16px 32px;
-      font-size: 18px;
-    }
-  }
-
-  .values-tabs-section__tab-item:hover {
-    color: #0000ff;
-  }
-
-  .values-tabs-section__tab-item.active-tab {
-    color: #0000ff;
-    font-weight: 600;
-    border-bottom-color: #0000ff;
-  }
-
-  .values-tabs-section__content {
-    position: relative;
-    min-height: 200px;
-  }
-
-  .values-tabs-section__tab-content {
-    display: none;
-  }
-
-  .values-tabs-section__tab-content.active-tab-content {
-    display: block;
-  }
-
-  .values-tabs-section__content-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .values-tabs-section__paragraph {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: #2d2d2d;
-    margin: 0;
-  }
-
-  @media (min-width: 62.5em) {
-    .values-tabs-section__paragraph {
-      font-size: 1.25rem;
-    }
-  }
-</style>
+</div>
 
 <script is:inline>
-  // Values Tabs Functionality
   (function() {
-    'use strict';
+    function initTabbedComponent() {
+      const tabbedBlock = document.getElementById('tabbed-component');
+      if (!tabbedBlock) return;
 
-    function initValuesTabs() {
-      const tabButtons = document.querySelectorAll('.values-tabs-section__tab-item');
-      const tabContents = document.querySelectorAll('.values-tabs-section__tab-content');
+      const tabLinks = tabbedBlock.querySelectorAll('.tabbed__tabs-list-item');
+      const tabContents = tabbedBlock.querySelectorAll('.tabbed__content-container');
+      const tabDropdown = tabbedBlock.querySelector('#tabDropdown');
 
-      tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const tabId = this.getAttribute('data-tab-id');
-          
-          // Remove active class from all tabs and contents
-          tabButtons.forEach(btn => {
-            btn.classList.remove('active-tab');
-            btn.setAttribute('aria-selected', 'false');
-          });
-          tabContents.forEach(content => {
-            content.classList.remove('active-tab-content');
-          });
+      function activateTab(targetId) {
+        // Deactivate all links and content
+        tabLinks.forEach(link => link.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
 
-          // Add active class to clicked tab
-          this.classList.add('active-tab');
-          this.setAttribute('aria-selected', 'true');
+        // Activate the selected link
+        const activeLink = tabbedBlock.querySelector(`.tabbed__tabs-list-item[data-target="${targetId}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
 
-          // Show corresponding content
-          const targetContent = document.querySelector(`.values-tabs-section__tab-content[data-tab-id="${tabId}"]`);
-          if (targetContent) {
-            targetContent.classList.add('active-tab-content');
-          }
+        // Activate the selected content
+        const activeContent = tabbedBlock.querySelector(`#${targetId}`);
+        if (activeContent) {
+          activeContent.classList.add('active');
+        }
+
+        // Update dropdown selection
+        if (tabDropdown) {
+          tabDropdown.value = targetId;
+        }
+      }
+
+      // Event listener for tab links
+      tabLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('data-target');
+          activateTab(targetId);
         });
       });
+
+      // Event listener for dropdown
+      if (tabDropdown) {
+        tabDropdown.addEventListener('change', function() {
+          const targetId = this.value;
+          activateTab(targetId);
+        });
+      }
+
+      // Set initial active tab based on props (handled by Astro class:list)
+      // If no active tab is set in props, default to the first one
+      const initiallyActiveLink = tabbedBlock.querySelector('.tabbed__tabs-list-item.active');
+      if (!initiallyActiveLink && tabLinks.length > 0) {
+        activateTab(tabLinks[0].getAttribute('data-target'));
+      }
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initValuesTabs);
+      document.addEventListener('DOMContentLoaded', initTabbedComponent);
     } else {
-      initValuesTabs();
+      initTabbedComponent();
     }
   })();
 </script>
-

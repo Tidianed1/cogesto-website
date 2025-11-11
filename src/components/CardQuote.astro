@@ -1,5 +1,5 @@
 ---
-// src/components/VideoTextSection.astro
+// src/components/CardQuote.astro
 
 export interface Props {
   quote: string;
@@ -7,6 +7,7 @@ export interface Props {
   imageUrl: string;
   imageAlt: string;
   videoPosition?: 'left' | 'right';
+  backgroundColorClass?: string;
   backgroundImageUrl?: string;
 }
 
@@ -16,6 +17,7 @@ const {
   imageUrl,
   imageAlt,
   videoPosition = 'right',
+  backgroundColorClass = 'bg-primary-color', // Default to primary for this component
   backgroundImageUrl = '',
 } = Astro.props;
 
@@ -34,7 +36,7 @@ const backgroundStyle = backgroundImageUrl ? `background-image:url(${backgroundI
         <div class="module bg--large soft-lens--ends" style={backgroundStyle}>
             <div class="wrap">
                 <div class="col small-12">
-                    <div class="c-wm-video__wrapper bg-primary-color white">
+                    <div class:list={['c-wm-video__wrapper', backgroundColorClass, 'white']}>
                         <div class="c-wm-video__video-col">
                             <img class="img-overlay__image full-width ls-is-cached lazyloaded" data-src={imageUrl} alt={imageAlt} src={imageUrl}>
                         </div>
