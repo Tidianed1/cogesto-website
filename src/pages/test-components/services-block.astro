@@ -1,0 +1,57 @@
+--- 
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServicesBlock from '../../components/ServicesBlock.astro';
+import type { ServiceItem } from '../../components/ServicesBlock.astro';
+
+const dummyServices: ServiceItem[] = [
+  {
+    iconSrc: 'https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-search-1-128px.png?width=40&height=40&rmode=crop&rxy=0.5,0.5',
+    title: 'Assets Discovery',
+    description: 'Discover bankable opportunities, benchmark assets to identify target areas for growth and improve competitive position',
+    ctaText: 'See How it Works',
+    ctaHref: '/lens/lens-metals-and-mining-assets-discovery/',
+    ga4Tracking: '{"event":"component_click","type":"Services Block","title":"Assets Discovery","url":"/lens/lens-metals-and-mining-assets-discovery/"}',
+  },
+  {
+    iconSrc: 'https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-money-bag-dollar-128px.png?width=40&height=40&rmode=crop&rxy=0.5,0.5',
+    title: 'Assets Valuations',
+    description: 'Run post-tax financial metrics to understand the value of an asset. Use your own assumptions to run valuation models',
+    ctaText: 'See How it Works',
+    ctaHref: '/lens/lens-metals-and-mining-assets-valuations/',
+    ga4Tracking: '{"event":"component_click","type":"Services Block","title":"Assets Valuations","url":"/lens/lens-metals-and-mining-assets-valuations/"}',
+  },
+  {
+    iconSrc: 'https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-analytics-graph-lines-128px.png?width=40&height=40&rmode=crop&rxy=0.5,0.5',
+    title: 'Markets Forecast',
+    description: 'Comprehensive analysis of key drivers affecting the metals market. Access detailed long-term outlooks, pricing forecasts and key insights across the metals and mining value chain',
+    ctaText: 'See How it Works',
+    ctaHref: '/lens/lens-metals-and-mining-markets-forecast/',
+    ga4Tracking: '{"event":"component_click","type":"Services Block","title":"Markets Forecast","url":"/lens/lens-metals-and-mining-markets-forecast/"}',
+  },
+  {
+    iconSrc: 'https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-greek-building-128px.png?width=40&height=40&rmode=crop&rxy=0.5,0.5',
+    title: 'Markets Scenarios',
+    description: 'Compare key market drivers under different assumptions between Wood Mackenzie\'s base case and alternative energy transition scenarios',
+    ctaText: 'See How it Works',
+    ctaHref: '/lens/lens-metals-and-mining-market-scenarios/',
+    ga4Tracking: '{"event":"component_click","type":"Services Block","title":"Markets Scenarios","url":"/lens/lens-metals-and-mining-market-scenarios/"}',
+  },
+  {
+    iconSrc: 'https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-supply-chain-distributor-box-package-128px.png?width=40&height=40&rmode=crop&rxy=0.5,0.5',
+    title: 'Supply Chain',
+    description: 'Assess material flows from mines to smelters to refineries, and understand the risk associated with the location of assets across the value chain',
+    ctaText: 'See How it Works',
+    ctaHref: '/lens/lens-metals-and-mining-supply-chain/',
+    ga4Tracking: '{"event":"component_click","type":"Services Block","title":"Supply Chain","url":"/lens/lens-metals-and-mining-supply-chain/"}',
+  },
+];
+---
+
+<BaseLayout title="Services Block Test">
+  <main>
+    <ServicesBlock
+      title="Discover solutions that fit your needs"
+      services={dummyServices}
+    />
+  </main>
+</BaseLayout>

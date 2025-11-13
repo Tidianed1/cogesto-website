@@ -7,6 +7,14 @@ import NarrowBodyCopy from "../../components/NarrowBodyCopy.astro";
 import ValuesTabs from "../../components/ValuesTabs.astro";
 import CommoditySelector from "../../components/CommoditySelector.astro";
 import CenteredTextSection from "../../components/CenteredTextSection.astro";
+import ImageTextCard from "../../components/ImageTextCard.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import LeftTitledIntro from "../../components/LeftTitledIntro.astro";
+
+const breadcrumbItems = [
+  { text: "About Us", href: "/about/overview/" },
+  { text: "Our Values", href: "/about/our-values/" }
+];
 
 const faqItems = [
     {
@@ -293,6 +301,7 @@ const centeredTextData = {
     </script>
   </div>
   <main>
+    <Breadcrumbs items={breadcrumbItems} />
     <div class="body-copy-image" id="bodycopyimagecontainer">
       <div class="wrap body-copy-image__container">
         <BodyCopyImage
@@ -376,6 +385,40 @@ const centeredTextData = {
       content={centeredTextData.content}
       id={centeredTextData.id}
     />
+
+    <ImageTextCard
+      name="Gas, LNG & The Future of Energy Conference"
+      thumbnailUrl="https://www.woodmac.com/content/img/thumbnails/thumb-wm-logo.png"
+      uploadDate="2022-09-06"
+      imageUrl="https://www.woodmac.com/siteassets/article-images/gas-lng-the-future-of-energy-2024-epi-teaser-1920x1080.png?rmode=crop&rxy=0.5,0.5"
+      imageAlt="Gas, LNG & The Future of Energy Conference"
+      title="Gas, LNG &amp; The Future of Energy Conference"
+      buttonText="Register now"
+      buttonHref="/events/gas-lng-future-energy/"
+    >
+      <p>Join us from 2-3 June 2026 in London for expert industry insight on the challenges and opportunities for the sector.</p>
+    </ImageTextCard>
+
+    <ImageTextCard
+      name="Gas, LNG & The Future of Energy Conference"
+      thumbnailUrl="https://www.woodmac.com/content/img/thumbnails/thumb-wm-logo.png"
+      uploadDate="2022-09-06"
+      imageUrl="https://www.woodmac.com/siteassets/article-images/gas-lng-the-future-of-energy-2024-epi-teaser-1920x1080.png?rmode=crop&rxy=0.5,0.5"
+      imageAlt="Gas, LNG & The Future of Energy Conference"
+      title="Gas, LNG &amp; The Future of Energy Conference"
+      buttonText="Register now"
+      buttonHref="/events/gas-lng-future-energy/"
+      imagePosition="left"
+    >
+      <p>Join us from 2-3 June 2026 in London for expert industry insight on the challenges and opportunities for the sector.</p>
+    </ImageTextCard>
+
+    <LeftTitledIntro
+      title="Our purpose"
+      id="leftintrotext"
+    >
+      <p>Transforming the way we power our planet is the single biggest challenge facing business and government today. As the energy and materials revolution rapidly transforms industries and supply chains around the world, we provide the data and insights that power smart decisions.</p>
+    </LeftTitledIntro>
 
   </main>
 </BaseLayout>

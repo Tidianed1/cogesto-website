@@ -1,140 +1,109 @@
 ---
-// src/components/ServicesBlock.astro
-import ServicesCard from './ServicesCard.astro';
+import { randomUUID } from 'crypto';
 
-export interface Service {
-  iconUrl: string;
+export interface ServiceItem {
+  iconSrc: string;
   title: string;
   description: string;
-  href: string;
+  ctaText: string;
+  ctaHref: string;
+  ga4Tracking: string;
 }
 
 export interface Props {
   title: string;
-  summaryDescription: string;
-  services: Service[];
+  services: ServiceItem[];
 }
 
-const { title, summaryDescription, services } = Astro.props;
+const { title, services } = Astro.props;
+
+// Augment services with unique IDs for accordion controls
+const servicesWithIds = services.map(service => ({
+  ...service,
+  accordionId: randomUUID(),
+}));
 ---
 
 <div class="services-block" id="services-block">
-    <div class="wrap">
-            <div class="wrap services-block__summary">
-                    <div class="services-block__title-container col small-12 large-6 soft--double-right--large">
-                        <h2 class="peta services-block__title">
-                            {title}
-                        </h2>
-                    </div>
-
-                    <div class="col small-12 large-6">
-                        <div class="editor services-block__description" set:html={summaryDescription}></div>
-                    </div>
-            </div>
-        <div class="wrap">
-            <div class="services-card-container">
-                {services.map((service) => (
-                    <ServicesCard
-                        iconUrl={service.iconUrl}
-                        title={service.title}
-                        description={service.description}
-                        href={service.href}
-                    />
-                ))}
-            </div>
-
-            <div class="services-accordion-container">
-                <div class="c-accordionblock__wrapper relative push--bottom">
-                    <div class="c-accordionblock__acordion__section">
-                        <div class="services-accordionblock__inner">
-                            <div class="col js-accordion services-block__accordion-mobile">
-                                {services.map((service, index) => (
-                                    <div class="services-accordion__wrapper">
-                                        <div class="services-accordion__item-title">
-                                            <img class="services-accordion__icon" src={service.iconUrl} alt={`${service.title} icon`}>
-                                            <h3 class="small-12">
-                                                <button
-                                                    aria-expanded="false"
-                                                    class="services-accordionblock__trigger js-accordion__trigger services-accordionblock__item__title"
-                                                    aria-controls={`accordion-section-${service.id || index}`}
-                                                    id={`accordion-button--${service.id || index}`}
-                                                >
-                                                    {service.title}
-                                                </button>
-                                            </h3>
-                                        </div>
-
-                                        <div class="c-accordion__panel" id={`accordion-section-${service.id || index}`} role="region" aria-labelledby={`accordion-button--${service.id || index}`}>
-                                            <div class="c-accordionblock__item" set:html={service.description}></div>
-
-                                            <div class="services-accordion__cta">
-                                                <a class="services-accordion__link link-icon--arrow" href={service.href}>
-                                                    Learn more
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="wrap">
+    <div class="wrap services-block__summary">
+      <div class="services-block__title-container col small-12 large-6 soft--double-right--large">
+        <h2 class="peta services-block__title">
+          {title}
+        </h2>
+      </div>
     </div>
+    <div class="wrap">
+      <!-- Desktop: Card Grid -->
+      <div class="services-card-container services-card-container-grid show-for-medium-up">
+        {servicesWithIds.map(service => (
+          <div class="services-card">
+            <img class="push--bottom services-card__icon" src={service.iconSrc} alt="" width="40" height="40" />
+            <div class="services-card__copy">
+              <div class="services-card__title">
+                <h3 class="kilo">{service.title}</h3>
+              </div>
+              <p>{service.description}</p>
+            </div>
+            <div class="services-card__cta">
+              <span class="services-card__link gamma">
+                {service.ctaText}
+                <img src="/img/icons/icon-arrow--dark-blue.svg" alt="arrow" class="ml-2 inline-block" />
+              </span>
+            </div>
+            <a href={service.ctaHref} ga4-component-tracking={service.ga4Tracking}></a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Mobile: Accordion -->
+      <div class="services-accordion-container show-for-small-only">
+        <div class="c-accordionblock__wrapper relative push--bottom">
+          <div class="c-accordionblock__acordion__section">
+            <div class="services-accordionblock__inner">
+              <div class="col js-accordion services-block__accordion-mobile">
+                {servicesWithIds.map(service => (
+                  <div class="services-accordion__wrapper">
+                    <div class="services-accordion__item-title">
+                      <img class="services-accordion__icon" src={service.iconSrc} alt="" width="40" height="40" />
+                      <h3 class="small-12">
+                        <button
+                          aria-expanded="false"
+                          class="services-accordionblock__trigger js-accordion__trigger services-accordionblock__item__title"
+                          aria-controls={`accordion-section-${service.accordionId}`}
+                          id={`accordion-button-${service.accordionId}`}
+                        >
+                          {service.title}
+                        </button>
+                      </h3>
+                    </div>
+                    <div
+                      class="c-accordion__panel"
+                      id={`accordion-section-${service.accordionId}`}
+                      role="region"
+                      aria-labelledby={`accordion-button-${service.accordionId}`}
+                    >
+                      <div class="c-accordionblock__item">
+                        {service.description}
+                      </div>
+                      <div class="services-accordion__cta">
+                        <a
+                          class="services-accordion__link"
+                          href={service.ctaHref}
+                          ga4-component-tracking={service.ga4Tracking}
+                        >
+                          {service.ctaText}
+                          <img src="/img/icons/icon-arrow--dark-blue.svg" alt="arrow" class="ml-2 inline-block" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<script is:inline>
-  // Services Block Accordion Functionality for Mobile
-  (function() {
-    'use strict';
-
-    function initServicesAccordion() {
-      const accordionContainers = document.querySelectorAll('.services-block__accordion-mobile');
-
-      accordionContainers.forEach(container => {
-        const triggers = container.querySelectorAll('.js-accordion__trigger');
-
-        triggers.forEach(trigger => {
-          trigger.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            const targetId = this.getAttribute('aria-controls');
-            const targetPanel = document.getElementById(targetId);
-
-            if (isExpanded) {
-              this.setAttribute('aria-expanded', 'false');
-              if (targetPanel) {
-                targetPanel.style.maxHeight = null;
-                targetPanel.classList.remove('is-open');
-              }
-            } else {
-              // Close other open accordions in the same container
-              container.querySelectorAll('.js-accordion__trigger[aria-expanded="true"]').forEach(otherTrigger => {
-                if (otherTrigger !== this) {
-                  otherTrigger.setAttribute('aria-expanded', 'false');
-                  const otherPanel = document.getElementById(otherTrigger.getAttribute('aria-controls'));
-                  if (otherPanel) {
-                    otherPanel.style.maxHeight = null;
-                    otherPanel.classList.remove('is-open');
-                  }
-                }
-              });
-
-              this.setAttribute('aria-expanded', 'true');
-              if (targetPanel) {
-                targetPanel.style.maxHeight = targetPanel.scrollHeight + "px";
-                targetPanel.classList.add('is-open');
-              }
-            }
-          });
-        });
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initServicesAccordion);
-    } else {
-      initServicesAccordion();
-    }
-  })();
-</script>

@@ -133,6 +133,11 @@ The `Accordion.astro` component is currently not interactive despite implementin
 
 ## 5. Technical Debt / To-Do
 
+*   **`NewHeader.astro` Instability**: The `NewHeader.astro` component is currently under development and is not stable. The mega menu and mobile menu interactivity are not yet functional.
 *   **Placeholder Icons**: The icons `icon-arrow--dark-blue.svg` and `icon-plus-blue.svg` in `public/img/icons/` are temporary placeholders. They need to be replaced with the correct SVG assets.
 *   **Accordion Arrow CSS**: CSS for an arrow icon was added to `src/styles/styles.css` and then requested to be reverted. The user will handle the removal of this CSS to keep the component stable for now.
 *   **CommoditySelector Stability**: The `CommoditySelector.astro` component is complex due to its reliance on the third-party Swiper.js library. It is not currently considered stable. We will revisit this component later to stabilize its functionality and ensure it perfectly matches the user's expectations.
+*   **Build Error: `TypeError` in `ValuesTabs`**: The build is failing with `Cannot read properties of undefined (reading 'find')` when rendering the `ValuesTabs` component on the `/about/our-values` page. This indicates an issue with the data being passed to the component.
+*   **Build Warning: PostCSS `@import` order**: A PostCSS warning `[@import must precede all other statements]` is present for `swiper/swiper-bundle.css` in `src/styles/styles.css`. This needs to be moved to the top of the file.
+*   **`ServicesBlock.astro` Layout Issue**: The component is only rendering the mobile (accordion) view, even on desktop screens. The responsive visibility classes (`show-for-medium-up` and `show-for-small-only`) are not behaving as expected. This needs to be debugged.
+*   **`HeroService.astro` Refinement**: The initial build of the services hero component is not a pixel-perfect match to the reference design. It requires further styling adjustments to achieve visual parity.

@@ -11,7 +11,7 @@ import { fr } from '../../content/fr';
 const subNavItems = [
   { text: fr.nav.about, href: '/about/overview/' },
   { text: fr.nav.ourStory, href: '/about/our-story/' },
-  { text: fr.nav.ourPeople, href: '/about/our-people/', isActive: true },
+  { text: fr.nav.ourPeople, href: '/about/our-people/' },
   { text: fr.nav.ourValues, href: '/about/our-values/' },
   { text: fr.nav.ourCulture, href: '/about/our-culture/' },
   { text: fr.nav.ourCustomers, href: '/about/our-customers/' },
@@ -224,7 +224,7 @@ const leadershipTeam = [
     </div>
 
     <!-- Sub-navigation -->
-    <SubNavigation items={subNavItems} />
+    <SubNavigation items={subNavItems} currentPage={Astro.url.pathname} />
 
     <!-- Quote Section -->
     <QuoteSection

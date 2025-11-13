@@ -128,30 +128,27 @@ export const fr = {
     values: [
       {
         id: "inclusif",
-        label: "Inclusif",
+        title: "Inclusif",
         description: "Nous célébrons la diversité et embrassons chaque individu. Notre culture inclusive garantit que chacun peut apporter son authenticité au travail."
       },
       {
         id: "confiance",
-        label: "Confiance",
+        title: "Confiance",
         description: "Nous construisons la confiance grâce à la transparence, l'honnêteté et l'intégrité dans toutes nos interactions avec nos collègues, clients et partenaires."
       },
       {
         id: "engagement-client",
-        label: "Engagement client",
-        content: [
-          "Nous plaçons nos clients au cœur de nos décisions",
-          "Lorsque nos clients réussissent, nous réussissons. Notre objectif est de leur fournir la meilleure expérience et le soutien stratégique dont ils ont besoin pour prendre des décisions critiques."
-        ]
+        title: "Engagement client",
+        content: "Nous plaçons nos clients au cœur de nos décisions</p><p>Lorsque nos clients réussissent, nous réussissons. Notre objectif est de leur fournir la meilleure expérience et le soutien stratégique dont ils ont besoin pour prendre des décisions critiques."
       },
       {
         id: "orientation-future",
-        label: "Orientation future",
+        title: "Orientation future",
         description: "Nous anticipons les défis et opportunités de demain, innovant continuellement pour rester en avance et fournir de la valeur dans un monde en constante évolution."
       },
       {
         id: "curiosite",
-        label: "Curiosité",
+        title: "Curiosité",
         description: "Nous posons des questions, remettons en question les hypothèses et cherchons une compréhension plus approfondie. Notre curiosité nous pousse à découvrir des insights qui comptent."
       }
     ],

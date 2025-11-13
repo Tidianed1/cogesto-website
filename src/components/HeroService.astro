@@ -1,0 +1,71 @@
+---
+import { randomUUID } from 'crypto';
+
+export interface Props {
+  title: string;
+  introduction: string;
+  backgroundImageUrl: string;
+  ctaButtonText: string;
+  modalIframeUrl: string;
+  templateStyle?: 'medium' | 'small' | 'large';
+  templatePosition?: 'center' | 'left' | 'right';
+  backgroundColorClass?: string;
+}
+
+const {
+  title,
+  introduction,
+  backgroundImageUrl,
+  ctaButtonText,
+  modalIframeUrl,
+  templateStyle = 'medium',
+  templatePosition = 'center',
+  backgroundColorClass = 'bg-secondary-color',
+} = Astro.props;
+
+const modalId = randomUUID();
+---
+
+<div id="hero-block" class="hero-block">
+  <div class={`hero-multi-template__container template_style_${templateStyle} template_position_${templatePosition} ${backgroundColorClass}`}>
+    <div class="wrap relative hero-multi-template__section_flex_container">
+      <div class="hero-multi-template__flex_image_container justify-center">
+        <div class="hero-multi-template__summary col">
+          <h1 class="hero-multi-template__title">{title}</h1>
+          <p class="hero-multi-template__introduction">
+            {introduction}
+          </p>
+          <div class="hero-multi-template__cta_button_group btn--contact--form">
+            <div class="full-height" id="form">
+              <div class={`js-modal modal`} data-modal-toggler={`js-modal--${modalId}`}>
+                <div class={`modal__close js-modal-close js-modal--${modalId}`} aria-label="close"></div>
+                <div class="modal__inner primary-color" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby={`modal-label--${modalId}`} aria-describedby={`modal-description--${modalId}`} aria-hidden="true">
+                  <svg role="button" aria-label="close" tabindex="0" class={`modal__close-btn js-modal--${modalId}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path={`url(#clip0_${modalId})`}>
+                      <path d="M5.5 5.5L18.5 18.5" stroke="#010063" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M18.5 5.5L5.5 18.5" stroke="#010063" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                    <defs>
+                      <clipPath id={`clip0_${modalId}`}>
+                        <rect width="16" height="16" fill="white" transform="translate(4 4)"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <div class="modal__scroll">
+                    <div>
+                      <iframe src={modalIframeUrl} width="100%" height="auto" type="text/html" frameborder="0" allowtransparency="true" style="border: 0px; overflow: hidden; height: 0px;" class="u-shadow pardot-frame" scrolling="no" id="iFrameResizer0"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button id={modalId} class={`js-modal--${modalId} btn btn--primary btn--light`} data-cta-location="ctaform" data-cta-type="form">{ctaButtonText}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-multi-template__image" style={`background-image: url(${backgroundImageUrl}); background-position:50% 50%;`}>
+        <div class="hero-multi-template__shape"></div>
+      </div>
+    </div>
+  </div>
+</div>

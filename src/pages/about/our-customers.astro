@@ -13,7 +13,7 @@ const subNavItems = [
   { text: fr.nav.ourPeople, href: '/about/our-people/' },
   { text: fr.nav.ourValues, href: '/about/our-values/' },
   { text: fr.nav.ourCulture, href: '/about/our-culture/' },
-  { text: fr.nav.ourCustomers, href: '/about/our-customers/', isActive: true },
+  { text: fr.nav.ourCustomers, href: '/about/our-customers/' },
   { text: fr.nav.ourLocations, href: '/about/our-locations/' },
 ];
 
@@ -124,7 +124,7 @@ const subNavItems = [
     </div>
 
     <!-- Sub-navigation -->
-    <SubNavigation items={subNavItems} />
+    <SubNavigation items={subNavItems} currentPage={Astro.url.pathname} />
 
     <!-- Customer Testimonials -->
     {fr.ourCustomers.testimonials.map((testimonial, index) => (

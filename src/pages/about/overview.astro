@@ -1,16 +1,18 @@
 ---
-// About page - Overview (French)
+// About page - Overview (French) - REFACTORED
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewHeader from '../../components/NewHeader.astro';
 import NewFooter from '../../components/NewFooter.astro';
 import AboutHero from '../../components/AboutHero.astro';
 import SubNavigation from '../../components/SubNavigation.astro';
 import StatsSection from '../../components/StatsSection.astro';
-import TwoColumnContent from '../../components/TwoColumnContent.astro';
+import BodyCopyImage from '../../components/BodyCopyImage.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { fr } from '../../content/fr';
 
 // Sub-navigation items (French)
 const subNavItems = [
-  { text: fr.nav.about, href: '/about/overview/', isActive: true },
+  { text: fr.nav.about, href: '/about/overview/' },
   { text: fr.nav.ourStory, href: '/about/our-story/' },
   { text: fr.nav.ourPeople, href: '/about/our-people/' },
   { text: fr.nav.ourValues, href: '/about/our-values/' },
@@ -19,122 +21,43 @@ const subNavItems = [
   { text: fr.nav.ourLocations, href: '/about/our-locations/' },
 ];
 
+// Breadcrumb items
+const breadcrumbItems = [
+  { text: "Home", href: "/" },
+  { text: "About Us", href: "/about/overview/" },
+];
+
 // Stats data (French)
 const statsData = fr.about.stats.stats;
 ---
 
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>À propos - Cogesto Consulting</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
+<BaseLayout title="À propos - Cogesto Consulting">
+  <div slot="head">
     <link rel="stylesheet" href="/styles/screen.css" media="screen">
     <link rel="stylesheet" href="/styles/print.css" media="print">
     <link rel="stylesheet" href="/styles/inline.css">
-  </head>
-  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
+  </div>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<div class="skip">
-    <a class="btn btn-skip" tabindex="0" href="#content">Passer au contenu principal</a>
-</div>
-
-<header id="menu-header">
+  <header id="menu-header">
     <NewHeader />
-</header>
+  </header>
 
-<div id="accounts" class="nav-accounts">
-    <div class="wrap">
-        <div class="flex__equal-height">
-            <div class="col small-12 medium-9 large-6 editor nav-accounts-intro">
-                <div>
-<h2>Access our research platforms</h2>
-<p>Sign-in to our platforms to access our extensive research, our latest insight, data and analytics and to connect to our industry experts.</p></div>
-            </div>
+  <main class="content start" id="content">
+    
+    <Breadcrumbs items={breadcrumbItems} />
 
-            <ul class="col small-12 pull-4--medium medium-9 pull-2--large large-4 nav-accounts-list">
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fidentity.woodmac.com%2fsign-in">My WoodMac</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens.woodmac.com%2f">Wood Mackenzie Lens®</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens-direct.woodmac.com%2f">Lens Direct</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fpower-and-renewables.woodmac.com%2f">Power and Renewables</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="/products/trading-analytics/login/">Trading Analytics</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://www.poweradvocate.com/login.jsp">Supply Chain Analytics platform (previously PowerAdvocate)</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2faccount.woodmac.com%2fdetails">Account and preferences management</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="/products/training/">Product training</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://lens-help.woodmac.com/en/">Help and support</a>
-        </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div id="fake-bg" class="nav-primary__fake-bg js-navigation__fake-bg mega-menu"></div>
-<div id="search-modal" class="search-overlay">
-    <div class="wrap">
-        <form id="search__form" class="col small-12 large-10 push-1--large pull-1--large global-search" method="get" action="/search/">
-            <label for="name" class="visuallyhidden">
-                Search label
-            </label>
-            <input type="text" id="q" name="q" class="global-search__input" placeholder="Search the site..." autocomplete="off" role="combobox" aria-haspopup="true" aria-expanded="false" aria-controls="autoComplete_list" aria-autocomplete="both">
-
-            <button type="submit" class="global-search__btn">
-                <div class="search-loader hide"></div>
-                <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g id="Frame" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#clip0_982_19)"><title>Search</title><path id="Vector" d="M.64 7.04a6.4 6.4 0 1 0 12.8 0 6.4 6.4 0 0 0-12.8 0Z"></path><path id="Vector_2" d="m15.36 15.36-3.795-3.795"></path></g><defs><clipPath id="clip0_982_19"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
-                <span class="visuallyhidden">
-                    Search
-                </span>
-            </button>
-        </form>
-    </div>
-</div>
-
-<main class="content start" id="content">
-  <div class="about-page-wrapper">
     <!-- Hero Section -->
-    <div id="about-hero-cobalt" class="hero-homepage-cobalt-template__container hero-block">
-      <div class="hero-homepage-cobalt-template__section_flex_container">
-        <div class="hero-homepage-cobalt-template__summary">
-          <h1 class="hero-homepage-cobalt__title">{fr.about.hero.title}</h1>
-          <div class="hero-homepage-cobalt__introduction">
-            <p>{fr.about.hero.description}</p>
-          </div>
-          <div>
-            <a href="/about/contact-us/" class="btn btn--primary hero-homepage__button" data-cta-location="abouthero" data-cta-type="link" role="button">
-              {fr.about.hero.cta}
-              <span class="hero-button__arrow">→</span>
-            </a>
-          </div>
-        </div>
-        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/53edb0cb75fb4102beca96c21babb216/woodmac_background_website_v2-1.jpg?w=1800&h=900&mode=crop&center=0.5,0.5); background-position: 50% 50%;"></div>
-      </div>
-    </div>
+    <AboutHero
+      title={fr.about.hero.title}
+      description={fr.about.hero.description}
+      imageUrl="https://www.woodmac.com/contentassets/53edb0cb75fb4102beca96c21babb216/woodmac_background_website_v2-1.jpg?w=1800&h=900&mode=crop&center=0.5,0.5"
+      imageAlt="Équipe Cogesto en réunion"
+      ctaText={fr.about.hero.cta}
+      ctaHref="/about/contact-us/"
+    />
 
     <!-- Sub-navigation -->
-    <SubNavigation items={subNavItems} />
+    <SubNavigation items={subNavItems} currentPage={Astro.url.pathname} />
 
     <!-- Stats Section -->
     <StatsSection 
@@ -143,82 +66,45 @@ const statsData = fr.about.stats.stats;
     />
 
     <!-- Who we are Section -->
-    <TwoColumnContent
+    <BodyCopyImage
       title={fr.about.whoWeAre.title}
-      paragraphs={fr.about.whoWeAre.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/example-image.jpg",
-        alt: "Équipe Cogesto Consulting"
-      }}
-      imagePosition="left"
-      ctaButtons={[
-        { text: fr.about.whoWeAre.cta, href: "/about/our-story/", variant: "primary" }
-      ]}
+      description={fr.about.whoWeAre.paragraphs.join('<br><br>')}
+      imageUrl="https://www.woodmac.com/contentassets/example-image.jpg"
+      imageAlt="Équipe Cogesto Consulting"
+      reverseLayout={true}
+      buttonText={fr.about.whoWeAre.cta}
+      buttonHref="/about/our-story/"
+      buttonClass="btn--primary"
     />
 
     <!-- Why Cogesto Section -->
-    <TwoColumnContent
+    <BodyCopyImage
       title={fr.about.whyCogesto.title}
-      paragraphs={fr.about.whyCogesto.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/example-image-2.jpg",
-        alt: "Équipe diversifiée de professionnels collaborant"
-      }}
-      imagePosition="right"
-      ctaButtons={[
-        { text: fr.about.whyCogesto.cta, href: "/about/our-customers/", variant: "primary" }
-      ]}
+      description={fr.about.whyCogesto.paragraphs.join('<br><br>')}
+      imageUrl="https://www.woodmac.com/contentassets/example-image-2.jpg"
+      imageAlt="Équipe diversifiée de professionnels collaborant"
+      reverseLayout={false}
+      buttonText={fr.about.whyCogesto.cta}
+      buttonHref="/about/our-customers/"
+      buttonClass="btn--primary"
     />
 
     <!-- Our culture Section -->
-    <TwoColumnContent
+    <BodyCopyImage
       title={fr.about.ourCulture.title}
-      paragraphs={fr.about.ourCulture.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/example-image-3.jpg",
-        alt: "Membres de l'équipe collaborant en réunion"
-      }}
-      imagePosition="left"
-      ctaButtons={[
-        { text: fr.cta.meetOurPeople, href: "/about/our-people/", variant: "primary" },
-        { text: fr.cta.ourValues, href: "/about/our-values/", variant: "secondary" }
-      ]}
+      description={fr.about.ourCulture.paragraphs.join('<br><br>')}
+      imageUrl="https://www.woodmac.com/contentassets/example-image-3.jpg"
+      imageAlt="Membres de l'équipe collaborant en réunion"
+      reverseLayout={true}
+      buttonText={fr.cta.meetOurPeople}
+      buttonHref="/about/our-people/"
+      buttonClass="btn--primary"
     />
 
-    <!-- Transforming the way we support businesses Section -->
-    <TwoColumnContent
-      title={fr.about.transforming.title}
-      paragraphs={fr.about.transforming.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/example-image-4.jpg",
-        alt: "Transformation des entreprises"
-      }}
-      imagePosition="left"
-      backgroundColor="white"
-    />
-  </div>
-</main>
+  </main>
 
-<footer>
-  <NewFooter />
-</footer>
+  <footer>
+    <NewFooter />
+  </footer>
 
-<!-- Use shared navigation script for consistency -->
-<script src="/js/woodmac.scripts.js" defer></script>
-
-<style>
-  /* About page wrapper */
-  .about-page-wrapper {
-    width: 100%;
-  }
-
-  /* Ensure main content has no gap with nav */
-  main.content.start {
-    margin-top: 0;
-    padding-top: 0;
-  }
-</style>
-
-</body>
-</html>
-
+</BaseLayout>

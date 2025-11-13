@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogArticleShowcase from '../../components/BlogArticleShowcase.astro';
+import type { FilterGroup, ArticleCard } from '../../components/BlogArticleShowcase.astro';
+
+const dummyFilters: FilterGroup[] = [
+  {
+    name: 'Commodity',
+    id: 'commodity',
+    items: [
+      { id: 'c3457', name: 'Coal', value: 'c3457' },
+      { id: 'c3460', name: 'Metals', value: 'c3460', checked: true },
+      { id: 'c3471', name: 'Oil and Gas', value: 'c3471' },
+    ],
+  },
+  {
+    name: 'Location',
+    id: 'location',
+    items: [
+      { id: 'c450', name: 'Global', value: 'c450' },
+      { id: 'dm289', name: 'Africa', value: 'dm289' },
+    ],
+  },
+];
+
+const dummyArticles: ArticleCard[] = [
+  {
+    href: 'https://www.woodmac.com/podcasts/the-energy-gang/how-can-america-accelerate-the-build-of-next-grid/',
+    imgSrc: 'https://www.woodmac.com/siteassets/podcasts/wmsite_eg_800x450.png?width=500&height=300&rmode=crop&rxy=0.5,0.5&w=500&h=300',
+    imgAlt: 'Card image',
+    badgeText: 'Opinion',
+    time: '4 November 2025',
+    title: 'Speed to power: how can America accelerate the build-out of the next grid?',
+    isPodcast: true,
+  },
+  {
+    href: 'https://www.woodmac.com/blogs/energy-pulse/impact-of-chinas-new-critical-mineral-export-controls/',
+    imgSrc: 'https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_micro/micro_metalsandmining_thinkstockphotos-180698844.jpg?width=500&height=300&rmode=crop&rxy=0.5,0.5&w=500&h=300',
+    imgAlt: 'In an escalation of the trade dispute between China and the US, Beijing last week moved to tighten export controls for rare earths and other critical minerals.',
+    badgeText: 'Opinion',
+    time: '14 October 2025',
+    readTime: '8 minute read',
+    title: 'The impact of China’s new critical mineral export controls',
+    isPodcast: false,
+  },
+  {
+    href: 'https://www.woodmac.com/podcasts/the-interchange-recharged/gas-prices-are-rising-and-the-demand-for-renewable-energy-is-growing/',
+    imgSrc: 'https://www.woodmac.com/siteassets/podcasts/wmsite_ir_800x450.png?width=500&height=300&rmode=crop&rxy=0.5,0.5&w=500&h=300',
+    imgAlt: 'Card image',
+    badgeText: 'Opinion',
+    time: '11 September 2025',
+    title: 'Gas prices are rising and the demand for renewable energy is growing',
+    isPodcast: true,
+  },
+];
+---
+
+<BaseLayout title="Blog Article Showcase Test">
+  <main>
+    <BlogArticleShowcase
+      title="Read more about electric vehicles"
+      filters={dummyFilters}
+      articles={dummyArticles}
+      currentViewText="Viewing 1 - 3 of 278"
+      loadMoreButtonText="Load more"
+    />
+  </main>
+</BaseLayout>

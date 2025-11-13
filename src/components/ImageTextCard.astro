@@ -1,0 +1,68 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  name: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  imageUrl: string;
+  imageAlt: string;
+  title: string;
+  buttonText: string;
+  buttonHref: string;
+  imagePosition?: 'left' | 'right';
+}
+
+const {
+  name,
+  thumbnailUrl,
+  uploadDate,
+  imageUrl,
+  imageAlt,
+  title,
+  buttonText,
+  buttonHref,
+  imagePosition = 'right',
+  ...rest
+} = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": name,
+  "thumbnailUrl": thumbnailUrl,
+  "uploadDate": uploadDate
+})} />
+
+<div
+  class:list={[
+    "bg--small c-wm-video c-wm-video--50-50",
+    { [`c-wm-video--video-${imagePosition}`]: imagePosition },
+  ]}
+  id="video"
+  {...rest}
+>
+  <div class="bg--medium">
+    <div class="module bg--large soft-lens--ends no-margin-upper">
+      <div class="wrap">
+        <div class="col small-12">
+          <div class="c-wm-video__wrapper bg-secondary-color white">
+            <div class="c-wm-video__video-col">
+              <img class="img-overlay__image full-width lazyloaded" src={imageUrl} alt={imageAlt}>
+            </div>
+            <div class="c-wm-video__info-col">
+              <h2 class="text-left giga push--bottom title-underline soft--bottom title-underline--white" set:html={title}></h2>
+              <div>
+                <div class="editor white">
+                  <slot />
+                </div>
+                <a class="btn btn--primary push--top btn--light" href={buttonHref}>{buttonText}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

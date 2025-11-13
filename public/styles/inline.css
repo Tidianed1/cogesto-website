@@ -81,49 +81,60 @@ header#menu-header {
     .nav-utility--desktop {                                                             
         display: none !important;                                                       
     }                                                                                   
+}                                                                                       
+                                                                                        
+/*                                                                                      
+ * FIX 3: BODY COPY IMAGE LAYOUT                                                        
+ * --------------------------------------------------------------------------           
+ * The global stylesheets (screen.css, styles.css) have conflicting                     
+ * grid/flexbox systems. These rules are added here to override all other               
+ * rules and force the correct two-column layout for this component.                    
+ */                                                                                     
+.body-copy-image__content-container.flexbox {                                           
+    display: -webkit-box;                                                               
+    display: -webkit-flex;                                                              
+    display: -moz-box;                                                                  
+    display: -ms-flexbox;                                                               
+    display: flex !important;                                                           
+}                                                                                       
+                                                                                        
+.body-copy-image__content-container.align-start {                                       
+    -webkit-box-align: start;                                                           
+    -webkit-align-items: flex-start;                                                    
+    -moz-box-align: start;                                                              
+    -ms-flex-align: start;                                                              
+    align-items: flex-start !important;                                                 
+}                                                                                       
+                                                                                        
+.body-copy-image__content-container.reverse {                                           
+    -webkit-box-orient: horizontal;                                                     
+    -webkit-box-direction: reverse;                                                     
+    -webkit-flex-direction: row-reverse;                                                
+    -moz-box-orient: horizontal;                                                        
+    -moz-box-direction: reverse;                                                        
+    -ms-flex-direction: row-reverse;                                                    
+    flex-direction: row-reverse !important;                                             
+}                                                                                       
+                                                                                        
+@media (min-width: 48em) {                                                              
+    .body-copy-image__content-container .medium-6 {                                     
+        width: 50% !important;                                                          
+    }                                                                                   
+}                                                                                       
+                                                                                        
+@media (max-width: 47.99em) {                                                           
+    .body-copy-image__content-container {                                               
+      flex-direction: column!important;                                                 
+    }                                                                                   
 }
 
 /*
- * FIX 3: BODY COPY IMAGE LAYOUT
+ * FIX 4: STICKY SUB-NAVIGATION
  * --------------------------------------------------------------------------
- * The global stylesheets (screen.css, styles.css) have conflicting
- * grid/flexbox systems. These rules are added here to override all other
- * rules and force the correct two-column layout for this component.
+ * The <main class="content"> tag has an 'overflow: clip' rule in the base
+ * stylesheet which prevents position: sticky on child elements. This
+ * override ensures the main content area can have sticky elements.
  */
-.body-copy-image__content-container.flexbox {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex !important;
-}
-
-.body-copy-image__content-container.align-start {
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -moz-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start !important;
-}
-
-.body-copy-image__content-container.reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -webkit-flex-direction: row-reverse;
-    -moz-box-orient: horizontal;
-    -moz-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse !important;
-}
-
-@media (min-width: 48em) {
-    .body-copy-image__content-container .medium-6 {
-        width: 50% !important;
-    }
-}
-
-@media (max-width: 47.99em) {
-    .body-copy-image__content-container {
-      flex-direction: column!important;
-    }
+main.content.start {
+    overflow: visible !important;
 }

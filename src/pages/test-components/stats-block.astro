@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsBlock from '../../components/StatsBlock.astro';
+import type { StatItem } from '../../components/StatsBlock.astro';
+
+const dummyStats: StatItem[] = [
+  {
+    heading: 'Cutting edge AI',
+    text: 'Bringing the latest AI technology to proprietary WoodMac data and analysis',
+  },
+  {
+    heading: 'Industry experts',
+    text: 'Supported by the leading industry experts to ensure accuracy and shape insights',
+  },
+  {
+    heading: 'Proprietary approach',
+    text: 'Wood Mackenzie application of large language models, balanced with existing trusted technologies',
+  },
+];
+---
+
+<BaseLayout title="Stats Block Test">
+  <main>
+    <StatsBlock
+      title="The future of energy data and analytics"
+      description="Synoptic: The best of AI and human intelligence connected. Allowing you to react to changing macro-economic conditions, customer needs and market opportunities at pace."
+      stats={dummyStats}
+      backgroundColorClass="bg-core-branding-cobalt"
+      id="in-page-stats-container"
+    />
+    <br><br><br>
+    <StatsBlock
+      title="Another Stats Block Example"
+      description="This is a second example to show flexibility."
+      stats={[
+        { heading: 'Stat 1', text: 'Description for stat 1' },
+        { heading: 'Stat 2', text: 'Description for stat 2' },
+      ]}
+      backgroundColorClass="bg-white"
+      id="another-stats-block"
+    />
+  </main>
+</BaseLayout>

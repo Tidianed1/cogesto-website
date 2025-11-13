@@ -1,4 +1,5 @@
-@charset "UTF-8";*,:after,:before {
+@charset "UTF-8";
+@import 'swiper/swiper-bundle.css';*,:after,:before {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box

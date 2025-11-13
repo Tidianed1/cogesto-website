@@ -1,0 +1,39 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface BreadcrumbItem {
+  text: string;
+  href: string;
+}
+
+interface Props extends HTMLAttributes<'div'> {
+  items: BreadcrumbItem[];
+  baseUrl?: string;
+}
+
+const { items, baseUrl = 'https://www.woodmac.com', ...rest } = Astro.props;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.text,
+    "item": `${baseUrl}${item.href}`
+  }))
+};
+---
+
+<div class="breadcrumbs" {...rest}>
+  <div class="wrap">
+    <ol>
+      {items.map(item => (
+        <li>
+          <a href={item.href} data-text={item.text}>{item.text}</a>
+        </li>
+      ))}
+    </ol>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</div>

@@ -1,0 +1,47 @@
+---
+export interface StatItem {
+  heading: string;
+  text: string;
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  stats: StatItem[];
+  backgroundColorClass?: string;
+  id?: string;
+}
+
+const {
+  title,
+  description,
+  stats,
+  backgroundColorClass = 'bg-core-branding-cobalt',
+  id = 'in-page-stats-container',
+} = Astro.props;
+---
+
+<div class={`stats-block-container ${backgroundColorClass}`} id={id}>
+  <div class="stats-block__content wrap">
+    <div class="stats-block__titles-container large-12">
+      <h2 class="stats-block__title light-100">
+        {title}
+      </h2>
+      <p class="stats-block__description light-100">
+        {description}
+      </p>
+    </div>
+    <div class="stats-block__stats-container-row large-12">
+      {stats.map((item) => (
+        <div class="stats-block__stats-item-row border-light-100">
+          <h3 class="stats-block__stats-item-numbers light-100">
+            {item.heading}
+          </h3>
+          <p class="stats-block__stats-item-text light-100">
+            {item.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
