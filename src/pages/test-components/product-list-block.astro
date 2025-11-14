@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductListBlock from '../../components/ProductListBlock.astro';
+
+const products = [
+    {
+        href: "/lens/lens-energy-transition-scenarios/",
+        name: "Lens Energy Transition Scenarios",
+        description: "Get the data and analysis to chart your strategic course through the transformation of the energy landscape with Lens Energy Transition Scenarios."
+    },
+    {
+        href: "/products/energy-transition/ev-battery-supply-chain-service/",
+        name: "Electric Vehicle & Battery Supply Chain Service",
+        description: "Leverage our industry-leading expertise to boost profitability and reach your net zero goals"
+    },
+    {
+        href: "/products/energy-transition/emissions-benchmarking-tool/",
+        name: "Emissions Benchmarking Tool",
+        description: "Inform strategic decisions regarding emissions risk management via competitive benchmarking, portfolio analysis and economic impact assessment."
+    },
+    {
+        href: "/products/energy-transition/energy-transition-service/",
+        name: "Energy Transition Service",
+        description: "Quantify the pace and change of the energy transition across all commodities, markets, technologies and segments."
+    },
+    {
+        href: "/products/energy-transition/macroeconomics/",
+        name: "Macroeconomics",
+        description: "Understand the interplay between commodities and the economy with macroeconomics analysis to help forecast the pace of global economic development to 2035."
+    }
+];
+---
+<BaseLayout title="Product List Block Test">
+    <ProductListBlock 
+        title="Energy transition products and services"
+        products={products}
+    />
+</BaseLayout>

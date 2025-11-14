@@ -12,6 +12,7 @@ export interface Props {
   reverseLayout?: boolean;
   titleColorClass?: string;
   buttonClass?: string;
+  backgroundColor?: string;
 }
 
 const {
@@ -25,13 +26,14 @@ const {
   reverseLayout = false,
   titleColorClass = 'core-branding-cobalt',
   buttonClass = 'btn--secondary',
+  backgroundColor = 'bg-light-100',
 } = Astro.props;
 
 const contentContainerClasses = [
   'body-copy-image__content-container',
   'flexbox',
   'align-start',
-  'bg-light-100',
+  backgroundColor,
 ].join(' ');
 
 const textContainerClasses = [
@@ -45,7 +47,7 @@ const imageContainerClasses = [
   'medium-6'
 ].join(' ');
 ---
-<div class="body-copy-image__section bg-light-100" data-io-animation-chain="true">
+<div class:list={["body-copy-image__section", backgroundColor]} data-io-animation-chain="true">
     <div class="wrap">
         <div class={contentContainerClasses}>
             {reverseLayout ? (

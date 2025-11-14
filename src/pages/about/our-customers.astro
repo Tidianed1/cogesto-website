@@ -1,10 +1,12 @@
 ---
 // Our Customers page (French)
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewHeader from '../../components/NewHeader.astro';
 import NewFooter from '../../components/NewFooter.astro';
 import SubNavigation from '../../components/SubNavigation.astro';
 import VideoTestimonial from '../../components/VideoTestimonial.astro';
 import { fr } from '../../content/fr';
+import { footerData } from '../../content/footer';
 
 // Sub-navigation items (French)
 const subNavItems = [
@@ -19,17 +21,7 @@ const subNavItems = [
 
 ---
 
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nos clients - Cogesto Consulting</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
-    <link rel="stylesheet" href="/styles/screen.css" media="screen">
-    <link rel="stylesheet" href="/styles/print.css" media="print">
-    <link rel="stylesheet" href="/styles/inline.css">
-  </head>
+<BaseLayout title="Nos clients - Cogesto Consulting">
   <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
 
 <!-- Google Tag Manager (noscript) -->
@@ -141,7 +133,7 @@ const subNavItems = [
 </main>
 
 <footer>
-  <NewFooter />
+  <NewFooter {...footerData} />
 </footer>
 
 <!-- Use shared navigation script for consistency -->
@@ -281,5 +273,4 @@ const subNavItems = [
 </style>
 
 </body>
-</html>
-
+</BaseLayout>

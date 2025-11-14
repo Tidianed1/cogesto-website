@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroMultiTemplate from '../../components/HeroMultiTemplate.astro';
+import BodyCopyImage from '../../components/BodyCopyImage.astro';
+
+const bodyCopyContent = `
+    <p>The global energy transition is unstoppable, but uncertainty remains.&nbsp;What if it accelerates? What if legislation is slow to catch up?&nbsp;</p>
+    <p>Explore our modelling of the energy transition pathways and the route to net zero.&nbsp;</p>
+`;
+---
+<BaseLayout title="Combined Heroes Test">
+    
+    <!-- 
+        COMPONENT 1: HeroMultiTemplate.astro
+        -------------------------------------
+        USAGE: This is a flexible hero component used at the top of pages.
+        It features a title, an introduction, and a background image with a shape overlay.
+        It has multiple style and position variants controlled by props.
+        The HTML you provided corresponds to the 'medium' style.
+    -->
+    <HeroMultiTemplate
+        title="Everything you need to know about the energy transition"
+        introduction="The age of power and renewables has already begun."
+        imageUrl="https://www.woodmac.com/contentassets/c73e1dc4a8b24c219df961bbf737ef03/eto_keyvisual_four-side.png?width=1000&rmode=crop&rxy=0.5,0.5"
+        templateStyle="medium"
+        templatePosition="top"
+        backgroundColor="bg-secondary-color"
+    />
+
+    <!-- 
+        COMPONENT 2: BodyCopyImage.astro
+        --------------------------------
+        USAGE: This is a standard two-column component for displaying text and an image.
+        It is highly reusable and its layout can be flipped.
+        - Use it to break up long pages with a visually engaging content block.
+        - The `reverseLayout={true}` prop places the image on the left on desktop, as seen in your example.
+    -->
+    <BodyCopyImage
+        preTitle=""
+        sectionTitle="Detailed analysis on the future of renewable energy for your industry"
+        description={bodyCopyContent}
+        buttonText="Energy transition outlook: 2025/26"
+        buttonHref="/market-insights/topics/energy-transition-outlook/"
+        imageUrl="https://www.woodmac.com/contentassets/c73e1dc4a8b24c219df961bbf737ef03/eto_keyvisual_four-side.png?width=800&rmode=crop&rxy=0.5,0.5"
+        imageAlt="Energy Transition Outlook"
+        reverseLayout={true}
+        backgroundColor="bg-core-branding-cobalt"
+    />
+
+</BaseLayout>

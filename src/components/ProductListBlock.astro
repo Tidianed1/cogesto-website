@@ -1,0 +1,29 @@
+---
+interface Product {
+    href: string;
+    name: string;
+    description: string;
+}
+
+interface Props {
+    title: string;
+    products: Product[];
+}
+
+const { title, products } = Astro.props;
+---
+<div class="product_list_container module--bg" id="productlistblock">
+    <div class="wrap">
+        <h3 class="col small-12 product_list_title soft--bottom">{title}</h3>
+        <div class="wrap child-equal-height">
+            {products.map(product => (
+                <div class="small-12 medium-4 push--right product_small_wrap">
+                    <a href={product.href} class="product-list-line-link product-tile-link">
+                        <h3 class="primary-color product-tile-link__hover-blue product-tile-link__hover-underline">{product.name}</h3>
+                        <p class="primary-color product-tile-link__hover-blue product-tile-link__hover-underline">{product.description}</p>
+                    </a>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>

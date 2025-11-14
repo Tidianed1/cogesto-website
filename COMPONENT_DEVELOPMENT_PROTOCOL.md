@@ -137,7 +137,40 @@ The `Accordion.astro` component is currently not interactive despite implementin
 *   **Placeholder Icons**: The icons `icon-arrow--dark-blue.svg` and `icon-plus-blue.svg` in `public/img/icons/` are temporary placeholders. They need to be replaced with the correct SVG assets.
 *   **Accordion Arrow CSS**: CSS for an arrow icon was added to `src/styles/styles.css` and then requested to be reverted. The user will handle the removal of this CSS to keep the component stable for now.
 *   **CommoditySelector Stability**: The `CommoditySelector.astro` component is complex due to its reliance on the third-party Swiper.js library. It is not currently considered stable. We will revisit this component later to stabilize its functionality and ensure it perfectly matches the user's expectations.
-*   **Build Error: `TypeError` in `ValuesTabs`**: The build is failing with `Cannot read properties of undefined (reading 'find')` when rendering the `ValuesTabs` component on the `/about/our-values` page. This indicates an issue with the data being passed to the component.
 *   **Build Warning: PostCSS `@import` order**: A PostCSS warning `[@import must precede all other statements]` is present for `swiper/swiper-bundle.css` in `src/styles/styles.css`. This needs to be moved to the top of the file.
 *   **`ServicesBlock.astro` Layout Issue**: The component is only rendering the mobile (accordion) view, even on desktop screens. The responsive visibility classes (`show-for-medium-up` and `show-for-small-only`) are not behaving as expected. This needs to be debugged.
 *   **`HeroService.astro` Refinement**: The initial build of the services hero component is not a pixel-perfect match to the reference design. It requires further styling adjustments to achieve visual parity.
+
+## 6. Debugging Case Study: The `ValuesTabs` Incident
+
+The resolution of issues with the `ValuesTabs` component serves as a critical reminder of our core development principles.
+
+### The Problem
+
+The `ValuesTabs` component, when placed on the `/about/our-values` page, exhibited two major failures:
+1.  **Build Error**: The Astro build failed with a `TypeError`, indicating that the `tabs` prop was `undefined`, even though the data appeared to be correctly structured and imported from `src/content/fr.ts`.
+2.  **Rendering & Interactivity Failure**: After applying a temporary workaround (hardcoding the data into the page), the build passed, but the component rendered incorrectly. All tab content was visible simultaneously, and the tabs were not interactive.
+
+### The Investigation
+
+Initial debugging focused on the component's data flow and JavaScript, with attempts to use `client:load` directives and other Astro features. These were incorrect assumptions. The root cause was much simpler and more fundamental.
+
+The "all text appear at once" symptom was the key clue. It meant that the CSS rule responsible for hiding non-active tabs (`.tabbed__content-container:not(.active) { display: none; }`) was not being applied.
+
+### The Root Cause & Solution
+
+A comparison between the failing page (`/about/our-values.astro`) and a working test page (`/pages/test-components/index.astro`) revealed a critical architectural deviation:
+
+*   The **working** test page used the project's standard `src/layouts/BaseLayout.astro`.
+*   The **failing** `our-values.astro` page did **not** use the `BaseLayout`. It had its own standalone `<html>` and `<head>` structure.
+
+By not using `BaseLayout`, the `our-values` page was linking to a deprecated stylesheet (`/styles/screen.css`) instead of the project's single source of truth, `src/styles/styles.css`, which is correctly imported by `BaseLayout`.
+
+The fix was to refactor `/about/our-values.astro` to wrap its content in the `<BaseLayout>` component. This single change ensured the correct stylesheet was loaded, which simultaneously:
+1.  **Fixed the rendering issue**: The `display: none` rule was now present, and the component's initial state rendered correctly.
+2.  **Fixed the interactivity issue**: The component's simple inline JavaScript worked as intended once the foundational CSS was in place.
+3.  **Fixed the original build error**: With the page properly structured and all necessary styles and scripts loaded correctly via the layout, the data import from `fr.ts` no longer caused a `TypeError` during the build.
+
+### The Lesson
+
+**Always use the `BaseLayout.astro` for all new pages.** Deviating from this standard introduces inconsistencies that lead to complex, hard-to-diagnose bugs. The problem often lies not in the component itself, but in the environment and structure of the page it is placed on. Adherence to the project's established architecture is paramount.

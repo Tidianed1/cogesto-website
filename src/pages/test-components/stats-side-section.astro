@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatsSideSection from '../../components/StatsSideSection.astro';
+
+const stats = [
+    {
+        value: "2030",
+        description: "When we expect energy emissions to peak"
+    },
+    {
+        value: "US$1 trillion",
+        description: "Annual investment needed to build new energy supply capacity"
+    },
+    {
+        value: "c2039",
+        description: "Peak demand for oil in our base case"
+    },
+    {
+        value: "30%",
+        description: "Wind and solar's contribution to power generation by 2040 in our base case"
+    }
+];
+
+const content = `
+    <div class="editor">
+        <p>Find out more below about the future of renewable energy and what the energy transition could mean for your business.</p>
+        <h2>What is the energy transition?</h2>
+        <p>An energy transition disrupts the status quo. A new energy source emerges, leading to a structural and permanent change in supply, demand, energy mix and prices.</p>
+        <p>The energy transition currently underway is about a transformational switch away from fossil fuels and into renewable and clean sources of energy (solar, wind and water). This has only accelerated due to coronavirus and the resultant impact on oil prices. More efficient use of energy (using technology such as LEDs, compact fluorescent lights, smart thermostats and appliances) and biofuels also feature.</p>
+        <h2>What is driving the current energy transition?</h2>
+        <p>Powering the energy transition is a technology-based switch from fossil fuels to renewables, supported by an almost ubiquitous societal push towards a sustainable future. There are two primary enablers –&nbsp;&nbsp;renewables and electrification. But they are out of kilter.&nbsp;Renewables growth is well ahead of electrification trends but, in time, the two will converge. This is&nbsp;the ‘point of singularity’, when the world rings out the old and rings in the new, welcoming the future of alternative energy.</p>
+    </div>
+`;
+---
+<BaseLayout title="Stats Side Section Test">
+    <StatsSideSection 
+        title="How will the global energy value chain respond to the great fuel switch?"
+        content={content}
+        stats={stats}
+    />
+</BaseLayout>

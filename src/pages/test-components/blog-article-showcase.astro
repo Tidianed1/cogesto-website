@@ -1,68 +1,55 @@
 ---
+// src/pages/test-components/blog-article-showcase.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogArticleShowcase from '../../components/BlogArticleShowcase.astro';
-import type { FilterGroup, ArticleCard } from '../../components/BlogArticleShowcase.astro';
+import BlogArticleShowcase, { Article } from '../../components/BlogArticleShowcase.astro';
 
-const dummyFilters: FilterGroup[] = [
+const sampleArticles: Article[] = [
   {
-    name: 'Commodity',
-    id: 'commodity',
-    items: [
-      { id: 'c3457', name: 'Coal', value: 'c3457' },
-      { id: 'c3460', name: 'Metals', value: 'c3460', checked: true },
-      { id: 'c3471', name: 'Oil and Gas', value: 'c3471' },
-    ],
+    href: "https://www.woodmac.com/horizons/soaring-copper-demand-obstacle-to-future-growth/",
+    badge: "Horizons",
+    date: "15 October 2025",
+    title: "High-wire act: is soaring copper demand an obstacle to future growth?",
+    imageUrl: "https://www.woodmac.com/siteassets/horizons/2025/october-2025/horizons_oct-2025-epi-website-assets_hero_1920x1080.png?w=500&h=300",
+    imageAlt: "This month's edition of Horizons explores the dynamics of copper supply and demand and the potential impact of the looming supply gap over the next decade. Copper prices are already lofty and could go higher still if investment in mine supply continues to lag.",
+    isLarge: true, // Mark this as the large article
   },
   {
-    name: 'Location',
-    id: 'location',
-    items: [
-      { id: 'c450', name: 'Global', value: 'c450' },
-      { id: 'dm289', name: 'Africa', value: 'dm289' },
-    ],
-  },
-];
-
-const dummyArticles: ArticleCard[] = [
-  {
-    href: 'https://www.woodmac.com/podcasts/the-energy-gang/how-can-america-accelerate-the-build-of-next-grid/',
-    imgSrc: 'https://www.woodmac.com/siteassets/podcasts/wmsite_eg_800x450.png?width=500&height=300&rmode=crop&rxy=0.5,0.5&w=500&h=300',
-    imgAlt: 'Card image',
-    badgeText: 'Opinion',
-    time: '4 November 2025',
-    title: 'Speed to power: how can America accelerate the build-out of the next grid?',
-    isPodcast: true,
+    href: "https://www.woodmac.com/blogs/the-edge/adipec-2025-six-key-takeaways/",
+    badge: "The Edge",
+    date: "13 November 2025",
+    readTime: "1 minute read",
+    title: "ADIPEC 2025: six key takeaways",
   },
   {
-    href: 'https://www.woodmac.com/blogs/energy-pulse/impact-of-chinas-new-critical-mineral-export-controls/',
-    imgSrc: 'https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_micro/micro_metalsandmining_thinkstockphotos-180698844.jpg?width=500&height=300&rmode=crop&rxy=0.5,0.5&w=500&h=300',
-    imgAlt: 'In an escalation of the trade dispute between China and the US, Beijing last week moved to tighten export controls for rare earths and other critical minerals.',
-    badgeText: 'Opinion',
-    time: '14 October 2025',
-    readTime: '8 minute read',
-    title: 'The impact of China’s new critical mineral export controls',
-    isPodcast: false,
+    href: "https://www.woodmac.com/press-releases/japans-ccus-capacity-set-to-surge-30-fold-by-2035/",
+    badge: "News Release",
+    date: "13 November 2025",
+    readTime: "1 minute read",
+    title: "Japan’s CCUS capacity set to surge 30-fold by 2035",
   },
   {
-    href: 'https://www.woodmac.com/podcasts/the-interchange-recharged/gas-prices-are-rising-and-the-demand-for-renewable-energy-is-growing/',
-    imgSrc: 'https://www.woodmac.com/siteassets/podcasts/wmsite_ir_800x450.png?width=500&height=300&rmode=crop&rxy=0.5,0.5&w=500&h=300',
-    imgAlt: 'Card image',
-    badgeText: 'Opinion',
-    time: '11 September 2025',
-    title: 'Gas prices are rising and the demand for renewable energy is growing',
-    isPodcast: true,
+    href: "https://www.woodmac.com/press-releases/uks-ar7-offshore-wind-auction-tees-up-a-win-win-win-for-policymakers-developers-and-suppliers/",
+    badge: "News Release",
+    date: "12 November 2025",
+    readTime: "1 minute read",
+    title: "UK’s AR7 offshore wind auction tees-up a ‘win-win-win’ for policymakers, developers, and suppliers",
+  },
+  {
+    href: "https://www.woodmac.com/news/opinion/editorial--inside-the-numbers-how-lcoe-is-reshaping-global-power-economics/",
+    badge: "Opinion",
+    date: "12 November 2025",
+    readTime: "1 minute read",
+    title: "Inside the numbers: How LCOE is reshaping global power economics",
   },
 ];
 ---
 
-<BaseLayout title="Blog Article Showcase Test">
+<BaseLayout title="Test Blog Article Showcase">
   <main>
     <BlogArticleShowcase
-      title="Read more about electric vehicles"
-      filters={dummyFilters}
-      articles={dummyArticles}
-      currentViewText="Viewing 1 - 3 of 278"
-      loadMoreButtonText="Load more"
+      title="Explore news and thought leadership"
+      titleHref="/market-insights/market-insights-news-listing-page/"
+      articles={sampleArticles}
     />
   </main>
 </BaseLayout>

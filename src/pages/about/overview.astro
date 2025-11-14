@@ -9,6 +9,7 @@ import StatsSection from '../../components/StatsSection.astro';
 import BodyCopyImage from '../../components/BodyCopyImage.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { fr } from '../../content/fr';
+import { footerData } from '../../content/footer';
 
 // Sub-navigation items (French)
 const subNavItems = [
@@ -32,11 +33,6 @@ const statsData = fr.about.stats.stats;
 ---
 
 <BaseLayout title="À propos - Cogesto Consulting">
-  <div slot="head">
-    <link rel="stylesheet" href="/styles/screen.css" media="screen">
-    <link rel="stylesheet" href="/styles/print.css" media="print">
-    <link rel="stylesheet" href="/styles/inline.css">
-  </div>
 
   <header id="menu-header">
     <NewHeader />
@@ -104,7 +100,7 @@ const statsData = fr.about.stats.stats;
   </main>
 
   <footer>
-    <NewFooter />
+    <NewFooter {...footerData} />
   </footer>
 
 </BaseLayout>

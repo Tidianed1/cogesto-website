@@ -1,34 +1,60 @@
 ---
-// Values tabs component - matches tabbed__block structure from reference
+/**
+ * ValuesTabs Component
+ * 
+ * Renders a tabbed interface to display a set of values or features.
+ * This component is designed to be fully self-contained for interactivity,
+ * relying on an inline script and global CSS classes for styling and behavior.
+ * 
+ * It includes two views:
+ * 1. A horizontal tab list for desktop screens.
+ * 2. A dropdown/select menu for mobile screens.
+ * 
+ * The component's interactivity is handled by a vanilla JavaScript inline script
+ * that manages the 'active' state for tabs and content panels.
+ */
+
+// Defines the data structure for a single tab item.
 export interface TabItem {
-  id: string;
-  title: string;
-  content: string;
-  active?: boolean;
+  id: string; // Unique identifier for the tab, used for linking and targeting.
+  title: string; // The text displayed in the tab button.
+  content: string; // The HTML content to be displayed in the tab panel.
+  active?: boolean; // Optional: If true, this tab will be active on initial load.
 }
 
+// Defines the props accepted by the ValuesTabs component.
 export interface Props {
-  summaryTitle: string;
-  summaryDescription: string;
-  tabs: TabItem[];
+  summaryTitle: string; // Title for the summary section displayed next to the tabs.
+  summaryDescription: string; // Description for the summary section.
+  tabs: TabItem[]; // An array of tab items to be rendered.
 }
 
 const { summaryTitle, summaryDescription, tabs } = Astro.props;
 
-// Determine the initially active tab
+// Server-side logic to determine the initially active tab.
+// It looks for a tab with the `active: true` flag. If none is found,
+// it defaults to the very first tab in the array.
+// This ensures that the component always has a valid active state on load.
 const initialActiveTabId = tabs.find(tab => tab.active)?.id || tabs[0]?.id;
 ---
 
+{/* 
+  Root container for the tabbed component. 
+  The `id` is used by the inline script to scope its functionality.
+*/}
 <div class="tabbed__block" id="tabbed-component">
     <div class="wrap">
         <div class="tabbed__block-container small-12">
+            {/* Left-side summary column */}
             <div class="tabbed__summary col small-12 medium-4">
                 <h3 class="tabbed__summary-title h300">
                     {summaryTitle}
                 </h3>
                 <p class="tabbed__summary-description" set:html={summaryDescription}></p>
             </div>
+            {/* Right-side tabs column */}
             <div class="tabbed__tabs col small-12 medium-8">
+                {/* Desktop: Horizontal list of tab links */}
                 <div class="tabbed__tabs-list">
                     {tabs.map((tab) => (
                         <a
@@ -42,7 +68,7 @@ const initialActiveTabId = tabs.find(tab => tab.active)?.id || tabs[0]?.id;
                         </a>
                     ))}
                 </div>
-                <!-- DROPDOWN -->
+                {/* Mobile: Dropdown select menu */}
                 <div class="tabbed__tabs-dropdown">
                     <select class="form-select" data-val="true" data-val-required="The Tabbed Sections field is required." id="tabDropdown" name="CurrentPage.Body.TabbedComponentContent">
                         {tabs.map((tab) => (
@@ -53,6 +79,7 @@ const initialActiveTabId = tabs.find(tab => tab.active)?.id || tabs[0]?.id;
                     </select>
                 </div>
 
+                {/* Container for all tab content panels */}
                 <div class="tabbed__content">
                     {tabs.map((tab) => (
                         <div
@@ -69,6 +96,20 @@ const initialActiveTabId = tabs.find(tab => tab.active)?.id || tabs[0]?.id;
     </div>
 </div>
 
+{/*
+  This inline script provides the client-side interactivity for the tabs.
+  `is:inline` ensures the script is placed directly into the HTML and is not
+  processed by Astro. This makes it independent of Astro's island architecture.
+
+  The script does the following:
+  1. Finds the component's root element by its ID.
+  2. Gathers all tab links and content panels.
+  3. Defines a function `activateTab` to manage the 'active' class on the correct
+     link and content panel, ensuring only one is visible at a time.
+  4. Attaches 'click' event listeners to the desktop tab links.
+  5. Attaches a 'change' event listener to the mobile dropdown.
+  6. It runs after the DOM is fully loaded to ensure all elements are available.
+*/}
 <script is:inline>
   (function() {
     function initTabbedComponent() {

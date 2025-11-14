@@ -1,21 +1,13 @@
 ---
 // Static replica of target website - Prompt 3: Componentized
+import BaseLayout from '../layouts/BaseLayout.astro';
 import NewHeader from '../components/NewHeader.astro';
 import HeroSection from '../components/HeroSection.astro';
 import MainContent from '../components/MainContent.astro';
 import NewFooter from '../components/NewFooter.astro';
+import { footerData } from '../content/footer';
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>New Index - Target Style Adoption</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
-    <link rel="stylesheet" href="/styles/screen.css" media="screen">
-    <link rel="stylesheet" href="/styles/print.css" media="print">
-    <link rel="stylesheet" href="/styles/inline.css">
-  </head>
+<BaseLayout title="New Index - Target Style Adoption">
   <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true">
 
 <!-- Google Tag Manager (noscript) -->
@@ -104,7 +96,7 @@ import NewFooter from '../components/NewFooter.astro';
             </div>
         </main>
 <div class="section-marker" data-section-name="[9] FOOTER" data-section-id="footer">
-  <NewFooter />
+  <NewFooter {...footerData} />
 </div>
 
   <script is:inline>
@@ -196,4 +188,4 @@ import NewFooter from '../components/NewFooter.astro';
   </script>
 
   </body>
-</html>
+</BaseLayout>

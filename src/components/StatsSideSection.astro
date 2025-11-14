@@ -1,0 +1,34 @@
+---
+interface Stat {
+    value: string;
+    description: string;
+}
+
+interface Props {
+    title: string;
+    content: string;
+    stats: Stat[];
+}
+
+const { title, content, stats } = Astro.props;
+---
+<div class="module no-margin-lower" data-io-animation-chain="true" id="statisticsside">
+    <div class="wrap">
+        <div class="col small-12 large-8 push-1--large push--bottom">
+            <h2 class="giga title-underline soft--bottom push--bottom " data-io-type="::before-expand">
+                {title}
+            </h2>
+            <div class="editor " data-io-type="fade" data-io-direction="bottom-top" set:html={content} />
+        </div>
+        <div class="col small-12 large-3 push--bottom statistics">
+            <ul>
+                {stats.map(stat => (
+                    <li class="" data-io-type="fade" data-io-direction="bottom-top">
+                        <h3>{stat.value}</h3>
+                        <p>{stat.description}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </div>
+</div>

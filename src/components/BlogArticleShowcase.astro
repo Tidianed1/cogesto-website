@@ -1,142 +1,108 @@
 ---
-export interface FilterItem {
-  id: string;
-  name: string;
-  value: string;
-  checked?: boolean;
+// src/components/BlogArticleShowcase.astro
+
+// Defines the data structure for a single article item.
+export interface Article {
+  href: string; // URL for the article.
+  badge: string; // Category badge (e.g., "Horizons", "The Edge").
+  date: string; // Publication date.
+  title: string; // Article title.
+  readTime?: string; // Optional: Reading time (e.g., "1 minute read").
+  imageUrl?: string; // Optional: Image URL for larger cards.
+  imageAlt?: string; // Optional: Image alt text.
+  isLarge?: boolean; // Optional: If true, renders as a larger card with an image.
 }
 
-export interface FilterGroup {
-  name: string;
-  id: string;
-  items: FilterItem[];
-}
-
-export interface ArticleCard {
-  href: string;
-  imgSrc: string;
-  imgAlt: string;
-  badgeText: string;
-  time: string;
-  readTime?: string;
-  title: string;
-  isPodcast?: boolean; // To determine if the play icon SVG should be shown
-}
-
+// Defines the props accepted by the BlogArticleShowcase component.
 export interface Props {
-  title: string;
-  filters: FilterGroup[];
-  articles: ArticleCard[];
-  currentViewText: string; // e.g., "Viewing 1 - 3 of 278"
-  loadMoreButtonText: string;
+  title: string; // Main title for the section (e.g., "Explore news and thought leadership").
+  titleHref: string; // URL for the main title link.
+  articles: Article[]; // Array of article data to display.
 }
 
-const { title, filters, articles, currentViewText, loadMoreButtonText } = Astro.props;
+const { title, titleHref, articles } = Astro.props;
+
+// Separate the first article if it's marked as large, otherwise take the first article
+// and treat the rest as smaller articles.
+const largeArticle = articles.find(article => article.isLarge);
+const otherArticles = articles.filter(article => !article.isLarge);
+
+// If no article is explicitly marked as large, take the first one as large and the rest as others.
+const firstArticle = largeArticle || articles[0];
+const remainingArticles = largeArticle ? otherArticles : articles.slice(1);
+
 ---
 
 <div id="latest-thinking">
-  <div class="module latest-thinking-block">
-    <div class="wrap">
-      <div class="col small-12 text-center push--bottom">
-        <h2 class="h600-semibold">
-          {title}
-        </h2>
-
-        <div class="filter__inner hide visuallyhidden">
-          {filters.map((group) => (
-            <div class="filter hide visuallyhidden">
-              <button
-                class="js-toggle__group btn btn--filter"
-                data-target={`#filter-${group.id}`}
-                role="button"
-                aria-controls={`filter-${group.id}`}
-                aria-expanded="false"
-              >
-                <span data-display-name="ButtonText">{group.name}</span>
-                <svg
-                  tabindex="-1"
-                  role="img"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  width="11.2px"
-                  height="6.7px"
-                  viewBox="0 0 11.2 6.7"
-                  enable-background="new 0 0 11.2 6.7"
-                  xml:space="preserve"
-                >
-                  <polygon fill="#565656" points="5.6,4.5 1.1,0 0,1.1 5.6,6.7 11.2,1.1 10.2,0 "></polygon>
-                </svg>
-              </button>
-
-              <div id={`filter-${group.id}`} class="filter__panel">
-                <ul class="checkbox soft-half js-filter" data-hidden="&quot;true&quot;">
-                  {group.items.map((item) => (
-                    <li class="checkbox__item">
-                      <input
-                        type="checkbox"
-                        id={`filter-item-${item.id}`}
-                        name="cf"
-                        value={item.value}
-                        class="checkbox__input"
-                        checked={item.checked}
-                      />
-                      <label for={`filter-item-${item.id}`} class="checkbox__label">
-                        {item.name}
-                      </label>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-          <div role="button" class="filter__close js-filter__close"></div>
-        </div>
-        <div class="js-filter-pills"></div>
-      </div>
-      <div class="clearfix"></div>
-      <div class="masonry">
-        <div
-          class="js-filter-list"
-          data-filter-endpoint="/api/v1/search/latest-thinking/6ff1ebf3-bdeb-4c07-bca0-6800f0cc654b"
-          data-pinned-endpoint=""
-          data-filter-batchsize="6"
-        >
-          <div class="flex__equal-height">
-            {articles.map((article) => (
-              <a href={article.href} class="col small-12 small-medium-6 large-4 push--bottom fade-in-up fade-in-up--1 tile-link card img-overlay">
-                <figure class="img-overlay__wrap ratio--5x29">
-                  <img class="img-overlay__image" src={article.imgSrc} alt={article.imgAlt} />
-                  <div class="img-overlay__effect"></div>
-                  {article.isPodcast && (
-                    <svg class="card__icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-                      <path fill="#FFF" d="M0 0h64v64H0z"></path>
-                      <path fill="#2A2A2A" d="M36.3 20l-9.5 7.6h-6.3v9h6.3l9.5 7.6"></path>
-                      <path fill="none" stroke="#2A2A2A" stroke-width="2" stroke-miterlimit="10" d="M39 24.6c2.5 0 5.5 3.3 5.5 7.4s-3 7.4-5.5 7.4"></path>
-                    </svg>
-                  )}
-                </figure>
-                <div class="card__block">
-                  <span class="badge push-half--bottom">{article.badgeText}</span>
-                  <div>
-                    <time class={`beta italic ${article.readTime ? 'inline' : ''}`}>{article.time}</time>
-                    {article.readTime && <p class="read-time"><span>{article.readTime}</span></p>}
-                  </div>
-                  <h3 class="kilo font-600 tile-link__hover-blue">{article.title}</h3>
+    <div class="module news-grid-container js-news-grid-container latest-thinking-block bg-light-grey-1" id="copy">
+        <div class="wrap">
+            <div class="col small-12 text-center push--bottom">
+                <h2 class="text-left tera push-half--bottom soft--bottom latest-thinking-block__title">
+                    <a href={titleHref} class="core-branding-cobalt">
+                        {title}
+                    </a>
+                </h2>
+                <div class="js-filter-pills">
                 </div>
-              </a>
-            ))}
-          </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="masonry">
+                <div class="news-grid news-grid--vertical js-news-grid"
+                    data-filters=""
+                    data-news-layout="vertical"
+                    data-news-endpoint="/api/v1/search/latest-thinking/8ed09efb-7598-44af-a859-95a2736ecd14"
+                    data-news-extra-endpoint="/api/v1/search/latest-thinking/365640a0-e31b-44d6-9c28-8393c4c3c596"
+                    data-pinned-endpoint=""
+                    data-news-batchsize="4"
+                    data-vertical-card-button-url="/horizons/"
+                    data-vertical-card-button-text=""
+                >
+                    <div class="text-center soft--ends status js-filter__default hide">
+                        <p class="font-regular">Loading...</p>
+                    </div>
+                    <div class="news-grid news-grid--vertical js-news-grid-wrapper">
+                        {firstArticle && (
+                            <a href={firstArticle.href} class="col small-12 large-4 push--bottom fade-in-up fade-in-up--1 tile-link card img-overlay">
+                                {firstArticle.imageUrl && (
+                                    <figure class="img-overlay__wrap ratio--5x29">
+                                        <img class="img-overlay__image" src={firstArticle.imageUrl} alt={firstArticle.imageAlt || firstArticle.title}>
+                                        <div class="img-overlay__effect"></div>
+                                    </figure>
+                                )}
+                                <div class="card__block">
+                                    <span class="badge push-half--bottom">{firstArticle.badge}</span>
+                                    <div>
+                                        <time class="beta italic inline">{firstArticle.date}</time>
+                                        {firstArticle.readTime && <p class="read-time"><span>{firstArticle.readTime}</span></p>}
+                                    </div>
+                                    <h3 class="kilo font-600 tile-link__hover-blue">{firstArticle.title}</h3>
+                                </div>
+                            </a>
+                        )}
+                        <div class="news-grid__cards-wrapper js-layout-inner">
+                            {remainingArticles.map((article, index) => (
+                                <a href={article.href} class="col small-12 small-medium-6 large-6 push--bottom fade-in-up fade-in-up--1 tile-link card img-overlay">
+                                    {article.imageUrl && ( // Although smaller cards in example don't have images, keeping this for flexibility
+                                        <figure class="img-overlay__wrap ratio--5x29">
+                                            <img class="img-overlay__image" src={article.imageUrl} alt={article.imageAlt || article.title}>
+                                            <div class="img-overlay__effect"></div>
+                                        </figure>
+                                    )}
+                                    <div class="card__block">
+                                        <span class="badge push-half--bottom">{article.badge}</span>
+                                        <div>
+                                            <time class="beta italic inline">{article.date}</time>
+                                            {article.readTime && <p class="read-time"><span>{article.readTime}</span></p>}
+                                        </div>
+                                        <h3 class="kilo font-600 tile-link__hover-blue">{article.title}</h3>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="js-filter__more"></div>
         </div>
-      </div>
-      <div class="js-filter__more js-filter__more-no-layout">
-        <div class="text-center soft-double--ends push--sides">
-          <p class="push-quarter--bottom font-regular">{currentViewText}</p>
-          <button class="btn btn--primary js-filter__load-more__btn">{loadMoreButtonText}</button>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

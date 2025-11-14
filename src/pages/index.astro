@@ -1,21 +1,13 @@
 ---
 // Homepage - Static replica of target website
+import BaseLayout from '../layouts/BaseLayout.astro';
 import NewHeader from '../components/NewHeader.astro';
 import HeroSection from '../components/HeroSection.astro';
 import MainContent from '../components/MainContent.astro';
 import NewFooter from '../components/NewFooter.astro';
+import { footerData } from '../content/footer';
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cogesto Consulting - Strategic Excellence</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope:300,400,500,600,700,800&amp;display=swap">
-    <link rel="stylesheet" href="/styles/screen.css" media="screen">
-    <link rel="stylesheet" href="/styles/print.css" media="print">
-    <link rel="stylesheet" href="/styles/inline.css">
-  </head>
+<BaseLayout title="Cogesto Consulting - Strategic Excellence">
   <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true">
 
 <!-- Google Tag Manager (noscript) -->
@@ -102,11 +94,11 @@ import NewFooter from '../components/NewFooter.astro';
 </main>
 
 <footer>
-  <NewFooter />
+  <NewFooter {...footerData} />
 </footer>
 
 <!-- Use shared navigation script for consistency -->
 <script src="/js/woodmac.scripts.js" defer></script>
 
 </body>
-</html>
+</BaseLayout>
