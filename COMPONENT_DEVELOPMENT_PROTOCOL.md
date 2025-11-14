@@ -133,6 +133,7 @@ The `Accordion.astro` component is currently not interactive despite implementin
 
 ## 5. Technical Debt / To-Do
 
+*   **`our-values.astro` Footer Refactor**: The `src/pages/about/our-values.astro` page was missed during the `NewFooter` refactoring. It still calls `<NewFooter />` without passing the required `footerData` props, causing the build to fail. This page needs to be updated.
 *   **`NewHeader.astro` Instability**: The `NewHeader.astro` component is currently under development and is not stable. The mega menu and mobile menu interactivity are not yet functional.
 *   **Placeholder Icons**: The icons `icon-arrow--dark-blue.svg` and `icon-plus-blue.svg` in `public/img/icons/` are temporary placeholders. They need to be replaced with the correct SVG assets.
 *   **Accordion Arrow CSS**: CSS for an arrow icon was added to `src/styles/styles.css` and then requested to be reverted. The user will handle the removal of this CSS to keep the component stable for now.

@@ -36,7 +36,12 @@ This document summarizes the current state of the project, recent decisions, and
 - **Correct Structure:** Content is stored in large, exported, nested JavaScript/TypeScript objects. The primary file for this is `src/content/fr.ts`. The object structure logically mirrors the pages and components of the site.
 - **Actionable Advice:** Any scraping script should be designed to output a `.ts` file containing a single `export const` object that follows this established nested pattern.
 
-## 4. Next Steps
+## 4. Outstanding Issues
 
-1.  **User to provide the URL** for the "Bain" hero section.
-2.  Once the URL is provided, I will begin the deconstruction and creation of the new `BainInspiredHero.astro` component according to the strategy outlined above.
+- **`our-values.astro` Build Failure:** The `NewFooter` refactoring was incomplete. The page `src/pages/about/our-values.astro` was missed and still calls `<NewFooter />` without passing the required `footerData` props. This is the cause of the current build failure.
+
+## 5. Next Steps
+
+1.  **Fix the build:** Correct the `our-values.astro` page by importing and passing `footerData` to the `NewFooter` component.
+2.  **User to provide the URL** for the "Bain" hero section.
+3.  Once the URL is provided, I will begin the deconstruction and creation of the new `BainInspiredHero.astro` component according to the strategy outlined above.
