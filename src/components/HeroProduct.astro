@@ -1,0 +1,65 @@
+---
+export interface Props {
+  title: string;
+  introduction: string;
+  buttonText: string;
+  formIframeUrl: string;
+  imageUrl: string;
+}
+
+const { 
+  title, 
+  introduction, 
+  buttonText,
+  formIframeUrl,
+  imageUrl
+} = Astro.props;
+
+const formId = `hero-cta-form-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div id="hero-block" class="hero_product_section_background hero-block">
+    <div class="hero_product_light_theme primary-color bg-white primary-color hero-with-flex-image store_keyline">
+        <div class="hero_product_container_margin_left hero-with-flex-image__text_and_image">
+            <div class="hero-with-flex-image__text">
+                <div class="hero-brand__summary hero_product_summary col small-12 medium-12 large-6" style="flex:1;">
+                    <div class="hero_product_description">
+                        <h1 class="secondary-color hero_product_h200 soft--right--large push--bottom">{title}</h1>
+                        <p class="hero_product_introduction hero_product_h700 push--bottom">
+                            {introduction}
+                        </p>
+                    </div>
+                    <div class="btn--flex--group btn--contact--form zCustom9999 push-half--top">
+                        <div class="full-height" id="form">
+                            <button class="btn btn--primary btn--close btn--dark js-toggle-local full-height" aria-controls={formId} aria-expanded="false" data-target={`#${formId}`} role="button">
+                                <span class="form--is-collapsed" data-cta-location="heroctaform" data-cta-type="form">
+                                    {buttonText}
+                                </span>
+                                <span class="form--is-expanded">
+                                    Close
+                                </span>
+                            </button>
+
+                            <div id={formId} class="panel-toggle hero_cta_container full-width">
+                                <div class="soft u-shadow bg-primary-color">
+                                    Request a demo
+                                    <iframe src={formIframeUrl} width="100%" height="auto" type="text/html" frameborder="0" allowtransparency="true" style="border: 0px; overflow: hidden; height: 890px;" class="u-shadow pardot-frame" scrolling="no" id="iFrameResizer0"></iframe>
+                                    <div class="push-half--top editor white">For details on how your data is used and stored, see our Privacy notice.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero_product_flex_image_container show-for-large-up justify-center hero_product_min_height" style={`width: 100%; background-position:50% 50%; background-repeat: no-repeat; background-image: url(${imageUrl})`}>
+                <div class="hero_product_light_theme primary-color primary-color hero-multi-template__shape" style="background-position-x: -1425px; width: 100%;"></div>
+            </div>
+            <div class="show-for-medium-max-only" style={`background-image: url(${imageUrl}); height: 153px; background-position:50% 50%;`}>
+                <div class="hero_product_light_theme_small"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

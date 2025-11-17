@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NavAccounts from '../../components/NavAccounts.astro';
+
+const dummyLinks = [
+    { text: "Mon Compte", href: "#" },
+    { text: "Cogesto Lens®", href: "#" },
+    { text: "Cogesto Direct", href: "#" },
+    { text: "Énergie et Renouvelables", href: "#" },
+    { text: "Analyse Commerciale", href: "#" },
+    { text: "Gestion de Compte", href: "#" },
+    { text: "Formation Produit", href: "#" },
+    { text: "Aide et Support", href: "#" },
+];
+
+const testProps = {
+    title: "Accédez à nos plateformes de recherche",
+    description: "Connectez-vous à nos plateformes pour accéder à nos recherches approfondies, nos dernières analyses, données et pour échanger avec nos experts du secteur.",
+    links: dummyLinks,
+};
+---
+
+<BaseLayout title="Test Nav Accounts">
+    <NavAccounts {...testProps} />
+</BaseLayout>

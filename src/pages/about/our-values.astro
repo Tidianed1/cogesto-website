@@ -7,6 +7,7 @@ import SubNavigation from '../../components/SubNavigation.astro';
 import ValuesTabs from '../../components/ValuesTabs.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
 import { fr } from '../../content/fr';
+import { footerData } from '../../content/footer';
 
 // Sub-navigation items (French)
 const subNavItems = [
@@ -89,7 +90,7 @@ const subNavItems = [
 
                 <button type="submit" class="global-search__btn">
                     <div class="search-loader hide"></div>
-                    <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g id="Frame" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#clip0_982_19)"><title>Search</title><path id="Vector" d="M.64 7.04a6.4 6.4 0 1 0 12.8 0 6.4 6.4 0 0 0-12.8 0Z"></path><path id="Vector_2" d="m15.36 15.36-3.795-3.795"></path></g><defs><clipPath id="clip0_982_19"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
+                    <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g id="Frame" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#clip0_982_19)"><title>Search</title><path id="Vector" d="M.64 7.04a6.4 6.4 0 1 0 12.8 0 6.4 6.4 0 0 0-12.8 0Z"></path><path id="Vector_2" d="m15.36 15.36-3.795-3.795"></path></g><defs><clipPath id="clip0_982_19"><path fill="#fff" d="M0 0h16v16H0z"></clipPath></defs></svg>
                     <span class="visuallyhidden">
                         Search
                     </span>
@@ -136,7 +137,7 @@ const subNavItems = [
     </main>
 
     <footer>
-      <NewFooter />
+      <NewFooter {...footerData} />
     </footer>
 
   </div>

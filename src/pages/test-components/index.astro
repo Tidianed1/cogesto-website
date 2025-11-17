@@ -10,6 +10,27 @@ import CenteredTextSection from "../../components/CenteredTextSection.astro";
 import ImageTextCard from "../../components/ImageTextCard.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import LeftTitledIntro from "../../components/LeftTitledIntro.astro";
+import HomepageHero from "../../components/HomepageHero.astro";
+import NewHeader from '../../components/NewHeader.astro';
+
+const slides = [
+    {
+        tag: "Rapport Luxe et Technologie 2025",
+        title: "Des investissements sur mesure pour plus d'impact",
+        ctaText: "Pour en savoir plus",
+        ctaHref: "/fr/insights/luxe-et-technologie--des-investissements-sur-mesure-pour-plus-dimpact/",
+        desktopImage: "https://www.bain.com/contentassets/ed96a8fbe2f844c6bdcaae97597c83e8/v2-1_39681luxuryandtechnology_homepage-features-1920x1080.jpg?width=1920&height=1080&rmode=crop&rsampler=bicubic&compand=true",
+        mobileImage: "https://www.bain.com/contentassets/ed96a8fbe2f844c6bdcaae97597c83e8/v2-1_39681luxuryandtechnology_homepage_1080x1080.jpg?width=1080&height=1080&rmode=crop&rsampler=bicubic&compand=true",
+    },
+    {
+        tag: "Livre Blanc 2025",
+        title: "L’avenir quantique commence maintenant : quelle feuille de route pour les entreprises ?",
+        ctaText: "En savoir plus",
+        ctaHref: "/fr/insights/livre-blanc--lavenir-quantique-commence-maintenant-quelle-feuille-de-route-pour-les-entreprises/",
+        desktopImage: "https://www.bain.com/globalassets/cr18645_hres.jpg?width=1920&height=1080&rmode=crop&rsampler=bicubic&compand=true",
+        mobileImage: "https://www.bain.com/globalassets/cr18645_hres.jpg?width=1080&height=1080&rmode=crop&rsampler=bicubic&compand=true",
+    },
+];
 
 const breadcrumbItems = [
   { text: "About Us", href: "/about/overview/" },
@@ -301,6 +322,11 @@ const centeredTextData = {
     </script>
   </div>
   <main>
+    <header id="menu-header">
+      <NewHeader />
+    </header>
+    <HomepageHero slides={slides} />
+    <h1>Test Page with NewHeaderStatic</h1>
     <Breadcrumbs items={breadcrumbItems} />
     <div class="body-copy-image" id="bodycopyimagecontainer">
       <div class="wrap body-copy-image__container">

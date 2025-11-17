@@ -1,0 +1,17 @@
+---
+// src/components/HeaderScripts.astro
+// This component's purpose is to load the navigation interactivity script on the client.
+---
+<script>
+  import { initializeNavigation } from '../lib/navigation.js';
+  
+  // The script is executed on the client, after the page has loaded.
+  // We check for the document object to ensure it's running in a browser environment.
+  if (typeof document !== 'undefined') {
+    // We wrap the initialization in a DOMContentLoaded listener as a best practice,
+    // ensuring all HTML is parsed before the script tries to find elements.
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeNavigation();
+    });
+  }
+</script>

@@ -1,0 +1,59 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+    buttonText: string;
+    imageUrl: string;
+    imagePosition?: string;
+    formIframeSrc: string;
+}
+
+const { title, description, buttonText, imageUrl, imagePosition = '50% 50%', formIframeSrc } = Astro.props;
+---
+
+<div id="hero-block" class="hero-block">
+    <div class="hero-multi-template__container template_style_medium template_position_center bg-secondary-color">
+        <div class="wrap relative hero-multi-template__section_flex_container">
+            <div class="hero-multi-template__flex_image_container justify-center">
+                <div class="hero-multi-template__summary col">
+                    <h1 class="hero-multi-template__title">{title}</h1>
+                        <p class="hero-multi-template__introduction" set:html={description}></p>
+                        <div class="hero-multi-template__cta_button_group btn--contact--form">
+
+    <div class="full-height" id="form">
+<div class="js-modal modal" data-modal-toggler="js-modal--896502dc-cde4-4e0c-88c9-e4898ec2ab34">
+    <div class="modal__close js-modal-close js-modal--896502dc-cde4-4e0c-88c9-e4898ec2ab34" aria-label="close"></div>
+    <div class="modal__inner primary-color" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-label--896502dc-cde4-4e0c-88c9-e4898ec2ab34" aria-describedby="modal-description--896502dc-cde4-4e0c-88c9-e4898ec2ab34" aria-hidden="true">
+        <svg role="button" aria-label="close" tabindex="0" class="modal__close-btn js-modal--896502dc-cde4-4e0c-88c9-e4898ec2ab34" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_682_1966)">
+                <path d="M5.5 5.5L18.5 18.5" stroke="#072e7d" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M18.5 5.5L5.5 18.5" stroke="#072e7d" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+            <defs>
+                <clipPath id="clip0_682_1966">
+                    <rect width="16" height="16" fill="white" transform="translate(4 4)"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+        <div class="modal__scroll">
+            <div>
+                <iframe src={formIframeSrc} width="100%" height="auto" type="text/html" frameborder="0" allowtransparency="true" style="border: 0px; overflow: hidden; height: 0px;" class="u-shadow pardot-frame" scrolling="no" id="iFrameResizer0"></iframe>
+                <div class="push-half--top editor white"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <button id="896502dc-cde4-4e0c-88c9-e4898ec2ab34" class="js-modal--896502dc-cde4-4e0c-88c9-e4898ec2ab34 btn btn--primary btn--light" data-cta-location="ctaform" data-cta-type="form">{buttonText}</button>
+
+    </div>
+
+                        </div>
+                </div>
+            </div>
+            <div class="hero-multi-template__image" style={`background-image: url(${imageUrl}); background-position:${imagePosition};`}>
+                <div class="hero-multi-template__shape"></div>
+            </div>
+        </div>
+    </div>
+</div>

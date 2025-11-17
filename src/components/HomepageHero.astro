@@ -1,0 +1,73 @@
+---
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+interface Slide {
+    tag: string;
+    title: string;
+    ctaText: string;
+    ctaHref: string;
+    desktopImage: string;
+    mobileImage: string;
+}
+
+export interface Props {
+    slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<div class="hero__carousel swiper">
+    <div class="swiper-wrapper">
+        {slides.map(slide => (
+            <div class="swiper-slide">
+                <div class="hero__slide row column" data-click="true" data-engagementclick="homepageherounit" data-url={slide.ctaHref}>
+                    <a href={slide.ctaHref} target="" class="hero__full-width-link" aria-label={slide.ctaText}></a>
+                    <a href={slide.ctaHref} target="" aria-label={`Read more about ${slide.title}`} class="hero__text-content large-5 column">
+                        <p class="hero__tag" data-slide-nav-title={slide.tag}>{slide.tag}</p>
+                        <h2 class="hero__title">{slide.title}</h2>
+                        <div class="hero__cta">
+                            <span class="hero__cta-text">{slide.ctaText}</span>
+                            <span class="icon-long-arrow-right"></span>
+                        </div>
+                    </a>
+                    <div class="hero__image center">
+                        <div class="hero__overlay"></div>
+                        <picture>
+                            <source srcset={slide.desktopImage} media="(min-width:768px)" />
+                            <source srcset={slide.mobileImage} media="(min-width:0px)" />
+                            <img alt="" src={slide.desktopImage} data-object-fit="" />
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+</script>

@@ -4940,7 +4940,6 @@ body {
 
 .banner__logo img {
     width: 150px;
-    content: url(../img/branding/woodmac_logo_interim_rgb.svg)
 }
 
 @media (min-width: 48em) {

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroBlock from '../../components/HeroBlock.astro';
+
+const testProps = {
+    title: "Emissions & gestion du carbone",
+    description: "Optimisez votre portefeuille de gestion du carbone avec des données détaillées sur le CCUS, les compensations carbone et les émissions de carbone. Tout en un seul endroit.",
+    buttonText: "Nous contacter",
+    imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/nuclear/_micro/micro_nuclear_gettyimages-559541115.jpg?rmode=crop&rxy=0.5,0.5",
+    imagePosition: "50% 50%",
+    formIframeSrc: "https://go.woodmac.com/l/131501/2025-08-19/34pfln?ParentPageUrl=https%3A%2F%2Fwww.woodmac.com%2Findustry%2Femissions-and-carbon-management%2F"
+};
+---
+
+<BaseLayout title="Test Hero Block">
+    <HeroBlock {...testProps} />
+</BaseLayout>
