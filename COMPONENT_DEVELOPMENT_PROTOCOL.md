@@ -9,6 +9,7 @@ This document outlines the official, non-negotiable protocol for creating reusab
 3.  **No CSS Overrides**: The use of `public/styles/inline.css` is deprecated. We do not use overrides or "quick fixes". The component must be made to work using the existing framework classes.
 4.  **Structure from Blueprint**: The HTML structure of a component must be an exact replica of the reference component on the Woodmac website.
 5.  **Reusable Through Props**: Components are made dynamic and reusable through `Astro.props`.
+6.  **Centralized Layout**: All pages must use the `src/layouts/BaseLayout.astro` component to ensure consistent styling, script loading, and page structure.
 
 ## 2. The Development Workflow
 
@@ -118,31 +119,15 @@ The Woodmac website uses the "Manrope" font, served from Google Fonts. To ensure
 
 This ensures the font is available to all pages and components that use the `BaseLayout`.
 
-## 4. Current Status: Accordion Component Debugging
+## 4. Technical Debt / To-Do
 
-The `Accordion.astro` component is currently not interactive despite implementing a scoped script and using the `client:load` directive.
-
-**Problem:** The accordion panels do not open or close on click.
-
-**Investigation Steps:**
-
-1.  **Verify JavaScript Loading:** Confirm that the browser is receiving and executing the JavaScript for the `Accordion` component.
-2.  **Verify DOM Elements:** Ensure the JavaScript is correctly selecting the `js-accordion__trigger` elements.
-3.  **Verify CSS:** Check for any conflicting CSS rules (e.g., `max-height`, `overflow`) that might be preventing the accordion animation or visibility.
-4.  **Astro Hydration:** Re-evaluate how Astro handles client-side interactivity for components, especially with `client:load` and potential interactions with View Transitions.
-
-## 5. Technical Debt / To-Do
-
-*   **`our-values.astro` Footer Refactor**: The `src/pages/about/our-values.astro` page was missed during the `NewFooter` refactoring. It still calls `<NewFooter />` without passing the required `footerData` props, causing the build to fail. This page needs to be updated.
 *   **`NewHeader.astro` Instability**: The `NewHeader.astro` component is currently under development and is not stable. The mega menu and mobile menu interactivity are not yet functional.
 *   **Placeholder Icons**: The icons `icon-arrow--dark-blue.svg` and `icon-plus-blue.svg` in `public/img/icons/` are temporary placeholders. They need to be replaced with the correct SVG assets.
-*   **Accordion Arrow CSS**: CSS for an arrow icon was added to `src/styles/styles.css` and then requested to be reverted. The user will handle the removal of this CSS to keep the component stable for now.
 *   **CommoditySelector Stability**: The `CommoditySelector.astro` component is complex due to its reliance on the third-party Swiper.js library. It is not currently considered stable. We will revisit this component later to stabilize its functionality and ensure it perfectly matches the user's expectations.
 *   **Build Warning: PostCSS `@import` order**: A PostCSS warning `[@import must precede all other statements]` is present for `swiper/swiper-bundle.css` in `src/styles/styles.css`. This needs to be moved to the top of the file.
 *   **`ServicesBlock.astro` Layout Issue**: The component is only rendering the mobile (accordion) view, even on desktop screens. The responsive visibility classes (`show-for-medium-up` and `show-for-small-only`) are not behaving as expected. This needs to be debugged.
-*   **`HeroService.astro` Refinement**: The initial build of the services hero component is not a pixel-perfect match to the reference design. It requires further styling adjustments to achieve visual parity.
 
-## 6. Debugging Case Study: The `ValuesTabs` Incident
+## 5. Debugging Case Study: The `ValuesTabs` Incident
 
 The resolution of issues with the `ValuesTabs` component serves as a critical reminder of our core development principles.
 

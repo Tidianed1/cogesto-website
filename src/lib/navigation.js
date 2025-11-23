@@ -1,18 +1,16 @@
 // src/lib/navigation.js
 
-function closeAllDropdowns() {
-  // Close all open desktop dropdowns
-  document.querySelectorAll('.js-navigation__secondary.is-open').forEach(dropdown => {
-    dropdown.classList.remove('is-open', 'is--active');
-    dropdown.style.visibility = 'hidden';
-    dropdown.style.clip = 'rect(0, 0, 0, 0)';
-    dropdown.style.opacity = '0';
-
-    const btn = document.querySelector(`[data-target="#${dropdown.id}"]`);
+function closeAllDropdowns(header) {
+  // Close all open desktop dropdowns by removing their active classes
+  header.querySelectorAll('.js-navigation__item.is--active').forEach(item => {
+    item.classList.remove('is--active');
+    const btn = item.querySelector('.desktop-nav[data-target]');
     if (btn) {
-      btn.setAttribute('aria-expanded', 'false');
-      btn.closest('.js-navigation__item')?.classList.remove('is--active');
+        btn.setAttribute('aria-expanded', 'false');
     }
+  });
+  header.querySelectorAll('.js-navigation__secondary.is-open').forEach(dropdown => {
+    dropdown.classList.remove('is-open', 'is--active');
   });
 }
 
@@ -59,23 +57,28 @@ export function initializeNavigation() {
     const toggleBtn = e.target.closest('.js-toggle, .js-toggle-local, .js-toggle__header-group');
     if (!toggleBtn) return;
 
+    // Do not interfere with other scripts that might use js-toggle
+    if(toggleBtn.closest('.js-modal')) return;
+
     e.preventDefault();
     e.stopPropagation();
     
-    let targetId = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('href') || toggleBtn.getAttribute('aria-controls');
-    if (!targetId) return;
-
-    if (!targetId.startsWith('#')) {
-      targetId = '#' + targetId;
+    let targetSelector = toggleBtn.getAttribute('data-target') || toggleBtn.getAttribute('href');
+    if (!targetSelector) return;
+    
+    // Ensure it's a valid selector
+    if (!targetSelector.startsWith('#')) {
+      targetSelector = '#' + targetSelector;
     }
 
-    // Special handler for hamburger body class
-    if (targetId === '#navigation') {
+    // Special handler for main mobile navigation body class
+    if (targetSelector === '#navigation') {
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
       document.body.classList.toggle('on--navigation', !isExpanded);
-      toggleBtn.setAttribute('aria-expanded', !isExpanded);
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
     } else {
-      toggleElement(targetId, toggleBtn);
+      // Handle all other toggles, like mobile submenus
+      toggleElement(targetSelector, toggleBtn);
     }
   });
 
@@ -93,14 +96,11 @@ export function initializeNavigation() {
       if (!targetId) return;
       
       // Close other menus before opening the new one
-      closeAllDropdowns();
+      closeAllDropdowns(header);
 
       const target = document.querySelector(targetId);
       if (target) {
         target.classList.add('is-open', 'is--active');
-        target.style.visibility = 'visible';
-        target.style.clip = 'auto';
-        target.style.opacity = '1';
         navItem.classList.add('is--active');
         desktopBtn.setAttribute('aria-expanded', 'true');
       }
@@ -109,7 +109,7 @@ export function initializeNavigation() {
 
   header.addEventListener('mouseleave', (e) => {
     if (window.innerWidth < 1000) return; // Desktop only
-    closeAllDropdowns();
+    closeAllDropdowns(header);
   });
 
   // --- CLICK OUTSIDE HANDLER ---
@@ -117,20 +117,23 @@ export function initializeNavigation() {
   document.addEventListener('click', function(e) {
     // If the click is outside the header, close dropdowns.
     if (!header.contains(e.target)) {
-      closeAllDropdowns();
+      if (window.innerWidth >= 1000) { // Only run on desktop
+        closeAllDropdowns(header);
+      }
     }
   });
 
 
   // --- INITIALIZATION ---
 
-  // Set initial state for all dropdowns
+  // Set initial state for all dropdowns by ensuring they are closed
   document.querySelectorAll('.js-navigation__secondary').forEach(dropdown => {
     dropdown.classList.remove('is-active', 'is-open');
-    dropdown.style.visibility = 'hidden';
-    dropdown.style.clip = 'rect(0 0 0 0)';
-    dropdown.style.opacity = '0';
   });
+  document.querySelectorAll('.js-navigation__item').forEach(item => {
+    item.classList.remove('active', 'is--active');
+  });
+
 
   console.log('Navigation initialized successfully');
 }

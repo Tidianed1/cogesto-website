@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import HomepageVideoHero from "@/components/HomepageVideoHero.astro";
+import NewHeader from "@/components/NewHeader.astro";
+---
+
+<BaseLayout title="Video Hero Test">
+
+  <NewHeader theme="transparent" />
+  
+  <main>
+    <HomepageVideoHero>
+        <h1 class="hero-video__title">Intelligence Connected</h1>
+        <p class="hero-video__subtitle">
+          Energy data and analytics solutions for an interconnected world — enhanced
+          by AI and human intelligence
+        </p>
+        <a href="/product-portfolio/" class="btn btn--primary"
+          >Discover our products</a
+        >
+    </HomepageVideoHero>
+    
+    <!-- Dummy content to enable scrolling -->
+    <div style="height: 150vh; background: #f7f7f7; padding: 2rem;">
+        <h2>Scroll down to see the effect</h2>
+    </div>
+  </main>
+</BaseLayout>

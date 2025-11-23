@@ -1,6 +1,16 @@
 ---
+export interface Props {
+    theme?: 'transparent' | 'cobalt';
+}
+
+const { theme = 'cobalt' } = Astro.props;
+
+const themeClasses = {
+    'transparent': 'is-transparent',
+    'cobalt': 'cobalt-theme'
+}
 ---
-<header id="menu-header">
+<header id="menu-header" class:list={[themeClasses[theme]]}>
     <!-- TOP-BAR (DESKTOP)-->
         <div class="nav-utility nav-utility--desktop">
             <div class="wrap relative flex-end">
@@ -1483,13 +1493,3 @@
 </ul>        </div>
 </div>    </div>
 </header>
-
-<script>
-  import { initializeNavigation } from '../lib/navigation.js';
-  
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initializeNavigation();
-    });
-  }
-</script>

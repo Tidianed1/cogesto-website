@@ -18,14 +18,18 @@ The goal is to create a clear guide for developers to understand which component
 ### `NewHeader.astro`
 
 -   **File Path:** `src/components/NewHeader.astro`
--   **Purpose:** Renders the main site navigation, including the top utility bar, primary navigation, desktop mega-menus, and mobile hamburger menu.
--   **Props:** None.
+-   **Purpose:** Renders the main site navigation, including the top utility bar, primary navigation, desktop mega-menus, and mobile hamburger menu. It now supports a transparent theme for use with video heroes.
+-   **Props:** `theme?: 'transparent' | 'cobalt'`
 -   **Protocol Adherence:**
-    -   ❌ **Styling:** No scoped styles, which is good. However, its complexity means it's tightly coupled to the global CSS.
-    -   ❌ **Props:** Fails the data-driven principle. All navigation links, menu structures, and content are hardcoded directly into the component.
-    -   ❌ **Interactivity:** Contains a non-standard and likely non-functional `<script>` tag attempting to import from `lib/navigation.js`. Component-level scripting like this violates the protocol. Interactivity is intended to be handled by a global script loaded by the page.
--   **Usage:** `import NewHeader from '@components/NewHeader.astro';`
--   **Refactoring Notes:** This is a **high-priority refactor candidate**. The entire component needs to be rebuilt to accept navigation data from props (e.g., from `src/content/navigation.ts`). The hardcoded HTML should be replaced with loops that generate the navigation structure dynamically. The internal `<script>` tag must be removed.
+    -   ✅ **Styling:** No scoped styles, which is good. The component uses global CSS and can be themed via props.
+    -   ❌ **Props:** Fails the data-driven principle for its content. All navigation links, menu structures, and content are hardcoded directly into the component.
+    -   ✅ **Interactivity:** The component itself contains no client-side scripts. All interactivity is correctly handled by global scripts loaded in `BaseLayout.astro`.
+-   **Usage:** 
+    ```astro
+    <NewHeader theme="cobalt" /> 
+    <NewHeader theme="transparent" />
+    ```
+-   **Refactoring Notes:** This is a **high-priority refactor candidate**. The entire component needs to be rebuilt to accept navigation data from props (e.g., from `src/content/navigation.ts`). The hardcoded HTML should be replaced with loops that generate the navigation structure dynamically.
 
 ### `NewFooter.astro`
 
@@ -45,6 +49,22 @@ The goal is to create a clear guide for developers to understand which component
 ---
 
 ## Page & Section Components
+
+### `HomepageVideoHero.astro`
+-   **File Path:** `src/components/HomepageVideoHero.astro`
+-   **Purpose:** Renders a full-screen video background with a content overlay. Designed to be used with the transparent header.
+-   **Props:** None. Uses a `<slot />` for content.
+-   **Protocol Adherence:**
+    -   ✅ **Styling:** Compliant. Uses global CSS classes.
+    -   ✅ **Props:** Compliant. Uses a slot for content, which is a valid and flexible approach for a container component.
+    -   ✅ **Interactivity:** No client-side script.
+-   **Usage:** 
+    ```astro
+    <HomepageVideoHero>
+        <h1>Your Hero Content Here</h1>
+    </HomepageVideoHero>
+    ```
+-   **Refactoring Notes:** None.
 
 ### `BodyCopyImage.astro`
 
@@ -91,17 +111,14 @@ The goal is to create a clear guide for developers to understand which component
     -   ❌ **Props:** `AboutHero`, `OurStoryHero`, and `OurPeopleHero` are completely static with hardcoded content. `HeroMultiTemplate` is data-driven, which is good.
 -   **Refactoring Notes:** **High-priority refactor candidate.** The three static hero components (`AboutHero`, `OurStoryHero`, `OurPeopleHero`) should be **deleted**. They should be replaced by a single, reusable hero component (like `HeroMultiTemplate` or a new `StandardHero.astro`). All styles must be extracted to the global stylesheet.
 
-### Content & List Components (`StatsSection`, `QuoteSection`, `LeadershipTeamSection`, etc.)
+### `TransparentHeader.astro`
 
-This category includes: `StatsSection.astro`, `QuoteSection.astro`, `LeadershipTeamSection.astro`, `TwoColumnContent.astro`, `CulturePillarSection.astro`, `VideoTestimonial.astro`, `PageNavigation.astro`, `SectionIntro.astro`, `ServicesBlock.astro`.
+-   **File Path:** `src/components/TransparentHeader.astro`
+-   **Status:** **DELETED**. This component was a temporary implementation for the transparent header effect and has been removed. Its functionality has been merged into `NewHeader.astro` via the `theme` prop.
 
--   **Purpose:** Various section-level components for displaying specific content formats (e.g., stats, quotes, team grids).
--   **Protocol Adherence:**
-    -   ❌ **Styling:** Nearly all of these components contain non-compliant `<style>` blocks.
-    -   ✅ **Props:** Most of these components are correctly data-driven via props.
--   **Refactoring Notes:** **Medium-priority refactor candidates.** The primary task for this group is to systematically extract all styles from the `<style>` blocks and move them into `src/styles/styles.css`, ensuring they use the project's class naming conventions. The component logic and props are generally well-structured. `ServicesBlock.astro` should also be checked for its responsive behavior.
+---
 
-### Compliant Components
+## Compliant Components
 
 The following components are well-structured, data-driven, and adhere to the development protocol. They can be used as-is and serve as excellent examples for future development.
 
@@ -114,6 +131,7 @@ The following components are well-structured, data-driven, and adhere to the dev
 -   ✅ **`NarrowBodyCopy.astro`**
 -   ✅ **`ServicesCard.astro`**
 -   ✅ **`VideoTextSection.astro`**
+-   ✅ **`HomepageVideoHero.astro`**
 
 ---
 

@@ -1,0 +1,162 @@
+/* Scoped styles for the transparent header functionality */
+
+/* This targets the header only when the 'is-transparent' class is added by the prop */
+#menu-header.is-transparent {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    border-bottom: none;
+}
+
+#menu-header.is-transparent .new-mega-menu.banner {
+    background-color: transparent !important;
+    transition: background-color 0.3s ease-in-out;
+    border-top: none;
+}
+
+/* Style all links, text, and icons to be white */
+#menu-header.is-transparent .nav-primary__link,
+#menu-header.is-transparent .nav-utility__link,
+#menu-header.is-transparent .btn--search__label,
+#menu-header.is-transparent .btn-hamburger span {
+    color: #fff !important;
+}
+
+#menu-header.is-transparent .banner__logo img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease-in-out;
+}
+
+#menu-header.is-transparent .btn-hamburger:before,
+#menu-header.is-transparent .btn-hamburger:after {
+	background: #fff;
+}
+
+#menu-header.is-transparent .btn--search {
+    background-image: url(/img/icons/icon-search--white.svg);
+}
+
+
+/* This state is triggered by JS on scroll */
+#menu-header.is-transparent.scrolled {
+    position: fixed;
+    animation: fadeInDown 0.3s;
+    border-bottom: none;
+}
+
+#menu-header.is-transparent.scrolled .new-mega-menu.banner {
+    background-color: #010063 !important; /* Rich blue from design system */
+}
+
+/* When the mobile menu is open, it should ALWAYS have a solid background */
+body.on--navigation #menu-header.is-transparent .new-mega-menu.banner {
+    background-color: #010063 !important;
+}
+
+/* Add padding to the body to prevent content from jumping behind the now-fixed header */
+body.landing-page.has-scrolled-header {
+    padding-top: 78px; /* Adjust this value to the actual height of your header */
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0.5;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* This state is triggered by JS on hover */
+#menu-header.is-transparent.hovered .new-mega-menu.banner {
+    background-color: #010063 !important; /* Rich blue from design system */
+}
+
+
+#menu-header.is-transparent {
+    border-bottom: none !important;
+}
+#menu-header.is-transparent .new-mega-menu.banner {
+    border-top: none !important;
+}
+
+
+#menu-header.is-transparent .nav-utility--desktop {
+    border-bottom: none !important;
+}
+
+
+/* More aggressive border removal */
+#menu-header.is-transparent > div {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+
+/* Super aggressive border removal for all child elements */
+#menu-header.is-transparent * {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+/*
+ * Fix for Transparent Header on Mobile
+ * --------------------------------------------------------------------------
+ * When the mobile menu is open, the header should behave like a normal
+ * solid header. These rules override the transparent styles when the
+ * .on--navigation class is present on the body.
+ */
+body.on--navigation #menu-header.is-transparent .nav-primary__link,
+body.on--navigation #menu-header.is-transparent .nav-utility__link,
+body.on--navigation #menu-header.is-transparent .btn--search__label,
+body.on--navigation #menu-header.is-transparent .btn-hamburger span {
+    color: #222 !important; /* Revert to default text color */
+}
+
+body.on--navigation #menu-header.is-transparent .banner__logo img {
+    filter: none !important; /* Revert logo to original colors */
+}
+
+body.on--navigation #menu-header.is-transparent .btn-hamburger:before,
+body.on--navigation #menu-header.is-transparent .btn-hamburger:after {
+    background: #222 !important; /* Revert hamburger icon to dark */
+}
+
+body.on--navigation #menu-header.is-transparent .btn--search {
+    background-image: url(/img/icons/icon-search.svg) !important; /* Revert search icon to dark */
+}
+
+
+/*
+ * Fix for Transparent Header on Mobile
+ * --------------------------------------------------------------------------
+ * When the mobile menu is open, the header should behave like a normal
+ * solid header. These rules override the transparent styles when the
+ * .on--navigation class is present on the body.
+ */
+body.on--navigation #menu-header.is-transparent .nav-primary__link,
+body.on--navigation #menu-header.is-transparent .nav-utility__link,
+body.on--navigation #menu-header.is-transparent .btn--search__label,
+body.on--navigation #menu-header.is-transparent .btn-hamburger span {
+    color: #222 !important; /* Revert to default text color */
+}
+
+body.on--navigation #menu-header.is-transparent .banner__logo img {
+    filter: none !important; /* Revert logo to original colors */
+}
+
+body.on--navigation #menu-header.is-transparent .btn-hamburger:before,
+body.on--navigation #menu-header.is-transparent .btn-hamburger:after {
+    background: #222 !important; /* Revert hamburger icon to dark */
+}
+
+body.on--navigation #menu-header.is-transparent .btn--search {
+    background-image: url(/img/icons/icon-search.svg) !important; /* Revert search icon to dark */
+}
+
