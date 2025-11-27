@@ -1,0 +1,49 @@
+---
+interface Card {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  cards: Card[];
+}
+
+const { title, description, cards } = Astro.props;
+---
+
+<div class="module box-cards bg-white primary-color soft-lens--ends no-margin-upper" id="promopanel">
+    <div class="wrap">
+        <div class="col small-12">
+            <div class="box-cards__title-wrapper">
+                <h2 class="giga text-center--medium" set:html={title}></h2>
+                <div class="editor" set:html={description}></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="col small-12">
+            <div class="box-cards__wrapper SingleRow">
+                {cards.map(card => (
+                    <div>
+                        <div>
+                            <div class="box-cards__card bg-white primary-color flexbox direction-column justify-between" id="promopanelblock">
+                                <div>
+                                    <div class="flexbox align-center push-half--bottom">
+                                        <h3 class="giga show-for-small-only push-half--left">{card.title}</h3>
+                                    </div>
+                                    <div class="">
+                                        <h3 class="giga show-for-medium-up push-half--bottom">{card.title}</h3>
+                                        <div class="editor" set:html={card.description}></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</div>

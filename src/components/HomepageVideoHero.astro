@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export type Props = HTMLAttributes<"div">;
+
+const { ...Astro$props } = Astro.props;
+---
+
+<div id="hero-video-container" class:list={["hero-video-container", Astro$props.class]}>
+  <video
+    id="hero-video"
+    class="hero-video__video"
+    poster=""
+    playsinline
+    autoplay
+    muted
+    loop
+  >
+    <source
+      src="/assets/cogesto-asset/Hero_Video.mp4"
+      type="video/mp4"
+    />
+  </video>
+  <div class="hero-video__content">
+    <div class="wrap">
+      <div class="hero-video__content-inner">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>

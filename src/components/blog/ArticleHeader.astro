@@ -1,0 +1,151 @@
+---
+interface Props {
+    badge: string;
+    title: string;
+    subtitle: string;
+    publishDate: string;
+    readTime: string;
+    author: {
+        name: string;
+        role: string;
+        avatarUrl: string;
+        profileUrl: string;
+        latestArticles: {
+            title: string;
+            url: string;
+            badge: string;
+            publishDate: string;
+        }[];
+    };
+}
+
+const { badge, title, subtitle, publishDate, readTime, author } = Astro.props;
+---
+
+<div class="col small-12 pull-1--large large-7">
+    <span class="badge push-quarter--bottom">{badge}</span>
+    <h1 class="tera push-half--bottom">{title}</h1>
+    <p class="mega push-half--bottom">{subtitle}</p>
+
+    <div class="wrap relative" style="padding-left: 0 !important;">
+        <div class="pull-left--medium">
+            <time class="beta inline">{publishDate}</time>
+            <p class="read-time" data-words="68"><span>{readTime}</span></p>
+        </div>
+
+        <div class="pull-right--medium push-top--small">
+            <ul>
+                <li class="list__item-inline">
+                    <button class="block share-icon" onclick="shareOnLinkedIn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" aria-hidden="true" focusable="false"><title>LinkedIn</title><rect width="30" height="30" fill="#0024FF" rx="15"></rect><title>LinkedIn</title><path fill="#fff" d="M11.36 21.967H8.25V11.965h3.11v10.002ZM9.805 10.602a1.802 1.802 0 1 1-.007-3.604 1.802 1.802 0 0 1 .007 3.604ZM23 21.967h-3.106v-4.862c0-1.158-.02-2.652-1.617-2.652-1.617 0-1.862 1.265-1.862 2.57v4.944h-3.103V11.965h2.98v1.367h.04c.414-.786 1.43-1.617 2.94-1.617 3.147 0 3.728 2.07 3.728 4.764v5.488Z"></path></svg>
+                        <span class="visuallyhidden">Share on LinkedIn</span>
+                    </button>
+                </li>
+                <li class="list__item-inline">
+                    <button class="block share-icon" onclick="shareOnBluesky()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" aria-hidden="true" focusable="false">
+                            <title>Bluesky</title>
+                            <rect width="30" height="30" fill="#0024FF" rx="15"></rect>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 568 501" fill="white" aria-hidden="true" focusable="false">
+                                <path style="transform: translate(125px, 125px) scale(.55);" d="M123.121 33.6637C188.241 82.5526 258.281 181.681 284 234.873C309.719 181.681 379.759 82.5526 444.879 33.6637C491.866 -1.61183 568 -28.9064 568 57.9464C568 75.2916 558.055 203.659 552.222 224.501C531.947 296.954 458.067 315.434 392.347 304.249C507.222 323.8 536.444 388.56 473.333 453.32C353.473 576.312 301.061 422.461 287.631 383.039C285.169 375.812 284.017 372.431 284 375.306C283.983 372.431 282.831 375.812 280.369 383.039C266.939 422.461 214.527 576.312 94.6667 453.32C31.5556 388.56 60.7778 323.8 175.653 304.249C109.933 315.434 36.0535 296.954 15.7778 224.501C9.94525 203.659 0 75.2916 0 57.9464C0 -28.9064 76.1345 -1.61183 123.121 33.6637Z" fill="white"></path>
+                            </svg>
+                        </svg>
+                        <span class="visuallyhidden">Share on Bluesky</span>
+                    </button>
+                </li>
+                <li class="list__item-inline">
+                    <button class="block share-icon" onclick="shareOnX()" data-show-count="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" aria-hidden="true" focusable="false">
+                            <title>X</title>
+                            <rect width="30" height="30" fill="#0024FF" rx="15"></rect>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 1200 1227" fill="white" aria-hidden="true" focusable="false">
+                                <path style="transform: translate(300px, 300px) scale(.5);" d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"></path>
+                            </svg>
+                        </svg>
+                        <span class="visuallyhidden">Share on X</span>
+                    </button>
+                </li>
+                <li class="list__item-inline">
+                    <a class="block share-icon" onclick="shareOnEmail()" href={`mailto:?subject=Woodmac.com%20-%20${encodeURIComponent(title)}&body=${Astro.url.href}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" aria-hidden="true" focusable="false"><title>Email</title><rect width="30" height="30" fill="#0024FF" rx="15"></rect><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" d="M7.64 9.85h14.72v10.24H7.64V9.85Z"></path><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" d="M21.983 10.223 15 15.93l-6.983-5.707"></path></svg>
+                        <span class="visuallyhidden">Share by email</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="article-header--avatar__container push--top">
+        <div class="article-header--avatar">
+            <div role="button" aria-label={`Open profile panel for ${author.name}`} class="js-toggle__profile avatar__section" aria-controls={`profile-${author.name.replace(' ', '-')}`} aria-expanded="false" data-target={`#profile-${author.name.replace(' ', '-')}`}>
+                <div class="article-header--avatar__image slider-trigger">
+                    <img class="avatar__image lazyloaded" data-src={author.avatarUrl} src={author.avatarUrl} />
+                </div>
+                <div class="article-header--avatar__info">
+                    <h4 class="primary-font--regular">{author.name}</h4>
+                    <p class="gamma">{author.role}</p>
+                </div>
+            </div>
+            <button tabindex="-1" class="js-toggle__profile off-canvas-right__close off-canvas-right__close--half" aria-label="Close profile panel" aria-controls={`profile-${author.name.replace(' ', '-')}`} aria-expanded="false" data-target={`#profile-${author.name.replace(' ', '-')}`} role="button"></button>
+            <div id={`profile-${author.name.replace(' ', '-')}`} class="off-canvas-right off-canvas-right--half">
+                <button class="js-toggle__profile off-canvas-right__close-btn" data-target={`#profile-${author.name.replace(' ', '-')}`} aria-label="Close profile panel" aria-controls={`profile-${author.name.replace(' ', '-')}`} aria-expanded="false" role="button">
+                    <svg tabindex="-1" role="img" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>Close</title><path tabindex="-1" fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M0 0l20 20M20 0L0 20"></path></svg>
+                </button>
+                <img class="lazyloaded" data-src={`${author.avatarUrl}?width=600&height=360&rmode=crop&rxy=0.5,0.5`} src={`${author.avatarUrl}?width=600&height=360&rmode=crop&rxy=0.5,0.5`} />
+                <div class="soft-double">
+                    <h2 class="giga white">{author.name}</h2>
+                    <p class="alpha white push-half--bottom">{author.role}</p>
+                    <h3 class="beta white font-semibold border--top-thin push--top soft--top push-half--bottom">
+                        Latest articles by {author.name.split(' ')[0]}
+                    </h3>
+                    <ul class="list push--bottom">
+                        {author.latestArticles.map(article => (
+                            <li class="list__item push-half--bottom">
+                                <a class="mono-link" href={article.url}>
+                                    <span class="badge push-quarter--bottom">{article.badge}</span>
+                                    <time class="beta italic">{article.publishDate}</time>
+                                    <h2 class="alpha font-light">{article.title}</h2>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <a href={author.profileUrl} class="btn btn--primary" data-cta-location="slideoutpanel" data-cta-type="link">View {author.name}'s full profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function shareOnLinkedIn() {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+    }
+
+    function shareOnBluesky() {
+        window.open(`https://bsky.app/intent/compose?text=${encodeURIComponent(document.title)}%0A${encodeURIComponent(window.location.href)}`, '_blank');
+    }
+
+    function shareOnX() {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+    }
+
+    function shareOnEmail() {
+        // The mailto link is handled by the <a> tag's href attribute.
+        // This function is here to be consistent with the other share buttons.
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const profileToggles = document.querySelectorAll('.js-toggle__profile');
+        profileToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const targetId = toggle.getAttribute('data-target');
+                const targetPanel = document.querySelector(targetId);
+                if (targetPanel) {
+                    targetPanel.classList.toggle('is-active');
+                    const isExpanded = targetPanel.classList.contains('is-active');
+                    toggle.setAttribute('aria-expanded', isExpanded.toString());
+                }
+            });
+        });
+    });
+</script>

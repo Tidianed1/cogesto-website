@@ -1,0 +1,17 @@
+---
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+---
+
+<article>
+    <div class="module bg-light-100" id="copy">
+        <div class="wrap">
+            <div class="col small-12 pull-1--large large-7 push-4--large">
+                <div class="editor" set:html={content}></div>
+            </div>
+        </div>
+    </div>
+</article>

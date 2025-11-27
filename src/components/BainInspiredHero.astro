@@ -1,0 +1,34 @@
+---
+interface Props {
+  tag: string;
+  title: string;
+  description?: string;
+  imageUrl: string;
+  imageAlt: string;
+}
+
+const { tag, title, description, imageUrl, imageAlt } = Astro.props;
+---
+
+<header class="hero large-12 column hero--hub hero--bain-inspired">
+    <div class="hero__text-content">
+        <div class="hero__top-wrap row">
+            <div class="hero__title-wrap medium-8 large-4 column end">
+                <div class="hero__title hero__description-container">
+                    <p class="hero__tag uppercase">{tag}</p>
+                    <h1 class="showDesktopTitle peta">{title}</h1>
+                    <h1 class="showMobileTitle hero__title tera">{title}</h1>
+                </div>
+                {description && (
+                    <div class="hero__description rte__heading hero__description-container alpha">
+                        <p set:html={description}></p>
+                    </div>
+                )}
+            </div>
+        </div>
+    </div>
+
+    <div class="hero__image">
+        <img alt={imageAlt} srcset={imageUrl} data-object-fit="">
+    </div>
+</header>

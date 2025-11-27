@@ -1,0 +1,467 @@
+{
+    "metadata": {
+        "title": "Conseil en Opérations | Bain & Company",
+        "description": "Du bureau d’études à l'usine en passant par l'ensemble de votre chaîne d'approvisionnement, nous vous aidons à développer un programme complet, sans contrainte, pour transformer vos processus.",
+        "source_url": "https://www.bain.com/fr/expertises-fonctionnelles/operations/"
+    },
+    "content_blocks": [
+        {
+            "type": "container",
+            "tag": "div",
+            "attributes": {
+                "class": [
+                    "column"
+                ]
+            },
+            "content": [
+                {
+                    "type": "container",
+                    "tag": "header",
+                    "attributes": {
+                        "class": [
+                            "hero",
+                            "large-12",
+                            "column",
+                            "hero--hub",
+                            "hero--svg-xl",
+                            "hero--transparent-background",
+                            "hero--delay-text"
+                        ]
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "div",
+                            "attributes": {
+                                "class": [
+                                    "hero__text-content"
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "container",
+                                    "tag": "div",
+                                    "attributes": {
+                                        "class": [
+                                            "hero__top-wrap",
+                                            "row"
+                                        ]
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "container",
+                                            "tag": "div",
+                                            "attributes": {
+                                                "class": [
+                                                    "hero__title-wrap",
+                                                    "medium-8",
+                                                    "large-5",
+                                                    "column",
+                                                    "end"
+                                                ]
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "container",
+                                                    "tag": "div",
+                                                    "attributes": {
+                                                        "class": [
+                                                            "hero__title",
+                                                            "hero__description-container"
+                                                        ]
+                                                    },
+                                                    "content": [
+                                                        {
+                                                            "type": "paragraph",
+                                                            "content": [
+                                                                {
+                                                                    "type": "text",
+                                                                    "value": "Expertises Fonctionnelles"
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "heading",
+                                                            "level": 1,
+                                                            "text": "Opérations"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "container",
+                                                    "tag": "div",
+                                                    "attributes": {
+                                                        "class": [
+                                                            "hero__description",
+                                                            "rte__heading",
+                                                            "hero__description-container"
+                                                        ]
+                                                    },
+                                                    "content": [
+                                                        {
+                                                            "type": "paragraph",
+                                                            "content": [
+                                                                {
+                                                                    "type": "text",
+                                                                    "value": "Comment gagner en efficacité et optimiser votre organisation"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "tag": "section",
+                    "attributes": {
+                        "id": "in-page-nav",
+                        "class": [
+                            "in-page-nav"
+                        ],
+                        "data-scroll-dependent": "",
+                        "data-sticky-container": "",
+                        "data-toggler": "is-expanded"
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "div",
+                            "attributes": {
+                                "class": [
+                                    "in-page-nav__nav-wrap",
+                                    "sticky"
+                                ],
+                                "data-sticky": "",
+                                "data-margin-top": "0",
+                                "data-stack-elements": "#site-header",
+                                "data-sticky-on": "small",
+                                "data-top-anchor": "in-page-nav-top-anchor",
+                                "data-bottom-anchor": "in-page-nav-bottom-anchor"
+                            },
+                            "content": [
+                                {
+                                    "type": "list",
+                                    "style": "unordered",
+                                    "items": [
+                                        "Vue d'ensemble",
+                                        "Nos Solutions",
+                                        "Notre Impact",
+                                        "Points de vue",
+                                        "Notre équipe"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "tag": "section",
+                    "attributes": {
+                        "class": [
+                            "section",
+                            "overview",
+                            "row"
+                        ],
+                        "id": "overview-section",
+                        "data-magellan-target": "overview-section"
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "div",
+                            "attributes": {
+                                "class": [
+                                    "medium-10",
+                                    "large-8",
+                                    "column",
+                                    "overview--centered",
+                                    "medium-centered"
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "container",
+                                    "tag": "div",
+                                    "attributes": {
+                                        "id": "overview-section-text"
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "paragraph",
+                                            "content": [
+                                                {
+                                                    "type": "text",
+                                                    "value": "Du back-office au laboratoire de recherche, en passant par l’ensemble de votre chaîne d’approvisionnement, nous vous aidons à développer un programme complet capable de transformer vos processus. Nous vous aidons à focaliser vos priorités sur les opportunités qui maximisent votre avantage concurrentiel et l'alignement de vos opérations et de votre stratégie d'entreprise."
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "tag": "section",
+                    "attributes": {
+                        "class": [
+                            "spacing",
+                            "spacing--top-bottom"
+                        ]
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "section",
+                            "attributes": {
+                                "id": "c987f640-a771-4e99-a3e2-f59ab66c0738",
+                                "data-magellan-target": "c987f640-a771-4e99-a3e2-f59ab66c0738",
+                                "class": [
+                                    "section",
+                                    "featured-solutions",
+                                    "column",
+                                    "row"
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "container",
+                                    "tag": "div",
+                                    "attributes": {
+                                        "class": [
+                                            "section__midline-heading"
+                                        ]
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "heading",
+                                            "level": 3,
+                                            "text": "Nos Solutions"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "tag": "section",
+                    "attributes": {
+                        "class": [
+                            "spacing",
+                            "spacing--top-bottom"
+                        ]
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "section",
+                            "attributes": {
+                                "class": [
+                                    "section",
+                                    "overview",
+                                    "row"
+                                ],
+                                "id": "2eb0cfb7-b14d-47dd-8545-d2e855825618",
+                                "data-magellan-target": "2eb0cfb7-b14d-47dd-8545-d2e855825618"
+                            },
+                            "content": [
+                                {
+                                    "type": "container",
+                                    "tag": "div",
+                                    "attributes": {
+                                        "class": [
+                                            "column"
+                                        ]
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "container",
+                                            "tag": "div",
+                                            "attributes": {
+                                                "class": [
+                                                    "section__midline-heading"
+                                                ]
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "heading",
+                                                    "level": 3,
+                                                    "text": "Notre Impact"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "tag": "section",
+                    "attributes": {
+                        "class": [
+                            "spacing",
+                            "spacing--top-bottom"
+                        ]
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "section",
+                            "attributes": {
+                                "class": [
+                                    "brand-narrative-container"
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "container",
+                                    "tag": "div",
+                                    "attributes": {
+                                        "class": [
+                                            "mobile-carousel",
+                                            "brand-narrative-container__carousel"
+                                        ],
+                                        "data-brand-narrative-carousel": ""
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "container",
+                                            "tag": "section",
+                                            "attributes": {
+                                                "class": [
+                                                    "brand-narrative"
+                                                ]
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "paragraph",
+                                                    "content": [
+                                                        {
+                                                            "type": "text",
+                                                            "value": "Projets de transformation menés à bien"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "container",
+                                            "tag": "section",
+                                            "attributes": {
+                                                "class": [
+                                                    "brand-narrative"
+                                                ]
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "paragraph",
+                                                    "content": [
+                                                        {
+                                                            "type": "text",
+                                                            "value": "Gains réalisés sur les frais engagés"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "tag": "section",
+                    "attributes": {
+                        "class": [
+                            "section",
+                            "column",
+                            "row",
+                            "spacing",
+                            "spacing--top-bottom"
+                        ],
+                        "id": "370319ed-963d-481a-8d68-2bc6a66d186e",
+                        "data-magellan-target": "370319ed-963d-481a-8d68-2bc6a66d186e"
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "div",
+                            "attributes": {
+                                "class": [
+                                    "section__midline-heading"
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "heading",
+                                    "level": 3,
+                                    "text": "Points de vue"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "tag": "section",
+                    "attributes": {
+                        "class": [
+                            "spacing",
+                            "spacing--top-bottom"
+                        ]
+                    },
+                    "content": [
+                        {
+                            "type": "container",
+                            "tag": "section",
+                            "attributes": {
+                                "id": "2d235848-5a89-4412-b9b3-614f32cc6058",
+                                "data-magellan-target": "2d235848-5a89-4412-b9b3-614f32cc6058",
+                                "class": [
+                                    "section",
+                                    "card__grid",
+                                    "column",
+                                    "row",
+                                    "js-profiles-grid"
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "container",
+                                    "tag": "div",
+                                    "attributes": {
+                                        "class": [
+                                            "section__midline-heading"
+                                        ]
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "heading",
+                                            "level": 3,
+                                            "text": "Notre équipe"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewHeader from '../components/NewHeader.astro';
+import NewFooter from '../components/NewFooter.astro';
+import { footerData } from '../content/footer';
+
+// Import your Reusable Components
+import HeroMultiTemplate from '../components/HeroMultiTemplate.astro';
+import BodyCopyImage from '../components/BodyCopyImage.astro';
+import TextOnlySection from '../components/TextOnlySection.astro';
+import Accordion from '../components/Accordion.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import StatsSection from '../components/StatsSection.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import CardImageText from '../components/CardImageText.astro';
+import CardQuote from '../components/CardQuote.astro';
+import LeftTitledIntro from '../components/LeftTitledIntro.astro';
+import CenteredTextSection from '../components/CenteredTextSection.astro';
+import ValuesTabs from '../components/ValuesTabs.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SubNavigation from '../components/SubNavigation.astro';
+import BoxCards from '../components/BoxCards.astro';
+import TwoColumnContent from '../components/TwoColumnContent.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map(page => {
+    return {
+      params: { slug: page.id }, 
+      props: { page },
+    };
+  });
+}
+
+const { page } = Astro.props;
+const { title, description, breadcrumbs, subNavigation, sections } = page.data;
+
+// Map JSON 'component' names to Astro Imports
+const COMPONENTS = {
+  HeroMultiTemplate,
+  BodyCopyImage,
+  TextOnlySection,
+  Accordion,
+  QuoteSection,
+  StatsSection,
+  CardGrid: FeatureGrid,
+  CardImageText,
+  CardQuote,
+  LeftTitledIntro,
+  CenteredTextSection,
+  ValuesTabs,
+  BoxCards,
+  TwoColumnContent
+};
+---
+
+<BaseLayout title={title}>
+  <meta slot="head" name="description" content={description} />
+  
+  <NewHeader />
+  
+  <main>
+    {breadcrumbs && <Breadcrumbs items={breadcrumbs.items} />}
+    
+    {/* Hero usually comes after breadcrumbs in this design? Or breadcrumbs inside/below hero? 
+        Following standard patterns, breadcrumbs are top. 
+        However, if Hero is the first section, we might want to render it specifically if it wasn't in the sections list.
+        But our factory puts Hero in the sections list usually. 
+        Wait, the factory defined Breadcrumbs/SubNav as separate fields now. 
+    */}
+
+    {subNavigation && <SubNavigation items={subNavigation.items} currentPage={subNavigation.currentPage} />}
+
+    {sections.map((section, index) => {
+      const Component = COMPONENTS[section.component];
+      
+      if (!Component) {
+        // Breadcrumbs and SubNav are handled separately above, so we skip them if they appear in sections list 
+        // (though Pydantic separates them now).
+        if (section.component === 'Breadcrumbs' || section.component === 'SubNavigation') return null;
+        
+        console.warn(`Component ${section.component} not found`);
+        return null;
+      }
+
+      // Render the component with mapped props
+      return <Component {...section} />;
+    })}
+  </main>
+
+  <NewFooter {...footerData} />
+</BaseLayout>

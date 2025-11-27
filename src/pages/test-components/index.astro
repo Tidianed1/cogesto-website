@@ -1,17 +1,19 @@
----import BaseLayout from "../../layouts/BaseLayout.astro";
-import BodyCopyImage from "../../components/BodyCopyImage.astro";
-import CardImageText from "../../components/CardImageText.astro";
-import CardQuote from "../../components/CardQuote.astro";
-import Accordion from "../../components/Accordion.astro";
-import NarrowBodyCopy from "../../components/NarrowBodyCopy.astro";
-import ValuesTabs from "../../components/ValuesTabs.astro";
-import CommoditySelector from "../../components/CommoditySelector.astro";
-import CenteredTextSection from "../../components/CenteredTextSection.astro";
-import ImageTextCard from "../../components/ImageTextCard.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import LeftTitledIntro from "../../components/LeftTitledIntro.astro";
-import HomepageHero from "../../components/HomepageHero.astro";
-import NewHeader from '../../components/NewHeader.astro';
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BodyCopyImage from "@/components/BodyCopyImage.astro";
+import CardImageText from "@/components/CardImageText.astro";
+import CardQuote from "@/components/CardQuote.astro";
+import Accordion from "@/components/Accordion.astro";
+import NarrowBodyCopy from "@/components/NarrowBodyCopy.astro";
+import ValuesTabs from "@/components/ValuesTabs.astro";
+import CommoditySelector from "@/components/CommoditySelector.astro";
+import CenteredTextSection from "@/components/CenteredTextSection.astro";
+import ImageTextCard from "@/components/ImageTextCard.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import LeftTitledIntro from "@/components/LeftTitledIntro.astro";
+import VideoBanner from "@/components/VideoBanner.astro";
+import BoxCards from "@/components/BoxCards.astro";
+import NewHeader from '@/components/NewHeader.astro';
 
 const slides = [
     {
@@ -313,6 +315,21 @@ const centeredTextData = {
 <p><span class=\"EOP SCXW162827715 BCX0\" data-ccp-props=\"{\"134233118\":false,\"201341983\":1,\"335559739\":160,\"335559740\":240}\"><span class=\"TextRun Highlight SCXW154135385 BCX0\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW154135385 BCX0\">We embrace flexible working hours and a dynamic hybrid work model, empowering our employees to </span><span class=\"NormalTextRun SCXW154135385 BCX0\">maintain</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> a healthy work-life balance</span><span class=\"NormalTextRun SCXW154135385 BCX0\">.</span></span> <span class=\"TextRun Highlight SCXW154135385 BCX0\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW154135385 BCX0\">Collaborating with </span><span class=\"NormalTextRun SCXW154135385 BCX0\">some of </span><span class=\"NormalTextRun SCXW154135385 BCX0\"> the brightest minds in the industry,</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> b</span><span class=\"NormalTextRun SCXW154135385 BCX0\">e</span><span class=\"NormalTextRun SCXW154135385 BCX0\">coming</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> a </span><span class=\"NormalTextRun SCXW154135385 BCX0\">Woodmacker</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> means be</span><span class=\"NormalTextRun SCXW154135385 BCX0\">ing</span><span class=\"NormalTextRun SCXW154135385 BCX0\"> part of a dynamic team that supports your growth and celebrates your accomplishments</span><span class=\"NormalTextRun SCXW154135385 BCX0\">.</span></span> <span class=\"EOP SCXW154135385 BCX0\" data-ccp-props=\"{\"134233118\":false,\"201341983\":1,\"335559739\":160,\"335559740\":240}\">&nbsp;</span></span></p>`,
   id: "copy"
 };
+
+const boxCardsData = [
+  {
+    title: "Assets",
+    description: "<p>Whether you’re valuing an existing asset or weighing up a new acquisition or build, data accuracy is everything. Our analysts meticulously source and connect reliable datapoints across commodities to give you a true picture of your target assets. That’s why major organisations, banks and governments refuse to invest without our insights.</p>"
+  },
+  {
+    title: "Markets",
+    description: "<p>Energy and natural resources markets have never been more connected or chaotic. To help you understand what’s really going on, our market analysis is driven by the deepest, broadest and most accurate data across interconnected industries – giving you the power to forecast and capitalise on future market movements.</p>"
+  },
+  {
+    title: "Companies",
+    description: "<p>If you’re benchmarking the competition or looking for ways to beat them, you need a clear view of the competitive landscape. Our unbiased analysis brings the strategies, market sentiment and financial health of leading companies into focus. Giving you an expert eye on the boardroom decisions of every major player in your market.</p>"
+  }
+];
 ---
 
 <BaseLayout title="Test Components">
@@ -325,7 +342,22 @@ const centeredTextData = {
     <header id="menu-header">
       <NewHeader />
     </header>
-    <HomepageHero slides={slides} />
+
+    <VideoBanner
+      smallImageUrl="https://www.woodmac.com/siteassets/events/2025-events/lme-forum-2024-epi-hero-1353x533-2.png?width=768&amp;rmode=crop&amp;rxy=0.5,0.5"
+      mediumImageUrl="https://www.woodmac.com/siteassets/events/2025-events/lme-forum-2024-epi-hero-1353x533-2.png?width=1024&amp;rmode=crop&amp;rxy=0.5,0.5"
+      largeImageUrl="https://www.woodmac.com/siteassets/events/2025-events/lme-forum-2024-epi-hero-1353x533-2.png?width=1900&amp;rmode=crop&amp;rxy=0.5,0.5"
+      title="Wood Mackenzie LME Forum"
+      description="<p>Join us on 15 October 2025 in London for&nbsp;<strong>TNT:</strong>&nbsp;Transition, Nationalism and Trump, an explosive combination for metals?</p>"
+      buttonText="Register your interest"
+      buttonHref="/events/lme-forum/"
+    />
+
+    <BoxCards
+      title="Clarity where you need it most"
+      description="<p>Across our product portfolio, we provide market-leading insights into the assets, markets and companies at the heart of the energy transition.</p>"
+      cards={boxCardsData}
+    />
     <h1>Test Page with NewHeaderStatic</h1>
     <Breadcrumbs items={breadcrumbItems} />
     <div class="body-copy-image" id="bodycopyimagecontainer">
@@ -382,7 +414,6 @@ const centeredTextData = {
     />
 
     <Accordion
-      client:load
       title="Frequently asked questions"
       description="Here you’ll find answers to the most common questions you may have on Wood Mackenzie’s Energy Transition Service. If you have any other questions, get in touch."
       items={faqItems}

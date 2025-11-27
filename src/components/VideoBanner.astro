@@ -1,0 +1,46 @@
+---
+interface Props {
+  smallImageUrl: string;
+  mediumImageUrl: string;
+  largeImageUrl: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+}
+
+const {
+  smallImageUrl,
+  mediumImageUrl,
+  largeImageUrl,
+  title,
+  description,
+  buttonText,
+  buttonHref,
+} = Astro.props;
+---
+
+<div class="bg--small c-wm-video c-wm-video--50-50 c-wm-video--video-right" style={`background-image:url(${smallImageUrl}); background-position:center; background-size: cover;`} id="video">
+    <div class="bg--medium" style={`background-image:url(${mediumImageUrl}); background-position:center; background-size: cover;`}>
+        <div class="module bg--large soft-lens--ends no-margin-upper" style={`background-image:url(${largeImageUrl}); background-position:center; background-size: cover;`}>
+            <div class="wrap">
+                <div class="col small-12">
+                    <div class="c-wm-video__wrapper bg-secondary-color white">
+                        <div class="c-wm-video__video-col">
+                                <div class="video js-video">
+                                </div>
+                        </div>
+                            <div class="c-wm-video__info-col">
+                                    <h2 class="text-left giga push--bottom title-underline soft--bottom title-underline--white" set:html={title}></h2>
+                                <div>
+                                    <div class="editor white" set:html={description}>
+                                    </div>
+                                    <a class="btn btn--primary push--top btn--light" href={buttonHref}>{buttonText}</a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

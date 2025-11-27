@@ -1,191 +1,31 @@
 ---
-// Static replica of target website - Prompt 3: Componentized
-import BaseLayout from '../layouts/BaseLayout.astro';
-import NewHeader from '../components/NewHeader.astro';
-import HeroSection from '../components/HeroSection.astro';
-import MainContent from '../components/MainContent.astro';
-import NewFooter from '../components/NewFooter.astro';
-import { footerData } from '../content/footer';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NewHeader from '@/components/NewHeader.astro';
+import MainContent from '@/components/MainContent.astro';
+import NewFooter from '@/components/NewFooter.astro';
+import { footerData } from '@/content/footer';
+import HomepageVideoHero from '@/components/HomepageVideoHero.astro';
 ---
 <BaseLayout title="New Index - Target Style Adoption">
-  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true">
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<div class="skip">
-    <a class="btn btn-skip" tabindex="0" href="#content">Skip to main content</a>
-</div>
-
-<!-- TEMPORARY: Section Mapping Overlay -->
-<style is:inline>
-  .section-marker {
-    position: relative;
-    border: 3px dashed rgba(255, 0, 0, 0.5) !important;
-    margin: 2px 0 !important;
-    overflow: visible !important; /* Allow sticky children */
-  }
   
-  /* Don't wrap header in section-marker - it breaks sticky */
-  .new-mega-menu.banner {
-    /* Remove any wrapper constraints */
-  }
-  .section-marker::before {
-    content: attr(data-section-name);
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(255, 0, 0, 0.9);
-    color: white;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    z-index: 10000;
-    border-radius: 4px;
-    font-family: monospace;
-    pointer-events: none;
-  }
-  .section-marker::after {
-    content: "ID: " attr(data-section-id);
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(0, 0, 255, 0.9);
-    color: white;
-    padding: 6px 12px;
-    font-size: 12px;
-    font-weight: bold;
-    z-index: 10000;
-    border-radius: 4px;
-    font-family: monospace;
-    pointer-events: none;
-  }
-  .subsection-marker {
-    position: relative;
-    border: 2px dashed rgba(0, 255, 0, 0.4) !important;
-    margin: 4px 0 !important;
-    padding: 2px !important;
-  }
-  .subsection-marker::before {
-    content: attr(data-subsection-name);
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background: rgba(0, 255, 0, 0.85);
-    color: black;
-    padding: 4px 8px;
-    font-size: 11px;
-    font-weight: bold;
-    z-index: 9999;
-    border-radius: 3px;
-    font-family: monospace;
-    pointer-events: none;
-  }
-</style>
+  <NewHeader transparentMode={true} />
 
+  <main class="content start">
+    <div class="homepage-gradients-wrapper">
+      <HomepageVideoHero>
+        <h1 class="hero-video__title">Intelligence Connected</h1>
+        <p class="hero-video__subtitle">
+          Energy data and analytics solutions for an interconnected world — enhanced
+          by AI and human intelligence
+        </p>
+        <a href="/product-portfolio/" class="btn btn--primary"
+          >Discover our products</a
+        >
+      </HomepageVideoHero>
+      <MainContent />
+    </div>
+  </main>
 
-<NewHeader />
-        <main class="content start">
-            <div class="homepage-gradients-wrapper">
-                <div class="section-marker" data-section-name="[2] HERO SECTION" data-section-id="#homepage-hero-cobalt">
-                    <HeroSection />
-                </div>
-                <MainContent />
-            </div>
-        </main>
-<div class="section-marker" data-section-name="[9] FOOTER" data-section-id="footer">
   <NewFooter {...footerData} />
-</div>
 
-  <script is:inline>
-    // Navigation dropdown functionality - inline for immediate execution
-    (function() {
-      'use strict';
-
-      // Navigation color changer based on scroll position (Desktop only)
-      function initNavColorChanger() {
-        if (window.innerWidth < 1000) {
-          console.log('Nav color changer: mobile, skipping');
-          return; // Only on desktop
-        }
-        
-        const banner = document.querySelector('.new-mega-menu.banner');
-        if (!banner) {
-          console.error('Nav color changer: banner not found');
-          return;
-        }
-
-        console.log('Nav color changer: banner found', banner);
-
-        // Sections that should have blue nav: hero
-        const blueSectionIds = ['homepage-hero-cobalt'];
-
-        function updateNavColor() {
-          // Simple check: if hero bottom is visible, nav is blue, else white
-          const heroSection = document.querySelector('#homepage-hero-cobalt');
-          if (!heroSection) return;
-          
-          const heroRect = heroSection.getBoundingClientRect();
-          const navHeight = 78;
-          
-          // If hero bottom is below nav bar = blue, else white
-          const shouldBeBlue = heroRect.bottom > navHeight;
-          const bgColor = shouldBeBlue ? '#0000FF' : '#ffffff';
-          
-          // Update colors (removed menuHeader - only update banner)
-          banner.style.backgroundColor = bgColor;
-          banner.style.background = bgColor;
-        }
-
-        // Set initial color immediately (blue - hero section)
-        updateNavColor();
-        
-        // Wait a bit for layout to settle and update again
-        setTimeout(function() {
-          updateNavColor();
-        }, 100);
-
-        // Throttle scroll events for performance
-        let ticking = false;
-        function onScroll() {
-          if (!ticking) {
-            window.requestAnimationFrame(function() {
-              updateNavColor();
-              ticking = false;
-            });
-            ticking = true;
-          }
-        }
-
-        // Listen to scroll events
-        window.addEventListener('scroll', onScroll, { passive: true });
-        
-        // Also update on resize and after images load
-        window.addEventListener('resize', function() {
-          if (window.innerWidth >= 1000) {
-            setTimeout(updateNavColor, 50);
-          }
-        });
-
-        // Update when images load (might change layout)
-        window.addEventListener('load', function() {
-          setTimeout(updateNavColor, 100);
-        });
-
-        console.log('Nav color changer initialized');
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-          initNavColorChanger();
-        });
-      } else {
-        initNavColorChanger();
-      }
-    })();
-  </script>
-
-  </body>
 </BaseLayout>

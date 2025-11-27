@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BainInspiredHero from '../../components/BainInspiredHero.astro';
+import { footerData } from '../../content/footer';
+
+const heroData = {
+  tag: 'Secteur',
+  title: 'Grande Consommation',
+  description: '<p>Un secteur confronté à des défis, mais qui dévoile également de nouvelles opportunités de croissance</p>',
+  imageUrl: '/assets/cogesto-asset/dl.beatsnoop.com-3000-4uY50CJ9sH.jpg',
+  imageAlt: 'Cogesto Asset',
+};
+---
+
+<BaseLayout title="Bain Hero Test" footerData={footerData}>
+  <BainInspiredHero {...heroData} />
+</BaseLayout>

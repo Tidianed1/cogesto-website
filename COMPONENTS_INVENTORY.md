@@ -9,143 +9,301 @@ The goal is to create a clear guide for developers to understand which component
 -   **✅ No Scoped Styles**: Components must not contain `<style>` blocks. All styling must come from the global stylesheet (`src/styles/styles.css`).
 -   **✅ Data-Driven Props**: Components must be made reusable and dynamic through `Astro.props`. Hardcoded content is not allowed in reusable components.
 -   **✅ Structural Integrity**: The HTML structure should be a clean and semantic replica of the intended design blueprint.
--   **✅ Centralized Interactivity**: Client-side scripts should be managed globally (e.g., in `BaseLayout.astro` or a global script file) rather than with inline `<script>` tags within components, unless using Astro's island architecture (`client:*`) correctly.
+-   **✅ Centralized Interactivity**: Client-side scripts should be managed globally (e.g., in `BaseLayout.astro`) or via Astro Islands (`client:*`).
 
 ---
 
-## Core Layout Components
+## 1. Core Layout & Global Components
 
 ### `NewHeader.astro`
-
 -   **File Path:** `src/components/NewHeader.astro`
--   **Purpose:** Renders the main site navigation, including the top utility bar, primary navigation, desktop mega-menus, and mobile hamburger menu. It now supports a transparent theme for use with video heroes.
--   **Props:** `theme?: 'transparent' | 'cobalt'`
+-   **Purpose:** Renders the main site navigation. Supports a standard (`cobalt`) and transparent theme for hero sections.
+-   **Business Use Case:** The single global header for the entire website.
 -   **Protocol Adherence:**
-    -   ✅ **Styling:** No scoped styles, which is good. The component uses global CSS and can be themed via props.
-    -   ❌ **Props:** Fails the data-driven principle for its content. All navigation links, menu structures, and content are hardcoded directly into the component.
-    -   ✅ **Interactivity:** The component itself contains no client-side scripts. All interactivity is correctly handled by global scripts loaded in `BaseLayout.astro`.
--   **Usage:** 
-    ```astro
-    <NewHeader theme="cobalt" /> 
-    <NewHeader theme="transparent" />
-    ```
--   **Refactoring Notes:** This is a **high-priority refactor candidate**. The entire component needs to be rebuilt to accept navigation data from props (e.g., from `src/content/navigation.ts`). The hardcoded HTML should be replaced with loops that generate the navigation structure dynamically.
+    -   ✅ **Styling & Interactivity:** Compliant.
+    -   ❌ **Props (Content):** Non-compliant. All navigation links are hardcoded.
+-   **Refactoring Notes:** High-priority. Refactor to accept navigation links from a central data file (e.g., `src/content/fr.ts`).
 
 ### `NewFooter.astro`
-
 -   **File Path:** `src/components/NewFooter.astro`
--   **Purpose:** Renders the main site footer, including newsletter signup, link columns, legal links, and social media icons.
--   **Props:** `tagline`, `newsletterTitle`, `newsletterCtaText`, `newsletterCtaHref`, `discoverLinks`, `resourcesLinks`, `aboutLinks`, `legalLinks`, `socialLinks`.
+-   **Purpose:** Renders the main site footer.
+-   **Business Use Case:** The single global footer for the entire website. Contains newsletter signups, contact links, and legal information.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None. This component is a model for CDP adherence.
+
+### `DesktopNav.astro`
+-   **File Path:** `src/components/DesktopNav.astro`
+-   **Purpose:** Renders the desktop version of the mega-menu navigation.
+-   **Business Use Case:** Part of the main header.
+-   **Protocol Adherence:** 
+    -   ❌ **Props (Content):** Non-compliant. All navigation links are hardcoded.
+-   **Refactoring Notes:** High-priority. To be refactored along with `NewHeader.astro`.
+
+### `MobileNav.astro`
+-   **File Path:** `src/components/MobileNav.astro`
+-   **Purpose:** Renders the mobile version of the mega-menu navigation.
+-   **Business Use Case:** Part of the main header.
 -   **Protocol Adherence:**
-    -   ✅ **Styling:** Compliant. Uses global CSS classes with no scoped `<style>` block.
-    -   ✅ **Props:** Compliant. The component is fully data-driven and accepts all its content via a well-defined `Props` interface.
-    -   ✅ **Interactivity:** The mobile view uses a `js-accordion` class, which correctly hooks into the global site JavaScript for interactivity without needing an inline script.
--   **Usage:** Import and pass the `footerData` object from `src/content/fr.ts`.
-    ```astro
-    <NewFooter {...footerData} />
-    ```
--   **Refactoring Notes:** None. This component is a good example of protocol adherence.
+    -   ❌ **Props (Content):** Non-compliant. All navigation links are hardcoded.
+-   **Refactoring Notes:** High-priority. To be refactored along with `NewHeader.astro`.
+
+### `NavAccounts.astro`
+-   **File Path:** `src/components/NavAccounts.astro`
+-   **Purpose:** Renders the "Sign in" section of the navigation.
+-   **Business Use Case:** Part of the main header.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `PostHeaderModals.astro`
+-   **File Path:** `src/components/PostHeaderModals.astro`
+-   **Purpose:** Contains the content for the "Sign in" and "Search" modals.
+-   **Business Use Case:** Part of the main header.
+-   **Protocol Adherence:** 
+    -   ❌ **Props (Content):** Non-compliant. All content is hardcoded.
+-   **Refactoring Notes:** High-priority. To be refactored along with `NewHeader.astro`.
+
+### `Breadcrumbs.astro`
+-   **File Path:** `src/components/Breadcrumbs.astro`
+-   **Purpose:** Renders a breadcrumb navigation trail.
+-   **Business Use Case:** Used at the top of pages to show the user their location in the site hierarchy.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
 
 ---
 
-## Page & Section Components
+## 2. Hero & Header Components
 
 ### `HomepageVideoHero.astro`
 -   **File Path:** `src/components/HomepageVideoHero.astro`
--   **Purpose:** Renders a full-screen video background with a content overlay. Designed to be used with the transparent header.
--   **Props:** None. Uses a `<slot />` for content.
--   **Protocol Adherence:**
-    -   ✅ **Styling:** Compliant. Uses global CSS classes.
-    -   ✅ **Props:** Compliant. Uses a slot for content, which is a valid and flexible approach for a container component.
-    -   ✅ **Interactivity:** No client-side script.
--   **Usage:** 
-    ```astro
-    <HomepageVideoHero>
-        <h1>Your Hero Content Here</h1>
-    </HomepageVideoHero>
-    ```
+-   **Purpose:** Renders a full-screen video background with a content overlay.
+-   **Business Use Case:** Creates a high-impact, dynamic landing page entrance to immediately grab user attention.
+-   **Protocol Adherence:** ✅ Fully Compliant.
 -   **Refactoring Notes:** None.
 
-### `BodyCopyImage.astro`
+### `BainInspiredHero.astro`
+-   **File Path:** `src/components/BainInspiredHero.astro`
+-   **Purpose:** Renders a hero section inspired by the Bain website.
+-   **Business Use Case:** A visually striking hero for key landing pages.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
 
+### `SecondaryBlueHero.astro`
+-   **File Path:** `src/components/SecondaryBlueHero.astro`
+-   **Purpose:** A simple, blue hero section with a title and introduction.
+-   **Business Use Case:** A simple, clean hero for pages that need a strong title but not a full hero section.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `HeroBlock.astro`
+-   **File Path:** `src/components/HeroBlock.astro`
+-   **Purpose:** Renders a hero section with a button that opens a modal with a form.
+-   **Business Use Case:** A lead-generation hero for product or service pages.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `HeroProduct.astro`
+-   **File Path:** `src/components/HeroProduct.astro`
+-   **Purpose:** Renders a hero section specifically for a product.
+-   **Business Use Case:** The main hero for a product page.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `HeroSection.astro`
+-   **File Path:** `src/components/HeroSection.astro`
+-   **Purpose:** Renders a hero section with a diagonal split design.
+-   **Business Use Case:** A visually interesting hero for key landing pages.
+-   **Protocol Adherence:** 
+    -   ❌ **Props (Content):** Non-compliant. All content is hardcoded.
+-   **Refactoring Notes:** High-priority. Refactor to accept content via props.
+
+### `HeroService.astro`
+-   **File Path:** `src/components/HeroService.astro`
+-   **Purpose:** Renders a hero section for a service.
+-   **Business Use Case:** The main hero for a service page.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `HeroMultiTemplate.astro`
+-   **File Path:** `src/components/HeroMultiTemplate.astro`
+-   **Purpose:** A flexible, data-driven hero component for interior pages.
+-   **Business Use Case:** The standard hero for service pages, expertise deep-dives, and articles.
+-   **Protocol Adherence:** ❌ **Non-Compliant (Styling).** Contains a `<style>` block.
+-   **Refactoring Notes:** High-priority. Extract all styles to the global stylesheet.
+
+### `AboutHero.astro`
+-   **Status:** 💀 **DELETION CANDIDATE.** Static and should be replaced by `HeroMultiTemplate.astro`.
+
+### `OurStoryHero.astro`
+-   **Status:** 💀 **DELETION CANDIDATE.** Static and should be replaced by `HeroMultiTemplate.astro`.
+
+### `OurPeopleHero.astro`
+-   **Status:** 💀 **DELETION CANDIDATE.** Static and should be replaced by `HeroMultiTemplate.astro`.
+
+### `SignInHero.astro`
+-   **File Path:** `src/components/SignInHero.astro`
+-   **Purpose:** Renders a hero section for the sign-in page.
+-   **Business Use Case:** For the sign-in page.
+-   **Protocol Adherence:** 
+    -   ❌ **Props (Content):** Non-compliant. All content is hardcoded.
+-   **Refactoring Notes:** High-priority. Refactor to accept content via props.
+
+---
+
+## 3. Content & Section Components
+
+### `BodyCopyImage.astro`
 -   **File Path:** `src/components/BodyCopyImage.astro`
--   **Purpose:** A flexible two-column component for displaying a block of text alongside an image. The layout order can be reversed.
--   **Props:** `preTitle`, `title`, `description`, `buttonText`, `buttonHref`, `imageUrl`, `imageAlt`, `reverseLayout`, `titleColorClass`, `buttonClass`, `backgroundColor`.
--   **Protocol Adherence:**
-    -   ✅ **Styling:** Compliant. No scoped styles.
-    -   ✅ **Props:** Compliant. Fully data-driven.
-    -   ✅ **Structure:** Excellent. Uses the mandatory "Manual Reorder" pattern (Astro ternary operator) to handle the `reverseLayout` logic, which is the gold standard for this project.
--   **Usage:** Ideal for feature sections, content blocks, and calls to action.
--   **Refactoring Notes:** None. This is the blueprint for how to build robust, reusable components.
+-   **Purpose:** A flexible two-column component for displaying text alongside an image.
+-   **Business Use Case:** Ideal for detailing a specific service, explaining a company value, or introducing a team member.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `TextOnlySection.astro`
+-   **File Path:** `src/components/TextOnlySection.astro`
+-   **Purpose:** A simple section for displaying a title and a block of text.
+-   **Business Use Case:** For any page that needs a simple text block.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `CenteredTextSection.astro`
+-   **File Path:** `src/components/CenteredTextSection.astro`
+-   **Purpose:** Renders a section with a centered title and text content.
+-   **Business Use Case:** For simple text sections with a centered layout.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `LeftTitledIntro.astro`
+-   **File Path:** `src/components/LeftTitledIntro.astro`
+-   **Purpose:** Renders a section with a title on the left and content on the right.
+-   **Business Use Case:** For introductory sections.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `NarrowBodyCopy.astro`
+-   **File Path:** `src/components/NarrowBodyCopy.astro`
+-   **Purpose:** A component for displaying a narrow block of text.
+-   **Business Use Case:** For text-heavy pages that need a more readable column width.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `TwoColumnContent.astro`
+-   **File Path:** `src/components/TwoColumnContent.astro`
+-   **Purpose:** Renders a two-column content section.
+-   **Business Use Case:** For displaying content in two columns.
+-   **Protocol Adherence:** ❌ **Non-Compliant (Styling).** Contains a `<style>` block.
+-   **Refactoring Notes:** High-priority. Extract all styles to the global stylesheet.
+
+### `SectionIntro.astro`
+-   **File Path:** `src/components/SectionIntro.astro`
+-   **Purpose:** An introductory section with a title and content.
+-   **Business Use Case:** To introduce a new section on a page.
+-   **Protocol Adherence:** ❌ **Non-Compliant (Styling).** Contains a `<style>` block.
+-   **Refactoring Notes:** High-priority. Extract all styles to the global stylesheet.
 
 ### `ValuesTabs.astro`
-
 -   **File Path:** `src/components/ValuesTabs.astro`
--   **Purpose:** Renders a tabbed interface with a summary on the left and interactive tabs on the right. Shows a dropdown on mobile.
--   **Props:** `summaryTitle`, `summaryDescription`, `tabs`.
+-   **Purpose:** Renders an interactive tabbed interface.
+-   **Business Use Case:** Excellent for showcasing distinct but related pieces of information, such as company values, service tiers, or project phases.
 -   **Protocol Adherence:**
-    -   ✅ **Styling:** Compliant. No scoped styles.
-    -   ✅ **Props:** Compliant. Fully data-driven.
-    -   ❌ **Interactivity:** Contains a non-compliant inline `<script is:inline>` tag to manage tab state. While functional, the protocol prefers interactivity to be handled by global scripts or Astro islands (`client:load`).
--   **Usage:** Used on the "Our Values" page to display company values.
--   **Refactoring Notes:** The inline script should be removed. The tab functionality can be rebuilt using a small, dedicated Astro island component (`client:load`) or by integrating it into the global `navigation.js` if appropriate.
+    -   ❌ **Interactivity:** Non-compliant. Uses an inline `<script>` tag.
+-   **Refactoring Notes:** Low-priority. The inline script should be extracted into an Astro Island (`client:load`) when time permits.
 
 ### `OutcomesBlock.astro`
-
 -   **File Path:** `src/components/OutcomesBlock.astro`
--   **Purpose:** Displays a sophisticated tabbed interface for the homepage, showing different "outcomes" with text and images.
--   **Props:** None.
+-   **Purpose:** Displays a sophisticated tabbed interface for the homepage.
+-   **Business Use Case:** Can be adapted to show "Challenge -> Solution -> Outcome" case studies, or to feature different industry reports.
+-   **Protocol Adherence:** ❌ **Non-Compliant.** Contains inline styles, hardcoded content, and an inline script.
+-   **Refactoring Notes:** High-priority. Requires a complete overhaul to become data-driven and compliant.
+
+### `Accordion.astro`
+-   **File Path:** `src/components/Accordion.astro`
+-   **Purpose:** Renders a vertically stacked set of interactive headings that each reveal a section of content.
+-   **Business Use Case:** For FAQs, or other content that can be collapsed.
 -   **Protocol Adherence:**
-    -   ❌ **Styling:** Contains a large, non-compliant `<style>` block.
-    -   ❌ **Props:** All tab content is hardcoded, making it completely non-reusable.
-    -   ❌ **Interactivity:** Uses a non-compliant inline `<script is:inline>` for tab functionality.
--   **Usage:** Currently used only on the homepage (`new_index.astro`).
--   **Refactoring Notes:** **High-priority refactor candidate.** This component needs a complete overhaul. All styles must be moved to the global stylesheet. All content should be passed in via props (similar to `ValuesTabs.astro`). The inline script should be replaced with a compliant solution.
+    -   ❌ **Interactivity:** Non-compliant. Uses an inline `<script>` tag.
+-   **Refactoring Notes:** High-priority. The inline script should be replaced with a compliant solution, like an Astro island (`client:load`).
 
-### Hero Components (`AboutHero`, `OurStoryHero`, `OurPeopleHero`, `HeroMultiTemplate`)
-
--   **File Paths:** `src/components/AboutHero.astro`, `src/components/OurStoryHero.astro`, `src/components/OurPeopleHero.astro`, `src/components/HeroMultiTemplate.astro`
--   **Purpose:** Render hero sections for various pages.
--   **Protocol Adherence:**
-    -   ❌ **Styling:** All of these components contain large, non-compliant, and often duplicated `<style>` blocks.
-    -   ❌ **Props:** `AboutHero`, `OurStoryHero`, and `OurPeopleHero` are completely static with hardcoded content. `HeroMultiTemplate` is data-driven, which is good.
--   **Refactoring Notes:** **High-priority refactor candidate.** The three static hero components (`AboutHero`, `OurStoryHero`, `OurPeopleHero`) should be **deleted**. They should be replaced by a single, reusable hero component (like `HeroMultiTemplate` or a new `StandardHero.astro`). All styles must be extracted to the global stylesheet.
-
-### `TransparentHeader.astro`
-
--   **File Path:** `src/components/TransparentHeader.astro`
--   **Status:** **DELETED**. This component was a temporary implementation for the transparent header effect and has been removed. Its functionality has been merged into `NewHeader.astro` via the `theme` prop.
+### `MainContent.astro`
+-   **File Path:** `src/components/MainContent.astro`
+-   **Purpose:** A collection of different sections that make up the main content of the homepage. Not a reusable component.
+-   **Business Use Case:** A temporary container for the homepage content.
+-   **Protocol Adherence:** ❌ **Non-Compliant.** All content is hardcoded.
+-   **Refactoring Notes:** High-priority. This component should be broken down into smaller, reusable components.
 
 ---
 
-## Compliant Components
+## 4. Card & Item Components
 
-The following components are well-structured, data-driven, and adhere to the development protocol. They can be used as-is and serve as excellent examples for future development.
+### `Card.astro`
+-   **File Path:** `src/components/Card.astro`
+-   **Purpose:** Renders a generic card component.
+-   **Business Use Case:** A versatile component for displaying content in a card format.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
 
--   ✅ **`NewFooter.astro`**
--   ✅ **`BodyCopyImage.astro`**
--   ✅ **`SubNavigation.astro`**
--   ✅ **`TextOnlySection.astro`**
--   ✅ **`ArticleCard.astro`**
--   ✅ **`PointsDeVue.astro`** (as an aggregator)
--   ✅ **`NarrowBodyCopy.astro`**
--   ✅ **`ServicesCard.astro`**
--   ✅ **`VideoTextSection.astro`**
--   ✅ **`HomepageVideoHero.astro`**
+### `ArticleCard.astro`
+-   **File Path:** `src/components/ArticleCard.astro`
+-   **Purpose:** Renders a card for a single article.
+-   **Business Use Case:** For displaying articles in a list or grid.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `NewsCard.astro`
+-   **File Path:** `src/components/NewsCard.astro`
+-   **Purpose:** Renders a card for a news article.
+-   **Business Use Case:** For displaying news articles in a list or grid.
+-   **Protocol Adherence:** ❌ **Non-Compliant (Styling).** Contains a `<style>` block.
+-   **Refactoring Notes:** High-priority. Extract all styles to the global stylesheet.
+
+### `ServicesCard.astro`
+-   **File Path:** `src/components/ServicesCard.astro`
+-   **Purpose:** Renders a card for a single service.
+-   **Business Use Case:** For displaying services in a list or grid.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `CardImageText.astro`
+-   **File Path:** `src/components/CardImageText.astro`
+-   **Purpose:** Renders a section with an image on one side and text content on the other.
+-   **Business Use Case:** For feature sections and calls to action.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** The component is named `CardImageText.astro` but the internal classes and props refer to `video`. This should be made consistent.
+
+### `CardQuote.astro`
+-   **File Path:** `src/components/CardQuote.astro`
+-   **Purpose:** Renders a section with an image on one side and a quote on the other.
+-   **Business Use Case:** For displaying quotes with an accompanying image.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** The component is named `CardQuote.astro` but the internal classes and props refer to `video`. This should be made consistent.
+
+### `AdvantageItem.astro`
+-   **File Path:** `src/components/AdvantageItem.astro`
+-   **Purpose:** Displays a single "advantage" or feature.
+-   **Business Use Case:** For showcasing a list of advantages or features.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `BlogPostCard.astro`
+-   **File Path:** `src/components/BlogPostCard.astro`
+-   **Purpose:** Renders a card for a single blog post.
+-   **Business Use Case:** For displaying a blog post in a list or grid.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
 
 ---
 
-## Summary & Action Plan
+## 5. Deprecated & Unused Components
 
-1.  **High-Priority Refactors:**
-    -   `NewHeader.astro`: Make it fully data-driven.
-    -   `OutcomesBlock.astro`: Make it data-driven and remove all inline styles and scripts.
-    -   Hero Components: Consolidate the various static hero components into one or two reusable, data-driven components and remove all inline styles.
+-   `HomepageHero.astro`: 💀 **DELETED.**
+-   `TransparentHeader.astro`: 💀 **DELETED.**
+-   `NewHeader.old.astro`: 💀 **DELETION CANDIDATE.**
+-   `expertises/ExpertiseHero.astro`: 💀 **DELETION CANDIDATE.**
+-   `expertises/ExpertiseSubNav.astro`: 💀 **DELETION CANDIDATE.**
+-   `FeatureGrid.astro`: Empty component, needs to be implemented or deleted.
+-   `HeaderScripts.astro`: Obsolete, should be deleted.
+-   `PaymentSuccessCard.astro`: Not currently used.
+-   `expertises/CTASection.astro`: Not currently used.
+-   `expertises/ExpertiseSection.astro`: Not currently used.
 
-2.  **Medium-Priority Refactors (Style Extraction):**
-    -   Go through the list of components marked with "❌ Styling" and move all CSS from their `<style>` blocks into the global `src/styles/styles.css`. This is a critical step for maintainability.
-
-3.  **Low-Priority Refactors (Scripting):**
-    -   `ValuesTabs.astro`: Replace the inline script with an Astro island.
-
-By following this plan, we can bring the entire component library in line with the development protocol, making the codebase more stable, maintainable, and easier to work with.
+---
+This inventory provides a clear overview of the current state of our component library. By focusing on refactoring the non-compliant components as we build out pages, we can progressively improve the quality and maintainability of the codebase.

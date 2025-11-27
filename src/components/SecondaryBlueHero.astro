@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  introduction: string;
+  imageUrl?: string;
+  videoUrl?: string;
+}
+
+const { title, introduction, imageUrl, videoUrl } = Astro.props;
+---
+
+<div id="secondary-blue-hero" class="hero-homepage-cobalt-template__container hero-block bg-core-branding-rich-blue relative h-screen">
+    <div class="absolute inset-0">
+        {videoUrl ? (
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                <source src={videoUrl} type="video/mp4" />
+            </video>
+        ) : (
+            <div class="w-full h-full bg-cover bg-center" style={`background-image: url(${imageUrl});`}></div>
+        )}
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+    </div>
+    <div class="wrap hero-homepage-cobalt-template__section_flex_container relative z-10 flex items-center justify-center h-full text-center">
+        <div class="col hero-homepage-cobalt-template__summary">
+            <h1 class="hero-homepage-cobalt__title text-white">{title}</h1>
+            <div class="hero-homepage-cobalt__introduction text-white">
+                <p>{introduction}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Javascript snippet to remove tabIndex to avoid keyboard focus to the Video element.
+    window.onload = function () {
+        var heroHomepageCobalt = document.querySelector('.hero-homepage-cobalt-template__image');
+        if (heroHomepageCobalt) {
+            var videoButtonsWithTabIndex = heroHomepageCobalt.querySelectorAll('.w-css-reset button[tabIndex]');
+            videoButtonsWithTabIndex.forEach((buttonwithTabIndex) => {
+                buttonwithTabIndex.setAttribute('tabindex', '-1');
+            });
+        }
+    }
+</script>
