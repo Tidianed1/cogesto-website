@@ -1,7 +1,43 @@
 ---
+// src/components/FeatureGrid.astro
+// A compliant grid container for displaying lists of features/services using ServicesCard.
+
+import ServicesCard from './ServicesCard.astro';
+
+export interface GridItem {
+  title: string;
+  description: string;
+  link: string;
+  iconUrl: string;
+}
+
+export interface Props {
+  heading?: string;
+  items: GridItem[];
+}
+
+const { heading, items } = Astro.props;
 ---
-<section>
-  <!-- TODO: Paste feature grid markup from blueprint -->
-  <div class="grid"></div>
-  
+
+<section class="soft-double--ends bg-light-100">
+  <div class="wrap">
+    {heading && (
+      <div class="col small-12">
+        <h2 class="giga push-bottom--double text-primary text-center">{heading}</h2>
+      </div>
+    )}
+    
+    <div class="flexbox flex-wrap justify-center" style="margin: 0 -15px;">
+      {items.map(item => (
+        <div class="col small-12 medium-6 large-4 push-bottom--double" style="padding: 0 15px;">
+          <ServicesCard
+            title={item.title}
+            description={item.description}
+            href={item.link}
+            iconUrl={item.iconUrl || '/img/icons/icon-arrow--dark-blue.svg'} 
+          />
+        </div>
+      ))}
+    </div>
+  </div>
 </section>

@@ -7,12 +7,24 @@ import { footerData } from '../content/footer';
 
 // Import your Reusable Components
 import HeroMultiTemplate from '../components/HeroMultiTemplate.astro';
+import HeroService from '../components/HeroService.astro';
 import BodyCopyImage from '../components/BodyCopyImage.astro';
 import TextOnlySection from '../components/TextOnlySection.astro';
 import Accordion from '../components/Accordion.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import StatsSection from '../components/StatsSection.astro';
+import StatsSideSection from '../components/StatsSideSection.astro';
 import FeatureGrid from '../components/FeatureGrid.astro';
+import CardGrid from '../components/CardGrid.astro'; // New generic CardGrid
+import BenefitsBlock from '../components/BenefitsBlock.astro'; // New BenefitsBlock
+import RelatedContent from '../components/RelatedContent.astro'; // New RelatedContent
+import LeadershipTeamSection from '../components/LeadershipTeamSection.astro'; // New LeadershipTeamSection
+import FullWidthCta from '../components/FullWidthCta.astro'; // New FullWidthCta
+import CommoditySelector from '../components/CommoditySelector.astro'; // New CommoditySelector
+import TabsTextMedia from '../components/TabsTextMedia.astro'; // New TabsTextMedia
+import MasonryGrid from '../components/MasonryGrid.astro'; // New MasonryGrid
+import BlogArticleShowcase from '../components/BlogArticleShowcase.astro'; // New BlogArticleShowcase
+import ServicesCarousel from '../components/ServicesCarousel.astro'; // New ServicesCarousel
 import CardImageText from '../components/CardImageText.astro';
 import CardQuote from '../components/CardQuote.astro';
 import LeftTitledIntro from '../components/LeftTitledIntro.astro';
@@ -21,7 +33,7 @@ import ValuesTabs from '../components/ValuesTabs.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SubNavigation from '../components/SubNavigation.astro';
 import BoxCards from '../components/BoxCards.astro';
-import TwoColumnContent from '../components/TwoColumnContent.astro';
+import ProductListBlock from '../components/ProductListBlock.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -39,19 +51,32 @@ const { title, description, breadcrumbs, subNavigation, sections } = page.data;
 // Map JSON 'component' names to Astro Imports
 const COMPONENTS = {
   HeroMultiTemplate,
+  HeroService,
   BodyCopyImage,
   TextOnlySection,
   Accordion,
   QuoteSection,
   StatsSection,
-  CardGrid: FeatureGrid,
+  StatsSideSection,
+  CardGrid, // Now using the smart CardGrid
+  FeatureGrid,
+  BenefitsBlock, // Added
+  RelatedContent, // Added
+  LeadershipTeamSection, // Added
+  FullWidthCta, // Added
+  CommoditySelector, // Added
+  TabsTextMedia, // Added
+  MasonryGrid, // Added
+  BlogArticleShowcase, // Added
+  ServicesCarousel, // Added
   CardImageText,
   CardQuote,
   LeftTitledIntro,
   CenteredTextSection,
   ValuesTabs,
   BoxCards,
-  TwoColumnContent
+  ProductListBlock,
+  SubNavigation
 };
 ---
 
@@ -69,8 +94,6 @@ const COMPONENTS = {
         But our factory puts Hero in the sections list usually. 
         Wait, the factory defined Breadcrumbs/SubNav as separate fields now. 
     */}
-
-    {subNavigation && <SubNavigation items={subNavigation.items} currentPage={subNavigation.currentPage} />}
 
     {sections.map((section, index) => {
       const Component = COMPONENTS[section.component];

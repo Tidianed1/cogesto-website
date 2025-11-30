@@ -1,0 +1,209 @@
+---
+// TabsTextMedia.astro
+// Renders a complex component with a sidebar navigation (tabs) on the left
+// and a content area on the right that changes based on the selected tab.
+// Each content area features a title, description, CTA, and a large image.
+
+export interface TabItem {
+  id: string;
+  label: string;
+  title: string;
+  description: string; // HTML string
+  buttonText: string;
+  buttonHref: string;
+  imageSrc: string;
+  imageAlt?: string;
+  isActive?: boolean;
+}
+
+export interface Props {
+  heading?: string;
+  tabs: TabItem[];
+  id?: string;
+}
+
+const {
+  heading = "Nos industries",
+  tabs,
+  id = "tabs-text-media-" + Math.random().toString(36).substr(2, 9)
+} = Astro.props;
+---
+
+<div class="tabs-text-media-block module soft--top soft--bottom" id={id}>
+    <div class="wrap">
+        {heading && (
+            <h4 class="heading--1 push-bottom--double">{heading}</h4>
+        )}
+        
+        <div class="tabs-text-media__container flexbox">
+            {/* Left Side: Tab Navigation */}
+            <div class="tabs-text-media__nav col small-12 medium-4 large-3">
+                <div class="tabs-nav-wrapper">
+                    <ul class="tab-item-wrapper js-tabs-button">
+                        {tabs.map((tab, index) => (
+                            <li 
+                                class={`tab-item heading--5 ${tab.isActive || index === 0 ? 'active' : ''}`} 
+                                data-target={tab.id}
+                                role="button"
+                                tabindex="0"
+                            >
+                                {tab.label}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            {/* Right Side: Tab Content */}
+            <div class="tabs-text-media__content col small-12 medium-8 large-9">
+                <div class="tab-content-wrapper">
+                    {tabs.map((tab, index) => (
+                        <div 
+                            data-num={tab.id} 
+                            class={`tab-content ${tab.isActive || index === 0 ? 'active' : ''}`} 
+                            style={`display: ${tab.isActive || index === 0 ? 'block' : 'none'};`}
+                        >
+                            <div class="text-media text-media--left">
+                                <div class="grid__wrapper grid--row-1 flexbox flex-wrap">
+                                    {/* Text Column */}
+                                    <div class="grid grid--se-8-12 grid--as-top ta--left col small-12 medium-6 order-1">
+                                        <div class="grid__content soft-double--right">
+                                            <div class="text-media-indent">
+                                                <h3 class="heading--3 h300 push-half--bottom">{tab.title}</h3>
+                                                <div class="border divider--blue push-bottom"></div>
+                                                <div class="body-copy push-bottom" set:html={tab.description}></div>
+                                                <div class="button__wrapper"> 
+                                                    <a class="btn btn--primary" href={tab.buttonHref}> 
+                                                        <span class="button-content">{tab.buttonText}</span> 
+                                                        {/* Icon handled by btn class or we can add svg if needed */}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Image Column */}
+                                    <div class="grid grid--se-1-7 order grid--as-top ta--right col small-12 medium-6 order-2">
+                                        <div class="grid__content">
+                                            <div class="bg--img" style={`background-image: url('${tab.imageSrc}');`}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script define:vars={{ id }}>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById(id);
+        if (!container) return;
+
+        const tabButtons = container.querySelectorAll('.tab-item');
+        const tabContents = container.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const targetId = button.getAttribute('data-target');
+
+                // Hide all contents
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                    content.classList.remove('active');
+                });
+
+                // Show target content
+                const targetContent = container.querySelector(`.tab-content[data-num="${targetId}"]`);
+                if (targetContent) {
+                    targetContent.style.display = 'block';
+                    // Small delay to allow display block to apply before adding active class for potential CSS transitions
+                    setTimeout(() => {
+                        targetContent.classList.add('active');
+                    }, 10);
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .tabs-text-media__container {
+        border-top: 1px solid #e4e4e4;
+        padding-top: 2rem;
+    }
+
+    .tab-item-wrapper {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .tab-item {
+        padding: 1rem 1.5rem 1rem 0;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.125rem;
+        border-right: 3px solid transparent; /* Vertical line indicator on right? Or just style text */
+        transition: all 0.3s ease;
+        color: #5a5a5a; /* dark-grey-1 */
+    }
+
+    .tab-item.active {
+        color: #0024ff; /* core-branding-cobalt */
+        border-right-color: #0024ff;
+    }
+
+    .tab-item:hover {
+        color: #0024ff;
+    }
+
+    .bg--img {
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%; /* Square image or adjust ratio */
+        border-radius: 0; /* Sharp corners per design system */
+    }
+
+    @media (min-width: 48em) {
+        .tabs-text-media__nav {
+            border-right: 1px solid #e4e4e4;
+            padding-right: 0;
+        }
+        .tab-item {
+            border-right: 3px solid transparent;
+            border-bottom: none;
+        }
+        .tab-item.active {
+            border-right-color: #0024ff;
+        }
+        
+        .bg--img {
+            height: 100%;
+            padding-bottom: 0;
+            min-height: 400px;
+        }
+    }
+
+    .heading--1 {
+        font-size: 2rem; /* peta */
+        font-weight: 700;
+        color: #010063;
+    }
+
+    .text-media-indent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+</style>

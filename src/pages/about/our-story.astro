@@ -6,7 +6,7 @@ import NewFooter from '../../components/NewFooter.astro';
 import SubNavigation from '../../components/SubNavigation.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
 import TextOnlySection from '../../components/TextOnlySection.astro';
-import TwoColumnContent from '../../components/TwoColumnContent.astro';
+import BodyCopyImage from '../../components/BodyCopyImage.astro';
 import { fr } from '../../content/fr';
 import { footerData } from '../../content/footer';
 
@@ -142,39 +142,39 @@ const subNavItems = [
     />
 
     <!-- Our foundations Section -->
-    <TwoColumnContent
+    <BodyCopyImage
       title={fr.ourStory.foundations.title}
-      paragraphs={fr.ourStory.foundations.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/office-meeting-city.jpg",
-        alt: "Réunion d'équipe"
-      }}
-      imagePosition="left"
-      backgroundColor="white"
+      description={fr.ourStory.foundations.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      imageUrl="https://www.woodmac.com/contentassets/office-meeting-city.jpg"
+      imageAlt="Réunion d'équipe"
+      reverseLayout={true}
+      backgroundColor="bg-white"
+      buttonText=""
+      buttonHref=""
     />
 
     <!-- Our growth and expansion Section -->
-    <TwoColumnContent
+    <BodyCopyImage
       title={fr.ourStory.growth.title}
-      paragraphs={fr.ourStory.growth.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/team-meeting-discussion.jpg",
-        alt: "Discussion d'équipe"
-      }}
-      imagePosition="right"
-      backgroundColor="white"
+      description={fr.ourStory.growth.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      imageUrl="https://www.woodmac.com/contentassets/team-meeting-discussion.jpg"
+      imageAlt="Discussion d'équipe"
+      reverseLayout={false}
+      backgroundColor="bg-white"
+      buttonText=""
+      buttonHref=""
     />
 
     <!-- Our partnerships Section -->
-    <TwoColumnContent
+    <BodyCopyImage
       title={fr.ourStory.partnerships.title}
-      paragraphs={fr.ourStory.partnerships.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/partnerships-image.jpg",
-        alt: "Partenariats"
-      }}
-      imagePosition="left"
-      backgroundColor="white"
+      description={fr.ourStory.partnerships.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      imageUrl="https://www.woodmac.com/contentassets/partnerships-image.jpg"
+      imageAlt="Partenariats"
+      reverseLayout={true}
+      backgroundColor="bg-white"
+      buttonText=""
+      buttonHref=""
     />
   </div>
 </main>

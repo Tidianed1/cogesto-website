@@ -1,0 +1,40 @@
+---
+// FullWidthCta.astro
+// Renders a full-width Call to Action banner with a background color and animated title.
+
+export interface Props {
+  title: string;
+  badgeText?: string;
+  linkText: string;
+  linkHref: string;
+  backgroundColorClass?: string; // e.g., bg-core-branding-cobalt
+  id?: string;
+}
+
+const {
+  title,
+  badgeText,
+  linkText,
+  linkHref,
+  backgroundColorClass = "bg-core-branding-cobalt",
+  id = "FullWidthEngagementCtaBannerBlock"
+} = Astro.props;
+---
+
+<div>
+    <div class={`full-width-cta regular-padding ${backgroundColorClass}`} id={id}>
+        <div class="full-width-cta__content wrap">
+            {badgeText && (
+                <h4 class="full-width-cta__badge label-style">{badgeText}</h4>
+            )}
+            <div class="full-width-cta__title-container">
+                <h2 id="full-width-cta__title" class="full-width-cta__title h300 fade-in-up">
+                    {title}
+                </h2>
+            </div>
+            <a href={linkHref} class="full-width-cta__link info-style link-icon--arrow">
+                {linkText}
+            </a>
+        </div>
+    </div>
+</div>

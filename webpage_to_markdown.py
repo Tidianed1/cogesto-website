@@ -1,308 +1,216 @@
 #!/usr/bin/env python3
 """
-Webpage to Markdown Converter
+Smart Webpage to Content Component Mapper (Multi-Page Version)
+--------------------------------------------------------------
+This script fetches one or more webpages and groups their content into 
+logical blocks that map to our Astro Component System.
 
-This script fetches HTML content from a URL and converts it to Markdown format
-with YAML frontmatter containing title and description.
+It groups content by "Sections" (Headings) and attempts to identify:
+- Text Blocks (TextOnlySection)
+- Text + Image combinations (BodyCopyImage)
+- Lists/Grids of items (CardGrid)
+- Hero sections (HeroMultiTemplate)
 
 Usage:
-    python webpage_to_markdown.py <URL>
-    python webpage_to_markdown.py https://www.cogestoconsulting.com/notre-expertise/#expertises-fonctionnelles
+    python webpage_to_markdown.py <URL1> <URL2> ... [output_filename]
 
-Requirements:
-    pip install requests beautifulsoup4
+Output:
+    A JSON file containing structured content blocks from ALL pages, merged.
 """
 
 import sys
+import json
 import re
 import requests
-from pathlib import Path
-from bs4 import BeautifulSoup
-import urllib.parse
+from bs4 import BeautifulSoup, Tag, NavigableString
+from urllib.parse import urljoin
+from dataclasses import dataclass, field, asdict
+from typing import List, Optional, Dict, Any
 
+# --- Configuration ---
+MIN_SECTION_WORDS = 20  # Skip sections with less than this words
+USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
 
-def fetch_webpage_content(url):
-    """
-    Fetch HTML content from the given URL.
-    
-    Args:
-        url (str): The URL to fetch content from
-        
-    Returns:
-        BeautifulSoup: Parsed HTML content
-        
-    Raises:
-        requests.RequestException: If the URL cannot be fetched
-    """
+@dataclass
+class ContentBlock:
+    type: str  # 'hero', 'section', 'grid', 'text', 'image'
+    heading: Optional[str] = None
+    content: List[str] = field(default_factory=list)
+    images: List[Dict[str, str]] = field(default_factory=list)
+    links: List[Dict[str, str]] = field(default_factory=list)
+    suggested_component: Optional[str] = None
+    word_count: int = 0
+    source_url: Optional[str] = None # Track where this block came from
+
+def fetch_html(url: str) -> BeautifulSoup:
     try:
-        response = requests.get(url, timeout=30)
+        headers = {'User-Agent': USER_AGENT}
+        response = requests.get(url, headers=headers, timeout=15)
         response.raise_for_status()
-        
-        soup = BeautifulSoup(response.content, 'html.parser')
-        return soup
-        
-    except requests.RequestException as e:
-        raise requests.RequestException(f"Failed to fetch {url}: {str(e)}")
-
-
-def extract_metadata(soup):
-    """
-    Extract title and description from the BeautifulSoup object.
-    
-    Args:
-        soup (BeautifulSoup): The full parsed HTML
-        
-    Returns:
-        dict: A dictionary containing the title and description
-    """
-    title = ""
-    description = ""
-    
-    # 1. Try to get title from the <title> tag
-    if soup.title and soup.title.string:
-        title = soup.title.string.strip()
-    
-    # 2. Fallback to the first <h1> tag if <title> is empty or missing
-    if not title:
-        h1_tag = soup.find('h1')
-        if h1_tag:
-            title = h1_tag.get_text(strip=True)
-    
-    # 3. If still no title, use a default
-    if not title:
-        title = "Untitled Page"
-
-    # 1. Try to get description from <meta name="description">
-    head = soup.find('head')
-    if head:
-        meta_desc = head.find('meta', attrs={'name': 'description'})
-        if meta_desc and meta_desc.get('content'):
-            description = meta_desc['content'].strip()
-    
-    # 2. Fallback to the first <p> tag if meta description is missing
-    if not description:
-        first_p = soup.find('p')
-        if first_p:
-            p_text = first_p.get_text(strip=True)
-            description = (p_text[:197] + '...') if len(p_text) > 200 else p_text
-    
-    # 3. If still no description, provide a default
-    if not description:
-        description = "No description available"
-    
-    return {
-        "title": title,
-        "description": description
-    }
-
-
-def parse_element(element, processed_texts=None):
-    """
-    Recursively parse a BeautifulSoup element into a structured JSON block.
-    """
-    if processed_texts is None:
-        processed_texts = set()
-
-    block = None
-
-    # Ignore non-visible elements and specific tags
-    if not element.name or element.name in ['script', 'style', 'meta', 'link', 'head', 'nav', 'aside', 'form']:
+        return BeautifulSoup(response.content, 'html.parser')
+    except Exception as e:
+        print(f"❌ Error fetching URL {url}: {e}")
         return None
 
-    # Handle simple text-based elements
-    if element.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
-        text = element.get_text(strip=True)
-        if text and text not in processed_texts:
-            block = {"type": "heading", "level": int(element.name[1]), "text": text}
-            processed_texts.add(text)
-    elif element.name == 'p':
-        content = []
-        for child in element.children:
-            if child.name == 'a':
-                href = child.get('href')
-                text = child.get_text(strip=True)
-                if href and text:
-                    content.append({"type": "link", "href": href, "text": text})
-            elif child.string:
-                text = child.string.strip()
-                if text:
-                    content.append({"type": "text", "value": text})
-        
-        if content:
-            # Create a unique key for the paragraph to avoid duplicates
-            para_key = "".join([c.get('text') or c.get('value', '') for c in content])
-            if para_key and para_key not in processed_texts:
-                block = {"type": "paragraph", "content": content}
-                processed_texts.add(para_key)
-    elif element.name in ['ul', 'ol']:
-        items = [li.get_text(strip=True) for li in element.find_all('li', recursive=False) if li.get_text(strip=True)]
-        if items:
-            # Create a unique key for the list to avoid duplicates
-            list_key = " ".join(items)
-            if list_key not in processed_texts:
-                block = {"type": "list", "style": "ordered" if element.name == 'ol' else "unordered", "items": items}
-                processed_texts.add(list_key)
-    elif element.name == 'img':
-        src = element.get('src')
-        alt = element.get('alt', '')
-        if src and src not in processed_texts:
-            block = {"type": "image", "src": src, "alt": alt}
-            processed_texts.add(src)
+def clean_soup(soup: BeautifulSoup):
+    """Remove clutter (nav, footer, ads, scripts)."""
+    for tag in soup(['script', 'style', 'noscript', 'iframe', 'svg', 'header', 'footer', 'nav', 'form']):
+        tag.decompose()
     
-    # Handle container elements by recursion
-    elif element.name in ['div', 'section', 'article', 'main', 'header', 'footer']:
-        content = []
-        for child in element.children:
-            child_block = parse_element(child, processed_texts)
-            if child_block:
-                content.append(child_block)
-        if content:
-            block = {
-                "type": "container",
-                "tag": element.name,
-                "attributes": dict(element.attrs),
-                "content": content
-            }
+    # Remove hidden elements
+    for tag in soup.find_all(style=re.compile(r'display:\s*none')):
+        tag.decompose()
 
-    elif not hasattr(element, 'name') and element.string and element.string.strip():
-        pass
+def extract_hero(soup: BeautifulSoup, url: str) -> Optional[ContentBlock]:
+    """Attempt to find the Hero section (H1 + Intro)."""
+    h1 = soup.find('h1')
+    if not h1:
+        return None
+
+    block = ContentBlock(type='hero', heading=h1.get_text(strip=True), source_url=url)
+    
+    # Look for intro text immediately after H1
+    current = h1.next_sibling
+    while current and len(block.content) < 1: # Just get the first paragraph/intro
+        if isinstance(current, Tag):
+            if current.name in ['p', 'div'] and current.get_text(strip=True):
+                block.content.append(current.get_text(strip=True))
+            elif current.name in ['h2', 'section']: # Stop at next section
+                break
+        current = current.next_sibling
+    
+    block.suggested_component = 'HeroMultiTemplate'
+    return block
+
+def resolve_image_url(base_url: str, img_src: str) -> str:
+    return urljoin(base_url, img_src)
+
+def get_section_content(start_node: Tag, url: str) -> ContentBlock:
+    """Gather content under a heading until the next heading."""
+    heading_text = start_node.get_text(strip=True)
+    block = ContentBlock(type='section', heading=heading_text, source_url=url)
+    
+    current = start_node.next_sibling
+    
+    while current:
+        if isinstance(current, Tag):
+            # Stop at next major heading
+            if current.name in ['h1', 'h2', 'header', 'footer']:
+                break
+            
+            # Identify Content
+            if current.name in ['p', 'div', 'span']:
+                text = current.get_text(strip=True)
+                if len(text) > 10: # Filter noise
+                    block.content.append(text)
+            
+            # Identify Images
+            if current.name == 'img':
+                src = current.get('src')
+                if src: 
+                    abs_src = resolve_image_url(url, src)
+                    block.images.append({'src': abs_src, 'alt': current.get('alt', '')})
+            for img in current.find_all('img'):
+                src = img.get('src')
+                if src: 
+                    abs_src = resolve_image_url(url, src)
+                    block.images.append({'src': abs_src, 'alt': img.get('alt', '')})
+                
+            # Identify Lists (potential Grids)
+            if current.name in ['ul', 'ol']:
+                items = [li.get_text(strip=True) for li in current.find_all('li') if li.get_text(strip=True)]
+                if len(items) > 2:
+                    block.type = 'grid_candidate'
+                    block.content.extend(items)
+            
+        current = current.next_sibling
+    
+    # Heuristics for Component Suggestion
+    text_length = sum(len(s) for s in block.content)
+    block.word_count = text_length // 5
+    
+    if block.images and text_length > 100:
+        block.suggested_component = 'BodyCopyImage'
+    elif block.type == 'grid_candidate':
+        block.suggested_component = 'CardGrid'
+    elif text_length > 0:
+        block.suggested_component = 'TextOnlySection'
         
     return block
 
-def parse_content_to_structured_data(soup):
-    """
-    Parse the main content of the page into a structured list of content blocks.
-    """
-    # Find the main content container
-    main_content = soup.find('main')
-    if not main_content:
-        # A more robust selector strategy might be needed for different sites
-        main_content = soup.find('article') or soup.find('body')
+def process_urls(urls: List[str], output_file: Optional[str] = None):
+    all_blocks = []
+    processed_count = 0
 
-    if not main_content:
-        print("⚠️ Could not find a main content container. Using the whole body.")
-        main_content = soup.find('body') or soup
+    print(f"🚀 Starting multi-page scrape for {len(urls)} URLs...")
 
-    # Start the recursive parsing from the main content container's children
-    content = []
-    for child in main_content.children:
-        child_block = parse_element(child)
-        if child_block:
-            content.append(child_block)
-    
-    return content
-
-
-def generate_filename_from_url(url):
-    """
-    Generate a filename slug from the URL.
-    
-    Args:
-        url (str): The URL to create filename from
+    for url in urls:
+        print(f"🔍 Scraping: {url}")
+        soup = fetch_html(url)
+        if not soup:
+            continue
+            
+        clean_soup(soup)
         
-    Returns:
-        str: Generated filename with .json extension
-    """
-    # Parse URL and extract path
-    parsed_url = urllib.parse.urlparse(url)
-    path_parts = parsed_url.path.strip('/').split('/')
-    
-    # Remove fragments and empty parts
-    path_parts = [part for part in path_parts if part]
-    
-    # Create slug from path parts
-    if path_parts:
-        slug = '-'.join(path_parts)
-    else:
-        # Fallback to domain name if no path
-        domain = parsed_url.netloc.replace('www.', '')
-        slug = domain.replace('.', '-')
-    
-    # Clean slug
-    slug = re.sub(r'[^a-zA-Z0-9\-]', '', slug)
-    slug = re.sub(r'-+', '-', slug)  # Replace multiple dashes with single
-    slug = slug.strip('-')  # Remove leading/trailing dashes
-    
-    return f"{slug}.json"
-
-
-def convert_webpage_to_json(url, output_dir="."):
-    """
-    Main function to convert webpage to a structured JSON file.
-    
-    Args:
-        url (str): URL to convert
-        output_dir (str): Directory to save the output file
+        # 1. Extract Hero
+        hero = extract_hero(soup, url)
+        if hero:
+            all_blocks.append(asdict(hero))
         
-    Returns:
-        str: Path to the generated JSON file
-    """
-    # Create output directory if it doesn't exist
-    output_path = Path(output_dir)
-    output_path.mkdir(exist_ok=True)
-    
-    # Fetch webpage content
-    soup = fetch_webpage_content(url)
-    
-    # Extract metadata
-    metadata = extract_metadata(soup)
-    metadata['source_url'] = url
-    
-    # Parse content into structured blocks
-    content_blocks = parse_content_to_structured_data(soup)
-    
-    # Combine into a single JSON object
-    final_structure = {
-        "metadata": metadata,
-        "content_blocks": content_blocks
+        # 2. Extract Sections by Headings (H2)
+        headings = soup.find_all('h2')
+        if not headings:
+            # Fallback to H3 if no H2s
+            headings = soup.find_all('h3')
+            
+        for h2 in headings:
+            block = get_section_content(h2, url)
+            if block.word_count >= MIN_SECTION_WORDS: # Filter empty/tiny sections
+                all_blocks.append(asdict(block))
+        
+        processed_count += 1
+
+    # 3. Output
+    result = {
+        "source_urls": urls,
+        "total_blocks": len(all_blocks),
+        "blocks": all_blocks
     }
     
-    # Generate filename
-    filename = generate_filename_from_url(url)
-    filepath = output_path / filename
-    
-    # Save to file
-    import json
-    with open(filepath, 'w', encoding='utf-8') as f:
-        json.dump(final_structure, f, indent=4, ensure_ascii=False)
-    
-    print(f"✅ Successfully converted {url}")
-    print(f"📄 Saved to: {filepath}")
-    print(f"📝 Title: {metadata['title']}")
-    print(f"📖 Description: {metadata['description'][:100]}{'...' if len(metadata['description']) > 100 else ''}")
-    
-    return str(filepath)
-
-
-def main():
-    """Main function to handle command line arguments and run the converter."""
-    if len(sys.argv) != 2:
-        print("Usage: python webpage_to_markdown.py <URL>")
-        print("Example: python webpage_to_markdown.py https://www.cogestoconsulting.com/notre-expertise/#expertises-fonctionnelles")
-        sys.exit(1)
-    
-    url = sys.argv[1]
-    
-    # Validate URL format
-    if not url.startswith(('http://', 'https://')):
-        print("❌ Error: URL must start with http:// or https://")
-        sys.exit(1)
-    
-    try:
-        # Convert webpage to JSON
-        output_file = convert_webpage_to_json(url)
-        print(f"\n🎉 Conversion completed! Output file: {output_file}")
+    if not output_file:
+        if len(urls) == 1:
+             # Generate filename from first URL if only one
+            slug = re.sub(r'[^a-z0-9]', '-', urls[0].split('//')[1].split('/')[1].lower())
+            if not slug: slug = "scraped_content"
+            output_file = f"{slug}.json"
+        else:
+            output_file = "merged_scraped_content.json"
         
-    except requests.RequestException as e:
-        print(f"❌ Network Error: {str(e)}")
-        sys.exit(1)
-    except ValueError as e:
-        print(f"❌ Content Error: {str(e)}")
-        sys.exit(1)
-    except Exception as e:
-        print(f"❌ Unexpected Error: {str(e)}")
-        sys.exit(1)
-
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+        
+    print(f"✅ Successfully processed {processed_count}/{len(urls)} URLs.")
+    print(f"📦 Extracted {len(all_blocks)} total content blocks.")
+    print(f"📄 Saved to: {output_file}")
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) < 2:
+        print("Usage: python webpage_to_markdown.py <URL1> [URL2] ... [output_filename]")
+        sys.exit(1)
+    
+    # Simple arg parsing: last arg is filename if it doesn't look like a URL, otherwise default
+    args = sys.argv[1:]
+    urls = []
+    outfile = None
+    
+    if not args[-1].startswith('http'):
+        outfile = args[-1]
+        urls = args[:-1]
+    else:
+        urls = args
+        
+    if not urls:
+        print("❌ No URLs provided.")
+        sys.exit(1)
+
+    process_urls(urls, outfile)

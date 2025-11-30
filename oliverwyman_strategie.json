@@ -1,0 +1,47 @@
+{
+  "source_url": "https://www.oliverwyman.fr/notre-expertise/competences/strategie.html",
+  "title": "Stratégie",
+  "total_blocks": 3,
+  "blocks": [
+    {
+      "type": "hero",
+      "heading": "Stratégie",
+      "content": [],
+      "images": [],
+      "links": [],
+      "suggested_component": "HeroMultiTemplate",
+      "word_count": 0
+    },
+    {
+      "type": "section",
+      "heading": "Ce que nous faisons",
+      "content": [
+        "Oliver Wyman propose des services de conseil en stratégie. Nous aidons nos clients dans leur stratégie d’entreprise, de portefeuille, de marque ou d’entrée sur de nouveaux marchés.Nous intervenons dans le développement, la construction et la mise en place des facteurs clés de succès qui permettent la croissance durable et la création de valeur. Notre approche holistique et experte, basée sur la proximité avec nos clients et notre indépendance, nous permet de répondre spécifiquement à leurs besoins présents et futurs.STRATÉGIE D'ENTREPRISE ET DE PORTEFEUILLE D’ACTIVITÉSNous aidons à la prise de décision stratégique lors des moments transformants de la vie d’une entreprise pour maximiser la création de valeur. Nous veillons à ce que nos clients tirent pleinement parti de leur potentiel, de leur position stratégique et de leur portefeuille d’activités.CROISSANCE ORGANIQUE ET M&ANotre approche experte et personnalisée permet l’accompagnement stratégique tout au long du processus de fusion-acquisition : planification, stratégie d’intégration, mise en œuvre et évaluation des résultats. Notre compréhension approfondie des marchés permet d’aider nos clients dans la réussite de leurs opérations de M&A et de s’assurer de leur viabilité à long terme.AMÉLIORATION DE LA PERFORMANCELes efforts déployés par les entreprises dans l’amélioration de leur performance aboutissent rarement à des changements structurels. Nous aidons nos clients à mieux comprendre leurs chaines de valeur, processus critique dans une démarche d’amélioration de la performance. Grâce à nos outils propriétaires tels que l’Interactive Strategy Models®, nous fournissons à nos clients des méthodes analytiques éprouvées qui permettent de pérenniser leurs améliorations de performance.INNOVATION ET MODèLE D’ENTREPRISELes entreprises performantes ont un modèle d’entreprise qui répond aux besoins actuels et futurs des clients. Nous apportons une méthodologie qui permet de développer une vue dynamique du marché et d’élargir le portefeuille d’activités. Cette discipline dans la conception d'entreprise (« Business Design »), vise à l’identification des axes d’innovation et des sources de création de valeur.CENTRE DE SERVICES PARTAGÉSNous aidons à la mise en place de meilleures pratiques en matière de services partagés, permettant de tirer parti d’économies d’échelle, et de fournir des niveaux de services efficaces en mode agile.PLANIFICATION STRATÉGIQUENous accompagnons nos clients dans la planification, l'élaboration, la mise en œuvre et l’exécution des stratégies gagnantes.CRÉATION DE VALEURNous travaillons avec nos clients pour identifier et maximiser les potentiels de création de valeur. Notre approche, basée sur l'analyse de la chaine de valeur, permet l’identification et le déploiement de leviers pour atteindre ces potentiels.TRANSACTIONSNous aidons nos clients à la bonne conduite du processus avant, pendant et après les transactions : due diligence, M&A, cessions d'actifs ou introduction en bourse."
+      ],
+      "images": [],
+      "links": [],
+      "suggested_component": "TextOnlySection",
+      "word_count": 600
+    },
+    {
+      "type": "section",
+      "heading": "Ce que nous en pensons",
+      "content": [
+        "State Of The Industrial Goods Sector 2024 — North AmericaProfits rise and optimism grows amid expansion effortsEn Savoir PlusHow CEOs Can Respond To The ‘Code Red’ Of The Climate CrisisThe United Nations has declared the climate crisis a “code red” for humanity,  CEO Nick Studer addresses how CEOs can respond to the climate crisisEn Savoir PlusImprove Financial Planning And AnalysisThree foundational steps for your businessEn Savoir PlusRecession Heatmap Industrial GoodsOliver Wyman introduced the Recession Heatmap to help industrial businesses assess the likelihood of a recession in their respective sectorsEn Savoir PlusTHE TECTONIC SHIFT BETWEEN RISK, DATA, AND TECHNOLOGYThe State Of The Financial Services Industry 2022En Savoir Plus"
+      ],
+      "images": [
+        {
+          "src": "/content/dam/oliver-wyman/v2/banners/How-CEO-Can-Respond-to-the-Code-Red-of-the-Climate-Crisisv2_780x380.png.imgixg.wideTileV3.png",
+          "alt": "How CEOs Can Respond To The ‘Code Red’ Of The Climate Crisis"
+        },
+        {
+          "src": "/content/dam/oliver-wyman/v2/home-page/2022/may/Featured-sofs-2022.jpg.imgixg.smallTileV3.jpg",
+          "alt": "THE TECTONIC SHIFT BETWEEN RISK, DATA, AND TECHNOLOGY"
+        }
+      ],
+      "links": [],
+      "suggested_component": "BodyCopyImage",
+      "word_count": 149
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+---
+// RelatedContent.astro
+// Renders a grid of related content cards (Article/News style).
+// Replicates the "Related content" section from the Woodmac reference.
+
+export interface RelatedItem {
+  title: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  badge?: string;
+  type?: 'standard' | '2col';
+}
+
+export interface Props {
+  title?: string;
+  items: RelatedItem[];
+  backgroundColorClass?: string;
+}
+
+const {
+  title = "Related content",
+  items,
+  backgroundColorClass = "module--bg"
+} = Astro.props;
+
+// Group items into rows logic
+// The reference HTML has:
+// Row 1: 3 standard items (.related--flexi)
+// Row 2: 2 items (.related--flexi.related--2col)
+// We can try to automatically detect this pattern or just let flex-wrap handle it if we use `related--2col` classes correctly.
+// If we strictly follow the HTML structure with `js-wall-row`, we might need to group them.
+// However, `js-wall-row` seems to be for JS masonry. 
+// If we assume the `items` array is ordered, we can render them in one flex container and let CSS handle width.
+// Standard items are 33% width (desktop). 2col items are 50% width (desktop).
+---
+
+<div class={`module ${backgroundColorClass}`}>
+    <div class="wrap">
+        {title && (
+            <h2 class="col small-12 mega push--top push--bottom">{title}</h2>
+        )}
+        <div class="clearfix"></div>
+
+        <div class="js-wall-row js-wall-row--is-ready">
+            <div class="wrap-flex">
+                {items.map((item) => (
+                    <div class={`related related--flexi ${item.type === '2col' ? 'related--2col' : ''}`}>
+                        <a class="related__link bg-primary-color block mono-link" href={item.href}>
+                            <div class="related__image" style={`background-image: url('${item.imageSrc}')`} role="img" aria-label={item.imageAlt}>
+                                <div class="related__ratio"></div>
+                            </div>
+                            <div class="related__content">
+                                {item.badge && <span class="badge">{item.badge}</span>}
+                                <div class="related__summary">
+                                    <h3 class="alpha">{item.title}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</div>

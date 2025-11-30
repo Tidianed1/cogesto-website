@@ -5,7 +5,7 @@ import NewHeader from '../../components/NewHeader.astro';
 import NewFooter from '../../components/NewFooter.astro';
 import SubNavigation from '../../components/SubNavigation.astro';
 import TextOnlySection from '../../components/TextOnlySection.astro';
-import TwoColumnContent from '../../components/TwoColumnContent.astro';
+import BodyCopyImage from '../../components/BodyCopyImage.astro';
 import { fr } from '../../content/fr';
 import { footerData } from '../../content/footer';
 
@@ -56,17 +56,15 @@ const subNavItems = [
     </TextOnlySection>
 
     <!-- Let's Share the Sun Section -->
-    <TwoColumnContent
+    <BodyCopyImage
       title={fr.ourCulture.letsShareTheSun.title}
-      paragraphs={fr.ourCulture.letsShareTheSun.paragraphs}
-      image={{
-        src: "https://www.woodmac.com/contentassets/lets-share-the-sun.jpg",
-        alt: "Groupe diversifié de personnes"
-      }}
-      imagePosition="left"
-      ctaButtons={[
-        { text: fr.ourCulture.letsShareTheSun.cta, href: "/about/lets-share-the-sun/", variant: "primary" }
-      ]}
+      description={fr.ourCulture.letsShareTheSun.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      imageUrl="https://www.woodmac.com/contentassets/lets-share-the-sun.jpg"
+      imageAlt="Groupe diversifié de personnes"
+      reverseLayout={true}
+      buttonText={fr.ourCulture.letsShareTheSun.cta}
+      buttonHref="/about/lets-share-the-sun/"
+      backgroundColor="bg-white"
     />
 
     <!-- Community Engagement Section -->

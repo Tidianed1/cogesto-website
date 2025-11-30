@@ -1,0 +1,57 @@
+---
+// BenefitsBlock.astro
+// Renders a grid of stats/benefits with icons, matching the "CCUS in numbers" section.
+
+export interface BenefitItem {
+  iconUrl: string;
+  value: string;
+  label: string; // Can contain HTML
+}
+
+export interface Props {
+  title: string;
+  description?: string;
+  items: BenefitItem[];
+  id?: string;
+  backgroundColorClass?: string;
+}
+
+const {
+  title,
+  description,
+  items,
+  id = "numbers",
+  backgroundColorClass = "bg-light-grey-1"
+} = Astro.props;
+---
+
+<div class={`module benefits soft-lens--ends ${backgroundColorClass} primary-color`} id={id}>
+    <div class="wrap">
+        <div class="col small-12">
+            <div class="benefits__title-wrapper">
+                <h2 class="giga text-center--medium">{title}</h2>
+                {description && (
+                    <div class="">
+                        <p>{description}</p>
+                    </div>
+                )}
+            </div>
+        </div>
+    </div>
+    <div class="wrap flex__equal-height flexbox justify-center">
+        {items.map((item) => (
+            <div class="col small-12 medium-6 large-3 flexbox direction-column justify-between">
+                <div class="benefits__item" id="promoicon">
+                    <div class="icon--centered">
+                        {/* Removed lazyload class to ensure visibility, added standard img attributes */}
+                        <img src={item.iconUrl} alt="" width="128" height="128" />
+                    </div>
+                    <div class="text--centered">
+                        {item.value}
+                        <div class="body-copy" set:html={item.label} />
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+</div>

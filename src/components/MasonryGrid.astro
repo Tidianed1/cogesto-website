@@ -1,0 +1,214 @@
+---
+// MasonryGrid.astro
+// A flexible masonry grid component inspired by the "Roland Berger" reference.
+// Can render mixed content tiles (vertical, regular) with images, labels, and text.
+// Adapts to the Cogesto design system (CDP).
+
+export interface MasonryItem {
+  title: string;
+  description: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+  label?: string;
+  type: 'vertical' | 'regular' | 'wide';
+}
+
+export interface Props {
+  items: MasonryItem[];
+  id?: string;
+}
+
+const { items, id = "grid_v2" } = Astro.props;
+
+// Helper to determine column span classes based on type
+const getSpanClass = (type: MasonryItem['type']) => {
+  switch (type) {
+    // Vertical: Takes 50% width on large screens, matches height of two regular tiles roughly
+    case 'vertical': return 'small-12 medium-6 large-6'; 
+    // Regular: Takes 33.33% width on large screens
+    case 'regular': return 'small-12 medium-6 large-4'; 
+    // Wide: Takes 50% width on large screens (similar to vertical but layout implies landscape content)
+    case 'wide': return 'small-12 medium-6 large-6';
+    default: return 'small-12 medium-6 large-4';
+  }
+};
+
+const getTypeClass = (type: MasonryItem['type']) => {
+    switch(type) {
+        case 'vertical': return 'tile-type-vertical';
+        case 'wide': return 'tile-type-wide';
+        default: return 'tile-type-regular';
+    }
+}
+---
+
+<section class="module bg-light-grey-1 soft-double--ends" id={id}>
+  <div class="wrap">
+    <div class="flexbox flex-wrap masonry-grid-container" style="margin: 0 -15px;">
+      {items.map((item) => (
+        <div class={`col ${getSpanClass(item.type)} push-bottom--double`} style="padding: 0 15px;">
+          <a href={item.href} class={`c-tile-content ${getTypeClass(item.type)} block-link bg-white h-full relative overflow-hidden`} style="display: flex; flex-direction: column; height: 100%;">
+            
+            <div class="c-tile__image-wrapper relative">
+                {item.label && (
+                    <div class="c-label absolute top-0 left-0 bg-secondary-color white font-bold uppercase tracking-wider" style="padding: 0.5rem 1rem; z-index: 10;">
+                        {item.label}
+                    </div>
+                )}
+                <div class="image-container">
+                    <img 
+                        src={item.imageSrc} 
+                        alt={item.imageAlt} 
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                </div>
+            </div>
+
+            <div class="c-tile__content-wrapper">
+                <div class="content-inner">
+                    <h3 class="c-tile__title alpha font-bold core-branding-rich-blue push-half--bottom">
+                        {item.title}
+                    </h3>
+                    <div class="c-tile__text body-copy" style="color: #4e4e4e;">
+                        <p>{item.description}</p>
+                    </div>
+                </div>
+                <div class="c-tile__arrow">
+                     <span class="link-icon--arrow info-style">Read more</span>
+                </div>
+            </div>
+
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+    /* 
+       Masonry Grid Styles
+       Mimics the Roland Berger "tile" look while respecting Cogesto's spacing.
+    */
+
+    .c-tile-content {
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-bottom: 3px solid transparent;
+        height: 100%; /* Fill column height */
+    }
+
+    .c-tile-content:hover {
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        transform: translateY(-4px);
+        border-bottom-color: #0024ff;
+    }
+
+    .c-tile__image-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .image-container {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .c-tile-content:hover .image-container img {
+        transform: scale(1.05);
+    }
+
+    .c-tile__content-wrapper {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Pushes arrow to bottom */
+        background-color: #fff;
+    }
+
+    .content-inner {
+        margin-bottom: 1.5rem;
+    }
+
+    .c-label {
+        font-size: 0.75rem;
+        line-height: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #0024ff; /* secondary-color */
+        color: #fff;
+        padding: 0.5rem 1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        z-index: 10;
+    }
+
+    .c-tile__title {
+        font-size: 1.25rem; /* alpha equivalent */
+        line-height: 1.3;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        color: #010063; /* primary-color */
+    }
+
+    .c-tile__text p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #4e4e4e;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Limit lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .c-tile__arrow {
+        margin-top: auto;
+        padding-top: 0;
+    }
+
+    /* 
+       Specific Tile Types Layout Logic 
+       The key difference in the reference is image aspect ratio and layout.
+    */
+
+    /* Vertical Tile: Taller image, often spans 2 rows visually in true masonry, 
+       but here we use height control. */
+    .tile-type-vertical .c-tile__image-wrapper {
+        padding-bottom: 60%; /* Taller aspect ratio */
+    }
+
+    /* Regular Tile: Standard card shape */
+    .tile-type-regular .c-tile__image-wrapper {
+        padding-bottom: 50%; /* Standard aspect ratio */
+    }
+
+    /* Wide Tile: Wider image, often landscape */
+    .tile-type-wide .c-tile__image-wrapper {
+        padding-bottom: 45%; /* Wide aspect ratio */
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 47.99em) {
+        .c-tile__image-wrapper {
+            padding-bottom: 56.25%; /* 16:9 for all on mobile */
+        }
+        .col {
+            width: 100% !important; /* Force full width on mobile */
+        }
+    }
+</style>

@@ -1,108 +1,214 @@
 ---
-// src/components/BlogArticleShowcase.astro
+// BlogArticleShowcase.astro
+// Renders a featured article layout with one large "highlighted" article on the left
+// and a column of secondary articles on the right.
+// STRICTLY ADHERES to Cogesto Design System (DESIGN_SYSTEM.md).
 
-// Defines the data structure for a single article item.
-export interface Article {
-  href: string; // URL for the article.
-  badge: string; // Category badge (e.g., "Horizons", "The Edge").
-  date: string; // Publication date.
-  title: string; // Article title.
-  readTime?: string; // Optional: Reading time (e.g., "1 minute read").
-  imageUrl?: string; // Optional: Image URL for larger cards.
-  imageAlt?: string; // Optional: Image alt text.
-  isLarge?: boolean; // Optional: If true, renders as a larger card with an image.
+export interface ArticleItem {
+  title: string;
+  excerpt?: string;
+  href: string;
+  imageSrc: string;
+  imageAlt?: string;
+  format?: string; // e.g., "Podcast", "Article"
+  date?: string;
 }
 
-// Defines the props accepted by the BlogArticleShowcase component.
 export interface Props {
-  title: string; // Main title for the section (e.g., "Explore news and thought leadership").
-  titleHref: string; // URL for the main title link.
-  articles: Article[]; // Array of article data to display.
+  title?: string;
+  subtitle?: string;
+  highlightedArticle: ArticleItem;
+  secondaryArticles: ArticleItem[];
+  seeMoreLink?: string;
+  seeMoreText?: string;
+  id?: string;
 }
 
-const { title, titleHref, articles } = Astro.props;
+const {
+  title = "Nos articles récents",
+  subtitle = "Plongez dans nos insights",
+  highlightedArticle = {} as ArticleItem,
+  secondaryArticles = [],
+  seeMoreLink,
+  seeMoreText = "Voir plus de contenus",
+  id = "content-home"
+} = Astro.props;
 
-// Separate the first article if it's marked as large, otherwise take the first article
-// and treat the rest as smaller articles.
-const largeArticle = articles.find(article => article.isLarge);
-const otherArticles = articles.filter(article => !article.isLarge);
-
-// If no article is explicitly marked as large, take the first one as large and the rest as others.
-const firstArticle = largeArticle || articles[0];
-const remainingArticles = largeArticle ? otherArticles : articles.slice(1);
-
+// Safety check: if no highlighted article, return minimal or nothing to prevent crash
+if (!highlightedArticle || !highlightedArticle.title) {
+  return null; 
+}
 ---
 
-<div id="latest-thinking">
-    <div class="module news-grid-container js-news-grid-container latest-thinking-block bg-light-grey-1" id="copy">
-        <div class="wrap">
-            <div class="col small-12 text-center push--bottom">
-                <h2 class="text-left tera push-half--bottom soft--bottom latest-thinking-block__title">
-                    <a href={titleHref} class="core-branding-cobalt">
-                        {title}
-                    </a>
-                </h2>
-                <div class="js-filter-pills">
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="masonry">
-                <div class="news-grid news-grid--vertical js-news-grid"
-                    data-filters=""
-                    data-news-layout="vertical"
-                    data-news-endpoint="/api/v1/search/latest-thinking/8ed09efb-7598-44af-a859-95a2736ecd14"
-                    data-news-extra-endpoint="/api/v1/search/latest-thinking/365640a0-e31b-44d6-9c28-8393c4c3c596"
-                    data-pinned-endpoint=""
-                    data-news-batchsize="4"
-                    data-vertical-card-button-url="/horizons/"
-                    data-vertical-card-button-text=""
-                >
-                    <div class="text-center soft--ends status js-filter__default hide">
-                        <p class="font-regular">Loading...</p>
-                    </div>
-                    <div class="news-grid news-grid--vertical js-news-grid-wrapper">
-                        {firstArticle && (
-                            <a href={firstArticle.href} class="col small-12 large-4 push--bottom fade-in-up fade-in-up--1 tile-link card img-overlay">
-                                {firstArticle.imageUrl && (
-                                    <figure class="img-overlay__wrap ratio--5x29">
-                                        <img class="img-overlay__image" src={firstArticle.imageUrl} alt={firstArticle.imageAlt || firstArticle.title}>
-                                        <div class="img-overlay__effect"></div>
-                                    </figure>
-                                )}
-                                <div class="card__block">
-                                    <span class="badge push-half--bottom">{firstArticle.badge}</span>
-                                    <div>
-                                        <time class="beta italic inline">{firstArticle.date}</time>
-                                        {firstArticle.readTime && <p class="read-time"><span>{firstArticle.readTime}</span></p>}
-                                    </div>
-                                    <h3 class="kilo font-600 tile-link__hover-blue">{firstArticle.title}</h3>
+<section id={id} class="module soft-double--ends bg-white">
+    <div class="wrap">
+        
+        <!-- Section Header -->
+        <div class="col small-12 push-bottom--double">
+            <div class="trait push-half--bottom"></div>
+            <h2 class="h200 core-branding-rich-blue">
+                <span class="font-light d-block">{title}</span>
+                <span class="font-bold">{subtitle}</span>
+            </h2>
+        </div>
+
+        <div class="row">
+            <!-- Left Column: Highlighted Article -->
+            <div class="col small-12 medium-6 large-7 push-bottom--double">
+                <article class="highlighted-article h-full flexbox direction-column">
+                    <a href={highlightedArticle.href} class="block-link relative img-overlay push--bottom" aria-label={highlightedArticle.title}>
+                        <div class="img-overlay__wrap ratio-16x9">
+                            <img 
+                                src={highlightedArticle.imageSrc} 
+                                class="img-overlay__image w-full" 
+                                alt={highlightedArticle.imageAlt || ""} 
+                                loading="lazy"
+                            />
+                            {highlightedArticle.format === 'Podcast' && (
+                                <div class="overlay-play-icon">
+                                    <img src="/img/icons/play.svg" alt="Play" width="48" height="48" />
                                 </div>
-                            </a>
+                            )}
+                        </div>
+                    </a>
+                    <div class="article-content flex-1 flexbox direction-column">
+                        {highlightedArticle.format && (
+                            <div class="meta gamma font-bold uppercase tracking text-secondary push-quarter--bottom">
+                                {highlightedArticle.format}
+                            </div>
                         )}
-                        <div class="news-grid__cards-wrapper js-layout-inner">
-                            {remainingArticles.map((article, index) => (
-                                <a href={article.href} class="col small-12 small-medium-6 large-6 push--bottom fade-in-up fade-in-up--1 tile-link card img-overlay">
-                                    {article.imageUrl && ( // Although smaller cards in example don't have images, keeping this for flexibility
-                                        <figure class="img-overlay__wrap ratio--5x29">
-                                            <img class="img-overlay__image" src={article.imageUrl} alt={article.imageAlt || article.title}>
-                                            <div class="img-overlay__effect"></div>
-                                        </figure>
-                                    )}
-                                    <div class="card__block">
-                                        <span class="badge push-half--bottom">{article.badge}</span>
-                                        <div>
-                                            <time class="beta italic inline">{article.date}</time>
-                                            {article.readTime && <p class="read-time"><span>{article.readTime}</span></p>}
-                                        </div>
-                                        <h3 class="kilo font-600 tile-link__hover-blue">{article.title}</h3>
-                                    </div>
-                                </a>
-                            ))}
+                        <h3 class="alpha font-bold core-branding-rich-blue push-half--bottom">
+                            <a href={highlightedArticle.href} class="dark-link">{highlightedArticle.title}</a>
+                        </h3>
+                        {highlightedArticle.excerpt && (
+                            <div class="body-copy beta dark-grey-1 push--bottom flex-1">
+                                <p>{highlightedArticle.excerpt}</p>
+                            </div>
+                        )}
+                        <div class="push-top--auto">
+                            <a href={highlightedArticle.href} class="link icon--right info-style font-bold">
+                                En savoir plus
+                            </a>
                         </div>
                     </div>
+                </article>
+            </div>
+
+            <!-- Right Column: Secondary Articles List -->
+            <div class="col small-12 medium-6 large-5">
+                <div class="secondary-articles-list">
+                    {secondaryArticles.map((article) => (
+                        <article class="secondary-article flexbox align-start push-bottom--double">
+                            <a href={article.href} class="block-link relative img-overlay shrink-0" style="width: 35%; margin-right: 1.5rem;" aria-label={article.title}>
+                                <div class="img-overlay__wrap ratio-16x9">
+                                    <img 
+                                        src={article.imageSrc} 
+                                        class="img-overlay__image w-full" 
+                                        alt={article.imageAlt || ""} 
+                                        loading="lazy"
+                                    />
+                                    {article.format === 'Podcast' && (
+                                        <div class="overlay-play-icon small">
+                                            <img src="/img/icons/play.svg" alt="Play" width="32" height="32" />
+                                        </div>
+                                    )}
+                                </div>
+                            </a>
+                            <div class="article-content flex-1">
+                                {article.format && (
+                                    <div class="meta delta font-bold uppercase tracking text-secondary push-quarter--bottom">
+                                        {article.format}
+                                    </div>
+                                )}
+                                <h3 class="gamma font-bold core-branding-rich-blue push-half--bottom line-clamp-2">
+                                    <a href={article.href} class="dark-link">{article.title}</a>
+                                </h3>
+                                <a href={article.href} class="link icon--right info-style font-bold delta">
+                                    En savoir plus
+                                </a>
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
-            <div class="js-filter__more"></div>
         </div>
+
+        {seeMoreLink && (
+            <div class="col small-12 text-center push-top--double">
+                <a href={seeMoreLink} class="btn btn--secondary">
+                    {seeMoreText}
+                </a>
+            </div>
+        )}
     </div>
-</div>
+</section>
+
+<style>
+    /* Custom utilities not fully covered by global CSS */
+    
+    .trait {
+        width: 60px;
+        height: 4px;
+        background-color: #0024ff; /* Secondary color/Cobalt */
+    }
+
+    .d-block {
+        display: block;
+    }
+
+    .ratio-16x9 {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        overflow: hidden;
+        background-color: #f7f7f7;
+    }
+
+    .ratio-16x9 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay-play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+    }
+    
+    .overlay-play-icon.small {
+        padding: 0.5rem;
+    }
+
+    .block-link:hover .overlay-play-icon {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Ensure text colors match design system variable names if not global */
+    .text-secondary {
+        color: #0024ff;
+    }
+    
+    .dark-link:hover {
+        color: #0024ff;
+        text-decoration: none;
+    }
+</style>

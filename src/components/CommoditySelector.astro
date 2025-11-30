@@ -1,6 +1,5 @@
 ---
 // src/components/CommoditySelector.astro
-import { type CollectionEntry } from 'astro:content';
 import BodyCopyImage from './BodyCopyImage.astro';
 
 export interface HighlightLink {
@@ -8,49 +7,51 @@ export interface HighlightLink {
   href: string;
 }
 
-export interface CommodityContent {
-  preTitle?: string;
+export interface SelectorItem {
+  id: string;
+  tabText: string; // Text for the thumbnail/tab
+  // Content content
   title: string;
   description: string;
+  imageUrl: string;
+  imageAlt?: string;
   buttonText?: string;
   buttonHref?: string;
-  imageUrl: string;
-  imageAlt: string;
-  reverseLayout?: boolean;
   highlightLinks?: HighlightLink[];
 }
 
-export interface Commodity {
-  id: string;
-  thumbTitle: string;
-  content: CommodityContent;
-}
-
 export interface Props {
-  title: string;
-  commodities: Commodity[];
+  title?: string;
+  items: SelectorItem[];
+  id?: string;
 }
 
-const { title, commodities } = Astro.props;
+const { 
+  title = "Commodities coverage", 
+  items,
+  id = "commodity-selector-" + Math.random().toString(36).substr(2, 9)
+} = Astro.props;
 ---
 
-<div class="commodity-selector-block no-margin-upper no-margin-lower" id="commodity-selector">
+<div class="commodity-selector-block no-margin-upper no-margin-lower" id={id}>
     <div class="wrap">
-        <div class="commodity-selector-block__title-container">
-            <h3 class="commodity-selector-block__title_center">
-                {title}
-            </h3>
-        </div>
+        {title && (
+            <div class="commodity-selector-block__title-container">
+                <h3 class="commodity-selector-block__title_center">
+                    {title}
+                </h3>
+            </div>
+        )}
 
-        <div class="carousel swiper-container swiper-thumbs white-bg-controls commodity-selector-swiper-thumbs-0">
+        <div class="carousel swiper swiper-thumbs white-bg-controls commodity-selector-swiper-thumbs">
             <div class="swiper-control-left">
                 <div class="swiper-button-left"></div>
             </div>
             <div class="swiper-wrapper">
-                {commodities.map((commodity) => (
-                    <div class="carousel__slide swiper-slide commodity-selector-block__thumbnail" data-commodity-id={commodity.id}>
+                {items.map((item) => (
+                    <div class="carousel__slide swiper-slide commodity-selector-block__thumbnail" data-item-id={item.id}>
                         <div class="commodity-selector-block__thumb-text">
-                            {commodity.thumbTitle}
+                            {item.tabText}
                         </div>
                         <div class="commodity-selector-block__thumb-active-border"></div>
                     </div>
@@ -61,28 +62,27 @@ const { title, commodities } = Astro.props;
             </div>
         </div>
 
-        <div class="carousel swiper-container swiper-content white-bg-controls commodity-selector-swiper-content-0">
+        <div class="carousel swiper swiper-content white-bg-controls commodity-selector-swiper-content">
             <div class="swiper-wrapper">
-                {commodities.map((commodity) => (
-                    <div class="carousel__slide swiper-slide" data-commodity-id={commodity.id}>
+                {items.map((item) => (
+                    <div class="carousel__slide swiper-slide" data-item-id={item.id}>
                         <BodyCopyImage
-                            preTitle={commodity.content.preTitle}
-                            title={commodity.content.title}
-                            description={commodity.content.description}
-                            buttonText={commodity.content.buttonText}
-                            buttonHref={commodity.content.buttonHref}
-                            imageUrl={commodity.content.imageUrl}
-                            imageAlt={commodity.content.imageAlt}
-                            reverseLayout={commodity.content.reverseLayout}
+                            title={item.title}
+                            description={item.description}
+                            buttonText={item.buttonText || ""}
+                            buttonHref={item.buttonHref || ""}
+                            imageUrl={item.imageUrl}
+                            imageAlt={item.imageAlt || item.title}
+                            reverseLayout={true} 
                         >
-                            {commodity.content.highlightLinks && commodity.content.highlightLinks.length > 0 && (
+                            {item.highlightLinks && item.highlightLinks.length > 0 && (
                                 <div class="body-copy-image__highlight-link-box" slot="after-description">
-                                    <h4 class="body-copy-image__highlight-link-box--header">Now available in Lens Metals &amp; Mining</h4>
+                                    <h4 class="body-copy-image__highlight-link-box--header">Available in Lens</h4>
                                     <ul class="body-copy-image__highlight-link-box--linklist">
-                                        {commodity.content.highlightLinks.map(link => (
+                                        {item.highlightLinks.map(link => (
                                             <li>
                                                 <a class="body-copy-image__highlight-link-box--linkitem" href={link.href}>
-                                                    <p class="">{link.text}</p>
+                                                    <p>{link.text}</p>
                                                 </a>
                                             </li>
                                         ))}
@@ -97,48 +97,59 @@ const { title, commodities } = Astro.props;
     </div>
 </div>
 
-<script>
+<script define:vars={{ id }}>
   import Swiper from 'swiper';
   import { Navigation, Thumbs } from 'swiper/modules';
+  
   import 'swiper/css';
   import 'swiper/css/navigation';
   import 'swiper/css/thumbs';
-
+  
   document.addEventListener('DOMContentLoaded', () => {
-    const commoditySelectorBlock = document.getElementById('commodity-selector');
-    if (!commoditySelectorBlock) return;
+    const selectorBlock = document.getElementById(id);
+    if (!selectorBlock) return;
 
-    const thumbsSwiper = new Swiper(commoditySelectorBlock.querySelector('.commodity-selector-swiper-thumbs-0'), {
+    const thumbsContainer = selectorBlock.querySelector('.commodity-selector-swiper-thumbs');
+    const contentContainer = selectorBlock.querySelector('.commodity-selector-swiper-content');
+    const nextBtn = selectorBlock.querySelector('.swiper-button-right');
+    const prevBtn = selectorBlock.querySelector('.swiper-button-left');
+
+    // Ensure elements exist
+    if (!thumbsContainer || !contentContainer) return;
+
+    const thumbsSwiper = new Swiper(thumbsContainer, {
       modules: [Navigation, Thumbs],
       spaceBetween: 10,
       slidesPerView: 'auto',
       freeMode: true,
       watchSlidesProgress: true,
       navigation: {
-        nextEl: commoditySelectorBlock.querySelector('.swiper-button-right'),
-        prevEl: commoditySelectorBlock.querySelector('.swiper-button-left'),
+        nextEl: nextBtn,
+        prevEl: prevBtn,
       },
       breakpoints: {
         768: {
-          slidesPerView: 6,
+          slidesPerView: 4, 
         },
         1024: {
-          slidesPerView: 8,
+          slidesPerView: 6,
         },
       },
     });
 
-    new Swiper(commoditySelectorBlock.querySelector('.commodity-selector-swiper-content-0'), {
+    const contentSwiper = new Swiper(contentContainer, {
       modules: [Navigation, Thumbs],
       spaceBetween: 36,
       slidesPerView: 1,
-      navigation: {
-        nextEl: commoditySelectorBlock.querySelector('.swiper-button-right'),
-        prevEl: commoditySelectorBlock.querySelector('.swiper-button-left'),
-      },
       thumbs: {
         swiper: thumbsSwiper,
       },
     });
   });
 </script>
+
+<style>
+.swiper-button-left, .swiper-button-right {
+    cursor: pointer;
+}
+</style>

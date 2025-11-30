@@ -1,37 +1,91 @@
 ---
-// Leadership team section - grid of headshots with names and titles
-export interface Props {
-  title?: string;
-  teamMembers: Array<{
-    name: string;
-    title: string;
-    image: string;
-    imageAlt?: string;
-  }>;
+// src/components/LeadershipTeamSection.astro
+// Replicates the "Leadership team" section with profile cards and slide-out panels (implemented as modals or similar).
+// Note: The original implementation uses a complex off-canvas panel. For the CDP, we'll simplify this to a standard card layout,
+// or if interaction is required, we can implement a simple state-based toggle or just link to the profile page.
+// Given constraints, I'll implement the visual card grid first.
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  imageUrl: string;
+  profileLink: string;
+  bio?: string; // For potential future use in a modal/expanded view
 }
 
-const { title = "Leadership team", teamMembers } = Astro.props;
+export interface Props {
+  title: string;
+  members: TeamMember[];
+  id?: string;
+}
+
+const { title, members = [], id = "peoplegroupblock" } = Astro.props;
 ---
 
-<section class="leadership-team-section">
-  <div class="leadership-team-section__container">
-    <h2 class="leadership-team-section__title">{title}</h2>
-    <div class="leadership-team-section__underline"></div>
-    <div class="leadership-team-section__grid">
-      {teamMembers.map((member) => (
-        <div class="leadership-team-section__member">
-          <div class="leadership-team-section__image">
-            <img src={member.image} alt={member.imageAlt || member.name} />
-          </div>
-          <div class="leadership-team-section__info">
-            <h3 class="leadership-team-section__name">{member.name}</h3>
-            <p class="leadership-team-section__title">{member.title}</p>
-          </div>
+<div class="module" id={id}>
+    <div class="wrap">
+        <div class="col small-12 push-double--bottom">
+            <div class="row">
+                <h2 class="col small-12 medium-3 push--bottom soft--bottom giga font-light title-underline">{title}</h2>
+
+                <div class="col small-12 medium-9">
+                    <div class="row">
+                        <div class="flex__equal-height">
+                            {members && members.length > 0 && members.map((member) => (
+                                <div class="col small-12 small-medium-6 medium-4 large-3 push--bottom people-profile-card">
+                                    <div class="img-overlay">
+                                        <a href={member.profileLink} class="block-link" aria-label={`View profile for ${member.name}`}>
+                                            <figure class="img-overlay__wrap push-half--bottom ratio-5x3-1x1">
+                                                <picture>
+                                                    <source srcset={`${member.imageUrl}?width=500&height=500&rmode=crop&rxy=0.5,0.5`} media="(min-width: 600px)" />
+                                                    <img 
+                                                        class="img-overlay__image push-half--bottom lazyloaded" 
+                                                        src={`${member.imageUrl}?width=600&height=360&rmode=crop&rxy=0.5,0.5`} 
+                                                        alt={member.name} 
+                                                    />
+                                                </picture>
+                                            </figure>
+                                            <h3 class="beta push-quarter--bottom badge-internal-people-container">{member.name}</h3>
+                                            <p class="gamma push-quarter--bottom">{member.role}</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      ))}
     </div>
-  </div>
-</section>
+</div>
 
-
-
+<style>
+    /* Minimal styling to ensure layout if global styles are missing some specific grid classes */
+    .people-profile-card {
+        margin-bottom: 2rem;
+    }
+    .block-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+    .block-link:hover h3 {
+        color: #0024ff; /* Core branding cobalt */
+    }
+    /* Ensure image ratio is respected if global ratio classes are missing */
+    .ratio-5x3-1x1 {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%; /* Default 1x1 */
+        overflow: hidden;
+    }
+    .ratio-5x3-1x1 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>

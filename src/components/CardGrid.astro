@@ -1,0 +1,76 @@
+---
+// src/components/CardGrid.astro
+import ServicesCard from './ServicesCard.astro';
+import ArticleCard from './ArticleCard.astro';
+
+export interface GridItem {
+  title: string;
+  description: string;
+  link: string;
+  icon_or_image?: string;
+  // Optional explicit type override if data allows
+  type?: 'service' | 'article';
+}
+
+export interface Props {
+  heading?: string;
+  items: GridItem[];
+}
+
+const { heading, items } = Astro.props;
+
+// Helper to guess type if not provided
+const getCardType = (item: GridItem) => {
+  if (item.type) return item.type;
+  
+  // Heuristics
+  if (item.link && (item.link.includes('/news/') || item.link.includes('/insights/') || item.link.includes('/opinion/'))) {
+    return 'article';
+  }
+  
+  // If image is likely a photo and not an icon
+  if (item.icon_or_image && (item.icon_or_image.includes('photography') || item.icon_or_image.includes('gettyimages'))) {
+      return 'article';
+  }
+
+  return 'service';
+};
+---
+
+<section class="soft-double--ends bg-light-100">
+  <div class="wrap">
+    {heading && (
+      <div class="col small-12">
+        <h2 class="giga push-bottom--double text-primary text-center">{heading}</h2>
+      </div>
+    )}
+    
+    <div class="flexbox flex-wrap justify-center" style="margin: 0 -15px;">
+      {items.map(item => {
+        const cardType = getCardType(item);
+
+        return (
+          <div class="col small-12 medium-6 large-4 push-bottom--double" style="padding: 0 15px;">
+            {cardType === 'article' ? (
+              <ArticleCard 
+                title={item.title}
+                // Description is not standard in ArticleCard props but we might want to add it or ignore it.
+                // ArticleCard uses 'category' badge. We'll default to 'Insight' or 'Opinion'.
+                category="Insight"
+                href={item.link}
+                imageUrl={item.icon_or_image}
+              />
+            ) : (
+              <ServicesCard
+                title={item.title}
+                description={item.description}
+                href={item.link}
+                iconUrl={item.icon_or_image || '/img/icons/icon-arrow--dark-blue.svg'} 
+              />
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

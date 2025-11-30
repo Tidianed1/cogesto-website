@@ -1,21 +1,20 @@
 ---
-import { urlFor } from '../utils/sanityClient'
-
+---
 export interface Props {
-  icon?: any
+  iconUrl?: string // Changed from 'icon: any'
   heading: string
   text: string
 }
 
-const { icon, heading, text } = Astro.props
+const { iconUrl, heading, text } = Astro.props
 ---
 
 <div class="text-center">
   <div class="flex justify-center mb-4">
-    {icon ? (
+    {iconUrl ? (
       <img 
-        src={urlFor(icon).width(64).height(64).url()} 
-        alt={icon.alt || heading}
+        src={iconUrl} 
+        alt={heading}
         class="w-16 h-16 object-contain"
       />
     ) : (

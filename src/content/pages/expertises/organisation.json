@@ -1,0 +1,149 @@
+{
+  "title": "Organisation & Gouvernance | Cogesto Consulting",
+  "description": "Construire des organisations agiles et performantes pour soutenir votre stratégie de croissance. Nous alignons vos structures, vos processus et votre capital humain sur vos ambitions.",
+  "slug": "expertises/organisation",
+  "breadcrumbs": {
+    "component": "Breadcrumbs",
+    "items": [
+      { "text": "Accueil", "href": "/" },
+      { "text": "Expertises", "href": "/expertises/" },
+      { "text": "Organisation", "href": "/expertises/organisation" }
+    ]
+  },
+  "sections": [
+    {
+      "component": "HeroService",
+      "title": "Organisation & Gouvernance",
+      "introduction": "Aligner votre structure, vos processus et votre culture pour libérer le plein potentiel de votre capital humain et assurer une performance durable.",
+      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-591478749.jpg?w=1600&mode=crop&center=0.5,0.5"
+    },
+    {
+      "component": "SubNavigation",
+      "currentPage": "/expertises/organisation",
+      "items": [
+        { "text": "Stratégie", "href": "/expertises/strategie" },
+        { "text": "Opérations", "href": "/expertises/operations" },
+        { "text": "Finance", "href": "/expertises/finance" },
+        { "text": "Organisation", "href": "/expertises/organisation" }
+      ]
+    },
+    {
+      "component": "BodyCopyImage",
+      "title": "L'organisation, levier de performance",
+      "description": "<p>Dans un environnement économique volatile, la capacité d'une entreprise à adapter son organisation est devenue un avantage concurrentiel décisif. Trop souvent, les structures héritées du passé freinent l'innovation et la réactivité.</p><p>Chez Cogesto Consulting, nous ne voyons pas l'organisation comme un simple organigramme, mais comme un système vivant. Notre approche vise à simplifier la complexité, fluidifier la prise de décision et libérer les énergies pour une performance durable.</p>",
+      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/corporate/micro/_micro_corporate_gettyimages-185207257.jpg?w=1000&mode=crop&center=0.5,0.5",
+      "imageAlt": "Performance organisationnelle",
+      "buttonText": "Diagnostiquer votre organisation",
+      "buttonHref": "/contact/"
+    },
+    {
+      "component": "StatsSideSection",
+      "title": "L'impact d'une organisation agile",
+      "content": "<p>Une organisation optimisée ne se contente pas de réduire les coûts ; elle accélère la prise de décision et améliore l'engagement des collaborateurs.</p>",
+      "stats": [
+        { "value": "-20%", "description": "Réduction des délais de prise de décision grâce à la clarification des rôles." },
+        { "value": "+15%", "description": "Augmentation de la productivité par l'optimisation des processus clés." },
+        { "value": "100%", "description": "Alignement des équipes de direction sur la feuille de route stratégique." }
+      ]
+    },
+    {
+      "component": "ProductListBlock",
+      "title": "Nos Solutions d'Optimisation",
+      "products": [
+        {
+          "name": "Design Organisationnel",
+          "description": "Conception de modèles opérationnels cibles (TOM) et clarification des rôles et responsabilités (RACI).",
+          "href": "/expertises/organisation/design"
+        },
+        {
+          "name": "Gouvernance & Pilotage",
+          "description": "Professionnalisation des instances de décision (CODIR, CA) pour un pilotage stratégique efficace.",
+          "href": "/expertises/organisation/gouvernance"
+        },
+        {
+          "name": "Transformation Culturelle",
+          "description": "Programmes de changement pour aligner les comportements managériaux sur les nouvelles ambitions.",
+          "href": "/expertises/organisation/culture"
+        },
+        {
+          "name": "Gestion des Talents",
+          "description": "Stratégies de développement du capital humain et parcours de carrière pour retenir les clés.",
+          "href": "/expertises/organisation/talents"
+        },
+        {
+          "name": "Efficacité Opérationnelle",
+          "description": "Re-engineering des processus (BPR) pour éliminer les tâches sans valeur ajoutée.",
+          "href": "/expertises/organisation/processus"
+        },
+        {
+          "name": "Post-Merger Integration",
+          "description": "Harmonisation des structures et des cultures suite à une fusion ou une acquisition.",
+          "href": "/expertises/organisation/pmi"
+        }
+      ]
+    },
+    {
+      "component": "TextOnlySection",
+      "title": "Notre Méthodologie : Approche Systémique",
+      "content": "<p>Nous refusons les solutions 'prêtes-à-porter'. Notre intervention est guidée par une approche systémique qui traite simultanément les aspects 'Hard' (structure, processus) et 'Soft' (culture, compétences).</p><p>Nous procédons par étapes : <strong>Diagnostic</strong> approfondi des dysfonctionnements, <strong>Co-construction</strong> des scénarios cibles avec vos équipes, et <strong>Accompagnement</strong> terrain à la mise en œuvre. Cette démarche garantit que la nouvelle organisation est non seulement performante sur le papier, mais acceptée et vivante dans la réalité.</p>"
+    },
+    {
+      "component": "BodyCopyImage",
+      "title": "Pourquoi choisir Cogesto ?",
+      "description": "<p>Notre différence réside dans notre double ancrage : une maîtrise des meilleurs standards internationaux de management et une compréhension intime des réalités culturelles et économiques en Afrique.</p><p>Nos consultants ont tous exercé des responsabilités opérationnelles. Ils parlent le langage de vos équipes et conçoivent des solutions pragmatiques, orientées vers l'action et le résultat.</p>",
+      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/corporate/micro/_micro_corporate_gettyimages-913259606.jpg?w=1000&mode=crop&center=0.5,0.5",
+      "imageAlt": "Experts Cogesto",
+      "reverseLayout": true,
+      "buttonText": "Rencontrer nos experts",
+      "buttonHref": "/about/our-people/"
+    },
+    {
+      "component": "BlogArticleShowcase",
+      "title": "Points de vue et Insights",
+      "titleHref": "/blog",
+      "articles": [
+        {
+          "title": "L'agilité organisationnelle en temps de crise",
+          "badge": "Organisation",
+          "date": "10 Dec 2025",
+          "readTime": "4 min read",
+          "href": "#",
+          "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/micro/_micro_people_gettyimages-1325134720.jpg",
+          "isLarge": true
+        },
+        {
+          "title": "Gouvernance familiale : les clés de la transmission",
+          "badge": "Gouvernance",
+          "date": "22 Nov 2025",
+          "readTime": "5 min read",
+          "href": "#"
+        },
+        {
+          "title": "Culture d'entreprise et performance",
+          "badge": "Culture",
+          "date": "05 Oct 2025",
+          "readTime": "3 min read",
+          "href": "#"
+        },
+        {
+          "title": "Le rôle du DRH dans la transformation",
+          "badge": "RH",
+          "date": "12 Sept 2025",
+          "readTime": "6 min read",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "component": "CardImageText",
+      "title": "Prêt à transformer votre organisation ?",
+      "description": "<p>Votre organisation est-elle un accélérateur ou un frein à votre croissance ? Discutons de vos enjeux. Nos experts sont prêts à réaliser un diagnostic flash.</p>",
+      "buttonText": "Prendre rendez-vous",
+      "buttonHref": "/contact/",
+      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-594203323.jpg",
+      "imageAlt": "Contact Cogesto",
+      "videoPosition": "right",
+      "backgroundColorClass": "bg-primary-color"
+    }
+  ]
+}

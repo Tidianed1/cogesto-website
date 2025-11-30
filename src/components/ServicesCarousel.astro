@@ -1,0 +1,349 @@
+---
+// ServicesCarousel.astro
+// Renders a carousel of service/product highlights with a text introduction.
+// Matches the structure of the "Discover our energy consulting solutions" section.
+
+export interface ServiceSlide {
+  title: string;
+  description: string; // HTML string
+  imageUrl: string;
+  imageAlt: string;
+  buttonText: string;
+  buttonHref: string;
+}
+
+export interface Props {
+  title: string;
+  introText: string; // HTML string
+  slides: ServiceSlide[];
+  id?: string;
+}
+
+const {
+  title,
+  introText,
+  slides,
+  id = "SectionProductListCarousel"
+} = Astro.props;
+
+// Generate a unique suffix for this instance's navigation buttons to avoid conflicts
+// simple hash of title or random string if needed, but relying on container scoping is cleaner.
+---
+
+<div class="wrap product-carousel-container" id={id}>
+    <!-- Intro Section (Left Column) -->
+    <div class="col small-12 medium-5 large-4 xlarge-4 product-carousel-section-intro product-carousel-section-height">
+        <h3 class="peta soft--right--large push--top primary-color">{title}</h3>
+        <div class="editor product-carousel-body-text push--top">
+            <div set:html={introText} />
+        </div>
+    </div>
+
+    <!-- Carousel Section (Right Column) -->
+    <div class="col small-12 medium-7 large-8 xlarge-8 product-carousel-section-height" id={`${id}-carousel`}>
+        <div class="product-carousel swiper product-carousel-section-height">
+            <div class="swiper-wrapper">
+                {slides.map((slide) => (
+                    <div class="product-carousel__slide swiper-slide">
+                        <div class="product-carousel__slide--content">
+                            <h5 class="text-left giga product-carousel-content-push-double-top primary-color">{slide.title}</h5>
+                            <div class="product-carousel-content-flex">
+                                <div class="product-carousel-text-wrapper">
+                                    <div class="editor primary-color product-carousel-content-push-double-top">
+                                        <div set:html={slide.description} />
+                                    </div>
+                                </div>
+                                <div class="product-carousel-content-push-double-top product-carousel-content-image">
+                                    <img 
+                                        src={slide.imageUrl} 
+                                        alt={slide.imageAlt} 
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </div>
+                            <div class="product-carousel-content-push-double-top">
+                                <a class="btn--secondary" href={slide.buttonHref}>{slide.buttonText}</a>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+    </div>
+
+    {/* Global Navigation Buttons at the bottom of the component */}
+    <div class="col small-12 flexbox justify-center push-top--double">
+        <div class="product-carousel-swiper-action-container">
+            <div class="product-carousel-prev" tabindex="0" role="button" aria-label="Previous slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="product-carousel-next" tabindex="0" role="button" aria-label="Next slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, A11y } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.product-carousel-container');
+    
+    containers.forEach(container => {
+        const carouselElement = container.querySelector('.product-carousel');
+        if (!carouselElement) return;
+
+        const nextBtns = container.querySelectorAll('.product-carousel-next');
+        const prevBtns = container.querySelectorAll('.product-carousel-prev');
+
+        new Swiper(carouselElement as HTMLElement, {
+            modules: [Navigation, A11y],
+            slidesPerView: 1,
+            spaceBetween: 30,
+            observer: true, 
+            observeParents: true,
+            navigation: {
+                nextEl: Array.from(nextBtns),
+                prevEl: Array.from(prevBtns),
+            },
+            a11y: {
+                prevSlideMessage: 'Previous slide',
+                nextSlideMessage: 'Next slide',
+            },
+        });
+    });
+  });
+</script>
+
+<style>
+    /* Ensure styling exists */
+    .product-carousel-section-height {
+        min-height: 500px; 
+    }
+
+    .product-carousel-container {
+      display: flex;
+      flex-wrap: wrap; /* Allows columns and navigation to flow */
+      align-items: flex-end; /* Align items to bottom in cross-axis */
+    }
+
+    .product-carousel-section-intro,
+    .product-carousel-section-height { /* Apply this to relevant columns */
+        min-height: auto; /* Remove fixed height from columns if not needed for layout */
+    }
+
+    @media (min-width: 48em) {
+        .product-carousel-section-height {
+             min-height: 500px; /* Re-apply min-height for desktop if needed */
+        }
+        .product-carousel-section-intro {
+            padding-right: 3rem;
+        }
+    }
+
+    .product-carousel {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .product-carousel__slide {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-carousel-content-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .product-carousel-text-wrapper {
+        flex: 1;
+    }
+
+    .product-carousel-content-image {
+        flex: 1;
+    }
+
+    .product-carousel-content-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (min-width: 48em) {
+        .product-carousel-content-flex {
+            flex-direction: row;
+            gap: 2rem;
+        }
+    }
+
+    .product-carousel-swiper-action-container {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        z-index: 10;
+        position: relative;
+    }
+
+    .product-carousel-next, .product-carousel-prev {
+        position: static;
+        margin: 0;
+        width: 48px;
+        height: 48px;
+        border: 1px solid #0024ff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background-color: white;
+        color: #0024ff;
+        transition: all 0.3s ease;
+    }
+
+    .product-carousel-next:hover, .product-carousel-prev:hover {
+        background-color: #0024ff;
+        color: white;
+    }
+    
+    .swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        border-color: #ccc;
+        color: #ccc;
+    }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, A11y } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.product-carousel-container');
+    
+    containers.forEach(container => {
+        const carouselElement = container.querySelector('.product-carousel');
+        if (!carouselElement) return;
+
+        // Use custom classes to avoid Swiper default style conflicts
+        const nextBtns = container.querySelectorAll('.product-carousel-next');
+        const prevBtns = container.querySelectorAll('.product-carousel-prev');
+
+        new Swiper(carouselElement as HTMLElement, {
+            modules: [Navigation, A11y],
+            slidesPerView: 1,
+            spaceBetween: 30,
+            observer: true, 
+            observeParents: true,
+            navigation: {
+                nextEl: Array.from(nextBtns),
+                prevEl: Array.from(prevBtns),
+            },
+            a11y: {
+                prevSlideMessage: 'Previous slide',
+                nextSlideMessage: 'Next slide',
+            },
+        });
+    });
+  });
+</script>
+
+<style>
+    /* Ensure styling exists */
+    .product-carousel-section-height {
+        min-height: 500px; 
+    }
+
+    .product-carousel {
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Crucial for Swiper */
+    }
+
+    .product-carousel__slide {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-carousel-content-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .product-carousel-text-wrapper {
+        flex: 1;
+    }
+
+    .product-carousel-content-image {
+        flex: 1;
+    }
+
+    .product-carousel-content-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (min-width: 48em) {
+        .product-carousel-content-flex {
+            flex-direction: row;
+            gap: 2rem;
+        }
+        
+        .product-carousel-section-intro {
+            padding-right: 3rem;
+        }
+    }
+
+    .product-carousel-swiper-action-container {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        z-index: 10; /* Ensure buttons are clickable */
+        position: relative;
+    }
+
+    /* Custom Navigation Icons (Cogesto Style) */
+    .product-carousel-next, .product-carousel-prev {
+        position: static;
+        margin: 0;
+        width: 48px;
+        height: 48px;
+        border: 1px solid #0024ff; /* Cobalt */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background-color: white;
+        color: #0024ff;
+        transition: all 0.3s ease;
+    }
+
+    .product-carousel-next:hover, .product-carousel-prev:hover {
+        background-color: #0024ff;
+        color: white;
+    }
+
+    /* We use the standard swiper class for disabled state, which Swiper toggles automatically */
+    .swiper-button-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        border-color: #ccc; /* Lighter border for disabled state */
+        color: #ccc;
+    }
+</style>

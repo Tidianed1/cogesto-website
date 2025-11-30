@@ -62,6 +62,13 @@ The goal is to create a clear guide for developers to understand which component
     -   ❌ **Props (Content):** Non-compliant. All content is hardcoded.
 -   **Refactoring Notes:** High-priority. To be refactored along with `NewHeader.astro`.
 
+### `FullWidthCta.astro`
+-   **File Path:** `src/components/FullWidthCta.astro`
+-   **Purpose:** Renders a full-width call to action banner with a badge, animated title, and link button.
+-   **Business Use Case:** Used for high-visibility engagement banners, typically with a "cobalt" blue background.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
 ### `Breadcrumbs.astro`
 -   **File Path:** `src/components/Breadcrumbs.astro`
 -   **Purpose:** Renders a breadcrumb navigation trail.
@@ -116,10 +123,31 @@ The goal is to create a clear guide for developers to understand which component
     -   ❌ **Props (Content):** Non-compliant. All content is hardcoded.
 -   **Refactoring Notes:** High-priority. Refactor to accept content via props.
 
+### `MasonryGrid.astro`
+-   **File Path:** `src/components/MasonryGrid.astro`
+-   **Purpose:** Renders a flexible masonry-like grid for mixed content tiles (vertical, regular, wide). Supports labels, images, and text descriptions.
+-   **Business Use Case:** For displaying a mix of featured studies, articles, and global topics in a dynamic grid layout.
+-   **Protocol Adherence:** ❌ **Non-Compliant (Visuals & Spacing).**
+-   **Refactoring Notes:** High-priority. The current implementation has spacing issues, clashing elements, and does not fully respect the typographic scale and overall visual identity of the Cogesto Design System. Requires a comprehensive review and adjustment of utility classes and component-specific styling to align with `DESIGN_SYSTEM.md`.
+
 ### `HeroService.astro`
 -   **File Path:** `src/components/HeroService.astro`
 -   **Purpose:** Renders a hero section for a service.
 -   **Business Use Case:** The main hero for a service page.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `TabsTextMedia.astro`
+-   **File Path:** `src/components/TabsTextMedia.astro`
+-   **Purpose:** Renders a complex interactive component with a sidebar navigation (tabs) and a content area (text + large image) that changes based on the selected tab.
+-   **Business Use Case:** For showcasing different industries or service areas in a compact, interactive way.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `TabsTextMedia.astro`
+-   **File Path:** `src/components/TabsTextMedia.astro`
+-   **Purpose:** Renders a complex interactive component with a sidebar navigation (tabs) and a content area (text + large image) that changes based on the selected tab.
+-   **Business Use Case:** For showcasing different industries or service areas in a compact, interactive way.
 -   **Protocol Adherence:** ✅ Fully Compliant.
 -   **Refactoring Notes:** None.
 
@@ -186,13 +214,6 @@ The goal is to create a clear guide for developers to understand which component
 -   **Protocol Adherence:** ✅ Fully Compliant.
 -   **Refactoring Notes:** None.
 
-### `TwoColumnContent.astro`
--   **File Path:** `src/components/TwoColumnContent.astro`
--   **Purpose:** Renders a two-column content section.
--   **Business Use Case:** For displaying content in two columns.
--   **Protocol Adherence:** ❌ **Non-Compliant (Styling).** Contains a `<style>` block.
--   **Refactoring Notes:** High-priority. Extract all styles to the global stylesheet.
-
 ### `SectionIntro.astro`
 -   **File Path:** `src/components/SectionIntro.astro`
 -   **Purpose:** An introductory section with a title and content.
@@ -207,6 +228,20 @@ The goal is to create a clear guide for developers to understand which component
 -   **Protocol Adherence:**
     -   ❌ **Interactivity:** Non-compliant. Uses an inline `<script>` tag.
 -   **Refactoring Notes:** Low-priority. The inline script should be extracted into an Astro Island (`client:load`) when time permits.
+
+### `ServicesCarousel.astro`
+-   **File Path:** `src/components/ServicesCarousel.astro`
+-   **Purpose:** Renders a carousel of services or products with a sticky text introduction on the left and slides on the right.
+-   **Business Use Case:** For "Discover our energy consulting solutions" sections.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None. Uses Swiper.js.
+
+### `BenefitsBlock.astro`
+-   **File Path:** `src/components/BenefitsBlock.astro`
+-   **Purpose:** Renders a grid of statistics or benefits with icons, numbers, and text.
+-   **Business Use Case:** For displaying key metrics or benefits (e.g., "CCUS in numbers").
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
 
 ### `OutcomesBlock.astro`
 -   **File Path:** `src/components/OutcomesBlock.astro`
@@ -234,6 +269,27 @@ The goal is to create a clear guide for developers to understand which component
 
 ## 4. Card & Item Components
 
+### `LeadershipTeamSection.astro`
+-   **File Path:** `src/components/LeadershipTeamSection.astro`
+-   **Purpose:** Renders a grid of team member profiles with headshots, names, and titles.
+-   **Business Use Case:** Used on "Our People" or "Leadership" pages to showcase the executive team.
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
+### `BlogArticleShowcase.astro`
+-   **File Path:** `src/components/BlogArticleShowcase.astro`
+-   **Purpose:** Renders a featured content section with one large highlighted article on the left and a list of secondary articles on the right.
+-   **Business Use Case:** For showcasing "Recent Articles" or "Insights" on the homepage or expertise pages.
+-   **Protocol Adherence:** ❌ **Non-Compliant (Visuals & Spacing).**
+-   **Refactoring Notes:** High-priority. The current implementation has spacing issues, clashing elements, and does not fully respect the typographic scale and overall visual identity of the Cogesto Design System. Requires a comprehensive review and adjustment of utility classes and component-specific styling to align with `DESIGN_SYSTEM.md`.
+
+### `RelatedContent.astro`
+-   **File Path:** `src/components/RelatedContent.astro`
+-   **Purpose:** Renders a grid of related content cards (news, opinions, articles). Supports a 3-column standard layout and a 2-column variant.
+-   **Business Use Case:** Used at the bottom of pages to show "Related content" or "More News".
+-   **Protocol Adherence:** ✅ Fully Compliant.
+-   **Refactoring Notes:** None.
+
 ### `Card.astro`
 -   **File Path:** `src/components/Card.astro`
 -   **Purpose:** Renders a generic card component.
@@ -255,7 +311,14 @@ The goal is to create a clear guide for developers to understand which component
 -   **Protocol Adherence:** ❌ **Non-Compliant (Styling).** Contains a `<style>` block.
 -   **Refactoring Notes:** High-priority. Extract all styles to the global stylesheet.
 
-### `ServicesCard.astro`
+### `CommoditySelector.astro`
+-   **File Path:** `src/components/CommoditySelector.astro`
+-   **Purpose:** Renders a complex interactive component with a thumbnail slider controlling a main content slider.
+-   **Business Use Case:** Originally for commodities, but refactored to be a generic "Selector" for case studies, partners, or product suites.
+-   **Protocol Adherence:** ❌ **Non-Compliant (Layout, Responsiveness, Interaction).**
+-   **Refactoring Notes:** High-priority. The component exhibits layout issues, responsiveness problems, and/or interaction failures that prevent it from being stable and fully compliant with the Cogesto Design System. Requires further debugging and styling adjustments.
+
+### `ServicesBlock.astro`
 -   **File Path:** `src/components/ServicesCard.astro`
 -   **Purpose:** Renders a card for a single service.
 -   **Business Use Case:** For displaying services in a list or grid.
@@ -304,6 +367,7 @@ The goal is to create a clear guide for developers to understand which component
 -   `PaymentSuccessCard.astro`: Not currently used.
 -   `expertises/CTASection.astro`: Not currently used.
 -   `expertises/ExpertiseSection.astro`: Not currently used.
+-   `TwoColumnContent.astro`: 💀 **DELETED.** Replaced by `BodyCopyImage.astro`.
 
 ---
 This inventory provides a clear overview of the current state of our component library. By focusing on refactoring the non-compliant components as we build out pages, we can progressively improve the quality and maintainability of the codebase.
