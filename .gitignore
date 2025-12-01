@@ -96,3 +96,12 @@ sanity-studio/dist/
 
 # Astro
 .astro/cogesto-website/
+
+# Gemini-specific files
+.gemini/
+
+# Scraped content files
+*.json
+
+# Astro cache
+.astro/

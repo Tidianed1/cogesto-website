@@ -37,7 +37,7 @@ export const navigation = [
     mobileOnly: false,
     sections: [
         {
-            name: 'Explore our portfolio',
+            name: 'Nos secteurs d\'activité',
             url: '/product-portfolio',
             links: [
                 { name: 'Upstream', url: '/industry/upstream' },
@@ -128,7 +128,7 @@ export const navigation = [
     ]
   },
   {
-    name: 'Lens Platform',
+    name: 'Business Linkage Program',
     url: 'https://identity.woodmac.com/sign-in',
     mobileOnly: false,
     sections: [

@@ -5,8 +5,12 @@ export interface Props {
   title: string;
   introduction: string;
   backgroundImageUrl: string;
-  ctaButtonText: string;
-  modalIframeUrl: string;
+  button?: {
+    text: string;
+    href: string;
+  };
+  ctaButtonText?: string;
+  modalIframeUrl?: string;
   templateStyle?: 'medium' | 'small' | 'large';
   templatePosition?: 'center' | 'left' | 'right';
   backgroundColorClass?: string;
@@ -16,6 +20,7 @@ const {
   title,
   introduction,
   backgroundImageUrl,
+  button,
   ctaButtonText,
   modalIframeUrl,
   templateStyle = 'medium',
@@ -36,30 +41,34 @@ const modalId = randomUUID();
             {introduction}
           </p>
           <div class="hero-multi-template__cta_button_group btn--contact--form">
-            <div class="full-height" id="form">
-              <div class={`js-modal modal`} data-modal-toggler={`js-modal--${modalId}`}>
-                <div class={`modal__close js-modal-close js-modal--${modalId}`} aria-label="close"></div>
-                <div class="modal__inner primary-color" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby={`modal-label--${modalId}`} aria-describedby={`modal-description--${modalId}`} aria-hidden="true">
-                  <svg role="button" aria-label="close" tabindex="0" class={`modal__close-btn js-modal--${modalId}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path={`url(#clip0_${modalId})`}>
-                      <path d="M5.5 5.5L18.5 18.5" stroke="#010063" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
-                      <path d="M18.5 5.5L5.5 18.5" stroke="#010063" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </g>
-                    <defs>
-                      <clipPath id={`clip0_${modalId}`}>
-                        <rect width="16" height="16" fill="white" transform="translate(4 4)"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                  <div class="modal__scroll">
-                    <div>
-                      <iframe src={modalIframeUrl} width="100%" height="auto" type="text/html" frameborder="0" allowtransparency="true" style="border: 0px; overflow: hidden; height: 0px;" class="u-shadow pardot-frame" scrolling="no" id="iFrameResizer0"></iframe>
+            {button && button.href ? (
+              <a href={button.href} class="btn btn--primary btn--light">{button.text}</a>
+            ) : ctaButtonText && modalIframeUrl ? (
+              <div class="full-height" id="form">
+                <div class={`js-modal modal`} data-modal-toggler={`js-modal--${modalId}`}>
+                  <div class={`modal__close js-modal-close js-modal--${modalId}`} aria-label="close"></div>
+                  <div class="modal__inner primary-color" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby={`modal-label--${modalId}`} aria-describedby={`modal-description--${modalId}`} aria-hidden="true">
+                    <svg role="button" aria-label="close" tabindex="0" class={`modal__close-btn js-modal--${modalId}`} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path={`url(#clip0_${modalId})`}>
+                        <path d="M5.5 5.5L18.5 18.5" stroke="#010063" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M18.5 5.5L5.5 18.5" stroke="#010063" stroke-width="1.28" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                      <defs>
+                        <clipPath id={`clip0_${modalId}`}>
+                          <rect width="16" height="16" fill="white" transform="translate(4 4)"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <div class="modal__scroll">
+                      <div>
+                        <iframe src={modalIframeUrl} width="100%" height="auto" type="text/html" frameborder="0" allowtransparency="true" style="border: 0px; overflow: hidden; height: 0px;" class="u-shadow pardot-frame" scrolling="no" id="iFrameResizer0"></iframe>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <button id={modalId} class={`js-modal--${modalId} btn btn--primary btn--light`} data-cta-location="ctaform" data-cta-type="form">{ctaButtonText}</button>
               </div>
-              <button id={modalId} class={`js-modal--${modalId} btn btn--primary btn--light`} data-cta-location="ctaform" data-cta-type="form">{ctaButtonText}</button>
-            </div>
+            ) : null}
           </div>
         </div>
       </div>
