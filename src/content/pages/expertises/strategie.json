@@ -15,38 +15,42 @@
       "component": "HeroService",
       "title": "Stratégie & Business Models",
       "introduction": "Anticiper les ruptures, redéfinir les modèles de valeur et sécuriser la croissance durable de votre organisation.",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/upstream/micro/micro_upstream_gettyimages-1210141189.jpg"
+      "backgroundImageUrl": "/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg"
     },
     {
       "component": "SubNavigation",
       "currentPage": "/expertises/strategie",
       "items": [
-        { "text": "Stratégie", "href": "/expertises/strategie" },
-        { "text": "Opérations", "href": "/expertises/operations" },
-        { "text": "Finance", "href": "/expertises/finance" },
-        { "text": "Capital Humain", "href": "/expertises/capital-humain" }
+        { "text": "Enjeux", "href": "#enjeux" },
+        { "text": "Solutions", "href": "#solutions" },
+        { "text": "Méthodologie", "href": "#methodologie" },
+        { "text": "Impact", "href": "#impact" },
+        { "text": "Insights", "href": "#insights" }
       ]
     },
     {
+      "id": "enjeux",
       "component": "BodyCopyImage",
       "title": "Réinventer la création de valeur",
       "description": "<p>Face à la raréfaction des ressources, aux impératifs de souveraineté et à l'accélération technologique, les modèles historiques sont remis en question. La performance ne se mesure plus au seul volume, mais à la capacité de créer une valeur plurielle : économique, environnementale et sociale.</p><p>Cogesto Consulting vous accompagne pour repenser votre stratégie à l'aune de ces nouveaux paradigmes. Nous aidons les dirigeants à construire des business models résilients, capables de s'adapter à l'imprévisibilité des marchés tout en ancrant leur développement dans la réalité du terrain africain et international.</p>",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1346145497.jpg",
+      "imageUrl": "/assets/cogesto-asset/Two_woman_talking.jpg",
       "imageAlt": "Réunion stratégique",
       "buttonText": "Parlons de votre stratégie",
       "buttonHref": "/contact/"
     },
     {
-      "component": "StatsSideSection",
+      "component": "StatsBlock",
       "title": "L'impact de nos interventions",
-      "content": "<p>Nous mesurons notre succès à l'aune de vos résultats. Nos interventions stratégiques visent des impacts concrets et mesurables sur la performance de votre organisation.</p>",
+      "description": "Nous mesurons notre succès à l'aune de vos résultats. Nos interventions stratégiques visent des impacts concrets et mesurables sur la performance de votre organisation.",
       "stats": [
-        { "value": "+30%", "description": "De croissance moyenne pour nos clients accompagnés en stratégie de développement." },
-        { "value": "15+", "description": "Années d'expérience en conseil stratégique auprès des leaders africains." },
-        { "value": "50+", "description": "Plans stratégiques et feuilles de route opérationnels livrés avec succès." }
-      ]
+        { "heading": "+30%", "text": "De croissance moyenne pour nos clients accompagnés en stratégie de développement." },
+        { "heading": "15+", "text": "Années d'expérience en conseil stratégique auprès des leaders africains." },
+        { "heading": "50+", "text": "Plans stratégiques et feuilles de route opérationnels livrés avec succès." }
+      ],
+      "backgroundColorClass": "bg-core-branding-cobalt"
     },
     {
+      "id": "solutions",
       "component": "ProductListBlock",
       "title": "Nos Domaines d'Intervention",
       "products": [
@@ -83,56 +87,87 @@
       ]
     },
     {
+      "id": "methodologie",
       "component": "TextOnlySection",
       "title": "Notre Méthodologie : Le Dialogue Stratégique",
       "content": "<p>Dans des organisations complexes, les stratégies descendantes ('top-down') atteignent vite leurs limites. Nous privilégions l'approche du <strong>Dialogue Stratégique</strong>.</p><p>Cette démarche co-constructive mobilise l'intelligence collective de vos équipes. En confrontant la vision des dirigeants aux réalités opérationnelles et financières, nous forgeons un consensus robuste. Ce processus garantit non seulement la pertinence des choix stratégiques, mais surtout l'engagement de ceux qui devront les mettre en œuvre.</p><p>Nos interventions s'appuient sur une analyse factuelle rigoureuse (benchmarks, market sizing) et une compréhension fine des dynamiques sectorielles.</p>"
     },
     {
+      "id": "impact",
+      "component": "ServicesCarousel",
+      "title": "Notre Impact chez nos Clients",
+      "introText": "<p>Des résultats tangibles pour des acteurs de premier plan.</p>",
+      "slides": [
+        {
+          "title": "Plan Stratégique Horizon 2030",
+          "description": "Pour un groupe énergétique national, définition de la stratégie de diversification vers les énergies renouvelables. Identification de nouveaux relais de croissance représentant 40% du CA à 10 ans.",
+          "imageUrl": "/assets/cogesto-asset/Solar-panal.jpg",
+          "imageAlt": "Énergies renouvelables",
+          "buttonText": "Lire le cas",
+          "buttonHref": "#"
+        },
+        {
+          "title": "Repositionnement Stratégique",
+          "description": "Accompagnement d'une banque de détail dans la redéfinition de son offre pour le segment PME. Résultat : +25% de parts de marché sur le segment en 2 ans.",
+          "imageUrl": "/assets/cogesto-asset/Professionla_women-holding%20tablet.jpg",
+          "imageAlt": "Banque",
+          "buttonText": "Lire le cas",
+          "buttonHref": "#"
+        }
+      ]
+    },
+    {
       "component": "BodyCopyImage",
       "title": "Une expertise reconnue",
       "description": "<p>Depuis plus de 15 ans, Cogesto Consulting accompagne les acteurs majeurs de l'économie ouest-africaine : entreprises publiques, groupes privés, institutions financières et organisations internationales. Notre présence au Sénégal, au Maroc et au Canada nous permet de mobiliser les meilleures expertises pour vos projets.</p><p>Nous avons conduit avec succès des plans de transformation structurelle, des repositionnements stratégiques et des programmes de performance pour des leaders de l'industrie, de l'énergie et des services.</p>",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/cities/_micro_city_houston_gettyimages-1344659855.jpeg",
+      "imageUrl": "/assets/cogesto-asset/Cogesto-3_interventants_talking.jpg",
       "imageAlt": "Expertise Cogesto",
       "reverseLayout": true,
       "buttonText": "Découvrir nos réalisations",
       "buttonHref": "/projets/"
     },
     {
-      "component": "BlogArticleShowcase",
+      "id": "insights",
+      "component": "RelatedContent",
       "title": "Points de vue et Insights",
-      "titleHref": "/blog",
-      "articles": [
+      "items": [
         {
           "title": "L'impact de la ZLECAf sur les stratégies régionales",
           "badge": "Stratégie",
           "date": "27 Nov 2025",
-          "readTime": "5 min read",
           "href": "#",
-          "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/cities/_micro_city_mexico-city_gettyimages-638921947.jpeg",
-          "isLarge": true
+          "imageSrc": "/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg",
+          "imageUrl": "/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg",
+          "imageAlt": "ZLECAf"
         },
         {
           "title": "Le rôle des entreprises publiques dans la transformation",
           "badge": "Secteur Public",
           "date": "15 Oct 2025",
-          "readTime": "4 min read",
-          "href": "#"
+          "href": "#",
+          "imageSrc": "/assets/cogesto-asset/Cogesto_general_manager_conference.jpg",
+          "imageUrl": "/assets/cogesto-asset/Cogesto_general_manager_conference.jpg",
+          "imageAlt": "Entreprises publiques"
         },
         {
           "title": "Naviguer l'incertitude : Stratégies résilientes",
           "badge": "Résilience",
           "date": "02 Sept 2025",
-          "readTime": "3 min read",
-          "href": "#"
-        },
-        {
-          "title": "Digitalisation et secteur financier",
-          "badge": "Digital",
-          "date": "20 Aout 2025",
-          "readTime": "6 min read",
-          "href": "#"
+          "href": "#",
+          "imageSrc": "/assets/cogesto-asset/Agricultural_field.jpg",
+          "imageUrl": "/assets/cogesto-asset/Agricultural_field.jpg",
+          "imageAlt": "Résilience"
         }
       ]
+    },
+    {
+      "component": "FullWidthCta",
+      "badge": "Prêt à avancer ?",
+      "title": "Définissons ensemble votre future stratégie.",
+      "button": {
+        "text": "Prendre rendez-vous",
+        "href": "/contact"
+      }
     },
     {
       "component": "CardImageText",
@@ -140,7 +175,7 @@
       "description": "<p>Discutons de vos enjeux stratégiques et voyons comment Cogesto Consulting peut vous aider à atteindre vos objectifs de croissance durable.</p>",
       "buttonText": "Contactez-nous",
       "buttonHref": "/contact/",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-594203323.jpg",
+      "imageUrl": "/assets/cogesto-asset/black_women_smiling.jpg",
       "imageAlt": "Contact Cogesto",
       "videoPosition": "right",
       "backgroundColorClass": "bg-primary-color"

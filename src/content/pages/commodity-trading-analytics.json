@@ -8,23 +8,32 @@
       "title": "Commodity Trading Analytics",
       "subtitle": "Real-time monitoring and advanced analytics, providing the insights to identify opportunities and manage risk.",
       "theme": "cobalt",
-      "backgroundImage": "https://www.woodmac.com/siteassets/frontify_media_download/photography/refining-and-oil-products/_macro/macro_refining_gettyimages-509465699.jpg?width=1000&height=680&rmode=crop&rxy=0.5,0.5"
+      "backgroundImage": "/assets/cogesto-asset/petrol_ platform.jpg"
+    },
+    {
+      "component": "SubNavigation",
+      "currentPage": "/industry/commodity-trading-analytics",
+      "items": [
+        { "text": "Stratégie", "href": "/expertises/strategie" },
+        { "text": "Digital", "href": "/expertises/digital-technology" },
+        { "text": "Commodity Trading", "href": "/industry/commodity-trading-analytics" },
+        { "text": "Transformation", "href": "/expertises/transformation" }
+      ]
     },
     {
       "component": "BodyCopyImage",
       "heading": "A new era of volatility and opportunity in commodity markets",
       "text_content": "<p>Commodity markets are entering a period of rapid change, driven by shifting demand patterns, evolving supply chains, and new pressures from policy and energy security concerns.</p><p>Volatility creates both risk and opportunity, making real-time visibility into infrastructure, trade flows, and price signals more critical than ever.</p>",
-      "imageSrc": "https://www.woodmac.com/siteassets/frontify_media_download/photography/gas/micro-gas/micro_gas_gettyimages-869963568.jpg?width=1000&rmode=crop&rxy=0.5,0.5",
+      "imageSrc": "/assets/cogesto-asset/offshore_petrol_platform.jpg",
       "imagePosition": "right"
     },
     {
-      "component": "TwoColumnContent",
-      "title": "Why choose Wood Mackenzie?",
-      "paragraphs": [
-        "Leverage data and advanced analytics from our proprietary monitoring network – combining live camera feeds, infrared, satellite imagery and power line measurements – combined with expert insights across oil, gas & LNG, and power markets.",
-        "Our offerings combine real-time monitoring and forecasting, making them essential for IOCs and NOCs to small operators, banks, trading houses and hedge funds."
-      ],
-      "imagePosition": "left"
+      "component": "BodyCopyImage",
+      "heading": "Why choose Wood Mackenzie?",
+      "text_content": "<p>Leverage data and advanced analytics from our proprietary monitoring network – combining live camera feeds, infrared, satellite imagery and power line measurements – combined with expert insights across oil, gas & LNG, and power markets.</p><p>Our offerings combine real-time monitoring and forecasting, making them essential for IOCs and NOCs to small operators, banks, trading houses and hedge funds.</p>",
+      "imageSrc": "/assets/cogesto-asset/Agricultural_field.jpg",
+      "imagePosition": "left",
+      "reverseLayout": true
     },
     {
       "component": "CardGrid",
@@ -69,20 +78,20 @@
         {
           "title": "Benicia refinery fire",
           "description": "On May 5, 2025, a fire at the Benicia refinery located northeast of San Francisco was detected via our sensor network.",
-          "link": "https://go.woodmac.com/l/131501/2025-06-16/34gjbw",
-          "icon_or_image": "https://www.woodmac.com/contentassets/f85fc5925cce47ccab8cb14b60ef58bb/benicia-refinery-fire.png?rmode=crop&rxy=0.5,0.5"
+          "link": "#",
+          "icon_or_image": "/assets/cogesto-asset/Pyrotechnic-spiral.jpg"
         },
         {
           "title": "Cameron LNG shutdown",
           "description": "On 27 October at around 1:30 Central Time, Cameron LNG shut down all three trains completely and unexpectedly.",
-          "link": "https://go.woodmac.com/l/131501/2025-11-05/34zpwk",
-          "icon_or_image": "https://www.woodmac.com/contentassets/b72aa1770e024fbdbb144b75ddef0ecd/lng-alert.png?rmode=crop&rxy=0.5,0.5"
+          "link": "#",
+          "icon_or_image": "/assets/cogesto-asset/Eolienne.jpg"
         },
         {
           "title": "Storage Surge",
           "description": "In April, our European Gas Supply & Demand forecasts indicated a bearish outlook for the TTF forward curve.",
-          "link": "https://go.woodmac.com/l/131501/2025-08-25/34q45g",
-          "icon_or_image": "https://www.woodmac.com/contentassets/36f197f72633460695ef6ce82dbbaddf/ttf-storage-surge-update-web.png?rmode=crop&rxy=0.5,0.5"
+          "link": "#",
+          "icon_or_image": "/assets/cogesto-asset/Boat_on_port.jpg"
         }
       ]
     },
@@ -90,15 +99,16 @@
       "component": "BodyCopyImage",
       "heading": "Make smarter decisions",
       "text_content": "<p>Expert advisory services with a global team of consultants, leveraging the industry standard – our data and research. We support customers in finding and developing opportunities and managing risks.</p>",
-      "imageSrc": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-167890481.jpg?width=1000&rmode=crop&rxy=0.5,0.5",
+      "imageSrc": "/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg",
       "imagePosition": "right"
     },
     {
       "component": "BodyCopyImage",
       "heading": "Contact an expert",
       "text_content": "<p>In a volatile market, having the right data isn’t enough. You need a partner who provides the insights and context to turn market shifts into opportunities. Get in touch with one of our experts today.</p>",
-      "imageSrc": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-594203323.jpg?width=1000&rmode=crop&rxy=0.5,0.5",
-      "imagePosition": "left"
+      "imageSrc": "/assets/cogesto-asset/Professionla_women-holding tablet.jpg",
+      "imagePosition": "left",
+      "reverseLayout": true
     },
     {
       "component": "CardGrid",
@@ -107,17 +117,17 @@
         {
           "title": "European natural gas",
           "description": "Insights on key market trends, regional dynamics, and short-term LNG outlooks.",
-          "link": "https://www.woodmac.com/news/opinion/european-natural-gas-your-top-seven-questions-answered/"
+          "link": "#"
         },
         {
           "title": "5 top takeaways from APPEC",
           "description": "Our experts unpack the 5 key trends shaping Asia’s oil and refining markets in 2025 and what to expect in 2026.",
-          "link": "https://www.woodmac.com/news/opinion/5-top-takeaways-from-our-appec-2025-briefings/"
+          "link": "#"
         },
         {
           "title": "Japan's energy strategy",
           "description": "A renewed focus on the country’s energy infrastructure has important implications for oil and refined products.",
-          "link": "https://www.woodmac.com/news/opinion/japan-sweeps-the-dust-from-its-energy-strategy/"
+          "link": "#"
         }
       ]
     }

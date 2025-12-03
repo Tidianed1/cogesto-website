@@ -53,11 +53,12 @@ const {
                                         <div set:html={slide.description} />
                                     </div>
                                 </div>
-                                <div class="product-carousel-content-push-double-top product-carousel-content-image">
+                                <div class="product-carousel-content-push-double-top product-carousel-content-image" style="height: 300px; overflow: hidden; border-radius: 4px;">
                                     <img 
                                         src={slide.imageUrl} 
                                         alt={slide.imageAlt} 
                                         loading="lazy"
+                                        style="width: 100%; height: 100%; object-fit: cover;"
                                     />
                                 </div>
                             </div>

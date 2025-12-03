@@ -1,6 +1,8 @@
 ---
 // Test Page for Component Validation
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Import ALL Compliant Components
 import BenefitsBlock from '../../components/BenefitsBlock.astro';
 import RelatedContent from '../../components/RelatedContent.astro';
 import FullWidthCta from '../../components/FullWidthCta.astro';
@@ -10,8 +12,55 @@ import TabsTextMedia from '../../components/TabsTextMedia.astro';
 import MasonryGrid from '../../components/MasonryGrid.astro';
 import BlogArticleShowcase from '../../components/BlogArticleShowcase.astro';
 import ServicesCarousel from '../../components/ServicesCarousel.astro';
+import WallLister from '../../components/WallLister.astro';
+import BodyCopyImage from '../../components/BodyCopyImage.astro';
+import TextOnlySection from '../../components/TextOnlySection.astro';
+import CenteredTextSection from '../../components/CenteredTextSection.astro';
+import LeftTitledIntro from '../../components/LeftTitledIntro.astro';
+import NarrowBodyCopy from '../../components/NarrowBodyCopy.astro';
+import CardImageText from '../../components/CardImageText.astro';
+import CardQuote from '../../components/CardQuote.astro';
+import StatsBlock from '../../components/StatsBlock.astro';
+import StatsSideSection from '../../components/StatsSideSection.astro';
+import ProductListBlock from '../../components/ProductListBlock.astro';
+import AdvantageItem from '../../components/AdvantageItem.astro';
+import HeroService from '../../components/HeroService.astro';
+import HeroMultiTemplate from '../../components/HeroMultiTemplate.astro';
+import SecondaryBlueHero from '../../components/SecondaryBlueHero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import ValuesTabs from '../../components/ValuesTabs.astro';
+import Accordion from '../../components/Accordion.astro';
+import HeroProduct from '../../components/HeroProduct.astro';
+import HeroBlock from '../../components/HeroBlock.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import SignInHero from '../../components/SignInHero.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import OutcomesBlock from '../../components/OutcomesBlock.astro';
+import MainContent from '../../components/MainContent.astro';
+import PostHeaderModals from '../../components/PostHeaderModals.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import ServicesBlock from '../../components/ServicesBlock.astro';
+import NavAccounts from '../../components/NavAccounts.astro';
 
-// Mock Data for BenefitsBlock
+// --- Mock Data ---
+
+// StatsSideSection
+const sideStats = [
+  { value: "30%", description: "Increase in efficiency" },
+  { value: "50+", description: "Countries covered" },
+  { value: "24/7", description: "Support available" }
+];
+
+// ProductListBlock
+const products = [
+  { name: "Strategic Planning", description: "Long-term vision and execution roadmaps.", href: "#" },
+  { name: "Operational Excellence", description: "Streamlining processes for maximum efficiency.", href: "#" },
+  { name: "Digital Transformation", description: "Leveraging technology for business growth.", href: "#" }
+];
+
+// BenefitsBlock
 const benefitsItems = [
   {
     value: "43 million tonnes per year",
@@ -27,86 +76,38 @@ const benefitsItems = [
     value: "562 million tonnes per year",
     label: "<p>Total planned CCUS capacity</p>",
     iconUrl: "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-cloud-refresh-128px.png"
-  },
-  {
-    value: "5 billion tonnes per year",
-    label: "<p>CCUS capacity required by 2050</p><p>to align with 1.5 degrees</p>",
-    iconUrl: "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-air-polution-co2-down-128px.png"
   }
 ];
 
-// Mock Data for RelatedContent (Mixed layout: 3 standard, 2 cols)
-const relatedItemsMixed = [
+// RelatedContent
+const relatedItems = [
   {
     title: "5 key ways to decarbonise downstream",
     href: "#",
     imageSrc: "https://www.woodmac.com/siteassets/photography---industry/chemicals-polymers--fibres/woodmac_chemicals_012.jpg?w=500&h=300",
+    imageUrl: "https://www.woodmac.com/siteassets/photography---industry/chemicals-polymers--fibres/woodmac_chemicals_012.jpg?w=500&h=300",
     imageAlt: "Downstream",
-    badge: "Opinion",
-    type: "standard"
+    badge: "Opinion"
   },
   {
     title: "Five key takeaways from COP30",
     href: "#",
     imageSrc: "https://www.woodmac.com/siteassets/frontify_media_download/2025/11/macro_esg_gettyimages-521333620.jpg?w=500&h=300",
+    imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/2025/11/macro_esg_gettyimages-521333620.jpg?w=500&h=300",
     imageAlt: "COP30",
-    badge: "The Edge",
-    type: "standard"
+    badge: "The Edge"
   },
   {
     title: "November Horizons Live",
     href: "#",
     imageSrc: "https://www.woodmac.com/siteassets/horizons/2025/november-2025/horizons-november25-epi-website-asset.png?w=500&h=300",
+    imageUrl: "https://www.woodmac.com/siteassets/horizons/2025/november-2025/horizons-november25-epi-website-asset.png?w=500&h=300",
     imageAlt: "Horizons",
-    badge: "Webinar",
-    type: "standard"
-  },
-  {
-    title: "What happened at COP30?",
-    href: "#",
-    imageSrc: "https://www.woodmac.com/siteassets/podcasts/wmsite_eg_800x450.png?w=500&h=300",
-    imageAlt: "COP30 Podcast",
-    badge: "Opinion",
-    type: "2col"
-  },
-  {
-    title: "The UK's critical role in Europe's integrated oil system",
-    href: "#",
-    imageSrc: "https://www.woodmac.com/siteassets/frontify_media_download/2025/11/macro_upstream_thinkstockphotos-455651375.jpg?w=500&h=300",
-    imageAlt: "UK Oil",
-    badge: "Opinion",
-    type: "2col"
+    badge: "Webinar"
   }
 ];
 
-// Mock Data for CommoditySelector
-const commodityItems = [
-  {
-    id: "copper",
-    tabText: "Copper",
-    title: "Copper",
-    description: "<p>The global copper mining industry is evolving rapidly...</p>",
-    imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-1193102584-copper.jpg?width=1000&rmode=crop&rxy=0.5,0.5",
-    imageAlt: "Copper wire",
-    highlightLinks: [
-       { text: "Assets Discovery", href: "#" },
-       { text: "Markets Forecast", href: "#" }
-    ]
-  },
-  {
-    id: "gold",
-    tabText: "Gold",
-    title: "Gold",
-    description: "<p>The global gold mining sector relies on precise gold asset intelligence...</p>",
-    imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/metals-and-mining/_macro/macro_metalsandmining_gettyimages-869481918.jpg?width=1000&rmode=crop&rxy=0.5,0.5",
-    imageAlt: "Gold bullion",
-    highlightLinks: [
-       { text: "Assets Discovery", href: "#" }
-    ]
-  }
-];
-
-// Mock Data for LeadershipTeamSection
+// LeadershipTeam
 const leadershipTeam = [
   {
     name: "Jason Liu",
@@ -116,25 +117,13 @@ const leadershipTeam = [
   },
   {
     name: "Valerie Purvis",
-    role: "Executive Vice President, Head of Commodities",
+    role: "EVP, Head of Commodities",
     imageUrl: "https://www.woodmac.com/siteassets/photography---our-people/ge-headshots/val-purvis.png",
-    profileLink: "#"
-  },
-  {
-    name: "Xizhou Zhou",
-    role: "Executive Vice President, Head of Power and Renewables",
-    imageUrl: "https://www.woodmac.com/siteassets/photography---our-people/ge-headshots/xizhou-zhou.png",
-    profileLink: "#"
-  },
-  {
-    name: "Joe Midgley",
-    role: "Executive Vice President, Head of Upstream",
-    imageUrl: "https://www.woodmac.com/siteassets/photography---our-people/ge-headshots/joe-midgley.png",
     profileLink: "#"
   }
 ];
 
-// Mock Data for TabsTextMedia
+// TabsTextMedia
 const tabsTextMediaData = [
   {
     id: "tab-1",
@@ -158,50 +147,10 @@ const tabsTextMediaData = [
   }
 ];
 
-// Mock Data for MasonryGrid
-const masonryItems = [
-  {
-    type: "vertical",
-    label: "Study",
-    title: "Making carbon capture & storage work",
-    description: "Explore the commercial viability of carbon capture and storage (CCS) across sectors and regions.",
-    href: "#",
-    imageSrc: "https://img.rolandberger.com/img/Tiles/Tile-Content/roland_berger_25_2318_ccs_decision_making_in_hard_to_abate_industries_st_tile_teaser_h310.jpg?v=1585905",
-    imageAlt: "Carbon capture"
-  },
-  {
-    type: "regular",
-    label: "Study",
-    title: "License to lead?",
-    description: "Drawing on the perspectives of over 130 CXOs from a wide range of industries...",
-    href: "#",
-    imageSrc: "https://img.rolandberger.com/img/Tiles/Tile-Content/25_2319_WEB_Reverse_CMO_barometer_ST_tile_teaser_w425x260.jpg?v=1594765",
-    imageAlt: "License to lead"
-  },
-  {
-    type: "regular",
-    label: "Study",
-    title: "Future of health 7",
-    description: "Roland Berger’s Future of Health 7 study reveals how equity, coordination...",
-    href: "#",
-    imageSrc: "https://img.rolandberger.com/img/Tiles/Tile-Content/roland_berger_web_25_2296_future_of_health7_st_tile_teaser_w425x260.jpg?v=1548156",
-    imageAlt: "Future of health"
-  },
-  {
-    type: "wide",
-    label: "Global Topic",
-    title: "Europe. All in.",
-    description: "Europe faces economic, political, and global challenges—but with innovation...",
-    href: "#",
-    imageSrc: "https://img.rolandberger.com/img/Tiles/Tile-Content/RB_Europe_ST_WebsiteHeader_tile_teaser_h260.png?v=1496569",
-    imageAlt: "Europe"
-  }
-];
-
-// Mock Data for BlogArticleShowcase
+// BlogArticleShowcase
 const highlightedArticle = {
   title: "Sociétés du temps de guerre, conséquences pour les entreprises",
-  excerpt: "Après des décennies de relative invulnérabilité, la brutalisation du monde rattrape l’Europe. Cyberattaques, manipulations informationnelles...",
+  excerpt: "Après des décennies de relative invulnérabilité, la brutalisation du monde rattrape l’Europe.",
   href: "#",
   imageSrc: "https://www.kea-partners.com/wp-content/uploads/2025/10/Visuel-banniere-episode-5-1124x563.webp",
   format: "Podcast"
@@ -219,16 +168,10 @@ const secondaryArticles = [
     href: "#",
     imageSrc: "https://www.kea-partners.com/wp-content/uploads/2025/10/Visuel-banniere-3-543x225.webp",
     format: "Podcast"
-  },
-  {
-    title: "Chocs et Stratégie – Episode #2 : Choc démographique",
-    href: "#",
-    imageSrc: "https://www.kea-partners.com/wp-content/uploads/2025/10/Visuel-header-543x225.webp",
-    format: "Podcast"
   }
 ];
 
-// Mock Data for ServicesCarousel
+// ServicesCarousel
 const servicesCarouselSlides = [
   {
     title: "Strategy & Organisation",
@@ -248,93 +191,451 @@ const servicesCarouselSlides = [
   }
 ];
 
+// WallLister
+const wallListerItems = [
+  {
+    id: "power-renewables",
+    imageUrl: "https://www.woodmac.com/siteassets/frontify_media_download/photography/wind/_micro/micro_wind_gettyimages-1166666243.jpg?width=600&amp;height=360&amp;rmode=crop&amp;rxy=0.5,0.5",
+    imageAlt: "Wind turbines",
+    title: "Power & Renewables",
+    expandedText: "The transition to a low carbon economy and the rapid growth of renewables has been a game-changer.",
+    buttonText: "Learn more",
+    buttonHref: "#"
+  }
+];
+
+// StatsBlock
+const statsItems = [
+  { heading: "15+", text: "Years of Experience" },
+  { heading: "100%", text: "Client Satisfaction" },
+  { heading: "50+", text: "Projects Delivered" }
+];
+
+// CardGrid Items
+const cardGridItems = [
+  {
+    title: "Industries",
+    description: "Our consulting teams work across every part of the value chain.",
+    link: "#",
+    icon_or_image: "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-factory-building-128px.png"
+  },
+  {
+    title: "Services",
+    description: "We provide bespoke strategic, market, and operational improvement services.",
+    link: "#",
+    icon_or_image: "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-rating-star-winner-128px.png"
+  }
+];
+
+// ValuesTabs Mock Data
+const valuesTabsData = [
+  {
+    id: "val-1",
+    title: "Our Mission",
+    content: "<p>To empower businesses in Africa with world-class strategic advice.</p>",
+    active: true
+  },
+  {
+    id: "val-2",
+    title: "Our Vision",
+    content: "<p>To be the leading consulting firm for transformation and growth.</p>"
+  }
+];
+
 ---
 
-<BaseLayout title="Component Test Page">
+<BaseLayout title="Component Inventory Test Page">
   <div class="soft-double--top">
-    <h1 class="text-center">Component Test Page</h1>
-    <p class="text-center push-bottom--double">Validation area for new components.</p>
+    <div class="wrap">
+      <h1 class="text-center h100 core-branding-cobalt push-bottom--double">Component Inventory & Compliance Test</h1>
+      <Breadcrumbs items={[{text: 'Home', href: '/'}, {text: 'Test Components', href: '/test-components/'}]} />
+    </div>
 
-    <!-- ServicesCarousel Test -->
+    <hr class="push-double--ends" />
+
+    <!-- 1. Heroes -->
+    <h2 class="text-center push-bottom bg-light-grey soft">1. Hero Components</h2>
+    
     <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">ServicesCarousel.astro</h2>
+      <h3 class="text-center">HeroService.astro</h3>
+      <HeroService 
+        title="Hero Service Title" 
+        introduction="This is a HeroService component used for standard service pages."
+        backgroundImageUrl="/assets/cogesto-asset/petrol_ platform.jpg"
+        button={{text: "Call to Action", href: "#"}}
+      />
+    </div>
+
+    <div class="push-bottom--double">
+      <h3 class="text-center">HeroMultiTemplate.astro (Cobalt)</h3>
+      <HeroMultiTemplate
+        title="Hero Multi Template"
+        introduction="This is the HeroMultiTemplate with the cobalt theme."
+        imageUrl="/assets/cogesto-asset/Cogesto_general_manager_conference.jpg"
+        backgroundColor="cobalt"
+      />
+    </div>
+
+    <div class="push-bottom--double">
+      <h3 class="text-center">SecondaryBlueHero.astro</h3>
+      <SecondaryBlueHero
+        title="Secondary Blue Hero"
+        introduction="A simpler blue hero for secondary pages or specific sections."
+        imageUrl="/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg"
+      />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">HeroProduct.astro</h3>
+        <HeroProduct
+            title="Hero Product"
+            description="Hero section specifically for products."
+            imageUrl="/assets/cogesto-asset/Agricultural_field.jpg"
+            buttonText="View Product"
+            buttonUrl="#"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">HeroBlock.astro</h3>
+        <HeroBlock
+            title="Hero Block"
+            description="Hero section with lead generation focus."
+            imageUrl="/assets/cogesto-asset/Solar-panal.jpg"
+            ctaText="Get Leads"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">HeroSection.astro</h3>
+        <HeroSection
+            title="Hero Section"
+            description="Diagonal split design hero."
+            imageUrl="/assets/cogesto-asset/Two_woman_talking.jpg"
+            ctaText="Learn More"
+            ctaUrl="#"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">SignInHero.astro</h3>
+        <SignInHero
+            title="Sign In"
+            description="Access your account."
+            imageUrl="/assets/cogesto-asset/women_on_ a computer.jpg"
+        />
+    </div>
+
+    <hr class="push-double--ends" />
+
+    <!-- 2. Content Sections -->
+    <h2 class="text-center push-bottom bg-light-grey soft">2. Content & Text Sections</h2>
+
+    <div class="push-bottom--double">
+      <h3 class="text-center">BodyCopyImage.astro (Standard)</h3>
+      <BodyCopyImage
+        title="Body Copy with Image"
+        description="<p>This is a standard text-left, image-right component. It is used for primary storytelling.</p>"
+        imageUrl="/assets/cogesto-asset/Two_woman_talking.jpg"
+        imageAlt="Two women talking"
+        buttonText="Learn More"
+        buttonHref="#"
+      />
+    </div>
+
+    <div class="push-bottom--double">
+      <h3 class="text-center">BodyCopyImage.astro (Reverse)</h3>
+      <BodyCopyImage
+        title="Body Copy with Image (Reverse)"
+        description="<p>This is the same component with <code>reverseLayout=true</code>.</p>"
+        imageUrl="/assets/cogesto-asset/women_on_ a computer.jpg"
+        imageAlt="Women on computer"
+        buttonText="Discover"
+        buttonHref="#"
+        reverseLayout={true}
+      />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">TextOnlySection.astro</h3>
+        <TextOnlySection 
+            title="Text Only Section"
+            content="<p>This component is great for methodologies or simple text blocks without images. It centers the content on the grid.</p>"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">CenteredTextSection.astro</h3>
+        <CenteredTextSection 
+            title="Centered Text Section"
+            content="<p>A variation that centers the text content for introductions or summaries.</p>"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">LeftTitledIntro.astro</h3>
+        <LeftTitledIntro 
+            title="Left Titled Intro"
+            content="<p>This component puts the title on the left and content on the right, creating a distinct visual hierarchy.</p>"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">StatsSideSection.astro</h3>
+        <StatsSideSection
+            title="Impact & Results"
+            content="<p>This component displays stats on the side of a text block, ideal for showcasing quantitative impact.</p>"
+            stats={sideStats}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">ProductListBlock.astro</h3>
+        <ProductListBlock
+            title="Our Offerings"
+            products={products}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">SectionIntro.astro</h3>
+        <SectionIntro
+            title="Section Intro"
+            content="<p>Introductory text for a new section.</p>"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">NarrowBodyCopy.astro</h3>
+        <NarrowBodyCopy
+            leftTitle="Left Title"
+            leftParagraph="<p>Left side content.</p>"
+            rightTitle="Right Title"
+            rightParagraph="<p>Right side content.</p>"
+        />
+    </div>
+
+    <hr class="push-double--ends" />
+
+    <!-- 3. Interactive & Complex Components -->
+    <h2 class="text-center push-bottom bg-light-grey soft">3. Interactive & Complex Components</h2>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">TabsTextMedia.astro</h3>
+        <TabsTextMedia 
+            heading="Interactive Tabs"
+            tabs={tabsTextMediaData}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">ServicesCarousel.astro</h3>
         <ServicesCarousel 
-            title="Discover our energy consulting solutions"
-            introText="<p>We don't believe in a one-size-fits-all approach...</p>"
+            title="Services Carousel"
+            introText="<p>A swiper-based carousel for highlighting services or case studies.</p>"
             slides={servicesCarouselSlides}
         />
     </div>
 
-    <!-- BlogArticleShowcase Test -->
     <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">BlogArticleShowcase.astro</h2>
+        <h3 class="text-center">WallLister.astro</h3>
+        <WallLister
+            title="Wall Lister Component"
+            description="An expandable grid for detailed service descriptions."
+            items={wallListerItems}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">ValuesTabs.astro</h3>
+        <ValuesTabs 
+            summaryTitle="Our Core Values" 
+            summaryDescription="What we believe in."
+            tabs={valuesTabsData}
+        /> 
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">Accordion.astro</h3>
+        <Accordion
+            title="Frequently Asked Questions"
+            description="<p>Find answers to common questions about our services.</p>"
+            items={[
+                { question: "What services do you offer?", answer: "<p>We offer a wide range of consulting services.</p>" },
+                { question: "How can I contact you?", answer: "<p>You can contact us via the contact form.</p>" }
+            ]}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">OutcomesBlock.astro</h3>
+        <OutcomesBlock
+            title="Outcomes"
+            intro="See the results."
+            tabs={[{id: "1", label: "Tab 1", content: "Content 1"}]}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">CommoditySelector.astro</h3>
+        <CommoditySelector 
+            title="Commodity Selector"
+            items={[{id: "1", tabText: "Gold", title: "Gold", description: "Gold description", imageUrl: "/assets/cogesto-asset/Solar-panal.jpg", imageAlt: "Gold", highlightLinks: []}]}
+        />
+    </div>
+
+    <hr class="push-double--ends" />
+
+    <!-- 4. Cards & Grids -->
+    <h2 class="text-center push-bottom bg-light-grey soft">4. Cards, Grids & Stats</h2>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">CardGrid.astro (Services)</h3>
+        <CardGrid 
+            heading="Card Grid - Services"
+            items={cardGridItems}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">BlogArticleShowcase.astro</h3>
         <BlogArticleShowcase 
             highlightedArticle={highlightedArticle}
             secondaryArticles={secondaryArticles}
         />
     </div>
 
-    <!-- MasonryGrid Test -->
     <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">MasonryGrid.astro</h2>
-        <MasonryGrid items={masonryItems} />
-    </div>
-
-    <!-- TabsTextMedia Test -->
-    <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">TabsTextMedia.astro</h2>
-        <TabsTextMedia 
-            heading="Nos industries"
-            tabs={tabsTextMediaData}
+        <h3 class="text-center">RelatedContent.astro</h3>
+        <RelatedContent 
+            title="Related Content Grid"
+            items={relatedItems}
         />
     </div>
 
-    <!-- LeadershipTeamSection Test -->
     <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">LeadershipTeamSection.astro</h2>
-        <LeadershipTeamSection 
-            title="Leadership team"
-            members={leadershipTeam}
+        <h3 class="text-center">StatsBlock.astro</h3>
+        <StatsBlock 
+            title="Key Statistics"
+            description="Highlighting key performance indicators."
+            stats={statsItems}
         />
     </div>
 
-    <!-- CommoditySelector Test -->
     <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">CommoditySelector.astro</h2>
-        <CommoditySelector 
-            title="Commodities coverage"
-            items={commodityItems}
-        />
-    </div>
-
-    <!-- BenefitsBlock Test -->
-    <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">BenefitsBlock.astro</h2>
+        <h3 class="text-center">BenefitsBlock.astro</h3>
         <BenefitsBlock 
-            title="CCUS in numbers"
-            description="Despite significant growth there's still an order-of-magnitude difference between planned capacity and 1.5-degree alignment"
+            title="Key Benefits"
             items={benefitsItems}
         />
     </div>
 
-    <!-- RelatedContent Test (Mixed) -->
     <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">RelatedContent.astro (Mixed Layout)</h2>
-        <RelatedContent 
-            title="Related content"
-            items={relatedItemsMixed}
+        <h3 class="text-center">AdvantageItem.astro</h3>
+        <div class="flex justify-center gap-8">
+            <AdvantageItem 
+                heading="Expertise"
+                text="Deep industry knowledge."
+            />
+            <AdvantageItem 
+                heading="Innovation"
+                text="Cutting-edge solutions."
+            />
+        </div>
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">MasonryGrid.astro</h3>
+        <MasonryGrid
+            items={[{type: "regular", label: "Label", title: "Title", description: "Desc", href: "#", imageSrc: "/assets/cogesto-asset/Solar-panal.jpg", imageAlt: "Alt"}]}
         />
     </div>
 
-    <!-- FullWidthCta Test -->
     <div class="push-bottom--double">
-        <h2 class="text-center push-bottom">FullWidthCta.astro</h2>
-        <FullWidthCta 
-            title="Learn more about our full value chain research and analytics in the power and renewables sector"
-            badgeText="Power & Renewables"
-            linkText="Explore"
-            linkHref="/industry/power-and-renewables/"
+        <h3 class="text-center">ArticleCard.astro</h3>
+        <div class="col small-4">
+            <ArticleCard
+                title="Article Title"
+                category="News"
+                href="#"
+                imageUrl="/assets/cogesto-asset/women_on_ a computer.jpg"
+            />
+        </div>
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">NewsCard.astro</h3>
+        <div class="col small-4">
+            <NewsCard
+                title="News Title"
+                date="2023-10-27"
+                href="#"
+                image="/assets/cogesto-asset/women_on_ a computer.jpg"
+            />
+        </div>
+    </div>
+
+    <hr class="push-double--ends" />
+
+    <!-- 5. CTAs & Others -->
+    <h2 class="text-center push-bottom bg-light-grey soft">5. CTAs & Miscellaneous</h2>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">CardImageText.astro (Video/CTA)</h3>
+        <CardImageText
+            title="Card Image Text (CTA)"
+            description="<p>Often used for final Call to Actions at the bottom of pages. Supports video style layout.</p>"
+            buttonText="Contact Us"
+            buttonHref="#"
+            imageUrl="/assets/cogesto-asset/Professionla_women-holding tablet.jpg"
+            imageAlt="Contact"
+            backgroundColorClass="bg-primary-color"
         />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">CardQuote.astro</h3>
+        <CardQuote 
+            quote="This is a powerful quote component that adds credibility to the page content."
+            author="John Doe, CEO"
+            imageUrl="/assets/cogesto-asset/Cogesto-3_interventants_talking.jpg"
+            imageAlt="Author"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">FullWidthCta.astro</h3>
+        <FullWidthCta 
+            title="Full Width Call to Action"
+            badgeText="Action"
+            linkText="Get Started"
+            linkHref="#"
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">NavAccounts.astro</h3>
+        <NavAccounts 
+            title="My Account"
+            description="Manage your preferences and access your products."
+            links={[
+                { text: "Sign In", href: "#" },
+                { text: "Register", href: "#" }
+            ]}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">MainContent.astro</h3>
+        <!-- MainContent typically wraps other components, simplified usage here -->
+        <div class="bg-light-grey soft">
+            <p class="text-center">MainContent is a wrapper (not visualized directly)</p>
+        </div>
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">PostHeaderModals.astro</h3>
+        <PostHeaderModals />
     </div>
 
   </div>

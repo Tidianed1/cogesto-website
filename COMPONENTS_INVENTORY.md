@@ -267,7 +267,18 @@ The goal is to create a clear guide for developers to understand which component
 
 ---
 
-## 4. Card & Item Components
+## 4. Interactive & Layout Components
+
+### `WallLister.astro`
+-   **File Path:** `src/components/WallLister.astro`
+-   **Purpose:** Renders an interactive grid of items. Each item is a clickable card that expands to reveal more detailed content, including a description and a call-to-action button.
+-   **Business Use Case:** Ideal for showcasing a portfolio of services, sectors, or case studies in a visually engaging and space-efficient way.
+-   **Protocol Adherence:** ✅ Fully Compliant. The component's interactivity is assumed to be handled by global JavaScript targeting `js-` prefixed classes, as per protocol.
+-   **Refactoring Notes:** None.
+
+---
+
+## 5. Card & Item Components
 
 ### `LeadershipTeamSection.astro`
 -   **File Path:** `src/components/LeadershipTeamSection.astro`

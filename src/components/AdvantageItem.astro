@@ -1,12 +1,11 @@
 ---
----
 export interface Props {
-  iconUrl?: string // Changed from 'icon: any'
-  heading: string
-  text: string
+  iconUrl?: string;
+  heading: string;
+  text: string;
 }
 
-const { iconUrl, heading, text } = Astro.props
+const { iconUrl, heading, text } = Astro.props;
 ---
 
 <div class="text-center">
@@ -34,4 +33,3 @@ const { iconUrl, heading, text } = Astro.props
     {text}
   </p>
 </div>
-

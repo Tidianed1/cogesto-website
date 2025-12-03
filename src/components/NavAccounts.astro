@@ -10,7 +10,7 @@ export interface Props {
     links: Link[];
 }
 
-const { title, description, links } = Astro.props;
+const { title, description, links = [] } = Astro.props;
 ---
 
 <div id="accounts" class="nav-accounts">

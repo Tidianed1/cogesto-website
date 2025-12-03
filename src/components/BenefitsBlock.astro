@@ -14,6 +14,7 @@ export interface Props {
   items: BenefitItem[];
   id?: string;
   backgroundColorClass?: string;
+  textColorClass?: string;
 }
 
 const {
@@ -21,11 +22,12 @@ const {
   description,
   items,
   id = "numbers",
-  backgroundColorClass = "bg-light-grey-1"
+  backgroundColorClass = "bg-light-grey-1",
+  textColorClass = "primary-color"
 } = Astro.props;
 ---
 
-<div class={`module benefits soft-lens--ends ${backgroundColorClass} primary-color`} id={id}>
+<div class={`module benefits soft-lens--ends ${backgroundColorClass} ${textColorClass}`} id={id}>
     <div class="wrap">
         <div class="col small-12">
             <div class="benefits__title-wrapper">

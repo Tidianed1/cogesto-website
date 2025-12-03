@@ -41,8 +41,8 @@ const backgroundStyle = backgroundImageUrl ? `background-image:url(${backgroundI
             <div class="wrap">
                 <div class="col small-12">
                     <div class:list={['c-wm-video__wrapper', backgroundColorClass, 'white']}>
-                        <div class="c-wm-video__video-col">
-                            <img class="img-overlay__image full-width lazyloaded" data-src={imageUrl} alt={imageAlt} src={imageUrl}>
+                        <div class="c-wm-video__video-col" style="position: relative; overflow: hidden; min-height: 300px;">
+                            <img class="img-overlay__image full-width lazyloaded" style="width: 100%; height: 100%; object-fit: cover;" data-src={imageUrl} alt={imageAlt} src={imageUrl}>
                         </div>
                         <div class="c-wm-video__info-col">
                             <h2 class="text-left giga push--bottom title-underline soft--bottom title-underline--white">{title}</h2>

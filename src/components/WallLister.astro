@@ -1,0 +1,87 @@
+---
+export interface WallListerItem {
+  id: string; // Unique ID for wall-child and aria-controls
+  imageUrl: string;
+  imageAlt: string;
+  title: string;
+  expandedText: string; // The detailed paragraph text shown on expansion
+  buttonText: string; // Text for the link button in the expanded view
+  buttonHref: string; // URL for the link button in the expanded view
+}
+
+export interface Props {
+  title: string; // The main H2 title of the section ("Explore how we can help...")
+  description: string; // The introductory paragraph below the title
+  items: WallListerItem[]; // An array of items to display in the grid
+  id?: string; // Optional ID for the main module container
+}
+
+const { title, description, items, id = "walllister-default" } = Astro.props;
+---
+
+<div class="module" id={id} data-io-animation-chain="true">
+    <div class="wrap">
+        <div class="col small-12 medium-7 push-5--medium">
+            <h2 class="giga title-underline soft--bottom push--bottom" data-io-type="::before-expand">
+                {title}
+            </h2>
+            <p class="kilo push--bottom">{description}</p>
+        </div>
+
+        <div class="js-wall js-wall--is-ready">
+            {items.map((item) => (
+                <div class="col small-12 small-medium-6 large-4 xlarge-3 js-wall-item">
+                    <div role="button" tabindex="0" class="js-wall-trigger js-wall-trigger--mono soft--bottom relative" data-io-type="fade" data-io-direction="bottom-top" aria-expanded="false" aria-controls={`wall-${item.id}`} id="">
+                        <div class="img-overlay relative">
+                            <figure class="img-overlay__wrap ratio-5x3">
+                                <img class="img-overlay__image lazyloaded" data-src={item.imageUrl} alt={item.imageAlt} src={item.imageUrl}>
+                                <div class="img-overlay__effect"></div>
+                            </figure>
+                            <div class="img-overlay__blend">
+                                <div class="img-overlay__content">
+                                    <h3 class="kilo white img-overlay__title">{item.title}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="js-wall-child" aria-hidden="true" id={`wall-${item.id}`} tabindex="-1">
+                        <div class="wrap">
+                            <div class="col small-12 medium-6 gutter-right--large push--bottom">
+                                <div class="alpha white editor editor--mono">
+                                    <p>{item.expandedText}</p>
+                                </div>
+                            </div>
+                            <div class="col small-12 medium-6">
+                                <div class="push--bottom">
+                                    <a href={item.buttonHref} class="alpha btn btn--primary">{item.buttonText}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+        
+        <!-- Navigation for expanded items (replicated from original HTML) -->
+        <div class="js-wall-panel" aria-hidden="true">
+            <button class="js-wall-close" aria-label="close">
+                <svg fill="#000000" height="30" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+            </button>
+            <button class="js-wall-previous" aria-label="previous">
+                <svg fill="#000000" height="36" viewBox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+            </button>
+            <button class="js-wall-next" aria-label="next">
+                <svg fill="#000000" height="36" viewBox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

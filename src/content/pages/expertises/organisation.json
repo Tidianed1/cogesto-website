@@ -15,7 +15,7 @@
       "component": "HeroService",
       "title": "Organisation & Gouvernance",
       "introduction": "Aligner votre structure, vos processus et votre culture pour libérer le plein potentiel de votre capital humain et assurer une performance durable.",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-591478749.jpg?w=1600&mode=crop&center=0.5,0.5"
+      "imageUrl": "/assets/cogesto-asset/Hotel_pullman.jpg"
     },
     {
       "component": "SubNavigation",
@@ -23,7 +23,7 @@
       "items": [
         { "text": "Stratégie", "href": "/expertises/strategie" },
         { "text": "Opérations", "href": "/expertises/operations" },
-        { "text": "Finance", "href": "/expertises/finance" },
+        { "text": "Finance", "href": "/expertises/corporate-finance" },
         { "text": "Organisation", "href": "/expertises/organisation" }
       ]
     },
@@ -31,19 +31,54 @@
       "component": "BodyCopyImage",
       "title": "L'organisation, levier de performance",
       "description": "<p>Dans un environnement économique volatile, la capacité d'une entreprise à adapter son organisation est devenue un avantage concurrentiel décisif. Trop souvent, les structures héritées du passé freinent l'innovation et la réactivité.</p><p>Chez Cogesto Consulting, nous ne voyons pas l'organisation comme un simple organigramme, mais comme un système vivant. Notre approche vise à simplifier la complexité, fluidifier la prise de décision et libérer les énergies pour une performance durable.</p>",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/corporate/micro/_micro_corporate_gettyimages-185207257.jpg?w=1000&mode=crop&center=0.5,0.5",
+      "imageUrl": "/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg",
       "imageAlt": "Performance organisationnelle",
       "buttonText": "Diagnostiquer votre organisation",
       "buttonHref": "/contact/"
     },
     {
-      "component": "StatsSideSection",
+      "component": "StatsBlock",
       "title": "L'impact d'une organisation agile",
-      "content": "<p>Une organisation optimisée ne se contente pas de réduire les coûts ; elle accélère la prise de décision et améliore l'engagement des collaborateurs.</p>",
+      "description": "Une organisation optimisée ne se contente pas de réduire les coûts ; elle accélère la prise de décision et améliore l'engagement des collaborateurs.",
       "stats": [
-        { "value": "-20%", "description": "Réduction des délais de prise de décision grâce à la clarification des rôles." },
-        { "value": "+15%", "description": "Augmentation de la productivité par l'optimisation des processus clés." },
-        { "value": "100%", "description": "Alignement des équipes de direction sur la feuille de route stratégique." }
+        { "heading": "-20%", "text": "Réduction des délais de prise de décision grâce à la clarification des rôles." },
+        { "heading": "+15%", "text": "Augmentation de la productivité par l'optimisation des processus clés." },
+        { "heading": "100%", "text": "Alignement des équipes de direction sur la feuille de route stratégique." }
+      ],
+      "backgroundColorClass": "bg-core-branding-cobalt"
+    },
+    {
+      "component": "WallLister",
+      "title": "Notre Méthodologie : Approche Systémique",
+      "description": "Une démarche structurée pour transformer votre organisation sans déstabiliser vos opérations.",
+      "items": [
+        {
+          "id": "diagnostic",
+          "title": "1. Diagnostic & Cadrage",
+          "imageUrl": "/assets/cogesto-asset/Two_woman_talking.jpg",
+          "imageAlt": "Diagnostic organisationnel",
+          "expandedText": "Nous réalisons un audit approfondi de votre fonctionnement actuel (structure, processus, culture). Nous identifions les dysfonctionnements, les zones de flou et les freins à la performance. Cette étape inclut une analyse comparative (benchmark) avec les meilleures pratiques de votre secteur.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "#"
+        },
+        {
+          "id": "conception",
+          "title": "2. Co-construction de la Cible",
+          "imageUrl": "/assets/cogesto-asset/women_on_ a computer.jpg",
+          "imageAlt": "Design organisationnel",
+          "expandedText": "Nous ne plaquons pas de modèles théoriques. Nous co-construisons avec votre comité de direction l'organisation cible (Target Operating Model) qui servira au mieux votre stratégie. Nous définissons les nouveaux organigrammes, les fiches de poste clés et les instances de gouvernance.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "#"
+        },
+        {
+          "id": "accompagnement",
+          "title": "3. Accompagnement au Changement",
+          "imageUrl": "/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg",
+          "imageAlt": "Conduite du changement",
+          "expandedText": "Le succès d'une réorganisation repose sur l'adhésion des équipes. Nous vous accompagnons dans la communication, la formation et le coaching des managers pour faciliter la transition. Nous mettons en place des indicateurs pour mesurer l'adoption et les gains de performance.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "#"
+        }
       ]
     },
     {
@@ -83,54 +118,62 @@
       ]
     },
     {
-      "component": "TextOnlySection",
-      "title": "Notre Méthodologie : Approche Systémique",
-      "content": "<p>Nous refusons les solutions 'prêtes-à-porter'. Notre intervention est guidée par une approche systémique qui traite simultanément les aspects 'Hard' (structure, processus) et 'Soft' (culture, compétences).</p><p>Nous procédons par étapes : <strong>Diagnostic</strong> approfondi des dysfonctionnements, <strong>Co-construction</strong> des scénarios cibles avec vos équipes, et <strong>Accompagnement</strong> terrain à la mise en œuvre. Cette démarche garantit que la nouvelle organisation est non seulement performante sur le papier, mais acceptée et vivante dans la réalité.</p>"
+      "component": "ServicesCarousel",
+      "title": "Notre Impact",
+      "introText": "<p>Des transformations réussies qui génèrent de la valeur tangible.</p>",
+      "slides": [
+        {
+          "title": "Restructuration d'un Groupe Industriel",
+          "description": "Accompagnement d'un leader de l'agro-industrie dans la refonte de son organisation multi-sites. Résultat : une réduction de 15% des coûts de structure et une harmonisation des processus RH et financiers sur l'ensemble des filiales.",
+          "imageUrl": "/assets/cogesto-asset/Agricultural_field.jpg",
+          "imageAlt": "Industrie agroalimentaire",
+          "buttonText": "Lire le cas",
+          "buttonHref": "#"
+        },
+        {
+          "title": "Optimisation de la Gouvernance",
+          "description": "Pour une banque panafricaine, redéfinition des comités de direction et des délégations de pouvoir pour accélérer la prise de décision. Mise en place d'un tableau de bord de pilotage stratégique pour le Conseil d'Administration.",
+          "imageUrl": "/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg",
+          "imageAlt": "Secteur bancaire",
+          "buttonText": "Lire le cas",
+          "buttonHref": "#"
+        }
+      ]
     },
     {
       "component": "BodyCopyImage",
       "title": "Pourquoi choisir Cogesto ?",
       "description": "<p>Notre différence réside dans notre double ancrage : une maîtrise des meilleurs standards internationaux de management et une compréhension intime des réalités culturelles et économiques en Afrique.</p><p>Nos consultants ont tous exercé des responsabilités opérationnelles. Ils parlent le langage de vos équipes et conçoivent des solutions pragmatiques, orientées vers l'action et le résultat.</p>",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/corporate/micro/_micro_corporate_gettyimages-913259606.jpg?w=1000&mode=crop&center=0.5,0.5",
+      "imageUrl": "/assets/cogesto-asset/black_women_smiling.jpg",
       "imageAlt": "Experts Cogesto",
       "reverseLayout": true,
       "buttonText": "Rencontrer nos experts",
       "buttonHref": "/about/our-people/"
     },
     {
-      "component": "BlogArticleShowcase",
+      "component": "RelatedContent",
       "title": "Points de vue et Insights",
-      "titleHref": "/blog",
-      "articles": [
+      "items": [
         {
           "title": "L'agilité organisationnelle en temps de crise",
           "badge": "Organisation",
           "date": "10 Dec 2025",
-          "readTime": "4 min read",
           "href": "#",
-          "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/micro/_micro_people_gettyimages-1325134720.jpg",
-          "isLarge": true
+          "imageUrl": "/assets/cogesto-asset/women_on_ a computer.jpg"
         },
         {
           "title": "Gouvernance familiale : les clés de la transmission",
           "badge": "Gouvernance",
           "date": "22 Nov 2025",
-          "readTime": "5 min read",
-          "href": "#"
+          "href": "#",
+          "imageUrl": "/assets/cogesto-asset/Two_woman_talking.jpg"
         },
         {
           "title": "Culture d'entreprise et performance",
           "badge": "Culture",
           "date": "05 Oct 2025",
-          "readTime": "3 min read",
-          "href": "#"
-        },
-        {
-          "title": "Le rôle du DRH dans la transformation",
-          "badge": "RH",
-          "date": "12 Sept 2025",
-          "readTime": "6 min read",
-          "href": "#"
+          "href": "#",
+          "imageUrl": "/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg"
         }
       ]
     },
@@ -140,7 +183,7 @@
       "description": "<p>Votre organisation est-elle un accélérateur ou un frein à votre croissance ? Discutons de vos enjeux. Nos experts sont prêts à réaliser un diagnostic flash.</p>",
       "buttonText": "Prendre rendez-vous",
       "buttonHref": "/contact/",
-      "imageUrl": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-594203323.jpg",
+      "imageUrl": "/assets/cogesto-asset/sunset_bridge_ in_°the savanne.jpg",
       "imageAlt": "Contact Cogesto",
       "videoPosition": "right",
       "backgroundColorClass": "bg-primary-color"
