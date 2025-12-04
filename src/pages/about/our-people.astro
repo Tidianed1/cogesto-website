@@ -1,11 +1,12 @@
 ---
-// Our People page (French)
+// Our People page (French) - REFACTORED
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewHeader from '../../components/NewHeader.astro';
 import NewFooter from '../../components/NewFooter.astro';
 import SubNavigation from '../../components/SubNavigation.astro';
 import QuoteSection from '../../components/QuoteSection.astro';
 import LeadershipTeamSection from '../../components/LeadershipTeamSection.astro';
+import HeroMultiTemplate from '../../components/HeroMultiTemplate.astro';
 import { fr } from '../../content/fr';
 import { footerData } from '../../content/footer';
 
@@ -20,241 +21,60 @@ const subNavItems = [
   { text: fr.nav.ourLocations, href: '/about/our-locations/' },
 ];
 
-// Leadership team data
+// Leadership team data (Using placeholders/context where available)
 const leadershipTeam = [
   {
-    name: "Jason Liu",
-    title: "Chief Executive Officer",
-    image: "https://www.woodmac.com/contentassets/jason-liu.jpg",
-    imageAlt: "Jason Liu, Chief Executive Officer"
+    name: "M. Sow",
+    title: "PDG Cogesto Consulting",
+    image: "/assets/cogesto-asset/cogesto-asset/picture_cogesto/ptreseidnt%20cogesto.jpg",
+    imageAlt: "PDG"
   },
   {
-    name: "Valerie Purvis",
-    title: "Executive Vice President, Head of Commodities",
-    image: "https://www.woodmac.com/contentassets/valerie-purvis.jpg",
-    imageAlt: "Valerie Purvis, Executive Vice President, Head of Commodities"
+    name: "Mme Codou Sow",
+    title: "Directrice & CPA",
+    image: "/assets/cogesto-asset/women_on_ a computer.jpg",
+    imageAlt: "Directrice"
   },
   {
-    name: "Xizhou Zhou",
-    title: "Executive Vice President, Head of Power and Renewables",
-    image: "https://www.woodmac.com/contentassets/xizhou-zhou.jpg",
-    imageAlt: "Xizhou Zhou, Executive Vice President, Head of Power and Renewables"
-  },
-  {
-    name: "Joe Midgley",
-    title: "Executive Vice President, Head of Upstream, Corporate and Carbon Solutions",
-    image: "https://www.woodmac.com/contentassets/joe-midgley.jpg",
-    imageAlt: "Joe Midgley, Executive Vice President"
-  },
-  {
-    name: "Garet Guthrie",
-    title: "Executive Vice President, Chief Financial Officer",
-    image: "https://www.woodmac.com/contentassets/garet-guthrie.jpg",
-    imageAlt: "Garet Guthrie, Executive Vice President, Chief Financial Officer"
-  },
-  {
-    name: "Louise Noble",
-    title: "Executive Vice President, Head of Marketing",
-    image: "https://www.woodmac.com/contentassets/louise-noble.jpg",
-    imageAlt: "Louise Noble, Executive Vice President, Head of Marketing"
-  },
-  {
-    name: "Lindsey Bernard",
-    title: "Senior Vice President, Global Sales",
-    image: "https://www.woodmac.com/contentassets/lindsey-bernard.jpg",
-    imageAlt: "Lindsey Bernard, Senior Vice President, Global Sales"
-  },
-  {
-    name: "Chris Grieve",
-    title: "Executive Vice President, Head of Strategy and Corporate Development",
-    image: "https://www.woodmac.com/contentassets/chris-grieve.jpg",
-    imageAlt: "Chris Grieve, Executive Vice President, Head of Strategy and Corporate Development"
-  },
-  {
-    name: "Eilish Henson",
-    title: "Executive Vice President, Head of Human Resources",
-    image: "https://www.woodmac.com/contentassets/eilish-henson.jpg",
-    imageAlt: "Eilish Henson, Executive Vice President, Head of Human Resources"
-  },
-  {
-    name: "Thijs van Koppen",
-    title: "Executive Vice President, Head of Consulting",
-    image: "https://www.woodmac.com/contentassets/thijs-van-koppen.jpg",
-    imageAlt: "Thijs van Koppen, Executive Vice President, Head of Consulting"
-  },
-  {
-    name: "Bernardo Rodriguez",
-    title: "Executive Vice President, Chief Product & Technology Officer",
-    image: "https://www.woodmac.com/contentassets/bernardo-rodriguez.jpg",
-    imageAlt: "Bernardo Rodriguez, Executive Vice President, Chief Product & Technology Officer"
-  },
-  {
-    name: "Louise Onikoyi",
-    title: "Senior Vice President, Head of Legal, Risk and Compliance",
-    image: "https://www.woodmac.com/contentassets/louise-onikoyi.jpg",
-    imageAlt: "Louise Onikoyi, Senior Vice President, Head of Legal, Risk and Compliance"
-  },
-  {
-    name: "Nick Gaubinger",
-    title: "Senior Vice President, Head of Product",
-    image: "https://www.woodmac.com/contentassets/nick-gaubinger.jpg",
-    imageAlt: "Nick Gaubinger, Senior Vice President, Head of Product"
-  },
-  {
-    name: "Jenny Sulak",
-    title: "Senior Vice President, Head of Operations",
-    image: "https://www.woodmac.com/contentassets/jenny-sulak.jpg",
-    imageAlt: "Jenny Sulak, Senior Vice President, Head of Operations"
-  },
-  {
-    name: "Stuart Millar",
-    title: "Senior Vice President, Head of IT",
-    image: "https://www.woodmac.com/contentassets/stuart-millar.jpg",
-    imageAlt: "Stuart Millar, Senior Vice President, Head of IT"
-  },
-  {
-    name: "Amy Altman",
-    title: "Senior Vice President, Head of Technology",
-    image: "https://www.woodmac.com/contentassets/amy-altman.jpg",
-    imageAlt: "Amy Altman, Senior Vice President, Head of Technology"
-  },
+    name: "Mme Amy Rose Konaté",
+    title: "Vice-Présidente & Coach",
+    image: "/assets/cogesto-asset/Two_woman_talking.jpg",
+    imageAlt: "VP"
+  }
 ];
 ---
 
 <BaseLayout title="Notre équipe - Cogesto Consulting">
-  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
+  
+  <NewHeader />
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <main class="content start">
+    
+    <HeroMultiTemplate
+      title={fr.ourPeople.hero.title}
+      subtitle={fr.ourPeople.hero.description}
+      imageUrl="/assets/cogesto-asset/Cogesto_general_manager_conference.jpg"
+      backgroundColor="primary-color"
+    />
 
-<div class="skip">
-    <a class="btn btn-skip" tabindex="0" href="#content">Passer au contenu principal</a>
-</div>
-
-<header id="menu-header">
-    <NewHeader />
-</header>
-
-<div id="accounts" class="nav-accounts">
-    <div class="wrap">
-        <div class="flex__equal-height">
-            <div class="col small-12 medium-9 large-6 editor nav-accounts-intro">
-                <div>
-<h2>Access our research platforms</h2>
-<p>Sign-in to our platforms to access our extensive research, our latest insight, data and analytics and to connect to our industry experts.</p></div>
-            </div>
-
-            <ul class="col small-12 pull-4--medium medium-9 pull-2--large large-4 nav-accounts-list">
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fidentity.woodmac.com%2fsign-in">My WoodMac</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens.woodmac.com%2f">Wood Mackenzie Lens®</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens-direct.woodmac.com%2f">Lens Direct</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fpower-and-renewables.woodmac.com%2f">Power and Renewables</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="/products/trading-analytics/login/">Trading Analytics</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://www.poweradvocate.com/login.jsp">Supply Chain Analytics platform (previously PowerAdvocate)</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2faccount.woodmac.com%2fdetails">Account and preferences management</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="/products/training/">Product training</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://lens-help.woodmac.com/en/">Help and support</a>
-        </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div id="fake-bg" class="nav-primary__fake-bg js-navigation__fake-bg mega-menu"></div>
-<div id="search-modal" class="search-overlay">
-    <div class="wrap">
-        <form id="search__form" class="col small-12 large-10 push-1--large pull-1--large global-search" method="get" action="/search/">
-            <label for="name" class="visuallyhidden">
-                Search label
-            </label>
-            <input type="text" id="q" name="q" class="global-search__input" placeholder="Search the site..." autocomplete="off" role="combobox" aria-haspopup="true" aria-expanded="false" aria-controls="autoComplete_list" aria-autocomplete="both">
-
-            <button type="submit" class="global-search__btn">
-                <div class="search-loader hide"></div>
-                <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g id="Frame" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#clip0_982_19)"><title>Search</title><path id="Vector" d="M.64 7.04a6.4 6.4 0 1 0 12.8 0 6.4 6.4 0 0 0-12.8 0Z"></path><path id="Vector_2" d="m15.36 15.36-3.795-3.795"></path></g><defs><clipPath id="clip0_982_19"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
-                <span class="visuallyhidden">
-                    Search
-                </span>
-            </button>
-        </form>
-    </div>
-</div>
-
-<main class="content start" id="content">
-  <div class="our-people-page-wrapper">
-    <!-- Hero Section -->
-    <div id="our-people-hero" class="hero-homepage-cobalt-template__container hero-block">
-      <div class="hero-homepage-cobalt-template__section_flex_container">
-        <div class="hero-homepage-cobalt-template__summary">
-          <h1 class="hero-homepage-cobalt__title">{fr.ourPeople.hero.title}</h1>
-          <div class="hero-homepage-cobalt__introduction">
-            <p>{fr.ourPeople.hero.description}</p>
-          </div>
-        </div>
-        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/diverse-team-office.jpg); background-position: center; background-size: cover;"></div>
-      </div>
-    </div>
-
-    <!-- Sub-navigation -->
     <SubNavigation items={subNavItems} currentPage={Astro.url.pathname} />
 
-    <!-- Quote Section -->
     <QuoteSection
       quote={fr.ourPeople.quote.text}
       attribution={fr.ourPeople.quote.attribution}
       image={{
-        src: "https://www.woodmac.com/contentassets/team-meeting-discussion.jpg",
-        alt: "Trois personnes en discussion"
+        src: "/assets/cogesto-asset/Two_woman_talking.jpg",
+        alt: "Discussion d'équipe"
       }}
     />
 
-    <!-- Leadership Team Section -->
     <LeadershipTeamSection 
       title={fr.ourPeople.leadership.title}
       teamMembers={leadershipTeam} 
     />
-  </div>
-</main>
 
-<footer>
+  </main>
+
   <NewFooter {...footerData} />
-</footer>
 
-<!-- Use shared navigation script for consistency -->
-<script src="/js/woodmac.scripts.js" defer></script>
-
-<style>
-  /* Our People page wrapper */
-  .our-people-page-wrapper {
-    width: 100%;
-  }
-
-  /* Ensure main content has no gap with nav */
-  main.content.start {
-    margin-top: 0;
-    padding-top: 0;
-  }
-</style>
-
-</body>
 </BaseLayout>

@@ -1,0 +1,55 @@
+---
+// src/components/QuestionsGrid.astro
+// Renders a grid of questions with icons, often used to highlight key challenges or "Questions we answer".
+// Replicates the "Helping you answer the key questions you face" section structure.
+
+export interface QuestionItem {
+  iconUrl: string;
+  text: string;
+}
+
+export interface Props {
+  title: string;
+  introText?: string;
+  questions: QuestionItem[];
+  id?: string;
+}
+
+const {
+  title,
+  introText,
+  questions,
+  id = "questions-grid"
+} = Astro.props;
+---
+
+<div class="module benefits soft-lens--ends benefits--scaled bg-white primary-color" id={id}>
+    <div class="wrap">
+        <div class="col small-12">
+            <div class="benefits__title-wrapper">
+                <h2 class="giga text-center--medium">{title}</h2>
+                {introText && (
+                    <div class="">
+                        <p set:html={introText}></p>
+                    </div>
+                )}
+            </div>
+        </div>
+    </div>
+    <div class="wrap flex__equal-height flexbox justify-center">
+        {questions.map((item) => (
+            <div class="col small-12 medium-6 large-3 flexbox direction-column justify-between">
+                <div class="benefits__item">
+                    <div class="icon--centered">
+                        <img class="lazyloaded" src={item.iconUrl} alt="" style="width: 128px; height: auto;" />
+                    </div>
+                    <div class="text--centered">
+                        <div class="body-copy">
+                            <p style="text-align: left;">{item.text}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+</div>

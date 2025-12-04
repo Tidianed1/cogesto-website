@@ -15,26 +15,40 @@
       "component": "HeroService",
       "title": "Organisation & Gouvernance",
       "introduction": "Aligner votre structure, vos processus et votre culture pour libérer le plein potentiel de votre capital humain et assurer une performance durable.",
-      "imageUrl": "/assets/cogesto-asset/Hotel_pullman.jpg"
+      "imageUrl": "/assets/cogesto-asset/Hotel_pullman.jpg",
+      "button": {
+        "text": "Diagnostiquer votre organisation",
+        "href": "/contact"
+      }
     },
     {
       "component": "SubNavigation",
       "currentPage": "/expertises/organisation",
       "items": [
-        { "text": "Stratégie", "href": "/expertises/strategie" },
-        { "text": "Opérations", "href": "/expertises/operations" },
-        { "text": "Finance", "href": "/expertises/corporate-finance" },
-        { "text": "Organisation", "href": "/expertises/organisation" }
+        { "text": "Vision", "href": "#vision" },
+        { "text": "Approche", "href": "#approche" },
+        { "text": "Services", "href": "#services" },
+        { "text": "Impact", "href": "#impact" }
       ]
     },
     {
+      "id": "vision",
       "component": "BodyCopyImage",
       "title": "L'organisation, levier de performance",
       "description": "<p>Dans un environnement économique volatile, la capacité d'une entreprise à adapter son organisation est devenue un avantage concurrentiel décisif. Trop souvent, les structures héritées du passé freinent l'innovation et la réactivité.</p><p>Chez Cogesto Consulting, nous ne voyons pas l'organisation comme un simple organigramme, mais comme un système vivant. Notre approche vise à simplifier la complexité, fluidifier la prise de décision et libérer les énergies pour une performance durable.</p>",
       "imageUrl": "/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg",
       "imageAlt": "Performance organisationnelle",
-      "buttonText": "Diagnostiquer votre organisation",
-      "buttonHref": "/contact/"
+      "reverseLayout": false
+    },
+    {
+      "component": "BodyCopyImage",
+      "title": "Le Capital Humain au Cœur",
+      "description": "<p>Aucune transformation organisationnelle ne réussit sans l'adhésion des hommes et des femmes qui la portent. Nous plaçons le développement du capital humain au centre de nos interventions.</p><p>De la gestion des talents à la culture d'entreprise, nous vous aidons à créer un environnement où chaque collaborateur peut donner le meilleur de lui-même.</p>",
+      "imageUrl": "/assets/cogesto-asset/black_women_smiling.jpg",
+      "imageAlt": "Capital Humain",
+      "reverseLayout": true,
+      "buttonText": "Nos solutions RH",
+      "buttonHref": "#services"
     },
     {
       "component": "StatsBlock",
@@ -45,9 +59,10 @@
         { "heading": "+15%", "text": "Augmentation de la productivité par l'optimisation des processus clés." },
         { "heading": "100%", "text": "Alignement des équipes de direction sur la feuille de route stratégique." }
       ],
-      "backgroundColorClass": "bg-core-branding-cobalt"
+      "backgroundColorClass": "bg-primary-color"
     },
     {
+      "id": "approche",
       "component": "WallLister",
       "title": "Notre Méthodologie : Approche Systémique",
       "description": "Une démarche structurée pour transformer votre organisation sans déstabiliser vos opérations.",
@@ -82,42 +97,42 @@
       ]
     },
     {
+      "id": "services",
       "component": "ProductListBlock",
       "title": "Nos Solutions d'Optimisation",
       "products": [
-        {
-          "name": "Design Organisationnel",
-          "description": "Conception de modèles opérationnels cibles (TOM) et clarification des rôles et responsabilités (RACI).",
-          "href": "/expertises/organisation/design"
+        { 
+            "name": "Design Organisationnel", 
+            "description": "Conception de modèles opérationnels cibles (TOM) et clarification des rôles et responsabilités (RACI).", 
+            "href": "#" 
         },
-        {
-          "name": "Gouvernance & Pilotage",
-          "description": "Professionnalisation des instances de décision (CODIR, CA) pour un pilotage stratégique efficace.",
-          "href": "/expertises/organisation/gouvernance"
+        { 
+            "name": "Gouvernance & Pilotage", 
+            "description": "Professionnalisation des instances de décision (CODIR, CA) pour un pilotage stratégique efficace.", 
+            "href": "#" 
         },
-        {
-          "name": "Transformation Culturelle",
-          "description": "Programmes de changement pour aligner les comportements managériaux sur les nouvelles ambitions.",
-          "href": "/expertises/organisation/culture"
+        { 
+            "name": "Transformation Culturelle", 
+            "description": "Programmes de changement pour aligner les comportements managériaux sur les nouvelles ambitions.", 
+            "href": "#" 
         },
-        {
-          "name": "Gestion des Talents",
-          "description": "Stratégies de développement du capital humain et parcours de carrière pour retenir les clés.",
-          "href": "/expertises/organisation/talents"
-        },
-        {
-          "name": "Efficacité Opérationnelle",
-          "description": "Re-engineering des processus (BPR) pour éliminer les tâches sans valeur ajoutée.",
-          "href": "/expertises/organisation/processus"
-        },
-        {
-          "name": "Post-Merger Integration",
-          "description": "Harmonisation des structures et des cultures suite à une fusion ou une acquisition.",
-          "href": "/expertises/organisation/pmi"
+        { 
+            "name": "Gestion des Talents", 
+            "description": "Stratégies de développement du capital humain et parcours de carrière pour retenir les clés.", 
+            "href": "#" 
         }
       ]
     },
     {
+      "component": "CardQuote",
+      "quote": "L'agilité n'est pas une méthode, c'est une culture. Nous vous aidons à l'instaurer durablement.",
+      "author": "Directrice RH & Organisation, Cogesto",
+      "imageUrl": "/assets/cogesto-asset/Professionla_women-holding tablet.jpg",
+      "imageAlt": "Experte RH",
+      "backgroundColorClass": "bg-primary-color"
+    },
+    {
+      "id": "impact",
       "component": "ServicesCarousel",
       "title": "Notre Impact",
       "introText": "<p>Des transformations réussies qui génèrent de la valeur tangible.</p>",
@@ -126,29 +141,19 @@
           "title": "Restructuration d'un Groupe Industriel",
           "description": "Accompagnement d'un leader de l'agro-industrie dans la refonte de son organisation multi-sites. Résultat : une réduction de 15% des coûts de structure et une harmonisation des processus RH et financiers sur l'ensemble des filiales.",
           "imageUrl": "/assets/cogesto-asset/Agricultural_field.jpg",
-          "imageAlt": "Industrie agroalimentaire",
+          "clientName": "Agro-industrie",
           "buttonText": "Lire le cas",
           "buttonHref": "#"
         },
         {
           "title": "Optimisation de la Gouvernance",
-          "description": "Pour une banque panafricaine, redéfinition des comités de direction et des délégations de pouvoir pour accélérer la prise de décision. Mise en place d'un tableau de bord de pilotage stratégique pour le Conseil d'Administration.",
+          "description": "Pour une banque panafricaine, redéfinition des comités de direction et des délégations de pouvoir pour accélérer la prise de décision.",
           "imageUrl": "/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg",
-          "imageAlt": "Secteur bancaire",
+          "clientName": "Banque",
           "buttonText": "Lire le cas",
           "buttonHref": "#"
         }
       ]
-    },
-    {
-      "component": "BodyCopyImage",
-      "title": "Pourquoi choisir Cogesto ?",
-      "description": "<p>Notre différence réside dans notre double ancrage : une maîtrise des meilleurs standards internationaux de management et une compréhension intime des réalités culturelles et économiques en Afrique.</p><p>Nos consultants ont tous exercé des responsabilités opérationnelles. Ils parlent le langage de vos équipes et conçoivent des solutions pragmatiques, orientées vers l'action et le résultat.</p>",
-      "imageUrl": "/assets/cogesto-asset/black_women_smiling.jpg",
-      "imageAlt": "Experts Cogesto",
-      "reverseLayout": true,
-      "buttonText": "Rencontrer nos experts",
-      "buttonHref": "/about/our-people/"
     },
     {
       "component": "RelatedContent",
@@ -178,12 +183,19 @@
       ]
     },
     {
+      "component": "FullWidthCta",
+      "badgeText": "Organisation",
+      "title": "Construisons une organisation à la hauteur de vos ambitions.",
+      "linkText": "Prendre rendez-vous",
+      "linkHref": "/contact/"
+    },
+    {
       "component": "CardImageText",
       "title": "Prêt à transformer votre organisation ?",
       "description": "<p>Votre organisation est-elle un accélérateur ou un frein à votre croissance ? Discutons de vos enjeux. Nos experts sont prêts à réaliser un diagnostic flash.</p>",
       "buttonText": "Prendre rendez-vous",
       "buttonHref": "/contact/",
-      "imageUrl": "/assets/cogesto-asset/sunset_bridge_ in_°the savanne.jpg",
+      "imageUrl": "/assets/cogesto-asset/moroccoan-style%20door_2.jpg",
       "imageAlt": "Contact Cogesto",
       "videoPosition": "right",
       "backgroundColorClass": "bg-primary-color"

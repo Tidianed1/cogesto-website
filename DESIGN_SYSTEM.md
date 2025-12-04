@@ -14,15 +14,15 @@ The color system is based on a set of semantic class names. True CSS variables a
 - **`.primary-color` / `.core-branding-rich-blue`**: `#010063`
   - **Usage**: The main brand color. Used for primary text, links, and dark backgrounds requiring a rich blue.
 - **`.secondary-color` / `.core-branding-cobalt`**: `#0024ff`
-  - **Usage**: The primary accent and highlight color. Used for secondary buttons, interactive element highlights, and underlines.
+  - **Usage**: The primary accent and highlight color. Used for secondary buttons, interactive element highlights, and underlines. **Note:** Use sparingly for large backgrounds; prefer Dark Blue.
 
 ### Background Colors
 - **`.bg-white`**: `#fff`
   - **Usage**: Standard page and component background.
 - **`.bg-primary-color` / `.bg-core-branding-rich-blue`**: `#010063`
-  - **Usage**: For dark-themed sections and components (`CardQuote`).
+  - **Usage**: For dark-themed sections and components (`CardQuote`, `StatsBlock`).
 - **`.bg-secondary-color` / `.bg-core-branding-cobalt`**: `#0024ff`
-  - **Usage**: For vibrant, attention-grabbing sections (`CardImageText`).
+  - **Usage**: For vibrant, attention-grabbing sections (`CardImageText`). Use with caution to avoid visual fatigue.
 - **`.bg-light-grey-1`**: `#f7f7f7`
   - **Usage**: Subtle, off-white background for sectioning.
 - **`.bg-product-light-color`**: `#f1f4ff`
@@ -93,46 +93,85 @@ Spacing is applied via utility classes using `rem` units.
 - **Margins**: `.push--top`, `.push--bottom`, `.push-half--sides`, `.push-double--bottom`. The "half" unit is `.75rem` and the standard unit is `1.5rem`.
 - **Padding**: No padding-specific utility classes were found; padding is applied directly within component styles. Common values are `.75rem`, `1.5rem`, `3rem`, `4.5rem`.
 
-## 5. Component Styles
+## 5. Component Inventory & Guidelines
 
-### Buttons
-- **Primary Button**:
-  - **HTML**: `<a href="..." class="btn btn--primary">...</a>`
-- **Secondary Button**:
-  - **HTML**: `<a href="..." class="btn btn--secondary">...</a>`
-- **Arrow Button**: Add `btn--arrow` for a button with a right-facing arrow icon.
-  - **HTML**: `<button class="btn btn--primary btn--arrow"><span>Learn more</span></button>`
+### Image & Layout Guidelines
+-   **✅ Strict Placeholder Fit**: Images must strictly fit their container's aspect ratio. Do not rely on CSS to "fix" a wrongly sized image if it breaks the component's shape.
+-   **✅ Layout Integrity**: Changing an image should never break the overall component layout. Components must use `object-fit: cover` or proper container queries to handle various image sizes gracefully.
+-   **✅ Professional Aesthetics**: When selecting components, prioritize a comprehensive and beautiful layout. Pages should look professional and homogeneous, especially for a consulting firm.
 
-### Accordion
-- **Description**: A vertically collapsing accordion to hide and show content. It is a custom element (`<accordion-component>`) that encapsulates its own JavaScript for interactivity.
-- **Astro Component**: `Accordion.astro`
-- **Usage**:
-  ```astro
-  <Accordion
-    client:load
-    title="Frequently asked questions"
-    description="Here you’ll find answers..."
-    items={[
-      { question: "Question 1?", answer: "<p>Answer 1.</p>" },
-      { question: "Question 2?", answer: "<p>Answer 2.</p>" }
-    ]}
-  />
-  ```
+### Core Components
 
-### ValuesTabs
-- **Description**: A component that displays content in a tabbed interface. It automatically switches to a dropdown select menu on mobile devices. It is a custom element that handles its own state via an inline script.
-- **Astro Component**: `ValuesTabs.astro`
-- **Usage**:
-  ```astro
-  <ValuesTabs
-    summaryTitle="Our values"
-    summaryDescription="Our values guide our decisions..."
-    tabs={[
-      { id: "tab1", title: "Inclusive", content: "<p>Content for tab 1.</p>", active: true },
-      { id: "tab2", title: "Trusting", content: "<p>Content for tab 2.</p>" }
-    ]}
-  />
-  ```
+#### `BodyCopyImage.astro`
+-   **Description**: A flexible two-column component for displaying text alongside an image.
+-   **Props**: `title`, `description`, `imageUrl`, `imageAlt`, `reverseLayout` (boolean).
+-   **Usage**: Ideal for detailing a specific service, explaining a company value, or introducing a team member. Use reversed layout to alternate rhythm.
+
+#### `HeroMultiTemplate.astro`
+-   **Description**: A flexible, data-driven hero component for interior pages.
+-   **Props**: `title`, `subtitle`, `imageUrl`, `theme` ('cobalt' or 'white').
+-   **Usage**: The standard hero for service pages, expertise deep-dives, and articles. Use 'cobalt' for high impact, 'white' for hub pages.
+
+#### `StatsBlock.astro`
+-   **Description**: A grid of statistics or key figures.
+-   **Props**: `title`, `description`, `stats` (array of heading/text), `backgroundColorClass`.
+-   **Usage**: Excellent for "Key Figures" or "Impact" sections. Use `bg-primary-color` (Dark Blue) for strong contrast.
+
+#### `StatsSideSection.astro`
+-   **Description**: A section with title/intro on the left and stats list on the right.
+-   **Props**: `title`, `content`, `stats` (array of value/description).
+-   **Usage**: Good for displaying team credentials or specific ROI metrics without a full grid.
+
+#### `ProductListBlock.astro`
+-   **Description**: A clean list of services or products with titles and descriptions.
+-   **Props**: `title`, `products` (array of name/description/href).
+-   **Usage**: The standard "Menu" for listing sub-services on an expertise page.
+
+#### `WallLister.astro`
+-   **Description**: An interactive grid of items that expand on click to reveal details.
+-   **Props**: `title`, `description`, `items` (array of id/title/imageUrl/expandedText/button).
+-   **Usage**: Perfect for Industry Hubs or detailing complex service portfolios visually.
+
+#### `ServicesCarousel.astro`
+-   **Description**: A carousel of service/product highlights with a sticky text introduction.
+-   **Props**: `title`, `introText`, `slides` (array of title/description/image).
+-   **Usage**: For "Case Studies", "Impact", or "Discover our solutions". Adds dynamic motion.
+
+#### `ValuesTabs.astro`
+-   **Description**: An interactive tabbed interface (Tabs on desktop, Dropdown on mobile).
+-   **Props**: `summaryTitle`, `summaryDescription`, `tabs` (array of id/title/content/active).
+-   **Usage**: Excellent for "Challenges vs Solutions", "Values", or "Process Steps".
+
+#### `Accordion.astro`
+-   **Description**: A vertically collapsing accordion.
+-   **Props**: `title`, `description`, `items` (array of question/answer).
+-   **Usage**: Best for "Methodology" steps, FAQs, or detailing complex processes cleanly.
+
+#### `RelatedContent.astro`
+-   **Description**: A grid of related content cards (news, opinions, articles).
+-   **Props**: `title`, `items` (array of title/badge/date/image).
+-   **Usage**: Used at the bottom of pages to show "Insights" or "More News".
+
+#### `FullWidthCta.astro`
+-   **Description**: A full-width call to action banner with a badge and link.
+-   **Props**: `title`, `badgeText`, `linkText`, `linkHref`.
+-   **Usage**: A strong inter-section breaker or final call to action.
+
+#### `CardImageText.astro` (Final CTA)
+-   **Description**: A section with an image on one side and text content on the other.
+-   **Props**: `title`, `description`, `buttonText`, `buttonHref`, `imageUrl`, `backgroundColorClass`.
+-   **Usage**: **Primary use:** As the final Call to Action (CTA) at the bottom of a page.
+-   **Note**: Use `bg-primary-color`. Ensure image fits container (e.g., `moroccoan-style door_2.jpg`).
+
+#### `BoxCards.astro`
+-   **Description**: A grid of "boxed" cards with icons, titles, and descriptions.
+-   **Props**: `title`, `description`, `cards` (array of iconUrl/title/text).
+-   **Usage**: For "How we help" sections, highlighting pillars of service.
+
+#### `QuestionsGrid.astro`
+-   **Description**: A grid of questions with icons.
+-   **Props**: `title`, `introText`, `questions` (array of iconUrl/text).
+-   **Usage**: To highlight key client challenges or "Questions we answer".
 
 ## 6. Shadows & Elevation
 

@@ -1,11 +1,11 @@
 ---
-// Our Culture page (French)
+// Our Culture page (French) - REFACTORED
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewHeader from '../../components/NewHeader.astro';
 import NewFooter from '../../components/NewFooter.astro';
 import SubNavigation from '../../components/SubNavigation.astro';
-import TextOnlySection from '../../components/TextOnlySection.astro';
 import BodyCopyImage from '../../components/BodyCopyImage.astro';
+import HeroMultiTemplate from '../../components/HeroMultiTemplate.astro';
 import { fr } from '../../content/fr';
 import { footerData } from '../../content/footer';
 
@@ -22,83 +22,52 @@ const subNavItems = [
 ---
 
 <BaseLayout title="Notre culture - Cogesto Consulting">
-  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
+  
+  <NewHeader />
 
-<div class="skip">
-    <a class="btn btn-skip" tabindex="0" href="#content">Passer au contenu principal</a>
-</div>
-
-<header id="menu-header">
-    <NewHeader />
-</header>
-
-<main class="content start" id="content">
-  <div class="our-culture-page-wrapper">
-    <!-- Hero Section -->
-    <div id="our-culture-hero" class="hero-homepage-cobalt-template__container hero-block">
-      <div class="hero-homepage-cobalt-template__section_flex_container">
-        <div class="hero-homepage-cobalt-template__summary">
-          <h1 class="hero-homepage-cobalt__title">{fr.ourCulture.hero.title}</h1>
-          <div class="hero-homepage-cobalt__introduction">
-            <p>{fr.ourCulture.hero.description}</p>
-          </div>
-        </div>
-        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/53edb0cb75fb4102beca96c21babb216/woodmac_background_website_v2-1.jpg?w=1800&h=900&mode=crop&center=0.5,0.5); background-position: 50% 50%;"></div>
-      </div>
-    </div>
-
-    <!-- Sub-navigation -->
-    <SubNavigation items={subNavItems} currentPage={Astro.url.pathname} />
-
-    <!-- Our Identity Section -->
-    <TextOnlySection title={fr.ourCulture.identity.title}>
-      {fr.ourCulture.identity.paragraphs.map(p => <p set:html={p} />)}
-    </TextOnlySection>
-
-    <!-- Let's Share the Sun Section -->
-    <BodyCopyImage
-      title={fr.ourCulture.letsShareTheSun.title}
-      description={fr.ourCulture.letsShareTheSun.paragraphs.map(p => `<p>${p}</p>`).join('')}
-      imageUrl="https://www.woodmac.com/contentassets/lets-share-the-sun.jpg"
-      imageAlt="Groupe diversifié de personnes"
-      reverseLayout={true}
-      buttonText={fr.ourCulture.letsShareTheSun.cta}
-      buttonHref="/about/lets-share-the-sun/"
-      backgroundColor="bg-white"
+  <main class="content start">
+    
+    <HeroMultiTemplate
+      title={fr.ourCulture.hero.title}
+      subtitle={fr.ourCulture.hero.description}
+      imageUrl="/assets/cogesto-asset/hands-braiding-hair.jpg"
+      backgroundColor="primary-color"
     />
 
-    <!-- Community Engagement Section -->
-    <TextOnlySection title={fr.ourCulture.communityEngagement.title}>
-        {fr.ourCulture.communityEngagement.paragraphs.map(p => <p set:html={p} />)}
-    </TextOnlySection>
+    <SubNavigation items={subNavItems} currentPage={Astro.url.pathname} />
 
-    <!-- Wellness Section -->
-    <TextOnlySection title={fr.ourCulture.wellness.title}>
-        {fr.ourCulture.wellness.paragraphs.map(p => <p set:html={p} />)}
-    </TextOnlySection>
+    <BodyCopyImage
+      title={fr.ourCulture.identity.title}
+      description={fr.ourCulture.identity.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      imageUrl="/assets/cogesto-asset/black_women_smiling.jpg"
+      imageAlt="Identité Cogesto"
+      reverseLayout={false}
+      buttonText=""
+      buttonHref=""
+    />
 
-    <!-- Inclusion, Diversity & Belonging Section -->
-    <TextOnlySection title={fr.ourCulture.inclusion.title}>
-        {fr.ourCulture.inclusion.paragraphs.map(p => <p set:html={p} />)}
-    </TextOnlySection>
+    <BodyCopyImage
+      title={fr.ourCulture.communityEngagement.title}
+      description={fr.ourCulture.communityEngagement.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      imageUrl="/assets/cogesto-asset/Agricultural_field.jpg"
+      imageAlt="Engagement communautaire"
+      reverseLayout={true}
+      buttonText=""
+      buttonHref=""
+    />
 
-  </div>
-</main>
+    <BodyCopyImage
+      title={fr.ourCulture.wellness.title}
+      description={fr.ourCulture.wellness.paragraphs.map(p => `<p>${p}</p>`).join('')}
+      imageUrl="/assets/cogesto-asset/Two_woman_talking.jpg"
+      imageAlt="Bien-être"
+      reverseLayout={false}
+      buttonText=""
+      buttonHref=""
+    />
 
-<footer>
+  </main>
+
   <NewFooter {...footerData} />
-</footer>
 
-<style>
-  .our-culture-page-wrapper {
-    width: 100%;
-  }
-
-  main.content.start {
-    margin-top: 0;
-    padding-top: 0;
-  }
-</style>
-
-</body>
 </BaseLayout>

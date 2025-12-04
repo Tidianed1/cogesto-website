@@ -4890,7 +4890,7 @@ body {
 
 @media (min-width: 62.5em) {
     .banner.cobalt-theme {
-        background-color:#0024ff
+        background-color:#010063
     }
 
     .banner.cobalt-theme .btn--search__close,.banner.cobalt-theme .btn--search__label,.banner.cobalt-theme .btn--search__label:hover,.banner.cobalt-theme .btn--toggle,.banner.cobalt-theme .nav-primary__link {
@@ -35130,3 +35130,75 @@ dialog:open::backdrop {
   transform: translateX(4px);
 }
 
+
+/* Box Cards Component */
+.box-cards__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.box-cards__wrapper > div {
+    width: 100%;
+    padding: 0 12px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 48em) {
+    .box-cards__wrapper > div {
+        width: 50%;
+    }
+}
+
+@media (min-width: 62.5em) {
+    .box-cards__wrapper > div {
+        width: 25%;
+    }
+}
+
+.box-cards__card {
+    height: 100%;
+    padding: 24px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.box-cards__card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+}
+
+.box-cards__card.bg-light-grey-1 {
+    background-color: #f7f7f7;
+    border-color: transparent;
+}
+
+.box-cards__title-wrapper {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.box-cards__title-wrapper .giga {
+    margin-bottom: 16px;
+    color: #010063;
+}
+
+.box-cards__card img {
+    margin-bottom: 16px;
+}
+
+.box-cards__card h3 {
+    color: #010063;
+    font-weight: 600;
+}
+
+/* FORCE DARK BLUE HEADER GLOBALLY - FINAL */
+.banner.cobalt-theme {
+    background-color: #010063 !important;
+}
+.nav-utility.bg-primary-color {
+    background-color: #010063 !important;
+}

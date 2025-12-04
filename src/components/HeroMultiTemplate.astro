@@ -15,16 +15,18 @@ const {
   ctaText = "Get in touch", 
   ctaHref = "/contact/",
   imageUrl,
-  backgroundColor = 'secondary-color'
+  backgroundColor = 'primary-color'
 } = Astro.props;
+
+const isDark = backgroundColor === 'primary-color' || backgroundColor === 'cobalt';
 ---
 
 <div class={`hero-multi-template__container template_style_medium template_position_bottom bg-${backgroundColor}`}>
   <div class="wrap relative hero-multi-template__section_flex_container">
     <div class="hero-multi-template__flex_image_container justify-center">
       <div class="hero-multi-template__summary col">
-        <h1 class="hero-multi-template__title">{title}</h1>
-        <p class="hero-multi-template__introduction">
+        <h1 class={`hero-multi-template__title ${isDark ? 'white' : ''}`}>{title}</h1>
+        <p class={`hero-multi-template__introduction ${isDark ? 'white' : ''}`}>
           {introduction}
         </p>
         {ctaText && (

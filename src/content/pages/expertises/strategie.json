@@ -47,7 +47,7 @@
         { "heading": "15+", "text": "Années d'expérience en conseil stratégique auprès des leaders africains." },
         { "heading": "50+", "text": "Plans stratégiques et feuilles de route opérationnels livrés avec succès." }
       ],
-      "backgroundColorClass": "bg-core-branding-cobalt"
+      "backgroundColorClass": "bg-primary-color"
     },
     {
       "id": "solutions",
@@ -86,12 +86,26 @@
         }
       ]
     },
-    {
-      "id": "methodologie",
-      "component": "TextOnlySection",
-      "title": "Notre Méthodologie : Le Dialogue Stratégique",
-      "content": "<p>Dans des organisations complexes, les stratégies descendantes ('top-down') atteignent vite leurs limites. Nous privilégions l'approche du <strong>Dialogue Stratégique</strong>.</p><p>Cette démarche co-constructive mobilise l'intelligence collective de vos équipes. En confrontant la vision des dirigeants aux réalités opérationnelles et financières, nous forgeons un consensus robuste. Ce processus garantit non seulement la pertinence des choix stratégiques, mais surtout l'engagement de ceux qui devront les mettre en œuvre.</p><p>Nos interventions s'appuient sur une analyse factuelle rigoureuse (benchmarks, market sizing) et une compréhension fine des dynamiques sectorielles.</p>"
-    },
+        {
+          "id": "methodologie",
+          "component": "Accordion",
+          "title": "Notre Méthodologie : Le Dialogue Stratégique",
+          "description": "<p>Dans des organisations complexes, les stratégies descendantes atteignent vite leurs limites. Nous privilégions une démarche de co-construction qui mobilise l'intelligence collective.</p>",
+          "items": [
+            {
+                "question": "Diagnostic & Analyse Factuelle",
+                "answer": "<p>Nous commençons par une immersion terrain et une analyse rigoureuse des données (marché, performance interne, benchmarks) pour établir un constat partagé et indiscutable.</p>"
+            },
+            {
+                "question": "Co-construction & Consensus",
+                "answer": "<p>À travers des ateliers de travail et des entretiens, nous confrontons la vision des dirigeants aux réalités opérationnelles pour forger un consensus robuste sur les priorités stratégiques.</p>"
+            },
+            {
+                "question": "Alignement & Mise en Œuvre",
+                "answer": "<p>Nous traduisons la vision en une feuille de route opérationnelle claire, avec des objectifs chiffrés et des responsabilités définies, pour garantir l'engagement de ceux qui devront la mettre en œuvre.</p>"
+            }
+          ]
+        },
     {
       "id": "impact",
       "component": "ServicesCarousel",

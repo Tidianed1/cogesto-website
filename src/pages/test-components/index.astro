@@ -43,14 +43,36 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import NewsCard from '../../components/NewsCard.astro';
 import ServicesBlock from '../../components/ServicesBlock.astro';
 import NavAccounts from '../../components/NavAccounts.astro';
+import QuestionsGrid from '../../components/QuestionsGrid.astro';
+import BoxCards from '../../components/BoxCards.astro';
 
 // --- Mock Data ---
 
+// BoxCards
+const boxCards = [
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-solution.svg", title: "Full Coverage", text: "<p>We cover the entire mining industry value chain from exploration to production.</p>" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-search--dark-blue.svg", title: "Commodity Trends", text: "<p>Many of our consultants have industry backgrounds, giving deep understanding of coal fundamentals.</p>" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-outcome-result.svg", title: "Data Driven", text: "<p>We work closely with our clients to develop a shared understanding of the factors affecting their business.</p>" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-open-expand--dark-blue.svg", title: "Unparalleled Experience", text: "<p>Our consultants’s backgrounds range from earth scientists to engineers to economists.</p>" }
+];
+
+// QuestionsGrid
+const questions = [
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-solution.svg", text: "How will renewable and storage technology costs evolve in the future?" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-search--dark-blue.svg", text: "What is the optimal hydrogen market entry strategy for my renewables business?" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-outcome-result.svg", text: "Which assets are best positioned for success over the coming decades?" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-open-expand--dark-blue.svg", text: "How might the markets evolve under different carbon policies?" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-solution.svg", text: "How can I value renewable or thermal generation assets or portfolios?" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-search--dark-blue.svg", text: "Where are the distinctive opportunities as emerging markets electrify?" },
+    { iconUrl: "/assets/cogesto-asset/Icons/icon-outcome-result.svg", text: "What returns should be anticipated as mature power and renewables markets move away from capacity auctions?" }
+];
+
 // StatsSideSection
 const sideStats = [
-  { value: "30%", description: "Increase in efficiency" },
-  { value: "50+", description: "Countries covered" },
-  { value: "24/7", description: "Support available" }
+    { value: "2030", description: "When we expect energy emissions to peak" },
+    { value: "US$1 trillion", description: "Annual investment needed to build new energy supply capacity" },
+    { value: "c2039", description: "Peak demand for oil in our base case" },
+    { value: "30%", description: "Wind and solar's contribution to power generation by 2040 in our base case" }
 ];
 
 // ProductListBlock
@@ -105,6 +127,41 @@ const relatedItems = [
     imageAlt: "Horizons",
     badge: "Webinar"
   }
+];
+
+const sampleArticles = [
+  {
+    href: "https://www.woodmac.com/horizons/soaring-copper-demand-obstacle-to-future-growth/",
+    badge: "Horizons",
+    date: "15 October 2025",
+    title: "High-wire act: is soaring copper demand an obstacle to future growth?",
+    imageUrl: "https://www.woodmac.com/siteassets/horizons/2025/october-2025/horizons_oct-2025-epi-website-assets_hero_1920x1080.png?w=500&h=300",
+    imageSrc: "https://www.woodmac.com/siteassets/horizons/2025/october-2025/horizons_oct-2025-epi-website-assets_hero_1920x1080.png?w=500&h=300",
+    imageAlt: "Copper demand",
+    excerpt: "This month's edition of Horizons explores the dynamics of copper supply and demand.",
+    isLarge: true,
+  },
+  {
+    href: "https://www.woodmac.com/blogs/the-edge/adipec-2025-six-key-takeaways/",
+    badge: "The Edge",
+    date: "13 November 2025",
+    title: "ADIPEC 2025: six key takeaways",
+    imageSrc: "https://www.woodmac.com/siteassets/frontify_media_download/2025/11/macro_esg_gettyimages-521333620.jpg?w=500&h=300"
+  },
+  {
+    href: "https://www.woodmac.com/press-releases/japans-ccus-capacity-set-to-surge-30-fold-by-2035/",
+    badge: "News Release",
+    date: "13 November 2025",
+    title: "Japan’s CCUS capacity set to surge 30-fold by 2035",
+    imageSrc: "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-factory-building-128px.png"
+  },
+  {
+    href: "https://www.woodmac.com/news/opinion/editorial--inside-the-numbers-how-lcoe-is-reshaping-global-power-economics/",
+    badge: "Opinion",
+    date: "12 November 2025",
+    title: "Inside the numbers: How LCOE is reshaping global power economics",
+    imageSrc: "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-electricity-tower-128px.png"
+  },
 ];
 
 // LeadershipTeam
@@ -421,6 +478,24 @@ const valuesTabsData = [
     <h2 class="text-center push-bottom bg-light-grey soft">3. Interactive & Complex Components</h2>
 
     <div class="push-bottom--double">
+        <h3 class="text-center">BoxCards.astro (New)</h3>
+        <BoxCards
+            title="How we help"
+            description="<p>We work with a diverse mix of clients, from mining companies seeking to understand the impact of electric vehicles on energy demand.</p>"
+            cards={boxCards}
+        />
+    </div>
+
+    <div class="push-bottom--double">
+        <h3 class="text-center">QuestionsGrid.astro</h3>
+        <QuestionsGrid
+            title="Helping you answer the key questions you face"
+            introText="We provide strategic clarity by answering your most critical questions:"
+            questions={questions}
+        />
+    </div>
+
+    <div class="push-bottom--double">
         <h3 class="text-center">TabsTextMedia.astro</h3>
         <TabsTextMedia 
             heading="Interactive Tabs"
@@ -500,8 +575,9 @@ const valuesTabsData = [
     <div class="push-bottom--double">
         <h3 class="text-center">BlogArticleShowcase.astro</h3>
         <BlogArticleShowcase 
-            highlightedArticle={highlightedArticle}
-            secondaryArticles={secondaryArticles}
+            title="Explore news and thought leadership"
+            highlightedArticle={sampleArticles[0]}
+            secondaryArticles={sampleArticles.slice(1)}
         />
     </div>
 

@@ -91,7 +91,7 @@ export const navigation = [
             name: 'Browse Events',
             url: '/events',
             links: [
-                { name: 'Wood Mackenzie Events', url: '/worldwide-events' },
+                { name: 'Événements Cogesto', url: '/worldwide-events' },
                 { name: 'Industry', url: '/events/industries' },
                 { name: 'Global events', url: '/events/global' },
                 { name: 'Asia', url: '/events/asia' },

@@ -12,6 +12,12 @@ export interface ArticleItem {
   imageAlt?: string;
   format?: string; // e.g., "Podcast", "Article"
   date?: string;
+  badge?: string; // Used for filtering/display
+}
+
+export interface TabItem {
+  id: string;
+  label: string;
 }
 
 export interface Props {
@@ -19,6 +25,7 @@ export interface Props {
   subtitle?: string;
   highlightedArticle: ArticleItem;
   secondaryArticles: ArticleItem[];
+  tabs?: TabItem[];
   seeMoreLink?: string;
   seeMoreText?: string;
   id?: string;
@@ -29,12 +36,12 @@ const {
   subtitle = "Plongez dans nos insights",
   highlightedArticle = {} as ArticleItem,
   secondaryArticles = [],
+  tabs = [],
   seeMoreLink,
   seeMoreText = "Voir plus de contenus",
   id = "content-home"
 } = Astro.props;
 
-// Safety check: if no highlighted article, return minimal or nothing to prevent crash
 if (!highlightedArticle || !highlightedArticle.title) {
   return null; 
 }
@@ -43,19 +50,31 @@ if (!highlightedArticle || !highlightedArticle.title) {
 <section id={id} class="module soft-double--ends bg-white">
     <div class="wrap">
         
-        <!-- Section Header -->
-        <div class="col small-12 push-bottom--double">
-            <div class="trait push-half--bottom"></div>
-            <h2 class="h200 core-branding-rich-blue">
-                <span class="font-light d-block">{title}</span>
-                <span class="font-bold">{subtitle}</span>
-            </h2>
+        <!-- Section Header with Tabs -->
+        <div class="col small-12 push-bottom--double flexbox justify-between align-end flex-wrap">
+            <div>
+                <div class="trait push-half--bottom"></div>
+                <h2 class="h200 core-branding-rich-blue">
+                    <span class="font-light d-block">{title}</span>
+                    <span class="font-bold">{subtitle}</span>
+                </h2>
+            </div>
+            
+            {tabs.length > 0 && (
+                <div class="tabs-container push-top--small">
+                    {tabs.map(tab => (
+                        <button class="btn--tab gamma font-bold core-branding-rich-blue soft-half--sides" data-target={tab.id}>
+                            {tab.label}
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
 
         <div class="row">
             <!-- Left Column: Highlighted Article -->
             <div class="col small-12 medium-6 large-7 push-bottom--double">
-                <article class="highlighted-article h-full flexbox direction-column">
+                <article class="highlighted-article h-full flexbox direction-column" data-category={highlightedArticle.badge?.toLowerCase()}>
                     <a href={highlightedArticle.href} class="block-link relative img-overlay push--bottom" aria-label={highlightedArticle.title}>
                         <div class="img-overlay__wrap ratio-16x9">
                             <img 
@@ -64,11 +83,6 @@ if (!highlightedArticle || !highlightedArticle.title) {
                                 alt={highlightedArticle.imageAlt || ""} 
                                 loading="lazy"
                             />
-                            {highlightedArticle.format === 'Podcast' && (
-                                <div class="overlay-play-icon">
-                                    <img src="/img/icons/play.svg" alt="Play" width="48" height="48" />
-                                </div>
-                            )}
                         </div>
                     </a>
                     <div class="article-content flex-1 flexbox direction-column">
@@ -98,7 +112,7 @@ if (!highlightedArticle || !highlightedArticle.title) {
             <div class="col small-12 medium-6 large-5">
                 <div class="secondary-articles-list">
                     {secondaryArticles.map((article) => (
-                        <article class="secondary-article flexbox align-start push-bottom--double">
+                        <article class="secondary-article flexbox align-start push-bottom--double" data-category={article.badge?.toLowerCase()}>
                             <a href={article.href} class="block-link relative img-overlay shrink-0" style="width: 35%; margin-right: 1.5rem;" aria-label={article.title}>
                                 <div class="img-overlay__wrap ratio-16x9">
                                     <img 
@@ -107,11 +121,6 @@ if (!highlightedArticle || !highlightedArticle.title) {
                                         alt={article.imageAlt || ""} 
                                         loading="lazy"
                                     />
-                                    {article.format === 'Podcast' && (
-                                        <div class="overlay-play-icon small">
-                                            <img src="/img/icons/play.svg" alt="Play" width="32" height="32" />
-                                        </div>
-                                    )}
                                 </div>
                             </a>
                             <div class="article-content flex-1">
@@ -144,22 +153,18 @@ if (!highlightedArticle || !highlightedArticle.title) {
 </section>
 
 <style>
-    /* Custom utilities not fully covered by global CSS */
-    
     .trait {
         width: 60px;
         height: 4px;
-        background-color: #0024ff; /* Secondary color/Cobalt */
+        background-color: #0024ff;
     }
 
-    .d-block {
-        display: block;
-    }
+    .d-block { display: block; }
 
     .ratio-16x9 {
         position: relative;
         width: 100%;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        padding-bottom: 56.25%;
         overflow: hidden;
         background-color: #f7f7f7;
     }
@@ -173,28 +178,6 @@ if (!highlightedArticle || !highlightedArticle.title) {
         object-fit: cover;
     }
 
-    .overlay-play-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 50%;
-        padding: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s ease;
-    }
-    
-    .overlay-play-icon.small {
-        padding: 0.5rem;
-    }
-
-    .block-link:hover .overlay-play-icon {
-        background: rgba(0, 0, 0, 0.5);
-    }
-
     .line-clamp-2 {
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -202,13 +185,24 @@ if (!highlightedArticle || !highlightedArticle.title) {
         overflow: hidden;
     }
 
-    /* Ensure text colors match design system variable names if not global */
-    .text-secondary {
-        color: #0024ff;
+    .text-secondary { color: #0024ff; }
+    .dark-link:hover { color: #0024ff; text-decoration: none; }
+
+    /* Tab Styles */
+    .btn--tab {
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+        opacity: 0.7;
     }
-    
-    .dark-link:hover {
-        color: #0024ff;
-        text-decoration: none;
+    .btn--tab:hover, .btn--tab.active {
+        opacity: 1;
+        border-bottom-color: #0024ff;
+    }
+    .tabs-container {
+        display: flex;
+        gap: 1rem;
     }
 </style>

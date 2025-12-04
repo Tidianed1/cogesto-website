@@ -11,7 +11,7 @@ export interface Props {
 const { title = 'Cogesto Consulting', description = 'Professional consulting services', children } = Astro.props;
 
 // This logic determines if we are on a page that uses the video hero
-const isLandingPage = Astro.url.pathname.includes('/new_index') || Astro.url.pathname.includes('/homepage-video-hero');
+const isLandingPage = Astro.url.pathname === '/' || Astro.url.pathname.includes('/new_index') || Astro.url.pathname.includes('/homepage-video-hero');
 ---
 
 <!DOCTYPE html>

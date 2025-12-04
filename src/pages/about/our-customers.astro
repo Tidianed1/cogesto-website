@@ -1,10 +1,11 @@
 ---
-// Our Customers page (French)
+// Our Customers page (French) - REFACTORED
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewHeader from '../../components/NewHeader.astro';
 import NewFooter from '../../components/NewFooter.astro';
 import SubNavigation from '../../components/SubNavigation.astro';
-import VideoTestimonial from '../../components/VideoTestimonial.astro';
+import HeroMultiTemplate from '../../components/HeroMultiTemplate.astro';
+import ServicesCarousel from '../../components/ServicesCarousel.astro';
 import { fr } from '../../content/fr';
 import { footerData } from '../../content/footer';
 
@@ -19,258 +20,40 @@ const subNavItems = [
   { text: fr.nav.ourLocations, href: '/about/our-locations/' },
 ];
 
+// Map testimonials to carousel slides
+const testimonialSlides = fr.ourCustomers.testimonials.map(t => ({
+  title: t.company,
+  description: `<p>"${t.quote}"</p><p><strong>${t.speaker.name}</strong>, ${t.speaker.title}</p>`,
+  imageUrl: "/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg", // Generic placeholder for now
+  imageAlt: t.company,
+  buttonText: "Lire l'étude de cas",
+  buttonHref: "#"
+}));
 ---
 
 <BaseLayout title="Nos clients - Cogesto Consulting">
-  <body id="top-of-page" class="show-cart-toggle" data-cookiepro-enabled="true" lang="fr">
+  
+  <NewHeader />
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XN52HZ"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <main class="content start">
+    
+    <HeroMultiTemplate
+      title={fr.ourCustomers.hero.title}
+      subtitle={fr.ourCustomers.hero.description}
+      imageUrl="/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg"
+      backgroundColor="primary-color"
+    />
 
-<div class="skip">
-    <a class="btn btn-skip" tabindex="0" href="#content">Passer au contenu principal</a>
-</div>
-
-<header id="menu-header">
-    <NewHeader />
-</header>
-
-<div id="accounts" class="nav-accounts">
-    <div class="wrap">
-        <div class="flex__equal-height">
-            <div class="col small-12 medium-9 large-6 editor nav-accounts-intro">
-                <div>
-<h2>Access our research platforms</h2>
-<p>Sign-in to our platforms to access our extensive research, our latest insight, data and analytics and to connect to our industry experts.</p></div>
-            </div>
-
-            <ul class="col small-12 pull-4--medium medium-9 pull-2--large large-4 nav-accounts-list">
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fidentity.woodmac.com%2fsign-in">My WoodMac</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens.woodmac.com%2f">Wood Mackenzie Lens®</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens-direct.woodmac.com%2f">Lens Direct</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fpower-and-renewables.woodmac.com%2f">Power and Renewables</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="/products/trading-analytics/login/">Trading Analytics</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://www.poweradvocate.com/login.jsp">Supply Chain Analytics platform (previously PowerAdvocate)</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2faccount.woodmac.com%2fdetails">Account and preferences management</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="/products/training/">Product training</a>
-        </li>
-        <li class="nav-accounts-list__item">
-            <a href="https://lens-help.woodmac.com/en/">Help and support</a>
-        </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div id="fake-bg" class="nav-primary__fake-bg js-navigation__fake-bg mega-menu"></div>
-<div id="search-modal" class="search-overlay">
-    <div class="wrap">
-        <form id="search__form" class="col small-12 large-10 push-1--large pull-1--large global-search" method="get" action="/search/">
-            <label for="name" class="visuallyhidden">
-                Search label
-            </label>
-            <input type="text" id="q" name="q" class="global-search__input" placeholder="Search the site..." autocomplete="off" role="combobox" aria-haspopup="true" aria-expanded="false" aria-controls="autoComplete_list" aria-autocomplete="both">
-
-            <button type="submit" class="global-search__btn">
-                <div class="search-loader hide"></div>
-                <svg class="search_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g id="Frame" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#clip0_982_19)"><title>Search</title><path id="Vector" d="M.64 7.04a6.4 6.4 0 1 0 12.8 0 6.4 6.4 0 0 0-12.8 0Z"></path><path id="Vector_2" d="m15.36 15.36-3.795-3.795"></path></g><defs><clipPath id="clip0_982_19"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
-                <span class="visuallyhidden">
-                    Search
-                </span>
-            </button>
-        </form>
-    </div>
-</div>
-
-<main class="content start" id="content">
-  <div class="our-customers-page-wrapper">
-    <!-- Hero Section -->
-    <div id="our-customers-hero" class="hero-homepage-cobalt-template__container hero-block">
-      <div class="hero-homepage-cobalt-template__section_flex_container">
-        <div class="hero-homepage-cobalt-template__summary">
-          <h1 class="hero-homepage-cobalt__title">{fr.ourCustomers.hero.title}</h1>
-          <div class="hero-homepage-cobalt__introduction">
-            <p>{fr.ourCustomers.hero.description}</p>
-          </div>
-        </div>
-        <div class="hero-homepage-cobalt-template__image" style="background-image: url(https://www.woodmac.com/contentassets/customers-hero.jpg); background-position: center; background-size: cover;"></div>
-      </div>
-    </div>
-
-    <!-- Sub-navigation -->
     <SubNavigation items={subNavItems} currentPage={Astro.url.pathname} />
 
-    <!-- Customer Testimonials -->
-    {fr.ourCustomers.testimonials.map((testimonial, index) => (
-      <VideoTestimonial
-        company={testimonial.company}
-        quote={testimonial.quote}
-        description={testimonial.description}
-        speaker={testimonial.speaker}
-        video={testimonial.video || { thumbnail: `https://www.woodmac.com/contentassets/testimonial-${index}.jpg` }}
-        layout={index % 2 === 0 ? 'left' : 'right'}
-      />
-    ))}
-  </div>
-</main>
+    <ServicesCarousel
+      title="Témoignages Clients"
+      introText="<p>Découvrez comment nous aidons nos clients à relever leurs défis les plus complexes.</p>"
+      slides={testimonialSlides}
+    />
 
-<footer>
+  </main>
+
   <NewFooter {...footerData} />
-</footer>
 
-<!-- Use shared navigation script for consistency -->
-<script src="/js/woodmac.scripts.js" defer></script>
-
-<style>
-  .our-customers-page-wrapper {
-    width: 100%;
-  }
-
-  main.content.start {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  #our-customers-hero {
-    min-height: 500px;
-    height: 600px;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    background: #0000ff;
-  }
-
-  @media (max-width: 47.99em) {
-    #our-customers-hero {
-      height: auto;
-      min-height: 400px;
-    }
-  }
-
-  #our-customers-hero .hero-homepage-cobalt-template__section_flex_container {
-    display: flex;
-    height: 100%;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    gap: 0;
-  }
-
-  @media (max-width: 47.99em) {
-    #our-customers-hero .hero-homepage-cobalt-template__section_flex_container {
-      flex-direction: column;
-    }
-  }
-
-  #our-customers-hero .hero-homepage-cobalt-template__summary {
-    flex: 0 0 55%;
-    background: #0000ff;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 48px 80px;
-    z-index: 2;
-    position: relative;
-  }
-
-  @media (min-width: 75em) {
-    #our-customers-hero .hero-homepage-cobalt-template__summary {
-      padding: 64px 120px;
-    }
-  }
-
-  @media (max-width: 47.99em) {
-    #our-customers-hero .hero-homepage-cobalt-template__summary {
-      flex: 1 1 auto;
-      padding: 40px 24px;
-    }
-  }
-
-  #our-customers-hero .hero-homepage-cobalt-template__image {
-    flex: 0 0 45%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-    background-color: #0000ff;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-  }
-
-  @media (max-width: 47.99em) {
-    #our-customers-hero .hero-homepage-cobalt-template__image {
-      flex: 1 1 auto;
-      min-height: 300px;
-      clip-path: none;
-    }
-  }
-
-  #our-customers-hero .hero-homepage-cobalt__title {
-    color: white;
-    font-size: 2.5rem;
-    line-height: 1.1;
-    font-weight: 700;
-    margin-bottom: 0;
-  }
-
-  @media (min-width: 48em) {
-    #our-customers-hero .hero-homepage-cobalt__title {
-      font-size: 3rem;
-      line-height: 1.15;
-    }
-  }
-
-  @media (min-width: 60em) {
-    #our-customers-hero .hero-homepage-cobalt__title {
-      font-size: 4rem;
-      line-height: 1.2;
-    }
-  }
-
-  #our-customers-hero .hero-homepage-cobalt__introduction {
-    color: white;
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.7;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin-top: 0;
-  }
-
-  @media (min-width: 60em) {
-    #our-customers-hero .hero-homepage-cobalt__introduction {
-      font-size: 1.25rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-  }
-</style>
-
-</body>
 </BaseLayout>

@@ -12,19 +12,10 @@ const themeClasses = {
 ---
 <header id="menu-header" class:list={[themeClasses[theme]]}>
     <!-- TOP-BAR (DESKTOP)-->
-        <div class="nav-utility nav-utility--desktop">
-            <div class="wrap relative flex-end">
-
-                
-    <a class="nav-utility__link" href="#">Contactez-nous</a>
-
-    <a class="nav-utility__link" href="#">Inscription</a>
-
-<a href="" data-target="#accounts" class="nav-utility__link nav-utility__link--toggle js-toggle data-hj-suppress" role="button" aria-controls="accounts" aria-expanded="false">
-        Connexion
-    <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><g stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#0_155_398)"><path d="M8 .96v14.08M15.04 8H.96" aria-hidden="true" focusable="false"></path></g><defs><clipPath id="0_155_398"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
-    <span class="visuallyhidden">Toggle subsection visibility</span>
-</a>
+        <div class="nav-utility nav-utility--desktop bg-primary-color">
+            <div class="wrap relative flexbox justify-end align-center">
+                <a class="nav-utility__link white" href="tel:+221338684311" style="color: white; margin-right: 20px;">+221 33 868 43 11</a>
+                <a class="nav-utility__link white" href="/contact" style="color: white;">Contactez-nous</a>
             </div>
         </div>
     <div class="new-mega-menu banner sticky-desktop  ">
@@ -55,9 +46,9 @@ const themeClasses = {
                                     <li class="mega-menu__nav-primary__item nav-primary__item js-navigation__item nav-utility--mobile">
                                         
 
-    <button class="desktop-nav nav-primary__link" aria-haspopup="true" aria-expanded="false" data-text="Sign in">Sign in</button>
+    <button class="desktop-nav nav-primary__link" aria-haspopup="true" aria-expanded="false" data-text="Espace Client">Espace Client</button>
     <button aria-expanded="false" class="mobile-nav nav-primary__link js-toggle-local " data-target="#sub-0" aria-controls="sub-0" role="button">
-        <span class="mega-menu__nav-primary__item-title">Sign in</span>
+        <span class="mega-menu__nav-primary__item-title">Espace Client</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#0_173_348)" aria-hidden="true" focusable="false"><path d="M8 .96v14.08M15.04 8H.96" aria-hidden="true" focusable="false"></path></g><defs><clipPath id="0_173_348"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
         <span class="visuallyhidden">Toggle subsection visibility</span>
     </button>
@@ -66,31 +57,10 @@ const themeClasses = {
         <div class="nav-secondary__col medium-12 nav-secondary__fade">
             <ul class="nav-secondary__list">
                     <li class="mega-menu__nav-secondary__item">
-                        <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fidentity.woodmac.com%2fsign-in" class="mega-menu__nav-secondary__item__link">My WoodMac</a>
+                        <a href="/blp/login" class="mega-menu__nav-secondary__item__link">Portail BLP</a>
                     </li>
                     <li class="mega-menu__nav-secondary__item">
-                        <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens.woodmac.com%2f" class="mega-menu__nav-secondary__item__link">Wood Mackenzie Lens®</a>
-                    </li>
-                    <li class="mega-menu__nav-secondary__item">
-                        <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2flens-direct.woodmac.com%2f" class="mega-menu__nav-secondary__item__link">Lens Direct</a>
-                    </li>
-                    <li class="mega-menu__nav-secondary__item">
-                        <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2fpower-and-renewables.woodmac.com%2f" class="mega-menu__nav-secondary__item__link">Power and Renewables</a>
-                    </li>
-                    <li class="mega-menu__nav-secondary__item">
-                        <a href="/products/trading-analytics/login/" class="mega-menu__nav-secondary__item__link">Trading Analytics</a>
-                    </li>
-                    <li class="mega-menu__nav-secondary__item">
-                        <a href="https://www.poweradvocate.com/login.jsp" class="mega-menu__nav-secondary__item__link">Supply Chain Analytics platform (previously PowerAdvocate)</a>
-                    </li>
-                    <li class="mega-menu__nav-secondary__item">
-                        <a href="https://identity.woodmac.com/sign-in?goto=https%3a%2f%2faccount.woodmac.com%2fdetails" class="mega-menu__nav-secondary__item__link">Account and preferences management</a>
-                    </li>
-                    <li class="mega-menu__nav-secondary__item">
-                        <a href="/products/training/" class="mega-menu__nav-secondary__item__link">Product training</a>
-                    </li>
-                    <li class="mega-menu__nav-secondary__item">
-                        <a href="https://lens-help.woodmac.com/en/" class="mega-menu__nav-secondary__item__link">Help and support</a>
+                        <a href="/contact" class="mega-menu__nav-secondary__item__link">Support Client</a>
                     </li>
             </ul>
         </div>
@@ -227,7 +197,7 @@ const themeClasses = {
                         <a href="/expertises/sales-marketing" class="mega-menu__nav-secondary__item__link">Vente & Marketing</a>
                     </li>
                     <li class="mega-menu__nav-secondary__item">
-                        <a href="/industry/commodity-trading-analytics" class="mega-menu__nav-secondary__item__link">Commodity Trading Analytics</a>
+                        <a href="/expertises/gestion-risques" class="mega-menu__nav-secondary__item__link">Gestion des Risques</a>
                     </li>
                     <li class="mega-menu__nav-secondary__item">
                         <a href="/expertises/fusion-acquisition" class="mega-menu__nav-secondary__item__link">Fusions & Acquisitions (M&A)</a>
@@ -268,22 +238,22 @@ const themeClasses = {
 <ul class="mega-menu__list-container">
     <!-- MOBILE SECONDARY LIST ITEMS -->
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/market-insights/" class="mega-menu__nav-secondary__item__link">Points de vue</a>
+                    <a href="/insights/analyses" class="mega-menu__nav-secondary__item__link">Analyses & Tribunes</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/horizons/" class="mega-menu__nav-secondary__item__link">Horizons</a>
+                    <a href="/insights/dossiers" class="mega-menu__nav-secondary__item__link">Dossiers Stratégiques</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/blogs/" class="mega-menu__nav-secondary__item__link">Blogs</a>
+                    <a href="/news" class="mega-menu__nav-secondary__item__link">Actualités Cogesto</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/podcasts/" class="mega-menu__nav-secondary__item__link">Podcasts</a>
+                    <a href="/events/replays" class="mega-menu__nav-secondary__item__link">Webinaires & Replays</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/market-insights/sign-up/" class="mega-menu__nav-secondary__item__link">L'info en primeur</a>
+                    <a href="/newsletter" class="mega-menu__nav-secondary__item__link">Newsletter</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/connected-book/" class="mega-menu__nav-secondary__item__link">Livre - Connecté</a>
+                    <a href="/publications/white-papers" class="mega-menu__nav-secondary__item__link">Livres Blancs</a>
                 </li>
 </ul>
 
@@ -299,19 +269,19 @@ const themeClasses = {
 <ul class="mega-menu__list-container">
     <!-- MOBILE SECONDARY LIST ITEMS -->
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/market-insights/topics/energy-transition/" class="mega-menu__nav-secondary__item__link">Transition énergétique</a>
+                    <a href="/market-insights/topics/transition-energetique/" class="mega-menu__nav-secondary__item__link">Transition Énergétique & Contenu Local</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/market-insights/topics/ccus/" class="mega-menu__nav-secondary__item__link">CCUS</a>
+                    <a href="/market-insights/topics/digital-africa/" class="mega-menu__nav-secondary__item__link">Transformation Digitale en Afrique</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/market-insights/topics/electric-vehicles/" class="mega-menu__nav-secondary__item__link">Véhicules électriques</a>
+                    <a href="/market-insights/topics/gouvernance/" class="mega-menu__nav-secondary__item__link">Gouvernance & Performance</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/market-insights/topics/us-trade-policy-and-tariffs/" class="mega-menu__nav-secondary__item__link">Politiques commerciales et tarifs</a>
+                    <a href="/market-insights/topics/financement/" class="mega-menu__nav-secondary__item__link">Financement & Investissement</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/news/feature/the-materials-transition/full-report/" class="mega-menu__nav-secondary__item__link">Transition des matériaux</a>
+                    <a href="/market-insights/topics/rse/" class="mega-menu__nav-secondary__item__link">RSE & Impact</a>
                 </li>
 </ul>            </div>
     </div>
@@ -345,34 +315,28 @@ const themeClasses = {
 <ul class="mega-menu__list-container">
     <!-- MOBILE SECONDARY LIST ITEMS -->
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/worldwide-events/" class="mega-menu__nav-secondary__item__link">Événements Cogesto</a>
+                    <a href="/events/seminaires/" class="mega-menu__nav-secondary__item__link">Prochains Séminaires</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/industries/" class="mega-menu__nav-secondary__item__link">Par industrie</a>
+                    <a href="/events/formations/" class="mega-menu__nav-secondary__item__link">Formations Certifiantes</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/global/" class="mega-menu__nav-secondary__item__link">Événements mondiaux</a>
+                    <a href="/events/team-building/" class="mega-menu__nav-secondary__item__link">Team Building & Ateliers</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/asia/" class="mega-menu__nav-secondary__item__link">Asie</a>
+                    <a href="/events/inter-entreprises/" class="mega-menu__nav-secondary__item__link">Formations Inter-entreprises</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/africa/" class="mega-menu__nav-secondary__item__link">Afrique</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/europe/" class="mega-menu__nav-secondary__item__link">Europe</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/north-america/" class="mega-menu__nav-secondary__item__link">Amérique du Nord</a>
+                    <a href="/events/sur-mesure/" class="mega-menu__nav-secondary__item__link">Formations Sur-Mesure</a>
                 </li>
 </ul>            </div>
     </div>
 </li>
 
 <li class="mega-menu__nav-primary__item nav-primary__item js-navigation__item">
-    <button class="desktop-nav nav-primary__link" aria-haspopup="true" aria-expanded="false" data-target="#menuitem_802638-desktop" data-text="Online Reports">Online Reports</button>
+    <button class="desktop-nav nav-primary__link" aria-haspopup="true" aria-expanded="false" data-target="#menuitem_802638-desktop" data-text="Études & Publications">Études & Publications</button>
     <button aria-expanded="false" class="mobile-nav nav-primary__link js-toggle-local" data-target="#menuitem_802638" aria-controls="menuitem_802638" role="button">
-        <span class="mega-menu__nav-primary__item-title">Online Reports</span>
+        <span class="mega-menu__nav-primary__item-title">Études & Publications</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#0_173_348)" aria-hidden="true" focusable="false"><path d="M8 .96v14.08M15.04 8H.96" aria-hidden="true" focusable="false"></path></g><defs><clipPath id="0_173_348"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
         <span class="visuallyhidden">Toggle subsection visibility</span>
     </button>
@@ -397,49 +361,49 @@ const themeClasses = {
 <ul class="mega-menu__list-container">
     <!-- MOBILE SECONDARY LIST ITEMS -->
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/power-and-renewables/" class="mega-menu__nav-secondary__item__link">Power and renewables</a>
+                    <a href="/store/industry-sector/power-and-renewables/" class="mega-menu__nav-secondary__item__link">Énergie et renouvelables</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/upstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Upstream oil and gas</a>
+                    <a href="/store/industry-sector/upstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Pétrole et gaz (Amont)</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/macroeconomics-risk-and-global-trends/" class="mega-menu__nav-secondary__item__link">Macroeconomics, risk and global trends</a>
+                    <a href="/store/industry-sector/macroeconomics-risk-and-global-trends/" class="mega-menu__nav-secondary__item__link">Macroéconomie et risques</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/oil-and-gas-markets/" class="mega-menu__nav-secondary__item__link">Oil and gas markets</a>
+                    <a href="/store/industry-sector/oil-and-gas-markets/" class="mega-menu__nav-secondary__item__link">Marchés pétroliers et gaziers</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/midstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Midstream oil and gas</a>
+                    <a href="/store/industry-sector/midstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Pétrole et gaz (Midstream)</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/lng-reports/" class="mega-menu__nav-secondary__item__link">LNG</a>
+                    <a href="/store/industry-sector/lng-reports/" class="mega-menu__nav-secondary__item__link">GNL</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/downstream-oil-refining/" class="mega-menu__nav-secondary__item__link">Downstream oil refining</a>
+                    <a href="/store/industry-sector/downstream-oil-refining/" class="mega-menu__nav-secondary__item__link">Raffinage (Aval)</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/coal/" class="mega-menu__nav-secondary__item__link">Coal</a>
+                    <a href="/store/industry-sector/coal/" class="mega-menu__nav-secondary__item__link">Charbon</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/metals-markets/" class="mega-menu__nav-secondary__item__link">Metals markets</a>
+                    <a href="/store/industry-sector/metals-markets/" class="mega-menu__nav-secondary__item__link">Marchés des métaux</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/metals-costs/" class="mega-menu__nav-secondary__item__link">Metals costs</a>
+                    <a href="/store/industry-sector/metals-costs/" class="mega-menu__nav-secondary__item__link">Coûts des métaux</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/petrochemicals/" class="mega-menu__nav-secondary__item__link">Chemicals</a>
+                    <a href="/store/industry-sector/petrochemicals/" class="mega-menu__nav-secondary__item__link">Chimie</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/wallmaps/" class="mega-menu__nav-secondary__item__link">Wallmaps for sale</a>
+                    <a href="/store/wallmaps/" class="mega-menu__nav-secondary__item__link">Cartes sectorielles</a>
                 </li>
 </ul>            </div>
     </div>
 </li>
 
 <li class="mega-menu__nav-primary__item nav-primary__item js-navigation__item">
-    <button class="desktop-nav nav-primary__link" aria-haspopup="true" aria-expanded="false" data-target="#menuitem_802636-desktop" data-text="Lens Platform">Lens Platform</button>
+    <button class="desktop-nav nav-primary__link" aria-haspopup="true" aria-expanded="false" data-target="#menuitem_802636-desktop" data-text="Programme BLP">Programme BLP</button>
     <button aria-expanded="false" class="mobile-nav nav-primary__link js-toggle-local" data-target="#menuitem_802636" aria-controls="menuitem_802636" role="button">
-        <span class="mega-menu__nav-primary__item-title">Lens Platform</span>
+        <span class="mega-menu__nav-primary__item-title">Programme BLP</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#222" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.28" clip-path="url(#0_173_348)" aria-hidden="true" focusable="false"><path d="M8 .96v14.08M15.04 8H.96" aria-hidden="true" focusable="false"></path></g><defs><clipPath id="0_173_348"><path fill="#fff" d="M0 0h16v16H0z"></path></clipPath></defs></svg>
         <span class="visuallyhidden">Toggle subsection visibility</span>
     </button>
@@ -448,12 +412,10 @@ const themeClasses = {
     <div id="menuitem_802636" class="just-mobile nav-secondary js-navigation__secondary">
             <div class="just-mobile mega-menu__nav-secondary__col medium-6 nav-secondary__fade">
 
-
-
 <!-- MOBILE SECONDARY SECTION HEADER -->
-    <a href="https://identity.woodmac.com/sign-in" class="cta-section-style mega-menu__nav-secondary__title">
+    <a href="/blp/login" class="cta-section-style mega-menu__nav-secondary__title">
         <span class="mega-menu__nav-secondary__title-link icon">
-            Already a customer? Log-in to access Lens
+            Accéder au portail BLP
         </span>
         <!--Removing Link Text on Mobile Navigation & adding empty span for the right icon-->
         <span class="mega-menu__link-label"></span>
@@ -464,34 +426,22 @@ const themeClasses = {
 <ul class="mega-menu__list-container">
     <!-- MOBILE SECONDARY LIST ITEMS -->
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/power-and-renewables/" class="mega-menu__nav-secondary__item__link">Power &amp; Renewables</a>
+                    <a href="/blp/presentation/" class="mega-menu__nav-secondary__item__link">Présentation du Programme</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/hydrogen/" class="mega-menu__nav-secondary__item__link">Hydrogen</a>
+                    <a href="/blp/criteres-eligibilite/" class="mega-menu__nav-secondary__item__link">Critères d'Éligibilité</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/upstream/" class="mega-menu__nav-secondary__item__link">Upstream</a>
+                    <a href="/blp/partenaires/" class="mega-menu__nav-secondary__item__link">Nos Partenaires</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/subsurface/" class="mega-menu__nav-secondary__item__link">Subsurface</a>
+                    <a href="/blp/opportunites/" class="mega-menu__nav-secondary__item__link">Opportunités Oil & Gas</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/gas-lng/" class="mega-menu__nav-secondary__item__link">Gas &amp; LNG</a>
+                    <a href="/blp/formation/" class="mega-menu__nav-secondary__item__link">Formation & Renforcement</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/metals-and-mining/" class="mega-menu__nav-secondary__item__link">Metals &amp; Mining</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/carbon/" class="mega-menu__nav-secondary__item__link">Carbon</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/emissions/" class="mega-menu__nav-secondary__item__link">Emissions</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/lens-energy-transition-scenarios/" class="mega-menu__nav-secondary__item__link">Energy Transition</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/direct/" class="mega-menu__nav-secondary__item__link">Lens Direct - API</a>
+                    <a href="/blp/contact/" class="mega-menu__nav-secondary__item__link">Contacter l'équipe BLP</a>
                 </li>
 </ul>            </div>
     </div>
@@ -695,10 +645,10 @@ const themeClasses = {
 
 
 <div class="single-section-columns">
-        <a href="/product-portfolio/" class="cta-section-style mega-menu__column-section-title-container mega-menu__section-title-hover">
-            <h3 class="mega-menu__column-section-title">Explore our portfolio</h3>
+        <a href="/industries" class="cta-section-style mega-menu__column-section-title-container mega-menu__section-title-hover">
+            <h3 class="mega-menu__column-section-title">Nos Industries</h3>
                 <div class="mega-menu__column-section-label-container">
-                    <span class="mega-menu__column-section-label">Explore All</span>
+                    <span class="mega-menu__column-section-label">Explorer</span>
                     <img class="mega-menu__column-section-label-icon">
                 </div>
         </a>
@@ -753,10 +703,10 @@ const themeClasses = {
     </p>
 </a>
 
-<a href="/industry/commodity-trading-analytics" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Commodity Trading Analytics</h3>
+<a href="/expertises/gestion-risques" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Gestion des Risques</h3>
     <p class="mega-menu__column-item-description">
-        Access real-time data and analytics in all major commodities.
+        Identifier, évaluer et maîtriser les risques opérationnels et financiers.
     </p>
 </a>
 
@@ -788,21 +738,21 @@ const themeClasses = {
 
 
 <div>
-    <a href="/products/consulting/" class="promo-block-container" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJNZWdhTWVudSBQcm9tb0NhcmQgQmxvY2siLCJ0aXRsZSI6IlBvc2l0aW9uaW5nIHlvdSBmb3Igc3VjY2VzcyIsInVybCI6Ii9wcm9kdWN0cy9jb25zdWx0aW5nLyJ9">
+    <a href="/expertises/strategie" class="promo-block-container">
         <div class="badge badge--promo">
-            Consulting
+            Conseil
         </div>
         <div class="title">
-            Positioning you for success
+            Votre Partenaire de Confiance
         </div>
         <div class="description">
-            Navigate market complexities and business issues with our expert team of industry consultants.
+            Des solutions sur mesure pour vos défis stratégiques et opérationnels en Afrique.
         </div>
         <div class="image-container">
-            <img class=" ls-is-cached lazyloaded" data-src="https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1325134720.jpg?rmode=crop&amp;rxy=0.5,0.5" alt="Close up of two businesswoman having coffee in an office lobby." src="https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1325134720.jpg?rmode=crop&amp;rxy=0.5,0.5">
+            <img class=" ls-is-cached lazyloaded" src="/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg">
         </div>
         <button class="btn btn--primary btn--arrow">
-            <span>Explore Consulting</span>
+            <span>Découvrir</span>
         </button>
     </a>
 </div>                        </div>
@@ -814,9 +764,9 @@ const themeClasses = {
 
 
 <!-- MOBILE SECONDARY SECTION HEADER -->
-    <a href="/product-portfolio/" class="cta-section-style mega-menu__nav-secondary__title">
+    <a href="/industries" class="cta-section-style mega-menu__nav-secondary__title">
         <span class="mega-menu__nav-secondary__title-link icon">
-            Explore our portfolio
+            Nos Industries
         </span>
         <!--Removing Link Text on Mobile Navigation & adding empty span for the right icon-->
         <span class="mega-menu__link-label"></span>
@@ -874,45 +824,45 @@ const themeClasses = {
     <div class="mega-menu__column-items-container">
 
 
-<a href="/market-insights/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Points de vue</h3>
+<a href="/insights/analyses" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Analyses & Tribunes</h3>
         <p class="mega-menu__column-item-description">
-            Actualités et analyses
+            Décryptages des tendances par nos experts et partenaires.
         </p>
 </a>
 
-<a href="/horizons/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Horizons</h3>
+<a href="/insights/dossiers" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Dossiers Stratégiques</h3>
         <p class="mega-menu__column-item-description">
-            Explorez les thèmes qui façonnent la transition énergétique avec notre leadership éclairé mensuel.
+            Exploration approfondie des enjeux majeurs (ZLECAf, IA, Transition).
         </p>
 </a>
 
-<a href="/blogs/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Blogs</h3>
+<a href="/news" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Actualités Cogesto</h3>
         <p class="mega-menu__column-item-description">
-            Une vision unique de l'énergie, couvrant la chaîne d'approvisionnement des énergies renouvelables, de l'énergie et des ressources naturelles, pour soutenir la prise de décision stratégique.
+            Vie du cabinet, nouveaux bureaux et partenariats stratégiques.
         </p>
 </a>
 
-<a href="/podcasts/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Podcasts</h3>
+<a href="/events/replays" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Webinaires & Replays</h3>
         <p class="mega-menu__column-item-description">
-            Discussions hebdomadaires sur les dernières nouvelles et tendances en matière d'énergie, de technologies propres et d'énergies renouvelables.
+            Revivez nos sessions d'échange et conférences en ligne.
         </p>
 </a>
 
-<a href="/market-insights/sign-up/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">L'info en primeur</h3>
+<a href="/newsletter" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Newsletter</h3>
         <p class="mega-menu__column-item-description">
-            Notre résumé hebdomadaire des dernières opinions, nouvelles et analyses de l'industrie par nos analystes mondiaux.
+            L'essentiel de l'actualité économique et sectorielle dans votre boîte mail.
         </p>
 </a>
 
-<a href="/connected-book/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Livre - Connecté</h3>
+<a href="/publications/white-papers" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Livres Blancs</h3>
         <p class="mega-menu__column-item-description">
-            Données et informations sur l'énergie de nos leaders d'opinion, Jason Liu et Simon Flowers, dans le livre Connected.
+            Guides pratiques et études de référence à télécharger.
         </p>
 </a>    </div>
 </div>
@@ -926,59 +876,59 @@ const themeClasses = {
     <div class="mega-menu__column-items-container">
 
 
-<a href="/market-insights/topics/energy-transition/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Transition énergétique</h3>
+<a href="/market-insights/topics/transition-energetique/" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Transition Énergétique & Contenu Local</h3>
         <p class="mega-menu__column-item-description">
-            Analyse approfondie de la transition énergétique et du chemin vers un avenir à faible émission de carbone.
+            Analyse des opportunités du secteur Oil & Gas pour les entreprises locales.
         </p>
 </a>
 
-<a href="/market-insights/topics/ccus/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">CCUS</h3>
+<a href="/market-insights/topics/digital-africa/" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Transformation Digitale en Afrique</h3>
         <p class="mega-menu__column-item-description">
-            Explorez le potentiel de croissance future de la capture, de l'utilisation et du stockage du carbone.
+            Les leviers numériques pour accélérer la croissance des PME et champions nationaux.
         </p>
 </a>
 
-<a href="/market-insights/topics/electric-vehicles/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Véhicules électriques</h3>
+<a href="/market-insights/topics/gouvernance/" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Gouvernance & Performance</h3>
         <p class="mega-menu__column-item-description">
-            Explorez la trajectoire de croissance des VÉ et repérez les éventuels obstacles sur la route.
+            Best practices pour structurer et pérenniser les organisations familiales et publiques.
         </p>
 </a>
 
-<a href="/market-insights/topics/us-trade-policy-and-tariffs/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Politiques commerciales et tarifs</h3>
+<a href="/market-insights/topics/financement/" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">Financement & Investissement</h3>
         <p class="mega-menu__column-item-description">
-            Un aperçu des impacts économiques mondiaux des nouvelles mesures commerciales.
+            Stratégies d'accès aux capitaux et structuration de projets.
         </p>
 </a>
 
-<a href="/news/feature/the-materials-transition/full-report/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Transition des matériaux</h3>
+<a href="/market-insights/topics/rse/" class="mega-menu__column-item">
+    <h3 class="mega-menu__column-item-title">RSE & Impact</h3>
         <p class="mega-menu__column-item-description">
-            Explorez les tendances en matière de durabilité, de recyclage et d'économie circulaire et leur impact sur les marchés des matériaux.
+            Intégrer la durabilité au cœur du modèle économique.
         </p>
 </a>    </div>
 </div>                        <div class="mega-menu__column-flex flex-end">
 
 
 <div>
-    <a href="/market-insights/topics/energy-transition-outlook/" class="promo-block-container" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJNZWdhTWVudSBQcm9tb0NhcmQgQmxvY2siLCJ0aXRsZSI6IkVuZXJneSB0cmFuc2l0aW9uIG91dGxvb2siLCJ1cmwiOiIvbWFya2V0LWluc2lnaHRzL3RvcGljcy9lbmVyZ3ktdHJhbnNpdGlvbi1vdXRsb29rLyJ9">
+    <a href="/insights/zlecaf-report" class="promo-block-container">
         <div class="badge badge--promo">
-            Mise à jour 2025/26
+            Étude Exclusive
         </div>
         <div class="title">
-            Perspectives de la transition énergétique
+            Impact ZLECAf
         </div>
         <div class="description">
-            Modélisation intégrée des scénarios de transition énergétique par Cogesto.
+            Comprendre les enjeux de la Zone de Libre-Échange Continentale Africaine pour votre stratégie.
         </div>
         <div class="image-container">
-            <img class=" ls-is-cached lazyloaded" data-src="https://www.woodmac.com/contentassets/2fbe1a2449604034b214ff3d48c3ae49/eto-menu.png?rmode=crop&amp;rxy=0.5,0.5" src="https://www.woodmac.com/contentassets/2fbe1a2449604034b214ff3d48c3ae49/eto-menu.png?rmode=crop&amp;rxy=0.5,0.5">
+            <img class=" ls-is-cached lazyloaded" data-src="/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg" src="/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg">
         </div>
         <button class="btn btn--primary btn--arrow">
-            <span>Explorer</span>
+            <span>Télécharger</span>
         </button>
     </a>
 </div>                        </div>
@@ -1053,13 +1003,11 @@ const themeClasses = {
         <div class="just-desktop wrap mega-menu__wrap flexbox">
             <div class="mega-menu__columns-container">
 
-
-
 <div class="single-section-columns">
         <a href="/events/" class=" mega-menu__column-section-title-container mega-menu__section-title-hover">
-            <h3 class="mega-menu__column-section-title">Parcourir les événements</h3>
+            <h3 class="mega-menu__column-section-title">Nos Événements & Formations</h3>
                 <div class="mega-menu__column-section-label-container">
-                    <span class="mega-menu__column-section-label">Parcourir</span>
+                    <span class="mega-menu__column-section-label">Explorer</span>
                     <img class="mega-menu__column-section-label-icon">
                 </div>
         </a>
@@ -1067,63 +1015,51 @@ const themeClasses = {
     <div class="mega-menu__columns-container mega-menu__columns-container-single">
             <div class="mega-menu__column small-6">
                 <div class="mega-menu__column-items-container">
-
-
-<a href="/worldwide-events/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Événements Cogesto</h3>
-        <p class="mega-menu__column-item-description">
-            Nos événements mondiaux rassemblent des décideurs influents du secteur de l'énergie.
-        </p>
-</a>
-
-<a href="/events/industries/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Par industrie</h3>
-        <p class="mega-menu__column-item-description">
-            Parcourir les événements Cogesto par industrie
-        </p>
-</a>                </div>
+                    <a href="/events/seminaires/" class="mega-menu__column-item">
+                        <h3 class="mega-menu__column-item-title">Prochains Séminaires</h3>
+                        <p class="mega-menu__column-item-description">
+                            Découvrez nos rendez-vous sur les enjeux clés de vos secteurs.
+                        </p>
+                    </a>
+                    <a href="/events/formations/" class="mega-menu__column-item">
+                        <h3 class="mega-menu__column-item-title">Formations Certifiantes</h3>
+                        <p class="mega-menu__column-item-description">
+                            Développez les compétences de vos équipes aux meilleurs standards.
+                        </p>
+                    </a>
+                </div>
             </div>
             <div class="mega-menu__column small-6">
                 <div class="mega-menu__column-items-container">
-
-
-<a href="/events/global/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Événements mondiaux</h3>
-</a>
-
-<a href="/events/asia/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Asie</h3>
-</a>
-
-<a href="/events/africa/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Afrique</h3>
-</a>
-
-<a href="/events/europe/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Europe</h3>
-</a>
-
-<a href="/events/north-america/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Amérique du Nord</h3>
-</a>                </div>
+                    <a href="/events/team-building/" class="mega-menu__column-item">
+                        <h3 class="mega-menu__column-item-title">Team Building & Ateliers</h3>
+                        <p class="mega-menu__column-item-description">
+                            Renforcez la cohésion et l'innovation au sein de vos équipes.
+                        </p>
+                    </a>
+                    <a href="/events/inter-entreprises/" class="mega-menu__column-item">
+                        <h3 class="mega-menu__column-item-title">Formations Inter-entreprises</h3>
+                    </a>
+                    <a href="/events/sur-mesure/" class="mega-menu__column-item">
+                        <h3 class="mega-menu__column-item-title">Formations Sur-Mesure</h3>
+                    </a>
+                </div>
             </div>
     </div>
 </div>                        <div class="mega-menu__column-flex flex-end">
-
-
 <div>
-    <a href="/events/solar-energy-storage-summit/" class="promo-block-container" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJNZWdhTWVudSBQcm9tb0NhcmQgQmxvY2siLCJ0aXRsZSI6IlNvbGFyICYgRW5lcmd5IFN0b3JhZ2UgU3VtbWl0IDIwMjYiLCJ1cmwiOiIvZXZlbnRzL3NvbGFyLWVuZXJneS1zdG9yYWdlLXN1bW1pdC8ifQ==">
+    <a href="/events/seminaire-strategie/" class="promo-block-container" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJNZWdhTWVudSBQcm9tb0NhcmQgQmxvY2siLCJ0aXRsZSI6IlNvbGFyICYgRW5lcmd5IFN0b3JhZ2UgU3VtbWl0IDIwMjYiLCJ1cmwiOiIvZXZlbnRzL3NvbGFyLWVuZXJneS1zdG9yYWdlLXN1bW1pdC8ifQ==">
         <div class="badge badge--promo">
-            Événement en vedette
+            À la Une
         </div>
         <div class="title">
-            Sommet sur l'énergie solaire et le stockage 2026
+            Séminaire Stratégie Digitale 2026
         </div>
         <div class="description">
-            29-30 avril 2026, Denver
+            29-30 avril 2026, Dakar
         </div>
         <div class="image-container">
-            <img class=" ls-is-cached lazyloaded" data-src="https://www.woodmac.com/siteassets/frontify_media_download/photography/solar/macro_solar/macro_power_gettyimages-1150298776.jpg?rmode=crop&amp;rxy=0.5,0.5" alt="Two businessmen looking at a tablet with a solar panel on it and a solar panel." src="https://www.woodmac.com/siteassets/frontify_media_download/photography/solar/macro_solar/macro_power_gettyimages-1150298776.jpg?rmode=crop&amp;rxy=0.5,0.5">
+            <img class=" ls-is-cached lazyloaded" data-src="/assets/cogesto-asset/cogesto-asset/micro_people_gettyimages-1150298776.jpg" src="/assets/cogesto-asset/cogesto-asset/micro_people_gettyimages-1150298776.jpg">
         </div>
         <button class="btn btn--primary btn--arrow">
             <span>En savoir plus</span>
@@ -1140,7 +1076,7 @@ const themeClasses = {
 <!-- MOBILE SECONDARY SECTION HEADER -->
     <a href="/events/" class=" mega-menu__nav-secondary__title">
         <span class="mega-menu__nav-secondary__title-link icon">
-            Browse Events
+            Nos Événements & Formations
         </span>
         <!--Removing Link Text on Mobile Navigation & adding empty span for the right icon-->
         <span class="mega-menu__link-label"></span>
@@ -1151,25 +1087,19 @@ const themeClasses = {
 <ul class="mega-menu__list-container">
     <!-- MOBILE SECONDARY LIST ITEMS -->
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/worldwide-events/" class="mega-menu__nav-secondary__item__link">Wood Mackenzie Events</a>
+                    <a href="/events/seminaires/" class="mega-menu__nav-secondary__item__link">Prochains Séminaires</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/industries/" class="mega-menu__nav-secondary__item__link">Industry</a>
+                    <a href="/events/formations/" class="mega-menu__nav-secondary__item__link">Formations Certifiantes</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/global/" class="mega-menu__nav-secondary__item__link">Global events</a>
+                    <a href="/events/team-building/" class="mega-menu__nav-secondary__item__link">Team Building & Ateliers</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/asia/" class="mega-menu__nav-secondary__item__link">Asia</a>
+                    <a href="/events/inter-entreprises/" class="mega-menu__nav-secondary__item__link">Formations Inter-entreprises</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/africa/" class="mega-menu__nav-secondary__item__link">Africa</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/europe/" class="mega-menu__nav-secondary__item__link">Europe</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/events/north-america/" class="mega-menu__nav-secondary__item__link">North America</a>
+                    <a href="/events/sur-mesure/" class="mega-menu__nav-secondary__item__link">Formations Sur-Mesure</a>
                 </li>
 </ul>        </div>
 </div>
@@ -1185,7 +1115,7 @@ const themeClasses = {
         <a href="/store/" class=" mega-menu__column-section-title-container mega-menu__section-title-hover">
             <h3 class="mega-menu__column-section-title">Browse All Reports</h3>
                 <div class="mega-menu__column-section-label-container">
-                    <span class="mega-menu__column-section-label">Browse</span>
+                    <span class="mega-menu__column-section-label">Parcourir</span>
                     <img class="mega-menu__column-section-label-icon">
                 </div>
         </a>
@@ -1196,27 +1126,27 @@ const themeClasses = {
 
 
 <a href="/store/industry-sector/power-and-renewables/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Power and renewables</h3>
+    <h3 class="mega-menu__column-item-title">Énergie et renouvelables</h3>
 </a>
 
 <a href="/store/industry-sector/upstream-oil-and-gas/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Upstream oil and gas</h3>
+    <h3 class="mega-menu__column-item-title">Pétrole et gaz (Amont)</h3>
 </a>
 
 <a href="/store/industry-sector/macroeconomics-risk-and-global-trends/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Macroeconomics, risk and global trends</h3>
+    <h3 class="mega-menu__column-item-title">Macroéconomie et risques</h3>
 </a>
 
 <a href="/store/industry-sector/oil-and-gas-markets/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Oil and gas markets</h3>
+    <h3 class="mega-menu__column-item-title">Marchés pétroliers et gaziers</h3>
 </a>
 
 <a href="/store/industry-sector/midstream-oil-and-gas/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Midstream oil and gas</h3>
+    <h3 class="mega-menu__column-item-title">Pétrole et gaz (Midstream)</h3>
 </a>
 
 <a href="/store/industry-sector/lng-reports/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">LNG</h3>
+    <h3 class="mega-menu__column-item-title">GNL</h3>
 </a>                </div>
             </div>
             <div class="mega-menu__column small-6">
@@ -1224,27 +1154,27 @@ const themeClasses = {
 
 
 <a href="/store/industry-sector/downstream-oil-refining/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Downstream oil refining</h3>
+    <h3 class="mega-menu__column-item-title">Raffinage (Aval)</h3>
 </a>
 
 <a href="/store/industry-sector/coal/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Coal</h3>
+    <h3 class="mega-menu__column-item-title">Charbon</h3>
 </a>
 
 <a href="/store/industry-sector/metals-markets/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Metals markets</h3>
+    <h3 class="mega-menu__column-item-title">Marchés des métaux</h3>
 </a>
 
 <a href="/store/industry-sector/metals-costs/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Metals costs</h3>
+    <h3 class="mega-menu__column-item-title">Coûts des métaux</h3>
 </a>
 
 <a href="/store/industry-sector/petrochemicals/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Chemicals</h3>
+    <h3 class="mega-menu__column-item-title">Chimie</h3>
 </a>
 
 <a href="/store/wallmaps/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Wallmaps for sale</h3>
+    <h3 class="mega-menu__column-item-title">Cartes sectorielles</h3>
 </a>                </div>
             </div>
     </div>
@@ -1252,21 +1182,21 @@ const themeClasses = {
 
 
 <div>
-    <a href="/store/" class="promo-block-container" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJNZWdhTWVudSBQcm9tb0NhcmQgQmxvY2siLCJ0aXRsZSI6IkJyb3dzZSByZXBvcnRzIiwidXJsIjoiL3N0b3JlLyJ9">
+    <a href="/publications" class="promo-block-container">
         <div class="badge badge--promo">
-            Reports
+            Études
         </div>
         <div class="title">
-            Browse reports
+            Accédez à nos analyses
         </div>
         <div class="description">
-            Make better commercial decisions with our objective insights and analyses.
+            Données exclusives et perspectives sur les marchés africains pour éclairer vos décisions.
         </div>
         <div class="image-container">
-            <img class=" ls-is-cached lazyloaded" data-src="https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-969226050.jpg?rmode=crop&amp;rxy=0.5,0.5" alt="Modern chic business people working in an incredible modern &amp; original office space. A man uses his smartphone and laptop." src="https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-969226050.jpg?rmode=crop&amp;rxy=0.5,0.5">
+            <img class=" ls-is-cached lazyloaded" src="/assets/cogesto-asset/Professionla_women-holding tablet.jpg">
         </div>
         <button class="btn btn--primary btn--arrow">
-            <span>Explore reports</span>
+            <span>Parcourir</span>
         </button>
     </a>
 </div>                        </div>
@@ -1291,40 +1221,40 @@ const themeClasses = {
 <ul class="mega-menu__list-container">
     <!-- MOBILE SECONDARY LIST ITEMS -->
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/power-and-renewables/" class="mega-menu__nav-secondary__item__link">Power and renewables</a>
+                    <a href="/store/industry-sector/power-and-renewables/" class="mega-menu__nav-secondary__item__link">Énergie et renouvelables</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/upstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Upstream oil and gas</a>
+                    <a href="/store/industry-sector/upstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Pétrole et gaz (Amont)</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/macroeconomics-risk-and-global-trends/" class="mega-menu__nav-secondary__item__link">Macroeconomics, risk and global trends</a>
+                    <a href="/store/industry-sector/macroeconomics-risk-and-global-trends/" class="mega-menu__nav-secondary__item__link">Macroéconomie et risques</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/oil-and-gas-markets/" class="mega-menu__nav-secondary__item__link">Oil and gas markets</a>
+                    <a href="/store/industry-sector/oil-and-gas-markets/" class="mega-menu__nav-secondary__item__link">Marchés pétroliers et gaziers</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/midstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Midstream oil and gas</a>
+                    <a href="/store/industry-sector/midstream-oil-and-gas/" class="mega-menu__nav-secondary__item__link">Pétrole et gaz (Midstream)</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/lng-reports/" class="mega-menu__nav-secondary__item__link">LNG</a>
+                    <a href="/store/industry-sector/lng-reports/" class="mega-menu__nav-secondary__item__link">GNL</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/downstream-oil-refining/" class="mega-menu__nav-secondary__item__link">Downstream oil refining</a>
+                    <a href="/store/industry-sector/downstream-oil-refining/" class="mega-menu__nav-secondary__item__link">Raffinage (Aval)</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/coal/" class="mega-menu__nav-secondary__item__link">Coal</a>
+                    <a href="/store/industry-sector/coal/" class="mega-menu__nav-secondary__item__link">Charbon</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/metals-markets/" class="mega-menu__nav-secondary__item__link">Metals markets</a>
+                    <a href="/store/industry-sector/metals-markets/" class="mega-menu__nav-secondary__item__link">Marchés des métaux</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/metals-costs/" class="mega-menu__nav-secondary__item__link">Metals costs</a>
+                    <a href="/store/industry-sector/metals-costs/" class="mega-menu__nav-secondary__item__link">Coûts des métaux</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/industry-sector/petrochemicals/" class="mega-menu__nav-secondary__item__link">Chemicals</a>
+                    <a href="/store/industry-sector/petrochemicals/" class="mega-menu__nav-secondary__item__link">Chimie</a>
                 </li>
                 <li class="mega-menu__nav-secondary__item">
-                    <a href="/store/wallmaps/" class="mega-menu__nav-secondary__item__link">Wallmaps for sale</a>
+                    <a href="/store/wallmaps/" class="mega-menu__nav-secondary__item__link">Cartes sectorielles</a>
                 </li>
 </ul>        </div>
 </div>
@@ -1334,169 +1264,86 @@ const themeClasses = {
         <div class="just-desktop wrap mega-menu__wrap flexbox">
             <div class="mega-menu__columns-container">
 
+                <div class="single-section-columns">
+                    <a href="/blp/login" class="cta-section-style mega-menu__column-section-title-container mega-menu__section-title-hover">
+                        <h3 class="mega-menu__column-section-title">Accéder au portail BLP</h3>
+                        <div class="mega-menu__column-section-label-container">
+                            <span class="mega-menu__column-section-label">Connexion</span>
+                            <img class="mega-menu__column-section-label-icon">
+                        </div>
+                    </a>
 
-
-<div class="single-section-columns">
-        <a href="https://identity.woodmac.com/sign-in" class="cta-section-style mega-menu__column-section-title-container mega-menu__section-title-hover">
-            <h3 class="mega-menu__column-section-title">Already a customer? Log-in to access Lens</h3>
-                <div class="mega-menu__column-section-label-container">
-                    <span class="mega-menu__column-section-label">Log-in</span>
-                    <img class="mega-menu__column-section-label-icon">
+                    <div class="mega-menu__columns-container mega-menu__columns-container-single">
+                        <div class="mega-menu__column small-6">
+                            <div class="mega-menu__column-items-container">
+                                <a href="/blp/presentation/" class="mega-menu__column-item">
+                                    <h3 class="mega-menu__column-item-title">Présentation du Programme</h3>
+                                    <p class="mega-menu__column-item-description">
+                                        Découvrir le Business Linkage Program et ses ambitions pour le contenu local.
+                                    </p>
+                                </a>
+                                <a href="/blp/criteres-eligibilite/" class="mega-menu__column-item">
+                                    <h3 class="mega-menu__column-item-title">Critères d'Éligibilité</h3>
+                                    <p class="mega-menu__column-item-description">
+                                        Vérifiez si votre PME peut bénéficier de l'accompagnement.
+                                    </p>
+                                </a>
+                                <a href="/blp/partenaires/" class="mega-menu__column-item">
+                                    <h3 class="mega-menu__column-item-title">Nos Partenaires</h3>
+                                    <p class="mega-menu__column-item-description">
+                                        BAD, Invest In Africa et autres acteurs clés.
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mega-menu__column small-6">
+                            <div class="mega-menu__column-items-container">
+                                <a href="/blp/opportunites/" class="mega-menu__column-item">
+                                    <h3 class="mega-menu__column-item-title">Opportunités Oil & Gas</h3>
+                                    <p class="mega-menu__column-item-description">
+                                        Accédez aux marchés et appels d'offres du secteur.
+                                    </p>
+                                </a>
+                                <a href="/blp/formation/" class="mega-menu__column-item">
+                                    <h3 class="mega-menu__column-item-title">Formation & Renforcement</h3>
+                                    <p class="mega-menu__column-item-description">
+                                        Parcours de mise à niveau QHSE et gestion.
+                                    </p>
+                                </a>
+                                <a href="/blp/contact/" class="mega-menu__column-item">
+                                    <h3 class="mega-menu__column-item-title">Contacter l'équipe BLP</h3>
+                                    <p class="mega-menu__column-item-description">
+                                        Nos experts sont à votre écoute.
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </a>
 
-    <div class="mega-menu__columns-container mega-menu__columns-container-single">
-            <div class="mega-menu__column small-6">
-                <div class="mega-menu__column-items-container">
+                <div class="mega-menu__column-flex flex-end">
+                    <div>
+                        <a href="/blp/succes-story/" class="promo-block-container">
+                            <div class="badge badge--promo">
+                                Succès BLP
+                            </div>
+                            <div class="title">
+                                Une PME Championne
+                            </div>
+                            <div class="description">
+                                Découvrez comment une entreprise locale a décroché son premier contrat majeur.
+                            </div>
+                            <div class="image-container">
+                                <img class="lazyloaded" src="/assets/cogesto-asset/cogesto-asset/pexels-dawid-sobarnia-165690-14894619.jpg" alt="Succès PME">
+                            </div>
+                            <button class="btn btn--primary btn--arrow">
+                                <span>Lire l'histoire</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
 
-
-<a href="/lens/power-and-renewables/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Power &amp; Renewables</h3>
-        <p class="mega-menu__column-item-description">
-            An integrated view of global renewable and conventional power data and insights across projects, technologies and markets.
-        </p>
-</a>
-
-<a href="/lens/hydrogen/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Hydrogen</h3>
-        <p class="mega-menu__column-item-description">
-            Maximise investment opportunities across the hydrogen, ammonia and methanol value chain.
-        </p>
-</a>
-
-<a href="/lens/upstream/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Upstream</h3>
-        <p class="mega-menu__column-item-description">
-            Industry renowned data and analysis to build resilient, sustainable portfolios.
-        </p>
-</a>
-
-<a href="/lens/subsurface/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Subsurface</h3>
-        <p class="mega-menu__column-item-description">
-            Identify advantaged barrels and support critical investment decisions with an integrated view of commercial and technical data.
-        </p>
-</a>
-
-<a href="/lens/gas-lng/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Gas &amp; LNG</h3>
-        <p class="mega-menu__column-item-description">
-            The single source for exploring industry data alongside leading expertise, analyses, and modelling insights.
-        </p>
-</a>                </div>
             </div>
-            <div class="mega-menu__column small-6">
-                <div class="mega-menu__column-items-container">
-
-
-<a href="/lens/metals-and-mining/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Metals &amp; Mining</h3>
-        <p class="mega-menu__column-item-description">
-            Unlock robust data and new unique perspectives across key mined commodities needed to assess the mining landscape.
-        </p>
-</a>
-
-<a href="/lens/carbon/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Carbon</h3>
-        <p class="mega-menu__column-item-description">
-            Analysis of CCUS and offset opportunities to shape decarbonisation strategies.
-        </p>
-</a>
-
-<a href="/lens/emissions/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Emissions</h3>
-        <p class="mega-menu__column-item-description">
-            Decision intelligence to simplify the complexity of emissions risk management.
-        </p>
-</a>
-
-<a href="/lens/lens-energy-transition-scenarios/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Energy Transition</h3>
-        <p class="mega-menu__column-item-description">
-            Trusted modelling capabilities to navigate the energy transition
-        </p>
-</a>
-
-<a href="/lens/direct/" class="mega-menu__column-item">
-    <h3 class="mega-menu__column-item-title">Lens Direct - API</h3>
-        <p class="mega-menu__column-item-description">
-            Seamlessly integrate Wood Mackenzie data into your own proprietary systems with Lens Direct API services.
-        </p>
-</a>                </div>
-            </div>
+        </div>
     </div>
-</div>                        <div class="mega-menu__column-flex flex-end">
-
-
-<div>
-    <a href="/lens/subsurface/" class="promo-block-container" ga4-component-tracking="eyJldmVudCI6ImNvbXBvbmVudF9jbGljayIsInR5cGUiOiJNZWdhTWVudSBQcm9tb0NhcmQgQmxvY2siLCJ0aXRsZSI6IkxlbnMgU3Vic3VyZmFjZSBNb2RlbGxpbmciLCJ1cmwiOiIvbGVucy9zdWJzdXJmYWNlLyJ9">
-        <div class="badge badge--promo">
-            Product Update
-        </div>
-        <div class="title">
-            Lens Subsurface Modelling
-        </div>
-        <div class="description">
-            Combining technical and commercial data with cutting-edge AI technology to enable you to make smarter, quicker decisions about capital allocation.
-        </div>
-        <div class="image-container">
-            <img class=" ls-is-cached lazyloaded" data-src="https://www.woodmac.com/siteassets/lens/lens-subsurface/valuations-screenshot.png?rmode=crop&amp;rxy=0.5,0.5" src="https://www.woodmac.com/siteassets/lens/lens-subsurface/valuations-screenshot.png?rmode=crop&amp;rxy=0.5,0.5">
-        </div>
-        <button class="btn btn--primary btn--arrow">
-            <span>Find out more</span>
-        </button>
-    </a>
-</div>                        </div>
-            </div>
-        </div>
-        <!-- MOBILE -->
-        <div class="just-mobile mega-menu__nav-secondary__col medium-6 nav-secondary__fade">
-
-
-
-<!-- MOBILE SECONDARY SECTION HEADER -->
-    <a href="https://identity.woodmac.com/sign-in" class="cta-section-style mega-menu__nav-secondary__title">
-        <span class="mega-menu__nav-secondary__title-link icon">
-            Already a customer? Log-in to access Lens
-        </span>
-        <!--Removing Link Text on Mobile Navigation & adding empty span for the right icon-->
-        <span class="mega-menu__link-label"></span>
-        <img class="mega-menu__link-label-icon">
-    </a>
-
-<!-- MOBILE SECONDARY LIST -->
-<ul class="mega-menu__list-container">
-    <!-- MOBILE SECONDARY LIST ITEMS -->
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/power-and-renewables/" class="mega-menu__nav-secondary__item__link">Power &amp; Renewables</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/hydrogen/" class="mega-menu__nav-secondary__item__link">Hydrogen</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/upstream/" class="mega-menu__nav-secondary__item__link">Upstream</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/subsurface/" class="mega-menu__nav-secondary__item__link">Subsurface</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/gas-lng/" class="mega-menu__nav-secondary__item__link">Gas &amp; LNG</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/metals-and-mining/" class="mega-menu__nav-secondary__item__link">Metals &amp; Mining</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/carbon/" class="mega-menu__nav-secondary__item__link">Carbon</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/emissions/" class="mega-menu__nav-secondary__item__link">Emissions</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/lens-energy-transition-scenarios/" class="mega-menu__nav-secondary__item__link">Energy Transition</a>
-                </li>
-                <li class="mega-menu__nav-secondary__item">
-                    <a href="/lens/direct/" class="mega-menu__nav-secondary__item__link">Lens Direct - API</a>
-                </li>
-</ul>        </div>
-</div>    </div>
 </header>

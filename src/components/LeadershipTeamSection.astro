@@ -1,25 +1,24 @@
 ---
 // src/components/LeadershipTeamSection.astro
-// Replicates the "Leadership team" section with profile cards and slide-out panels (implemented as modals or similar).
-// Note: The original implementation uses a complex off-canvas panel. For the CDP, we'll simplify this to a standard card layout,
-// or if interaction is required, we can implement a simple state-based toggle or just link to the profile page.
-// Given constraints, I'll implement the visual card grid first.
+// Replicates the "Leadership team" section.
 
 export interface TeamMember {
   name: string;
-  role: string;
-  imageUrl: string;
-  profileLink: string;
-  bio?: string; // For potential future use in a modal/expanded view
+  role: string; // Mapped to 'title' in usage
+  imageUrl: string; // Mapped to 'image' in usage
+  imageAlt?: string;
+  profileLink?: string;
+  title?: string; // Alternate for role
+  image?: string; // Alternate for imageUrl
 }
 
 export interface Props {
   title: string;
-  members: TeamMember[];
+  teamMembers: TeamMember[]; // Changed from members
   id?: string;
 }
 
-const { title, members = [], id = "peoplegroupblock" } = Astro.props;
+const { title, teamMembers = [], id = "peoplegroupblock" } = Astro.props;
 ---
 
 <div class="module" id={id}>
@@ -31,22 +30,20 @@ const { title, members = [], id = "peoplegroupblock" } = Astro.props;
                 <div class="col small-12 medium-9">
                     <div class="row">
                         <div class="flex__equal-height">
-                            {members && members.length > 0 && members.map((member) => (
+                            {teamMembers && teamMembers.length > 0 && teamMembers.map((member) => (
                                 <div class="col small-12 small-medium-6 medium-4 large-3 push--bottom people-profile-card">
                                     <div class="img-overlay">
-                                        <a href={member.profileLink} class="block-link" aria-label={`View profile for ${member.name}`}>
+                                        <a href={member.profileLink || "#"} class="block-link" aria-label={`View profile for ${member.name}`}>
                                             <figure class="img-overlay__wrap push-half--bottom ratio-5x3-1x1">
-                                                <picture>
-                                                    <source srcset={`${member.imageUrl}?width=500&height=500&rmode=crop&rxy=0.5,0.5`} media="(min-width: 600px)" />
-                                                    <img 
-                                                        class="img-overlay__image push-half--bottom lazyloaded" 
-                                                        src={`${member.imageUrl}?width=600&height=360&rmode=crop&rxy=0.5,0.5`} 
-                                                        alt={member.name} 
-                                                    />
-                                                </picture>
+                                                <img 
+                                                    class="img-overlay__image push-half--bottom lazyloaded" 
+                                                    src={member.imageUrl || member.image} 
+                                                    alt={member.imageAlt || member.name} 
+                                                    style="width: 100%; height: 100%; object-fit: cover;"
+                                                />
                                             </figure>
                                             <h3 class="beta push-quarter--bottom badge-internal-people-container">{member.name}</h3>
-                                            <p class="gamma push-quarter--bottom">{member.role}</p>
+                                            <p class="gamma push-quarter--bottom">{member.role || member.title}</p>
                                         </a>
                                     </div>
                                 </div>
@@ -60,7 +57,6 @@ const { title, members = [], id = "peoplegroupblock" } = Astro.props;
 </div>
 
 <style>
-    /* Minimal styling to ensure layout if global styles are missing some specific grid classes */
     .people-profile-card {
         margin-bottom: 2rem;
     }
@@ -70,22 +66,23 @@ const { title, members = [], id = "peoplegroupblock" } = Astro.props;
         color: inherit;
     }
     .block-link:hover h3 {
-        color: #0024ff; /* Core branding cobalt */
+        color: #0024ff;
     }
-    /* Ensure image ratio is respected if global ratio classes are missing */
     .ratio-5x3-1x1 {
         position: relative;
         width: 100%;
         height: 0;
-        padding-bottom: 100%; /* Default 1x1 */
+        padding-bottom: 100%;
         overflow: hidden;
     }
-    .ratio-5x3-1x1 img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .badge-internal-people-container::after {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-left: 8px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230024ff'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+        background-size: contain;
+        vertical-align: middle;
     }
 </style>

@@ -160,3 +160,15 @@ body.on--navigation #menu-header.is-transparent .btn--search {
     background-image: url(/img/icons/icon-search.svg) !important; /* Revert search icon to dark */
 }
 
+
+/* Transparent Utility Bar */
+#menu-header.is-transparent .nav-utility {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Scrolled state for utility bar - Force Dark Blue */
+#menu-header.is-transparent.scrolled .nav-utility {
+    background-color: #010063 !important;
+    border-bottom: none;
+}

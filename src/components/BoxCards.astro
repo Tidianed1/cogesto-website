@@ -1,24 +1,39 @@
 ---
-interface Card {
+// src/components/BoxCards.astro
+// Renders a grid of "boxed" cards with icons, titles, and descriptions.
+// Replicates the "How we help" section structure.
+
+export interface BoxCardItem {
+  iconUrl: string;
   title: string;
-  description: string;
+  text: string; // HTML string
 }
 
-interface Props {
+export interface Props {
   title: string;
-  description: string;
-  cards: Card[];
+  description: string; // HTML string
+  cards: BoxCardItem[];
+  id?: string;
+  backgroundColorClass?: string; // e.g., 'bg-light-grey-1'
 }
 
-const { title, description, cards } = Astro.props;
+const {
+  title,
+  description,
+  cards,
+  id = "promopanel",
+  backgroundColorClass = "bg-light-grey-1"
+} = Astro.props;
 ---
 
-<div class="module box-cards bg-white primary-color soft-lens--ends no-margin-upper" id="promopanel">
+<div class={`module box-cards ${backgroundColorClass} primary-color soft-lens--ends`} id={id}>
     <div class="wrap">
         <div class="col small-12">
             <div class="box-cards__title-wrapper">
-                <h2 class="giga text-center--medium" set:html={title}></h2>
-                <div class="editor" set:html={description}></div>
+                <h2 class="giga text-center--medium">{title}</h2>
+                <div class="editor">
+                    <div set:html={description} />
+                </div>
             </div>
         </div>
     </div>
@@ -26,17 +41,20 @@ const { title, description, cards } = Astro.props;
     <div class="wrap">
         <div class="col small-12">
             <div class="box-cards__wrapper SingleRow">
-                {cards.map(card => (
+                {cards.map((card) => (
                     <div>
                         <div>
-                            <div class="box-cards__card bg-white primary-color flexbox direction-column justify-between" id="promopanelblock">
+                            <div class={`box-cards__card ${backgroundColorClass} primary-color flexbox direction-column justify-between`}>
                                 <div>
                                     <div class="flexbox align-center push-half--bottom">
+                                        <img class="lazyloaded" src={card.iconUrl} style="height: 80px; width: auto;" alt="" />
                                         <h3 class="giga show-for-small-only push-half--left">{card.title}</h3>
                                     </div>
                                     <div class="">
                                         <h3 class="giga show-for-medium-up push-half--bottom">{card.title}</h3>
-                                        <div class="editor" set:html={card.description}></div>
+                                        <div class="editor">
+                                            <div set:html={card.text} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

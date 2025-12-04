@@ -11,6 +11,12 @@ The goal is to create a clear guide for developers to understand which component
 -   **✅ Structural Integrity**: The HTML structure should be a clean and semantic replica of the intended design blueprint.
 -   **✅ Centralized Interactivity**: Client-side scripts should be managed globally (e.g., in `BaseLayout.astro`) or via Astro Islands (`client:*`).
 
+## Image & Layout Guidelines
+
+-   **✅ Strict Placeholder Fit**: Images must strictly fit their container's aspect ratio. Do not rely on CSS to "fix" a wrongly sized image if it breaks the component's shape.
+-   **✅ Layout Integrity**: Changing an image should never break the overall component layout. Components must use `object-fit: cover` or proper container queries to handle various image sizes gracefully.
+-   **✅ Professional Aesthetics**: When selecting components, prioritize a comprehensive and beautiful layout. Pages should look professional and homogeneous, especially for a consulting firm.
+
 ---
 
 ## 1. Core Layout & Global Components
@@ -339,9 +345,10 @@ The goal is to create a clear guide for developers to understand which component
 ### `CardImageText.astro`
 -   **File Path:** `src/components/CardImageText.astro`
 -   **Purpose:** Renders a section with an image on one side and text content on the other.
--   **Business Use Case:** For feature sections and calls to action.
+-   **Business Use Case:** **Primary use:** As the final Call to Action (CTA) at the bottom of a page.
 -   **Protocol Adherence:** ✅ Fully Compliant.
 -   **Refactoring Notes:** The component is named `CardImageText.astro` but the internal classes and props refer to `video`. This should be made consistent.
+-   **⚠️ Usage Warning:** Be careful with the image used; it should not break the component layout or change its shape. Use images that fit the container aspect ratio.
 
 ### `CardQuote.astro`
 -   **File Path:** `src/components/CardQuote.astro`

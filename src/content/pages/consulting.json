@@ -1,124 +1,97 @@
 {
-  "title": "Natural Resources & Energy Consulting Services | Wood Mackenzie",
-  "description": "Our experienced consultants understand your business and the wider competitive landscape, turning complex challenges into profitable opportunities.",
+  "title": "Nos Services de Conseil | Cogesto Consulting",
+  "description": "Découvrez nos expertises : Stratégie, Opérations, Finance, Organisation et Digital. Des solutions sur mesure pour la performance de votre entreprise.",
   "slug": "consulting",
+  "breadcrumbs": {
+    "component": "Breadcrumbs",
+    "items": [
+      { "text": "Accueil", "href": "/" },
+      { "text": "Services de Conseil", "href": "/products/consulting/" }
+    ]
+  },
   "sections": [
     {
       "component": "HeroMultiTemplate",
-      "title": "Energy & Natural Resources Consulting",
-      "subtitle": "Providing bespoke, independent advice that helps our clients navigate critical challenges to make and execute energy & natural resources investment decisions with confidence.",
-      "theme": "white",
-      "backgroundImage": "https://www.woodmac.com/siteassets/frontify_media_download/photography/solar/micro_solar/micro_power_gettyimages-123318228.jpg"
+      "title": "Nos Services de Conseil",
+      "subtitle": "Combiner vision stratégique, rigueur financière et excellence opérationnelle pour transformer votre entreprise.",
+      "theme": "primary-color",
+      "imageUrl": "/assets/cogesto-asset/Cogesto_conference_ 3 guys.jpg"
     },
     {
       "component": "BodyCopyImage",
-      "heading": "Consulting Services",
-      "text_content": "<p>The energy transition is unstoppable, and it’s changing the game. Increased technological, commercial, financial and regulatory innovation and the unprecedented availability of capital are reshaping new and traditional energy and natural resources value chains.</p><p>Wood Mackenzie’s independent strategic analysis will help you to shape your business on a path to decarbonisation.</p>",
-      "imageSrc": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-1325134720.jpg",
-      "imagePosition": "right"
+      "title": "Une Approche Intégrée",
+      "description": "<p>Les défis d'aujourd'hui sont complexes et interconnectés. Une décision stratégique a des impacts financiers, opérationnels et humains.</p><p>Chez Cogesto Consulting, nous décloisonnons les expertises. Nos équipes pluridisciplinaires travaillent ensemble pour vous apporter des solutions globales et cohérentes, de la définition de la stratégie jusqu'à sa mise en œuvre opérationnelle.</p>",
+      "imageUrl": "/assets/cogesto-asset/Two_woman_talking.jpg",
+      "imageAlt": "Approche intégrée",
+      "reverseLayout": true,
+      "buttonText": "Notre méthodologie",
+      "buttonHref": "/about/overview/"
     },
     {
       "component": "TextOnlySection",
-      "title": "Learn more about our solutions",
-      "content": "Find out more information on how we can help by reviewing more information about our consultancy services.",
-      "alignment": "left"
-    },
-    {
-      "component": "CardGrid",
-      "heading": null,
-      "items": [
-        {
-          "title": "Industries",
-          "description": "Our consulting teams work across every part of the energy, chemicals, metals & mining value chain.",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-factory-building-128px.png",
-          "link": "/products/consulting/industry/"
-        },
-        {
-          "title": "Services",
-          "description": "We provide bespoke strategic, market, and operational improvement consulting services.",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-rating-star-winner-128px.png",
-          "link": "/products/consulting/solutions/"
-        },
-        {
-          "title": "Case Studies",
-          "description": "Our detailed case studies examine specific business challenges and successes.",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-products-briefcase-128px.png",
-          "link": "/products/consulting/case-studies/"
-        },
-        {
-          "title": "People",
-          "description": "We understand the challenges our customers face because we are deeply embedded in the industries we serve.",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-multiple-users-1-128px.png",
-          "link": "/products/consulting/people/"
-        }
-      ]
-    },
-    {
-      "component": "TextOnlySection",
-      "title": "Positioning you for success in today's complex marketplace",
-      "content": "Our consultants are integral parts of the industries they advise, giving them a specific understanding of the competitive landscape in which your business functions. Supported by a global network of research professionals, our team covers every significant asset, company and market in the energy & natural resource sectors.",
+      "title": "Nos Domaines d'Excellence",
+      "content": "Nous accompagnons les dirigeants sur l'ensemble de leurs enjeux critiques.",
       "alignment": "center"
     },
     {
-      "component": "CardGrid",
-      "heading": "Key Benefits",
+      "component": "WallLister",
+      "title": "Expertises Fonctionnelles",
+      "description": "Cliquez pour explorer nos solutions.",
       "items": [
         {
-          "title": "Business Models",
-          "description": "Design new business models for the Energy Transition",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-ecology-leaf-settings-128px.png",
-          "link": "#"
+          "id": "strategie",
+          "title": "Stratégie & Business Models",
+          "imageUrl": "/assets/cogesto-asset/Fresque_ongoing_buidling_ architectural.jpg",
+          "imageAlt": "Stratégie",
+          "expandedText": "Planification stratégique, études de marché et transformation de business models.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "/expertises/strategie"
         },
         {
-          "title": "Investment Confidence",
-          "description": "Gain confidence to invest in energy and natural resources",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-accounting-coins-128px.png",
-          "link": "#"
+          "id": "operations",
+          "title": "Excellence Opérationnelle",
+          "imageUrl": "/assets/cogesto-asset/offshore_petrol_platform.jpg",
+          "imageAlt": "Opérations",
+          "expandedText": "Optimisation de la supply chain, des achats et de la production.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "/expertises/operations"
         },
         {
-          "title": "Better Decisions",
-          "description": "Make better decisions based on independent primary research",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-study-light-idea-128px.png",
-          "link": "#"
+          "id": "finance",
+          "title": "Finance d'Entreprise",
+          "imageUrl": "/assets/cogesto-asset/Professionla_women-holding tablet.jpg",
+          "imageAlt": "Finance",
+          "expandedText": "Pilotage de la performance, ingénierie financière et restructuration.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "/expertises/corporate-finance"
         },
         {
-          "title": "Carbon Neutrality",
-          "description": "Chart your short-term and long-term pathway to carbon neutrality",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-air-polution-co2-down-128px.png",
-          "link": "#"
+          "id": "organisation",
+          "title": "Organisation & Gouvernance",
+          "imageUrl": "/assets/cogesto-asset/Cogesto_general_manager_conference.jpg",
+          "imageAlt": "Organisation",
+          "expandedText": "Design organisationnel, conduite du changement et gestion des talents.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "/expertises/organisation"
         },
         {
-          "title": "Evaluate Strategies",
-          "description": "Evaluate and test your strategies and plans",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-idea-strategy-128px.png",
-          "link": "#"
-        },
-        {
-          "title": "Competitive Advantage",
-          "description": "Gain competitive advantage based on leading fundamental market analysis",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-analytics-graph-128px.png",
-          "link": "#"
-        },
-        {
-          "title": "Improve Performance",
-          "description": "Improve cost and risk performance on projects and with third-party costs",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-ecology-leaf-settings-128px.png",
-          "link": "#"
-        },
-        {
-          "title": "Valuations",
-          "description": "Independent and trusted valuations and transactional support",
-          "icon_or_image": "https://www.woodmac.com/siteassets/frontify_media_download/icons/128-px-icons/icon-acounting-coin-stacks-128px.png",
-          "link": "#"
+          "id": "digital",
+          "title": "Digital & Technologie",
+          "imageUrl": "/assets/cogesto-asset/women_on_ a computer.jpg",
+          "imageAlt": "Digital",
+          "expandedText": "Transformation numérique, stratégie Data et cybersécurité.",
+          "buttonText": "En savoir plus",
+          "buttonHref": "/expertises/digital-technology"
         }
       ]
     },
     {
-      "component": "BodyCopyImage",
-      "heading": "Designed to meet your goals",
-      "text_content": "<p>Solving new challenges, keeping your strategy fresh and executing energy programmes cost effectively requires innovative thinking.</p><p>Our consultancy solutions can provide:</p><ul><li>Tailored advice based on proprietary research, data and senior advisory experience</li><li>Robust conclusions and recommendations</li><li>Actionable strategies that leverage our global insights</li></ul>",
-      "imageSrc": "https://www.woodmac.com/siteassets/frontify_media_download/photography/people/_micro/micro_people_gettyimages-591478749.jpg",
-      "imagePosition": "right"
+      "component": "FullWidthCta",
+      "badgeText": "Performance",
+      "title": "Prêt à relever vos défis ?",
+      "linkText": "Contacter un expert",
+      "linkHref": "/contact/",
+      "backgroundColorClass": "bg-core-branding-cobalt"
     }
   ]
 }
