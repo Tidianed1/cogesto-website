@@ -35,6 +35,8 @@ import SubNavigation from '../components/SubNavigation.astro';
 import BoxCards from '../components/BoxCards.astro';
 import ProductListBlock from '../components/ProductListBlock.astro';
 import WallLister from '../components/WallLister.astro';
+import StatsBlock from '../components/StatsBlock.astro';
+import NarrowBodyCopy from '../components/NarrowBodyCopy.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -78,7 +80,9 @@ const COMPONENTS = {
   BoxCards,
   ProductListBlock,
   WallLister,
-  SubNavigation
+  SubNavigation,
+  StatsBlock,
+  NarrowBodyCopy
 };
 ---
 
