@@ -53,7 +53,7 @@
 }
 
 .hero-video__title {
-    /* Fluid Typography: min 2rem, scalable, max 2.75rem on mobile */
+    /* Fluid Typography */
     font-size: clamp(2rem, 8vw, 2.75rem);
     line-height: 1.1;
     font-weight: 700;
@@ -79,13 +79,13 @@
     }
     
     .hero-video__content {
-        text-align: left;
-        padding-top: 1.5rem;
-        padding-left: 3rem;
+        text-align: left; /* Standard Left Align for Desktop */
+        padding-top: 1.5rem; /* Reset padding */
+        padding-left: 1.5rem; /* Standard padding */
     }
     
     .hero-video__content-inner {
-        margin: 0;
+        margin: 0; /* Left align inner content */
     }
     
     .hero-video__title {
