@@ -22,6 +22,14 @@
   z-index: 1;
 }
 
+/* Force hide controls on mobile if they appear */
+.hero-video__video::-webkit-media-controls {
+    display: none !important;
+}
+.hero-video__video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
 .hero-video-container::after {
     content: "";
     position: absolute;
@@ -53,7 +61,6 @@
 }
 
 .hero-video__title {
-    /* Fluid Typography */
     font-size: clamp(2rem, 8vw, 2.75rem);
     line-height: 1.1;
     font-weight: 700;
@@ -79,13 +86,12 @@
     }
     
     .hero-video__content {
-        text-align: left; /* Standard Left Align for Desktop */
-        padding-top: 1.5rem; /* Reset padding */
-        padding-left: 1.5rem; /* Standard padding */
+        text-align: left;
+        padding: 1.5rem; /* Revert to uniform padding */
     }
     
     .hero-video__content-inner {
-        margin: 0; /* Left align inner content */
+        margin: 0;
     }
     
     .hero-video__title {
