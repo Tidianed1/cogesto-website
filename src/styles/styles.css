@@ -34798,8 +34798,6 @@ dialog:open::backdrop {
   }
 }
 
-@import 'swiper/swiper-bundle.css';
-
 /* Custom styles for the commodity selector block */
 .commodity-selector-block {
   padding: 80px 0;
