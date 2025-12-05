@@ -35207,3 +35207,10 @@ dialog:open::backdrop {
 .hero-multi-template__container.bg-primary-color .hero-multi-template__title {
     color: #fff !important;
 }
+
+/* Prevent Horizontal Overflow (White Bar Fix) */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    position: relative;
+}
