@@ -1351,8 +1351,8 @@ a.link.link--light:focus,a[href^=mailto]:not(.body-copy-image__button):not(.shar
 
 a.link.icon--right:after,a.link.link--dark.icon--right:after {
     background-color: #222;
-    -webkit-mask-image: url(/img/icons/icon-chevron-right--dark-blue.svg);
-    mask-image: url(/img/icons/icon-chevron-right--dark-blue.svg);
+    -webkit-mask-image: url(/assets/cogesto-asset/Icons/icon-chevron-right--dark-blue.svg);
+    mask-image: url(/assets/cogesto-asset/Icons/icon-chevron-right--dark-blue.svg);
     -webkit-mask-position: center right;
     mask-position: center right;
     -webkit-mask-repeat: no-repeat;
@@ -1645,7 +1645,7 @@ a.link.link--light.icon--right:after {
     display: block;
     width: 2rem;
     height: 2rem;
-    background-image: url(/img/icons/quote-open.svg);
+    background-image: url(/assets/cogesto-asset/Icons/quote-open.svg);
     background-size: cover
 }
 
@@ -2297,26 +2297,26 @@ body,button,input,select,textarea {
     }
 
     .bg-brand.bg-brand--01 {
-        background-image: url(../img/branding/lens-01.svg)
+        background-image: url(/assets/cogesto-asset/lens-01.svg)
     }
 
     .bg-brand.bg-brand--02 {
-        background-image: url(../img/branding/lens-02.svg)
+        background-image: url(/assets/cogesto-asset/lens-02.svg)
     }
 
     .bg-brand.bg-brand--03 {
-        background-image: url(../img/branding/lens-03.svg);
+        background-image: url(/assets/cogesto-asset/lens-03.svg);
         background-size: 250%
     }
 
     .bg-brand.bg-brand--04 {
         background-position: center center;
-        background-image: url(../img/branding/lens-04.svg);
+        background-image: url(/assets/cogesto-asset/lens-04.svg);
         background-size: 200%
     }
 
     .bg-brand.bg-brand--05 {
-        background-image: url(../img/branding/lens-05.svg);
+        background-image: url(/assets/cogesto-asset/lens-05.svg);
         background-size: 250%
     }
 }
@@ -2339,15 +2339,15 @@ body,button,input,select,textarea {
 }
 
 .bg-brand--report:nth-child(odd) {
-    background-image: url(../img/branding/bg-e-commerce_report.svg)
+    background-image: url(/assets/cogesto-asset/bg-e-commerce_report.svg)
 }
 
 .bg-brand--report:nth-child(even) {
-    background-image: url(../img/branding/bg-e-commerce_report.svg)
+    background-image: url(/assets/cogesto-asset/bg-e-commerce_report.svg)
 }
 
 .bg-brand--report:nth-child(4),.bg-brand--report:nth-child(7) {
-    background-image: url(../img/branding/bg-e-commerce_report.svg)
+    background-image: url(/assets/cogesto-asset/bg-e-commerce_report.svg)
 }
 
 .bg-error {
@@ -2356,7 +2356,7 @@ body,button,input,select,textarea {
 
 @media (min-width: 48em) {
     .bg-error {
-        background-image:url(../img/branding/lens-01.svg);
+        background-image:url(/assets/cogesto-asset/lens-01.svg);
         background-position: bottom right;
         background-repeat: no-repeat;
         background-size: 40%
@@ -2448,7 +2448,7 @@ body,button,input,select,textarea {
         -moz-box-flex: 30%;
         -ms-flex: 30%;
         flex: 30%;
-        background: url(../img/branding/error-page-logo.png);
+        background: url(/assets/cogesto-asset/error-page-logo.png);
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: top right
@@ -2582,19 +2582,19 @@ body,button,input,select,textarea {
 }
 
 .icon--left:after {
-    background: url(/img/icons/icon-chevron-left.svg) no-repeat center left
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-left.svg) no-repeat center left
 }
 
 .icon--right-large:after {
-    background: url(/img/icons/icon-chevron-right-large.svg) no-repeat center right
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-right-large.svg) no-repeat center right
 }
 
 .icon--left-large:after {
-    background: url(/img/icons/icon-chevron-left-large.svg) no-repeat center left
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-left-large.svg) no-repeat center left
 }
 
 .icon--right--mono:after {
-    background: url(/img/icons/icon-chevron-right--mono.svg) no-repeat center right
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-right--mono.svg) no-repeat center right
 }
 
 .icon--right--dark:after {
@@ -4905,7 +4905,7 @@ body {
     }
 
     .banner.cobalt-theme .btn--search {
-        background: url(/img/icons/icon-search--white.svg) no-repeat center;
+        background: url(/assets/cogesto-asset/Icons/icon-search--white.svg) no-repeat center;
         background-position: 1.5rem;
         min-width: 7.6875rem;
         right: 0
@@ -4920,7 +4920,7 @@ body {
     }
 
     .banner.cobalt-theme .banner__logo>img {
-        content: url(../img/branding/wm-logo-white.svg)
+        content: url(/assets/cogesto-asset/wm-logo-white.svg)
     }
 }
 
@@ -6764,7 +6764,7 @@ body {
     }
 
     .nav-secondary__title-link:after {
-        background: url(/img/icons/icon-arrow--cobalt.svg) no-repeat center right;
+        background: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg) no-repeat center right;
         left: 8px;
         width: 16px;
         height: 16px
@@ -6785,8 +6785,8 @@ body {
 
     .nav-secondary__title-link:after {
         background-color: #222;
-        -webkit-mask-image: url(/img/icons/icon-chevron-right--dark-blue.svg);
-        mask-image: url(/img/icons/icon-chevron-right--dark-blue.svg);
+        -webkit-mask-image: url(/assets/cogesto-asset/Icons/icon-chevron-right--dark-blue.svg);
+        mask-image: url(/assets/cogesto-asset/Icons/icon-chevron-right--dark-blue.svg);
         -webkit-mask-position: center right;
         mask-position: center right;
         -webkit-mask-repeat: no-repeat;
@@ -7286,7 +7286,7 @@ main.sticky-subnav {
 
 @media (min-width: 62.5em) {
     .on--accounts .nav-utility__link--toggle {
-        background-image:url(/img/icons/icon-chevron-down--white.svg);
+        background-image:url(/assets/cogesto-asset/Icons/icon-chevron-down--white.svg);
         background-color: #fff;
         color: #010063
     }
@@ -7294,7 +7294,7 @@ main.sticky-subnav {
 
 @media (min-width: 62.5em) {
     .nav-utility__link--toggle {
-        background-image:url(/img/icons/icon-chevron-down--white.svg);
+        background-image:url(/assets/cogesto-asset/Icons/icon-chevron-down--white.svg);
         background-position: right center;
         background-repeat: no-repeat;
         padding-right: 1.8rem
@@ -7754,7 +7754,7 @@ main.sticky-subnav {
 }
 
 .agenda-speakers__toggle:before {
-    background: url(/img/icons/icon-chevron-right-large.svg) no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-right-large.svg) no-repeat;
     content: "";
     display: block;
     width: 9px;
@@ -8116,7 +8116,7 @@ main.sticky-subnav {
 }
 
 .store-facets__link {
-    background: url(/img/icons/icon-facet.svg) no-repeat left 2px;
+    background: url(/assets/cogesto-asset/Icons/icon-facet.svg) no-repeat left 2px;
     display: inline-block;
     font-size: .9rem;
     line-height: 1.6;
@@ -8127,7 +8127,7 @@ main.sticky-subnav {
 }
 
 .store-facets__link.active {
-    background: url(/img/icons/icon-facet-checked.svg) no-repeat left 2px;
+    background: url(/assets/cogesto-asset/Icons/icon-facet-checked.svg) no-repeat left 2px;
     font-weight: 500
 }
 
@@ -8628,7 +8628,7 @@ main.sticky-subnav {
 
 .report-cover__logo {
     background-size: contain;
-    background-image: url(../img/branding/woodmac_logo_interim_rgb.svg);
+    background-image: url(/assets/cogesto-asset/woodmac_logo_interim_rgb.svg);
     position: inherit;
     background-repeat: no-repeat;
     background-origin: content-box;
@@ -8861,7 +8861,7 @@ main.sticky-subnav {
 .store-bg-brand {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../img/branding/bg-e-commerce_report.svg)
+    background-image: url(/assets/cogesto-asset/bg-e-commerce_report.svg)
 }
 
 .js-wall-row-panel .btn,.js-wall-row-panel .store-btn,.store-btn {
@@ -9015,7 +9015,7 @@ main.sticky-subnav {
 .store-realted-bg {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../img/branding/bg-e-commerce_report_related.svg)
+    background-image: url(/assets/cogesto-asset/bg-e-commerce_report_related.svg)
 }
 
 .store-related-push--top {
@@ -9239,7 +9239,7 @@ legend {
     font-size: 1.04rem;
     line-height: 1.6;
     background-color: #f7f7f7;
-    background-image: url(/img/icons/icon-select-arrow-rich-dark-blue.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-select-arrow-rich-dark-blue.svg);
     background-size: 24px;
     background-position: 90% center;
     background-repeat: no-repeat;
@@ -9264,7 +9264,7 @@ legend {
 
 .form-select--cart {
     background-color: #0024ff;
-    background-image: url(/img/icons/icon-chevron-down--white.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-chevron-down--white.svg);
     background-size: auto;
     display: block;
     border: 0;
@@ -9354,7 +9354,7 @@ legend {
 
 .form--lined select {
     background-color: #010063;
-    background-image: url(/img/icons/icon-select-arrow-white.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-select-arrow-white.svg);
     background-repeat: no-repeat;
     background-position: 90% center;
     border: 1px solid #d1d1d1;
@@ -9495,14 +9495,14 @@ legend {
 }
 
 .form--expanded select {
-    background-image: url(/img/icons/icon-select-arrow-rich-dark-blue.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-select-arrow-rich-dark-blue.svg);
     background-repeat: no-repeat;
     background-position: right .75rem center;
     padding-right: 1.875rem
 }
 
 .form--expanded select:disabled {
-    background-image: url(/img/icons/icon-select-arrow-light-grey.svg)
+    background-image: url(/assets/cogesto-asset/Icons/icon-select-arrow-light-grey.svg)
 }
 
 .form--expanded.has-steps {
@@ -9566,7 +9566,7 @@ legend {
 }
 
 .form--expanded .ValidationFail input,.form--expanded .ValidationFail textarea {
-    background-image: url(/img/icons/icon-alert-badge.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-alert-badge.svg);
     background-repeat: no-repeat;
     background-position: right .75rem top .75rem
 }
@@ -9728,7 +9728,7 @@ legend {
 
 .checkbox__input:checked~.checkbox__label:before,.radio__input:checked~.radio__label:before {
     background: #fff;
-    background-image: url(/img/icons/icon-tick.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-tick.svg);
     background-repeat: no-repeat;
     background-position: center center;
     color: #5a5a5a;
@@ -9745,7 +9745,7 @@ legend {
 }
 
 .radio__input:checked+.radio__label:before {
-    background-image: url(/img/icons/icon-radio.svg)
+    background-image: url(/assets/cogesto-asset/Icons/icon-radio.svg)
 }
 
 .checkbox--store {
@@ -10503,8 +10503,8 @@ legend {
 
 .editor a[href^=http].link--dark::after,.editor a[href^=http]:not(.btn):not(.store-btn)::after {
     background-color: #222;
-    -webkit-mask-image: url(/img/icons/icon-external--dark-blue.svg);
-    mask-image: url(/img/icons/icon-external--dark-blue.svg);
+    -webkit-mask-image: url(/assets/cogesto-asset/Icons/icon-external--dark-blue.svg);
+    mask-image: url(/assets/cogesto-asset/Icons/icon-external--dark-blue.svg);
     -webkit-mask-position: 0 4px;
     mask-position: 0 4px;
     -webkit-mask-repeat: no-repeat;
@@ -10572,7 +10572,7 @@ legend {
 }
 
 .editor--mono #ot-sdk-btn.ot-sdk-show-settings:hover::after,.editor--mono .btn--primary:hover::after,.editor.white #ot-sdk-btn.ot-sdk-show-settings:hover::after,.editor.white .btn--primary:hover::after,.white .editor #ot-sdk-btn.ot-sdk-show-settings:hover::after,.white .editor .btn--primary:hover::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center;
     -webkit-transition: all .1s linear;
     transition: all .1s linear
 }
@@ -10586,7 +10586,7 @@ legend {
 }
 
 .editor--mono #ot-sdk-btn.ot-sdk-show-settings:focus::after,.editor--mono .btn--primary:focus::after,.editor.white #ot-sdk-btn.ot-sdk-show-settings:focus::after,.editor.white .btn--primary:focus::after,.white .editor #ot-sdk-btn.ot-sdk-show-settings:focus::after,.white .editor .btn--primary:focus::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center
 }
 
 .editor--mono #ot-sdk-btn.ot-sdk-show-settings:active,.editor--mono .active#ot-sdk-btn.ot-sdk-show-settings,.editor--mono .btn--primary.active,.editor--mono .btn--primary:active,.editor.white #ot-sdk-btn.ot-sdk-show-settings:active,.editor.white .active#ot-sdk-btn.ot-sdk-show-settings,.editor.white .btn--primary.active,.editor.white .btn--primary:active,.white .editor #ot-sdk-btn.ot-sdk-show-settings:active,.white .editor .active#ot-sdk-btn.ot-sdk-show-settings,.white .editor .btn--primary.active,.white .editor .btn--primary:active {
@@ -10596,7 +10596,7 @@ legend {
 }
 
 .editor--mono #ot-sdk-btn.ot-sdk-show-settings:active::after,.editor--mono .active#ot-sdk-btn.ot-sdk-show-settings::after,.editor--mono .btn--primary.active::after,.editor--mono .btn--primary:active::after,.editor.white #ot-sdk-btn.ot-sdk-show-settings:active::after,.editor.white .active#ot-sdk-btn.ot-sdk-show-settings::after,.editor.white .btn--primary.active::after,.editor.white .btn--primary:active::after,.white .editor #ot-sdk-btn.ot-sdk-show-settings:active::after,.white .editor .active#ot-sdk-btn.ot-sdk-show-settings::after,.white .editor .btn--primary.active::after,.white .editor .btn--primary:active::after {
-    background: url(/img/icons/icon-arrow--cobalt.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg) no-repeat center
 }
 
 .editor--mono #ot-sdk-btn.ot-sdk-show-settings:disabled,.editor--mono .btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.editor--mono .btn--primary.btn--disabled,.editor--mono .btn--primary.btn--disabled:focus,.editor--mono .btn--primary.btn--disabled:hover,.editor--mono .btn--primary:disabled,.editor--mono .btn--primary:disabled:focus,.editor--mono .btn--primary:disabled:hover,.editor--mono .btn--primary[disabled],.editor--mono .btn--primary[disabled]:focus,.editor--mono .btn--primary[disabled]:hover,.editor--mono [disabled]#ot-sdk-btn.ot-sdk-show-settings,.editor.white #ot-sdk-btn.ot-sdk-show-settings:disabled,.editor.white .btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.editor.white .btn--primary.btn--disabled,.editor.white .btn--primary.btn--disabled:focus,.editor.white .btn--primary.btn--disabled:hover,.editor.white .btn--primary:disabled,.editor.white .btn--primary:disabled:focus,.editor.white .btn--primary:disabled:hover,.editor.white .btn--primary[disabled],.editor.white .btn--primary[disabled]:focus,.editor.white .btn--primary[disabled]:hover,.editor.white [disabled]#ot-sdk-btn.ot-sdk-show-settings,.white .editor #ot-sdk-btn.ot-sdk-show-settings:disabled,.white .editor .btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.white .editor .btn--primary.btn--disabled,.white .editor .btn--primary.btn--disabled:focus,.white .editor .btn--primary.btn--disabled:hover,.white .editor .btn--primary:disabled,.white .editor .btn--primary:disabled:focus,.white .editor .btn--primary:disabled:hover,.white .editor .btn--primary[disabled],.white .editor .btn--primary[disabled]:focus,.white .editor .btn--primary[disabled]:hover,.white .editor [disabled]#ot-sdk-btn.ot-sdk-show-settings {
@@ -10608,7 +10608,7 @@ legend {
 }
 
 .editor--mono #ot-sdk-btn.ot-sdk-show-settings:disabled::after,.editor--mono .btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.editor--mono .btn--primary.btn--disabled::after,.editor--mono .btn--primary.btn--disabled:focus::after,.editor--mono .btn--primary.btn--disabled:hover::after,.editor--mono .btn--primary:disabled::after,.editor--mono .btn--primary:disabled:focus::after,.editor--mono .btn--primary:disabled:hover::after,.editor--mono .btn--primary[disabled]::after,.editor--mono .btn--primary[disabled]:focus::after,.editor--mono .btn--primary[disabled]:hover::after,.editor--mono [disabled]#ot-sdk-btn.ot-sdk-show-settings::after,.editor.white #ot-sdk-btn.ot-sdk-show-settings:disabled::after,.editor.white .btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.editor.white .btn--primary.btn--disabled::after,.editor.white .btn--primary.btn--disabled:focus::after,.editor.white .btn--primary.btn--disabled:hover::after,.editor.white .btn--primary:disabled::after,.editor.white .btn--primary:disabled:focus::after,.editor.white .btn--primary:disabled:hover::after,.editor.white .btn--primary[disabled]::after,.editor.white .btn--primary[disabled]:focus::after,.editor.white .btn--primary[disabled]:hover::after,.editor.white [disabled]#ot-sdk-btn.ot-sdk-show-settings::after,.white .editor #ot-sdk-btn.ot-sdk-show-settings:disabled::after,.white .editor .btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.white .editor .btn--primary.btn--disabled::after,.white .editor .btn--primary.btn--disabled:focus::after,.white .editor .btn--primary.btn--disabled:hover::after,.white .editor .btn--primary:disabled::after,.white .editor .btn--primary:disabled:focus::after,.white .editor .btn--primary:disabled:hover::after,.white .editor .btn--primary[disabled]::after,.white .editor .btn--primary[disabled]:focus::after,.white .editor .btn--primary[disabled]:hover::after,.white .editor [disabled]#ot-sdk-btn.ot-sdk-show-settings::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center
 }
 
 .editor--small ol,.editor--small p,.editor--small ul {
@@ -11457,26 +11457,26 @@ li:last-child .panel-share__link {
         background-position:-200px -200px;
         background-repeat: no-repeat;
         background-size: 180%;
-        background-image: url(../img/branding/lens-01.svg)
+        background-image: url(/assets/cogesto-asset/lens-01.svg)
     }
 
     .product-link:nth-child(2n+1) {
-        background-image: url(../img/branding/lens-02.svg)
+        background-image: url(/assets/cogesto-asset/lens-02.svg)
     }
 
     .product-link:nth-child(2n+2) {
-        background-image: url(../img/branding/lens-03.svg);
+        background-image: url(/assets/cogesto-asset/lens-03.svg);
         background-size: 250%
     }
 
     .product-link:nth-child(2n+3) {
         background-position: center center;
-        background-image: url(../img/branding/lens-04.svg);
+        background-image: url(/assets/cogesto-asset/lens-04.svg);
         background-size: 200%
     }
 
     .product-link:nth-child(2n+4) {
-        background-image: url(../img/branding/lens-05.svg);
+        background-image: url(/assets/cogesto-asset/lens-05.svg);
         background-size: 250%
     }
 }
@@ -11804,7 +11804,7 @@ button.list__link-toggle:before {
 }
 
 .nav-languages__btn:before {
-    background: url(/img/icons/icon-chevron-right-large.svg) no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-right-large.svg) no-repeat;
     background-size: 90%;
     content: "";
     display: block;
@@ -12441,19 +12441,19 @@ button.list__link-toggle:before {
 }
 
 .btn.expand::after,.expand.store-btn::after {
-    background: url(/img/icons/icon-open-expand--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-open-expand--dark-blue.svg) no-repeat center
 }
 
 .btn.expand:hover::after,.expand.store-btn:hover::after {
-    background: url(/img/icons/icon-open-expand--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-open-expand--white.svg) no-repeat center
 }
 
 .btn.download::after,.download.store-btn::after {
-    background: url(/img/icons/icon-download--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download--dark-blue.svg) no-repeat center
 }
 
 .btn.download:hover::after,.download.store-btn:hover::after {
-    background: url(/img/icons/icon-download--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download--white.svg) no-repeat center
 }
 
 .btn--disabled,button:disabled,button[disabled] {
@@ -12496,7 +12496,7 @@ button.list__link-toggle:before {
 }
 
 #ot-sdk-btn.ot-sdk-show-settings::after,.btn--primary::after,.btn--secondary::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center;
     display: inline-block;
     content: "";
     margin-left: .5rem;
@@ -12515,7 +12515,7 @@ button.list__link-toggle:before {
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:hover::after,.btn--primary.btn--dark:hover::after,.btn--primary:hover::after,.btn--secondary.btn--dark:hover::after,.btn--secondary:hover::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center;
     -webkit-transition: all .1s linear;
     transition: all .1s linear
 }
@@ -12529,15 +12529,15 @@ button.list__link-toggle:before {
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:focus::after,.btn--primary.btn--dark:focus::after,.btn--primary:focus::after,.btn--secondary.btn--dark:focus::after,.btn--secondary:focus::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:focus.expand::after,.btn--primary.btn--dark:focus.expand::after,.btn--primary:focus.expand::after,.btn--secondary.btn--dark:focus.expand::after,.btn--secondary:focus.expand::after {
-    background: url(/img/icons/icon-open-expand--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-open-expand--white.svg) no-repeat center
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:focus.download::after,.btn--primary.btn--dark:focus.download::after,.btn--primary:focus.download::after,.btn--secondary.btn--dark:focus.download::after,.btn--secondary:focus.download::after {
-    background: url(/img/icons/icon-download--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download--white.svg) no-repeat center
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:active,.active#ot-sdk-btn.ot-sdk-show-settings,.btn--primary.active,.btn--primary.btn--dark.active,.btn--primary.btn--dark:active,.btn--primary:active,.btn--secondary.active,.btn--secondary.btn--dark.active,.btn--secondary.btn--dark:active,.btn--secondary:active {
@@ -12547,7 +12547,7 @@ button.list__link-toggle:before {
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:active::after,.active#ot-sdk-btn.ot-sdk-show-settings::after,.btn--primary.active::after,.btn--primary.btn--dark.active::after,.btn--primary.btn--dark:active::after,.btn--primary:active::after,.btn--secondary.active::after,.btn--secondary.btn--dark.active::after,.btn--secondary.btn--dark:active::after,.btn--secondary:active::after {
-    background: url(/img/icons/icon-arrow--light-green.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--light-green.svg) no-repeat center
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:disabled,.btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.btn--primary.btn--dark.btn--disabled,.btn--primary.btn--dark.btn--disabled:focus,.btn--primary.btn--dark.btn--disabled:hover,.btn--primary.btn--dark:disabled,.btn--primary.btn--dark:disabled:focus,.btn--primary.btn--dark:disabled:hover,.btn--primary.btn--dark[disabled],.btn--primary.btn--dark[disabled]:focus,.btn--primary.btn--dark[disabled]:hover,.btn--primary.btn--disabled,.btn--primary.btn--disabled:focus,.btn--primary.btn--disabled:hover,.btn--primary:disabled,.btn--primary:disabled:focus,.btn--primary:disabled:hover,.btn--primary[disabled],.btn--primary[disabled]:focus,.btn--primary[disabled]:hover,.btn--secondary.btn--dark.btn--disabled,.btn--secondary.btn--dark.btn--disabled:focus,.btn--secondary.btn--dark.btn--disabled:hover,.btn--secondary.btn--dark:disabled,.btn--secondary.btn--dark:disabled:focus,.btn--secondary.btn--dark:disabled:hover,.btn--secondary.btn--dark[disabled],.btn--secondary.btn--dark[disabled]:focus,.btn--secondary.btn--dark[disabled]:hover,.btn--secondary.btn--disabled,.btn--secondary.btn--disabled:focus,.btn--secondary.btn--disabled:hover,.btn--secondary:disabled,.btn--secondary:disabled:focus,.btn--secondary:disabled:hover,.btn--secondary[disabled],.btn--secondary[disabled]:focus,.btn--secondary[disabled]:hover,[disabled]#ot-sdk-btn.ot-sdk-show-settings {
@@ -12559,7 +12559,7 @@ button.list__link-toggle:before {
 }
 
 #ot-sdk-btn.ot-sdk-show-settings:disabled::after,.btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.btn--primary.btn--dark.btn--disabled::after,.btn--primary.btn--dark.btn--disabled:focus::after,.btn--primary.btn--dark.btn--disabled:hover::after,.btn--primary.btn--dark:disabled::after,.btn--primary.btn--dark:disabled:focus::after,.btn--primary.btn--dark:disabled:hover::after,.btn--primary.btn--dark[disabled]::after,.btn--primary.btn--dark[disabled]:focus::after,.btn--primary.btn--dark[disabled]:hover::after,.btn--primary.btn--disabled::after,.btn--primary.btn--disabled:focus::after,.btn--primary.btn--disabled:hover::after,.btn--primary:disabled::after,.btn--primary:disabled:focus::after,.btn--primary:disabled:hover::after,.btn--primary[disabled]::after,.btn--primary[disabled]:focus::after,.btn--primary[disabled]:hover::after,.btn--secondary.btn--dark.btn--disabled::after,.btn--secondary.btn--dark.btn--disabled:focus::after,.btn--secondary.btn--dark.btn--disabled:hover::after,.btn--secondary.btn--dark:disabled::after,.btn--secondary.btn--dark:disabled:focus::after,.btn--secondary.btn--dark:disabled:hover::after,.btn--secondary.btn--dark[disabled]::after,.btn--secondary.btn--dark[disabled]:focus::after,.btn--secondary.btn--dark[disabled]:hover::after,.btn--secondary.btn--disabled::after,.btn--secondary.btn--disabled:focus::after,.btn--secondary.btn--disabled:hover::after,.btn--secondary:disabled::after,.btn--secondary:disabled:focus::after,.btn--secondary:disabled:hover::after,.btn--secondary[disabled]::after,.btn--secondary[disabled]:focus::after,.btn--secondary[disabled]:hover::after,[disabled]#ot-sdk-btn.ot-sdk-show-settings::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center
 }
 
 .btn--light#ot-sdk-btn.ot-sdk-show-settings:hover,.btn--primary.btn--light:hover,.btn--secondary.btn--light:hover {
@@ -12571,7 +12571,7 @@ button.list__link-toggle:before {
 }
 
 .btn--light#ot-sdk-btn.ot-sdk-show-settings:hover::after,.btn--primary.btn--light:hover::after,.btn--secondary.btn--light:hover::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center;
     -webkit-transition: all .1s linear;
     transition: all .1s linear
 }
@@ -12585,7 +12585,7 @@ button.list__link-toggle:before {
 }
 
 .btn--light#ot-sdk-btn.ot-sdk-show-settings:focus::after,.btn--primary.btn--light:focus::after,.btn--secondary.btn--light:focus::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center
 }
 
 .btn--light#ot-sdk-btn.ot-sdk-show-settings:active,.btn--light.active#ot-sdk-btn.ot-sdk-show-settings,.btn--primary.btn--light.active,.btn--primary.btn--light:active,.btn--secondary.btn--light.active,.btn--secondary.btn--light:active {
@@ -12595,7 +12595,7 @@ button.list__link-toggle:before {
 }
 
 .btn--light#ot-sdk-btn.ot-sdk-show-settings:active::after,.btn--light.active#ot-sdk-btn.ot-sdk-show-settings::after,.btn--primary.btn--light.active::after,.btn--primary.btn--light:active::after,.btn--secondary.btn--light.active::after,.btn--secondary.btn--light:active::after {
-    background: url(/img/icons/icon-arrow--cobalt.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg) no-repeat center
 }
 
 .btn--light#ot-sdk-btn.ot-sdk-show-settings:disabled,.btn--light.btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.btn--light[disabled]#ot-sdk-btn.ot-sdk-show-settings,.btn--primary.btn--light.btn--disabled,.btn--primary.btn--light.btn--disabled:focus,.btn--primary.btn--light.btn--disabled:hover,.btn--primary.btn--light:disabled,.btn--primary.btn--light:disabled:focus,.btn--primary.btn--light:disabled:hover,.btn--primary.btn--light[disabled],.btn--primary.btn--light[disabled]:focus,.btn--primary.btn--light[disabled]:hover,.btn--secondary.btn--light.btn--disabled,.btn--secondary.btn--light.btn--disabled:focus,.btn--secondary.btn--light.btn--disabled:hover,.btn--secondary.btn--light:disabled,.btn--secondary.btn--light:disabled:focus,.btn--secondary.btn--light:disabled:hover,.btn--secondary.btn--light[disabled],.btn--secondary.btn--light[disabled]:focus,.btn--secondary.btn--light[disabled]:hover {
@@ -12607,7 +12607,7 @@ button.list__link-toggle:before {
 }
 
 .btn--light#ot-sdk-btn.ot-sdk-show-settings:disabled::after,.btn--light.btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.btn--light[disabled]#ot-sdk-btn.ot-sdk-show-settings::after,.btn--primary.btn--light.btn--disabled::after,.btn--primary.btn--light.btn--disabled:focus::after,.btn--primary.btn--light.btn--disabled:hover::after,.btn--primary.btn--light:disabled::after,.btn--primary.btn--light:disabled:focus::after,.btn--primary.btn--light:disabled:hover::after,.btn--primary.btn--light[disabled]::after,.btn--primary.btn--light[disabled]:focus::after,.btn--primary.btn--light[disabled]:hover::after,.btn--secondary.btn--light.btn--disabled::after,.btn--secondary.btn--light.btn--disabled:focus::after,.btn--secondary.btn--light.btn--disabled:hover::after,.btn--secondary.btn--light:disabled::after,.btn--secondary.btn--light:disabled:focus::after,.btn--secondary.btn--light:disabled:hover::after,.btn--secondary.btn--light[disabled]::after,.btn--secondary.btn--light[disabled]:focus::after,.btn--secondary.btn--light[disabled]:hover::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center
 }
 
 #ot-sdk-btn.ot-sdk-show-settings,.btn--primary {
@@ -12625,75 +12625,75 @@ button.list__link-toggle:before {
 }
 
 .btn--secondary.btn--light::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center
 }
 
 .btn--download::after {
-    background: url(/img/icons/icon-download-darkblue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-darkblue.svg) no-repeat center
 }
 
 .btn--download.btn--dark:hover::after {
-    background: url(/img/icons/icon-download-white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-white.svg) no-repeat center
 }
 
 .btn--download.btn--dark:focus::after {
-    background: url(/img/icons/icon-download-white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-white.svg) no-repeat center
 }
 
 .btn--download.btn--dark.active::after,.btn--download.btn--dark:active::after {
-    background: url(/img/icons/icon-download-green.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-green.svg) no-repeat center
 }
 
 .btn--download.btn--dark.btn--disabled::after,.btn--download.btn--dark.btn--disabled:focus::after,.btn--download.btn--dark.btn--disabled:hover::after,.btn--download.btn--dark:disabled::after,.btn--download.btn--dark:disabled:focus::after,.btn--download.btn--dark:disabled:hover::after,.btn--download.btn--dark[disabled]::after,.btn--download.btn--dark[disabled]:focus::after,.btn--download.btn--dark[disabled]:hover::after {
-    background: url(/img/icons/icon-download-darkblue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-darkblue.svg) no-repeat center
 }
 
 .btn--download.btn--light.btn--secondary::after {
-    background: url(/img/icons/icon-download-white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-white.svg) no-repeat center
 }
 
 .btn--download.btn--light:hover::after {
-    background: url(/img/icons/icon-download-darkblue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-darkblue.svg) no-repeat center
 }
 
 .btn--download.btn--light:focus::after {
-    background: url(/img/icons/icon-download-cobalt.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-cobalt.svg) no-repeat center
 }
 
 .btn--download.btn--light.active::after,.btn--download.btn--light:active::after {
-    background: url(/img/icons/icon-download-cobalt.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-cobalt.svg) no-repeat center
 }
 
 .btn--download.btn--light.btn--disabled::after,.btn--download.btn--light.btn--disabled:focus::after,.btn--download.btn--light.btn--disabled:hover::after,.btn--download.btn--light:disabled::after,.btn--download.btn--light:disabled:focus::after,.btn--download.btn--light:disabled:hover::after,.btn--download.btn--light[disabled]::after,.btn--download.btn--light[disabled]:focus::after,.btn--download.btn--light[disabled]:hover::after {
-    background: url(/img/icons/icon-download-white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download-white.svg) no-repeat center
 }
 
 .btn--secondary.btn--external.btn--light::after {
-    background: url(/img/icons/icon-external--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-external--white.svg) no-repeat center
 }
 
 .btn--external.btn--dark.btn--disabled,.btn--external.btn--dark::after,.btn--external.btn--dark:disabled,.btn--external.btn--dark[disabled],.btn--external.btn--disabled,.btn--external::after,.btn--external:disabled,.btn--external[disabled] {
-    background: url(/img/icons/icon-external--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-external--dark-blue.svg) no-repeat center
 }
 
 .btn--external.btn--dark:focus::after,.btn--external.btn--dark:hover::after,.btn--external:focus::after,.btn--external:hover::after {
-    background: url(/img/icons/icon-external--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-external--white.svg) no-repeat center
 }
 
 .btn--external.active::after,.btn--external.btn--dark.active::after,.btn--external.btn--dark:active::after,.btn--external:active::after {
-    background: url(/img/icons/icon-external--light-green.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-external--light-green.svg) no-repeat center
 }
 
 .btn--external.btn--light::after,.btn--external.btn--light:focus::after,.btn--external.btn--light:hover::after {
-    background: url(/img/icons/icon-external--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-external--dark-blue.svg) no-repeat center
 }
 
 .btn--external.btn--light.active::after,.btn--external.btn--light:active::after {
-    background: url(/img/icons/icon-external--cobalt.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-external--cobalt.svg) no-repeat center
 }
 
 .btn--external.btn--light.btn--disabled,.btn--external.btn--light:disabled,.btn--external.btn--light[disabled] {
-    background: url(/img/icons/icon-external--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-external--white.svg) no-repeat center
 }
 
 .active .btn--close {
@@ -12714,15 +12714,15 @@ button.list__link-toggle:before {
 }
 
 .active .btn--close.btn--dark::after,.active .btn--close::after {
-    background: url(/img/icons/icon-close--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-close--dark-blue.svg) no-repeat center
 }
 
 .active .btn--close.btn--dark:focus::after,.active .btn--close.btn--dark:hover::after,.active .btn--close:focus::after,.active .btn--close:hover::after {
-    background: url(/img/icons/icon-close--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-close--white.svg) no-repeat center
 }
 
 .active .btn--close.active::after,.active .btn--close.btn--dark.active::after,.active .btn--close.btn--dark:active::after,.active .btn--close:active::after {
-    background: url(/img/icons/icon-close--light-green.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-close--light-green.svg) no-repeat center
 }
 
 .active .btn--close.btn--light {
@@ -12738,15 +12738,15 @@ button.list__link-toggle:before {
 }
 
 .active .btn--close.btn--light::after {
-    background: url(/img/icons/icon-close--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-close--white.svg) no-repeat center
 }
 
 .active .btn--close.btn--light:focus::after,.active .btn--close.btn--light:hover::after {
-    background: url(/img/icons/icon-close--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-close--dark-blue.svg) no-repeat center
 }
 
 .active .btn--close.btn--light.active::after,.active .btn--close.btn--light:active::after {
-    background: url(/img/icons/icon-close--cobalt.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-close--cobalt.svg) no-repeat center
 }
 
 .btn--tertiary {
@@ -13126,7 +13126,7 @@ a:hover .btn-delete path {
 }
 
 .btn--icon-rotate:before {
-    background: url(/img/icons/icon-chevron-right-large.svg) no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-right-large.svg) no-repeat;
     content: "";
     display: block;
     width: 9px;
@@ -13351,7 +13351,7 @@ a:hover .btn-delete path {
         right: 1rem;
         border: 0;
         margin-right: 0;
-        background: url(/img/icons/icon-close.svg) no-repeat;
+        background: url(/assets/cogesto-asset/Icons/icon-close.svg) no-repeat;
         position: absolute;
         z-index: 100;
         -webkit-transition: outline .2s ease-in-out;
@@ -13359,7 +13359,7 @@ a:hover .btn-delete path {
     }
 
     .btn--cross--medium[aria-expanded=true].active::after,.btn--cross--medium[aria-expanded=true]:active::after,.btn--cross--medium[aria-expanded=true]:focus::after,.btn--cross--medium[aria-expanded=true]:hover::after {
-        background: url(/img/icons/icon-close.svg) no-repeat
+        background: url(/assets/cogesto-asset/Icons/icon-close.svg) no-repeat
     }
 
     .btn--cross--medium[aria-expanded=true]:focus::after {
@@ -13427,7 +13427,7 @@ a:hover .btn-delete path {
 }
 
 .btn--search {
-    background: url(/img/icons/icon-search--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-search--dark-blue.svg) no-repeat center;
     right: 0
 }
 
@@ -13441,7 +13441,7 @@ a:hover .btn-delete path {
 }
 
 .btn--search:hover {
-    background: #010063 url(/img/icons/icon-search--white.svg) no-repeat center
+    background: #010063 url(/assets/cogesto-asset/Icons/icon-search--white.svg) no-repeat center
 }
 
 @media (min-width: 62.5em) {
@@ -13506,7 +13506,7 @@ a:hover .btn-delete path {
 }
 
 .on--search-modal .btn--search {
-    background: #010063 url(/img/icons/icon-close--white.svg) no-repeat center
+    background: #010063 url(/assets/cogesto-asset/Icons/icon-close--white.svg) no-repeat center
 }
 
 @media (min-width: 62.5em) {
@@ -13534,7 +13534,7 @@ a:hover .btn-delete path {
 }
 
 .btn-hamburger {
-    background: url(/img/icons/icon-menu--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-menu--dark-blue.svg) no-repeat center;
     color: #fff;
     position: absolute;
     right: 55px;
@@ -13557,7 +13557,7 @@ a:hover .btn-delete path {
 }
 
 .on--navigation .btn-hamburger {
-    background: url(/img/icons/icon-close--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-close--dark-blue.svg) no-repeat center;
     color: #fff
 }
 
@@ -13843,7 +13843,7 @@ a:hover .btn-delete path {
 
 @media (min-width: 90.1em) {
     .pdp-hero {
-        background-image:url(../img/branding/bg-store-hero-banner-extra-large.png)
+        background-image:url(/assets/cogesto-asset/bg-store-hero-banner-extra-large.png)
     }
 }
 
@@ -13855,7 +13855,7 @@ a:hover .btn-delete path {
 
 @media (min-width: 60em) and (max-width:90.1em) {
     .pdp-hero {
-        background-image:url(../img/branding/bg-store-hero-banner-large.png)
+        background-image:url(/assets/cogesto-asset/bg-store-hero-banner-large.png)
     }
 }
 
@@ -14383,8 +14383,8 @@ a:hover .btn-delete path {
 
 .wysiwyg-editor a[href^=http].link--dark::after,.wysiwyg-editor a[href^=http]:not(.btn):not(.store-btn)::after {
     background-color: #010063;
-    -webkit-mask-image: url(/img/icons/icon-external--dark-blue.svg);
-    mask-image: url(/img/icons/icon-external--dark-blue.svg);
+    -webkit-mask-image: url(/assets/cogesto-asset/Icons/icon-external--dark-blue.svg);
+    mask-image: url(/assets/cogesto-asset/Icons/icon-external--dark-blue.svg);
     -webkit-mask-position: 0 .25rem;
     mask-position: 0 .25rem;
     -webkit-mask-repeat: no-repeat;
@@ -14448,7 +14448,7 @@ a:hover .btn-delete path {
 }
 
 .white .wysiwyg-editor #ot-sdk-btn.ot-sdk-show-settings:hover::after,.white .wysiwyg-editor .btn--primary:hover::after,.wysiwyg-editor--mono #ot-sdk-btn.ot-sdk-show-settings:hover::after,.wysiwyg-editor--mono .btn--primary:hover::after,.wysiwyg-editor.white #ot-sdk-btn.ot-sdk-show-settings:hover::after,.wysiwyg-editor.white .btn--primary:hover::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center;
     -webkit-transition: all .1s linear;
     transition: all .1s linear
 }
@@ -14462,7 +14462,7 @@ a:hover .btn-delete path {
 }
 
 .white .wysiwyg-editor #ot-sdk-btn.ot-sdk-show-settings:focus::after,.white .wysiwyg-editor .btn--primary:focus::after,.wysiwyg-editor--mono #ot-sdk-btn.ot-sdk-show-settings:focus::after,.wysiwyg-editor--mono .btn--primary:focus::after,.wysiwyg-editor.white #ot-sdk-btn.ot-sdk-show-settings:focus::after,.wysiwyg-editor.white .btn--primary:focus::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center
 }
 
 .white .wysiwyg-editor #ot-sdk-btn.ot-sdk-show-settings:active,.white .wysiwyg-editor .active#ot-sdk-btn.ot-sdk-show-settings,.white .wysiwyg-editor .btn--primary.active,.white .wysiwyg-editor .btn--primary:active,.wysiwyg-editor--mono #ot-sdk-btn.ot-sdk-show-settings:active,.wysiwyg-editor--mono .active#ot-sdk-btn.ot-sdk-show-settings,.wysiwyg-editor--mono .btn--primary.active,.wysiwyg-editor--mono .btn--primary:active,.wysiwyg-editor.white #ot-sdk-btn.ot-sdk-show-settings:active,.wysiwyg-editor.white .active#ot-sdk-btn.ot-sdk-show-settings,.wysiwyg-editor.white .btn--primary.active,.wysiwyg-editor.white .btn--primary:active {
@@ -14472,7 +14472,7 @@ a:hover .btn-delete path {
 }
 
 .white .wysiwyg-editor #ot-sdk-btn.ot-sdk-show-settings:active::after,.white .wysiwyg-editor .active#ot-sdk-btn.ot-sdk-show-settings::after,.white .wysiwyg-editor .btn--primary.active::after,.white .wysiwyg-editor .btn--primary:active::after,.wysiwyg-editor--mono #ot-sdk-btn.ot-sdk-show-settings:active::after,.wysiwyg-editor--mono .active#ot-sdk-btn.ot-sdk-show-settings::after,.wysiwyg-editor--mono .btn--primary.active::after,.wysiwyg-editor--mono .btn--primary:active::after,.wysiwyg-editor.white #ot-sdk-btn.ot-sdk-show-settings:active::after,.wysiwyg-editor.white .active#ot-sdk-btn.ot-sdk-show-settings::after,.wysiwyg-editor.white .btn--primary.active::after,.wysiwyg-editor.white .btn--primary:active::after {
-    background: url(/img/icons/icon-arrow--cobalt.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg) no-repeat center
 }
 
 .white .wysiwyg-editor #ot-sdk-btn.ot-sdk-show-settings:disabled,.white .wysiwyg-editor .btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.white .wysiwyg-editor .btn--primary.btn--disabled,.white .wysiwyg-editor .btn--primary.btn--disabled:focus,.white .wysiwyg-editor .btn--primary.btn--disabled:hover,.white .wysiwyg-editor .btn--primary:disabled,.white .wysiwyg-editor .btn--primary:disabled:focus,.white .wysiwyg-editor .btn--primary:disabled:hover,.white .wysiwyg-editor .btn--primary[disabled],.white .wysiwyg-editor .btn--primary[disabled]:focus,.white .wysiwyg-editor .btn--primary[disabled]:hover,.white .wysiwyg-editor [disabled]#ot-sdk-btn.ot-sdk-show-settings,.wysiwyg-editor--mono #ot-sdk-btn.ot-sdk-show-settings:disabled,.wysiwyg-editor--mono .btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.wysiwyg-editor--mono .btn--primary.btn--disabled,.wysiwyg-editor--mono .btn--primary.btn--disabled:focus,.wysiwyg-editor--mono .btn--primary.btn--disabled:hover,.wysiwyg-editor--mono .btn--primary:disabled,.wysiwyg-editor--mono .btn--primary:disabled:focus,.wysiwyg-editor--mono .btn--primary:disabled:hover,.wysiwyg-editor--mono .btn--primary[disabled],.wysiwyg-editor--mono .btn--primary[disabled]:focus,.wysiwyg-editor--mono .btn--primary[disabled]:hover,.wysiwyg-editor--mono [disabled]#ot-sdk-btn.ot-sdk-show-settings,.wysiwyg-editor.white #ot-sdk-btn.ot-sdk-show-settings:disabled,.wysiwyg-editor.white .btn--disabled#ot-sdk-btn.ot-sdk-show-settings,.wysiwyg-editor.white .btn--primary.btn--disabled,.wysiwyg-editor.white .btn--primary.btn--disabled:focus,.wysiwyg-editor.white .btn--primary.btn--disabled:hover,.wysiwyg-editor.white .btn--primary:disabled,.wysiwyg-editor.white .btn--primary:disabled:focus,.wysiwyg-editor.white .btn--primary:disabled:hover,.wysiwyg-editor.white .btn--primary[disabled],.wysiwyg-editor.white .btn--primary[disabled]:focus,.wysiwyg-editor.white .btn--primary[disabled]:hover,.wysiwyg-editor.white [disabled]#ot-sdk-btn.ot-sdk-show-settings {
@@ -14484,7 +14484,7 @@ a:hover .btn-delete path {
 }
 
 .white .wysiwyg-editor #ot-sdk-btn.ot-sdk-show-settings:disabled::after,.white .wysiwyg-editor .btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.white .wysiwyg-editor .btn--primary.btn--disabled::after,.white .wysiwyg-editor .btn--primary.btn--disabled:focus::after,.white .wysiwyg-editor .btn--primary.btn--disabled:hover::after,.white .wysiwyg-editor .btn--primary:disabled::after,.white .wysiwyg-editor .btn--primary:disabled:focus::after,.white .wysiwyg-editor .btn--primary:disabled:hover::after,.white .wysiwyg-editor .btn--primary[disabled]::after,.white .wysiwyg-editor .btn--primary[disabled]:focus::after,.white .wysiwyg-editor .btn--primary[disabled]:hover::after,.white .wysiwyg-editor [disabled]#ot-sdk-btn.ot-sdk-show-settings::after,.wysiwyg-editor--mono #ot-sdk-btn.ot-sdk-show-settings:disabled::after,.wysiwyg-editor--mono .btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.wysiwyg-editor--mono .btn--primary.btn--disabled::after,.wysiwyg-editor--mono .btn--primary.btn--disabled:focus::after,.wysiwyg-editor--mono .btn--primary.btn--disabled:hover::after,.wysiwyg-editor--mono .btn--primary:disabled::after,.wysiwyg-editor--mono .btn--primary:disabled:focus::after,.wysiwyg-editor--mono .btn--primary:disabled:hover::after,.wysiwyg-editor--mono .btn--primary[disabled]::after,.wysiwyg-editor--mono .btn--primary[disabled]:focus::after,.wysiwyg-editor--mono .btn--primary[disabled]:hover::after,.wysiwyg-editor--mono [disabled]#ot-sdk-btn.ot-sdk-show-settings::after,.wysiwyg-editor.white #ot-sdk-btn.ot-sdk-show-settings:disabled::after,.wysiwyg-editor.white .btn--disabled#ot-sdk-btn.ot-sdk-show-settings::after,.wysiwyg-editor.white .btn--primary.btn--disabled::after,.wysiwyg-editor.white .btn--primary.btn--disabled:focus::after,.wysiwyg-editor.white .btn--primary.btn--disabled:hover::after,.wysiwyg-editor.white .btn--primary:disabled::after,.wysiwyg-editor.white .btn--primary:disabled:focus::after,.wysiwyg-editor.white .btn--primary:disabled:hover::after,.wysiwyg-editor.white .btn--primary[disabled]::after,.wysiwyg-editor.white .btn--primary[disabled]:focus::after,.wysiwyg-editor.white .btn--primary[disabled]:hover::after,.wysiwyg-editor.white [disabled]#ot-sdk-btn.ot-sdk-show-settings::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center
 }
 
 @font-face {
@@ -15255,12 +15255,12 @@ button.swiper-pagination-bullet {
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background: url(/img/icons/icon-plus.svg) no-repeat center right;
+    background: url(/assets/cogesto-asset/Icons/icon-plus.svg) no-repeat center right;
     padding-right: 24px
 }
 
 .c-accordion__trigger[aria-expanded=true] {
-    background: url(/img/icons/icon-minus.svg) no-repeat center right
+    background: url(/assets/cogesto-asset/Icons/icon-minus.svg) no-repeat center right
 }
 
 .c-accordion__trigger img {
@@ -15510,12 +15510,12 @@ button.swiper-pagination-bullet {
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background: url(/img/icons/icon-plus-blue.svg) no-repeat center right;
+    background: url(/assets/cogesto-asset/Icons/icon-plus-blue.svg) no-repeat center right;
     padding-right: 24px
 }
 
 .c-accordionblock__trigger[aria-expanded=true] {
-    background: url(/img/icons/icon-close-blue.svg) no-repeat center right
+    background: url(/assets/cogesto-asset/Icons/icon-close-blue.svg) no-repeat center right
 }
 
 .c-accordionblock__trigger img {
@@ -16605,7 +16605,7 @@ button.swiper-pagination-bullet {
 }
 
 .tabs-accordion__section-title:after {
-    background: url(/img/icons/icon-chevron-right-large.svg) no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-right-large.svg) no-repeat;
     background-size: 90%;
     content: "";
     display: block;
@@ -18182,7 +18182,7 @@ body.has-modal {
 }
 
 .hero--podcast:after {
-    background-image: url(/img/icons/icon-soundwave-white.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-soundwave-white.svg);
     background-size: contain;
     background-position: right center;
     background-repeat: no-repeat;
@@ -18744,7 +18744,7 @@ body.has-modal {
 
 @media (min-width: 48em) {
     .hero-brand {
-        background-image:url(../img/branding/lens-01.svg);
+        background-image:url(/assets/cogesto-asset/lens-01.svg);
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-position: right 30%
@@ -19392,7 +19392,7 @@ body.has-modal {
 }
 
 .hero_product_cobalt_theme {
-    background-image: url(/content/img/branding/product-hero-large-theme-cobalt.png);
+    background-image: url(/assets/cogesto-asset/product-hero-large-theme-cobalt.png);
     background-repeat: no-repeat;
     background-position-x: 48%
 }
@@ -19411,7 +19411,7 @@ body.has-modal {
 }
 
 .hero_product_cobalt_theme_small {
-    background-image: url(/content/img/branding/product-hero-mobile-theme-cobalt.png);
+    background-image: url(/assets/cogesto-asset/product-hero-mobile-theme-cobalt.png);
     background-repeat: no-repeat;
     background-size: contain;
     height: 153px
@@ -19424,7 +19424,7 @@ body.has-modal {
 }
 
 .hero_product_light_theme {
-    background-image: url(/content/img/branding/product-hero-large-theme-white.png);
+    background-image: url(/assets/cogesto-asset/product-hero-large-theme-white.png);
     background-repeat: no-repeat;
     background-position-x: 48%
 }
@@ -19442,7 +19442,7 @@ body.has-modal {
 }
 
 .hero_product_light_theme_small {
-    background-image: url(/content/img/branding/product-hero-mobile-theme-white.png);
+    background-image: url(/assets/cogesto-asset/product-hero-mobile-theme-white.png);
     background-repeat: no-repeat;
     background-size: contain;
     height: 153px
@@ -19714,7 +19714,7 @@ body.has-modal {
 }
 
 .hero_individual_product_cobalt_theme {
-    background-image: url(/content/img/branding/product-hero-white-keyline.png);
+    background-image: url(/assets/cogesto-asset/product-hero-white-keyline.png);
     background-repeat: no-repeat;
     background-size: contain;
     min-height: 260px;
@@ -19750,7 +19750,7 @@ body.has-modal {
 }
 
 .hero_individual_product_white_theme {
-    background-image: url(/content/img/branding/product-hero-cobalt-keyline.png);
+    background-image: url(/assets/cogesto-asset/product-hero-cobalt-keyline.png);
     background-repeat: no-repeat;
     background-size: contain;
     min-height: 260px;
@@ -20183,209 +20183,209 @@ body.has-modal {
 
 @media (max-width: 16.25em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape_white,.hero-multi-template__container.template_position_top .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-white-260.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-white-260.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 16.3125em) and (max-width:25em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape_white,.hero-multi-template__container.template_position_top .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-white-360.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-white-360.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 25.0625em) and (max-width:29.6875em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape_white,.hero-multi-template__container.template_position_top .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-white-475.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-white-475.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 29.75em) and (max-width:37.5em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape_white,.hero-multi-template__container.template_position_top .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-white-625.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-white-625.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 37.5625em) and (max-width:52.5em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape_white,.hero-multi-template__container.template_position_top .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-white-820.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-white-820.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 52.5625em) and (max-width:63.9375em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape_white,.hero-multi-template__container.template_position_top .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-white-1024.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-white-1024.png);
         background-size: 100% 100%
     }
 }
 
 @media (max-width: 16.25em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape,.hero-multi-template__container.template_position_top .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-260.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-260.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 16.3125em) and (max-width:25em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape,.hero-multi-template__container.template_position_top .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-360.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-360.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 25.0625em) and (max-width:29.6875em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape,.hero-multi-template__container.template_position_top .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-475.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-475.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 29.75em) and (max-width:37.5em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape,.hero-multi-template__container.template_position_top .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-625.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-625.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 37.5625em) and (max-width:52.5em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape,.hero-multi-template__container.template_position_top .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-820.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-820.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 52.5625em) and (max-width:63.9375em) {
     .hero-multi-template__container.template_position_center .hero-multi-template__shape,.hero-multi-template__container.template_position_top .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-top-flex-mobile-1024.png);
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-mobile-1024.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 64em) {
     .hero-multi-template__container.template_position_center.template_style_tall .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-center-flex-header-blue-background-large.png)
+        background-image:url(/assets/cogesto-asset/hero-template-center-flex-header-blue-background-large.png)
     }
 
     .hero-multi-template__container.template_position_center.template_style_tall .hero-multi-template__shape_white {
-        background-image: url(../img/branding/hero-template-center-flex-header-white-background-large.png)
+        background-image: url(/assets/cogesto-asset/hero-template-center-flex-header-white-background-large.png)
     }
 
     .hero-multi-template__container.template_position_center.template_style_medium .hero-multi-template__shape {
-        background-image: url(../img/branding/hero-template-center-flex-header-blue-background-medium.png)
+        background-image: url(/assets/cogesto-asset/hero-template-center-flex-header-blue-background-medium.png)
     }
 
     .hero-multi-template__container.template_position_center.template_style_medium .hero-multi-template__shape_white {
-        background-image: url(../img/branding/hero-template-center-flex-header-white-background-medium.png)
+        background-image: url(/assets/cogesto-asset/hero-template-center-flex-header-white-background-medium.png)
     }
 }
 
 @media (min-width: 64em) {
     .hero-multi-template__container.template_position_top.template_style_medium .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-top-flex-header-blue-background-medium.png)
+        background-image:url(/assets/cogesto-asset/hero-template-top-flex-header-blue-background-medium.png)
     }
 
     .hero-multi-template__container.template_position_top.template_style_medium .hero-multi-template__shape_white {
-        background-image: url(../img/branding/hero-template-top-flex-header-white-background-medium.png)
+        background-image: url(/assets/cogesto-asset/hero-template-top-flex-header-white-background-medium.png)
     }
 }
 
 @media (max-width: 16.25em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-260.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-260.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 16.3125em) and (max-width:25em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-360.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-360.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 25.0625em) and (max-width:29.6875em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-475.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-475.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 29.75em) and (max-width:37.5em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-625.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-625.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 37.5625em) and (max-width:52.5em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-820.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-820.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 52.5625em) and (max-width:63.9375em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-1024.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-1024.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 64em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape {
-        background-image:url(../img/branding/hero-template-bottom-flex-header-blue-background-medium.png)
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-header-blue-background-medium.png)
     }
 }
 
 @media (max-width: 16.25em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-white-260.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-white-260.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 16.3125em) and (max-width:25em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-white-360.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-white-360.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 25.0625em) and (max-width:29.6875em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-white-475.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-white-475.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 29.75em) and (max-width:37.5em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-white-625.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-white-625.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 37.5625em) and (max-width:52.5em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-white-820.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-white-820.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 52.5625em) and (max-width:63.9375em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-bottom-flex-mobile-white-1024.png);
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-mobile-white-1024.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 64em) {
     .hero-multi-template__container.template_position_bottom .hero-multi-template__shape_white {
-        background-image:url(../img/branding/hero-template-bottom-flex-header-white-background-medium.png)
+        background-image:url(/assets/cogesto-asset/hero-template-bottom-flex-header-white-background-medium.png)
     }
 }
 
@@ -20698,7 +20698,7 @@ body.has-modal {
 
 .c-hero-video__video-wrapper .w-big-play-button::after {
     content: "";
-    background: url(/img/icons/icon-play-circle.svg) no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-play-circle.svg) no-repeat;
     height: 64px;
     width: 64px;
     position: absolute;
@@ -21178,7 +21178,7 @@ body.has-modal {
 
 .lens-video .lens-video__play::after {
     content: "";
-    background-image: url(/img/icons/icon-video-play.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-video-play.svg);
     background-repeat: no-repeat;
     height: 49px;
     width: 49px
@@ -21220,7 +21220,7 @@ body.has-modal {
 
 .lens-video .w-big-play-button::after {
     content: "";
-    background-image: url(/img/icons/icon-lens-play.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-lens-play.svg);
     background-repeat: no-repeat;
     height: 49px;
     width: 49px;
@@ -21919,11 +21919,11 @@ body.has-modal {
     -webkit-transform: translateX(2px);
     -ms-transform: translateX(2px);
     transform: translateX(2px);
-    background-image: url(/img/icons/icon-play-v2-white.svg)
+    background-image: url(/assets/cogesto-asset/Icons/icon-play-v2-white.svg)
 }
 
 .c-wm-video .c-wm-video__play:focus::after,.c-wm-video .c-wm-video__play:hover::after {
-    background: url(/img/icons/icon-play--hover.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-play--hover.svg) no-repeat center
 }
 
 .c-wm-video .w-bpb-wrapper {
@@ -21973,11 +21973,11 @@ body.has-modal {
 }
 
 .c-wm-video .c-wm-video__wrapper .cm-wm-video__play::after,.c-wm-video .c-wm-video__wrapper .w-big-play-button::after {
-    background-image: url(/img/icons/icon-play-v2-white.svg)
+    background-image: url(/assets/cogesto-asset/Icons/icon-play-v2-white.svg)
 }
 
 .c-wm-video .c-wm-video__wrapper .cm-wm-video__play:focus::after,.c-wm-video .c-wm-video__wrapper .cm-wm-video__play:hover::after,.c-wm-video .c-wm-video__wrapper .w-big-play-button:focus::after,.c-wm-video .c-wm-video__wrapper .w-big-play-button:hover::after {
-    background: url(/img/icons/icon-play--hover.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-play--hover.svg) no-repeat center
 }
 
 .c-wm-video .c-wm-video__wrapper.bg-primary-color .c-wm-video__play,.c-wm-video .c-wm-video__wrapper.bg-secondary-color .c-wm-video__play {
@@ -21990,11 +21990,11 @@ body.has-modal {
 }
 
 .c-wm-video .c-wm-video__wrapper.bg-primary-color .cm-wm-video__play::after,.c-wm-video .c-wm-video__wrapper.bg-primary-color .w-big-play-button::after,.c-wm-video .c-wm-video__wrapper.bg-secondary-color .cm-wm-video__play::after,.c-wm-video .c-wm-video__wrapper.bg-secondary-color .w-big-play-button::after {
-    background-image: url(/img/icons/icon-play-v2-white.svg)
+    background-image: url(/assets/cogesto-asset/Icons/icon-play-v2-white.svg)
 }
 
 .c-wm-video .c-wm-video__wrapper.bg-primary-color .cm-wm-video__play:focus::after,.c-wm-video .c-wm-video__wrapper.bg-primary-color .cm-wm-video__play:hover::after,.c-wm-video .c-wm-video__wrapper.bg-primary-color .w-big-play-button:focus::after,.c-wm-video .c-wm-video__wrapper.bg-primary-color .w-big-play-button:hover::after,.c-wm-video .c-wm-video__wrapper.bg-secondary-color .cm-wm-video__play:focus::after,.c-wm-video .c-wm-video__wrapper.bg-secondary-color .cm-wm-video__play:hover::after,.c-wm-video .c-wm-video__wrapper.bg-secondary-color .w-big-play-button:focus::after,.c-wm-video .c-wm-video__wrapper.bg-secondary-color .w-big-play-button:hover::after {
-    background: url(/img/icons/icon-play--hover.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-play--hover.svg) no-repeat center
 }
 
 @media (min-width: 48em) {
@@ -22314,7 +22314,7 @@ body.has-modal {
 .carousel .swiper-button-next,.carousel .swiper-button-prev {
     width: 2.5rem;
     height: 2.5rem;
-    background: url(/img/icons/icon-arrow--cobalt.svg) 55% no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg) 55% no-repeat;
     border: .08rem solid #0024ff;
     background-color: #fff;
     -webkit-border-radius: 50%;
@@ -22349,7 +22349,7 @@ body.has-modal {
 .carousel .swiper-button-next.swiper-button-disabled,.carousel .swiper-button-prev.swiper-button-disabled {
     opacity: 1;
     border: .08rem solid #ced5ff;
-    background: url(/img/icons/icon-arrow--inactive.svg) 55% no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--inactive.svg) 55% no-repeat;
     background-color: #fff
 }
 
@@ -22404,7 +22404,7 @@ body.has-modal {
         -webkit-transform:rotate(180deg);
         -ms-transform: rotate(180deg);
         transform: rotate(180deg);
-        background: url(/img/icons/icon-commodity-arrow.svg) 55% no-repeat
+        background: url(/assets/cogesto-asset/Icons/icon-commodity-arrow.svg) 55% no-repeat
     }
 }
 
@@ -22447,7 +22447,7 @@ body.has-modal {
 
 @media (min-width: 60em) {
     .carousel .swiper-control-right .swiper-button-right {
-        background:url(/img/icons/icon-commodity-arrow.svg) 55% no-repeat
+        background:url(/assets/cogesto-asset/Icons/icon-commodity-arrow.svg) 55% no-repeat
     }
 }
 
@@ -22485,7 +22485,7 @@ body.has-modal {
 }
 
 .carousel.black-controls .swiper-button-next,.carousel.black-controls .swiper-button-prev {
-    background: url(/img/icons/icon-chevron-right-large--black.svg) 55% no-repeat
+    background: url(/assets/cogesto-asset/Icons/icon-chevron-right-large--black.svg) 55% no-repeat
 }
 
 .carousel.black-controls .swiper-pagination-bullet-active {
@@ -22656,7 +22656,7 @@ body.has-modal {
 .product-carousel .swiper-button-next,.product-carousel .swiper-button-prev {
     width: 40px;
     height: auto;
-    background: url(/img/icons/icon-commodity-arrow.svg) 55% no-repeat
+    background: url(/assets/cogesto-asset/Icons/icon-commodity-arrow.svg) 55% no-repeat
 }
 
 .product-carousel .swiper-button-next::after,.product-carousel .swiper-button-prev::after {
@@ -22707,7 +22707,7 @@ body.has-modal {
 }
 
 .product-carousel .product-carousel-link::after {
-    background: url(/img/icons/icon-arrow--dark-blue.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg) no-repeat center;
     display: inline-block;
     content: "";
     margin-left: .75rem;
@@ -23155,7 +23155,7 @@ body.has-modal {
 .horizons-quote:after,.horizons-quote:before {
     content: "";
     display: inline-block;
-    background: url(/img/icons/icon-quote-open.svg) top no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-quote-open.svg) top no-repeat;
     width: 24px;
     height: 31px;
     margin-right: -5px
@@ -23170,7 +23170,7 @@ body.has-modal {
 }
 
 .horizons-quote:after {
-    background: url(/img/icons/icon-quote-close.svg) top no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-quote-close.svg) top no-repeat;
     position: absolute;
     bottom: 16px;
     height: 20px;
@@ -23193,14 +23193,14 @@ body.has-modal {
 
 @media (min-width: 48em) {
     .horizons-quote:after,.horizons-quote:before {
-        background:url(/img/icons/icon-quote-open.svg) top no-repeat;
+        background:url(/assets/cogesto-asset/Icons/icon-quote-open.svg) top no-repeat;
         width: 24px;
         height: 53px;
         margin-right: 5px
     }
 
     .horizons-quote:after {
-        background: url(/img/icons/icon-quote-close.svg) top no-repeat;
+        background: url(/assets/cogesto-asset/Icons/icon-quote-close.svg) top no-repeat;
         position: absolute;
         bottom: 32px;
         height: 19px;
@@ -23209,11 +23209,11 @@ body.has-modal {
 }
 
 .white .horizons-quote:before {
-    background: url(/img/icons/icon-quote-open--white.svg) top no-repeat
+    background: url(/assets/cogesto-asset/Icons/icon-quote-open--white.svg) top no-repeat
 }
 
 .white .horizons-quote:after {
-    background: url(/img/icons/icon-quote-close--white.svg) top no-repeat
+    background: url(/assets/cogesto-asset/Icons/icon-quote-close--white.svg) top no-repeat
 }
 
 @media (max-width: 23.438em) {
@@ -24952,14 +24952,14 @@ body.has-modal {
     position: absolute;
     padding-top: .125rem;
     padding-left: .5rem;
-    content: url(/img/icons/icon-arrow--cobalt.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg)
 }
 
 .link-icon--modal::after {
     position: absolute;
     padding-top: .125rem;
     padding-left: .5rem;
-    content: url(/img/icons/icon-open-expand.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-open-expand.svg)
 }
 
 .services-card__title {
@@ -25052,12 +25052,12 @@ body.has-modal {
     -moz-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background: url(/img/icons/plus-icon.svg) no-repeat center right;
+    background: url(/assets/cogesto-asset/Icons/plus-icon.svg) no-repeat center right;
     padding-right: 24px
 }
 
 .services-accordionblock__trigger[aria-expanded=true] {
-    background: url(/img/icons/close-icon.svg) no-repeat center right
+    background: url(/assets/cogesto-asset/Icons/close-icon.svg) no-repeat center right
 }
 
 .services-accordionblock__item__title {
@@ -25401,49 +25401,49 @@ body.has-modal {
 
 @media (max-width: 16.25em) {
     .hero-homepage-template__container.template_position_center .hero-homepage-template__shape,.hero-homepage-template__container.template_position_top .hero-homepage-template__shape {
-        background-image:url(../img/branding/hero-homepage-white-260x150.png);
+        background-image:url(/assets/cogesto-asset/hero-homepage-white-260x150.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 16.3125em) and (max-width:25em) {
     .hero-homepage-template__container.template_position_center .hero-homepage-template__shape,.hero-homepage-template__container.template_position_top .hero-homepage-template__shape {
-        background-image:url(../img/branding/hero-homepage-white-360x150.png);
+        background-image:url(/assets/cogesto-asset/hero-homepage-white-360x150.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 25.0625em) and (max-width:29.6875em) {
     .hero-homepage-template__container.template_position_center .hero-homepage-template__shape,.hero-homepage-template__container.template_position_top .hero-homepage-template__shape {
-        background-image:url(../img/branding/hero-homepage-white-475x150.png);
+        background-image:url(/assets/cogesto-asset/hero-homepage-white-475x150.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 29.75em) and (max-width:37.5em) {
     .hero-homepage-template__container.template_position_center .hero-homepage-template__shape,.hero-homepage-template__container.template_position_top .hero-homepage-template__shape {
-        background-image:url(../img/branding/hero-homepage-white-625x200.png);
+        background-image:url(/assets/cogesto-asset/hero-homepage-white-625x200.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 37.5625em) and (max-width:52.5em) {
     .hero-homepage-template__container.template_position_center .hero-homepage-template__shape,.hero-homepage-template__container.template_position_top .hero-homepage-template__shape {
-        background-image:url(../img/branding/hero-homepage-white-820x250.png);
+        background-image:url(/assets/cogesto-asset/hero-homepage-white-820x250.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 52.5625em) and (max-width:59.9375em) {
     .hero-homepage-template__container.template_position_center .hero-homepage-template__shape,.hero-homepage-template__container.template_position_top .hero-homepage-template__shape {
-        background-image:url(../img/branding/hero-homepage-white-1024x300.png);
+        background-image:url(/assets/cogesto-asset/hero-homepage-white-1024x300.png);
         background-size: 100% 100%
     }
 }
 
 @media (min-width: 60em) {
     .hero-homepage-template__container.template_position_center.template_style_tall .hero-homepage-template__shape {
-        background-image:url(../img/branding/hero-homepage-flex-white-cropped.png);
+        background-image:url(/assets/cogesto-asset/hero-homepage-flex-white-cropped.png);
         width: 450px
     }
 }
@@ -25822,24 +25822,24 @@ body.has-modal {
 }
 
 .homepage-gradients-wrapper {
-    background: url(../img/branding/bg-nodes-network-4x.png) right 10%/45vw no-repeat,radial-gradient(circle 15vw at 67vw 47vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 10vw at 85vw 40vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 25vw at 81vw 70vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 28vw at left 138vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 20vw at 75vw 152vh,rgba(158,237,150,.4) 0,transparent 100%),-webkit-gradient(linear,left top,left bottom,from(#0024ff),color-stop(33.33%,#010063),color-stop(33.34%,#010063),color-stop(66.66%,#0024ff),color-stop(66.67%,#0024ff),to(#010063));
-    background: url(../img/branding/bg-nodes-network-4x.png) right 10%/45vw no-repeat,-webkit-radial-gradient(67vw 47vh,circle 15vw,rgba(0,213,255,.5) 0,transparent 100%),-webkit-radial-gradient(85vw 40vh,circle 10vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-radial-gradient(81vw 70vh,circle 25vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(left 138vh,circle 28vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(75vw 152vh,circle 20vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-linear-gradient(top,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%);
-    background: url(../img/branding/bg-nodes-network-4x.png) right 10%/45vw no-repeat,radial-gradient(circle 15vw at 67vw 47vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 10vw at 85vw 40vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 25vw at 81vw 70vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 28vw at left 138vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 20vw at 75vw 152vh,rgba(158,237,150,.4) 0,transparent 100%),linear-gradient(to bottom,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%)
+    background: url(/assets/cogesto-asset/bg-nodes-network-4x.png) right 10%/45vw no-repeat,radial-gradient(circle 15vw at 67vw 47vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 10vw at 85vw 40vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 25vw at 81vw 70vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 28vw at left 138vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 20vw at 75vw 152vh,rgba(158,237,150,.4) 0,transparent 100%),-webkit-gradient(linear,left top,left bottom,from(#0024ff),color-stop(33.33%,#010063),color-stop(33.34%,#010063),color-stop(66.66%,#0024ff),color-stop(66.67%,#0024ff),to(#010063));
+    background: url(/assets/cogesto-asset/bg-nodes-network-4x.png) right 10%/45vw no-repeat,-webkit-radial-gradient(67vw 47vh,circle 15vw,rgba(0,213,255,.5) 0,transparent 100%),-webkit-radial-gradient(85vw 40vh,circle 10vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-radial-gradient(81vw 70vh,circle 25vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(left 138vh,circle 28vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(75vw 152vh,circle 20vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-linear-gradient(top,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%);
+    background: url(/assets/cogesto-asset/bg-nodes-network-4x.png) right 10%/45vw no-repeat,radial-gradient(circle 15vw at 67vw 47vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 10vw at 85vw 40vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 25vw at 81vw 70vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 28vw at left 138vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 20vw at 75vw 152vh,rgba(158,237,150,.4) 0,transparent 100%),linear-gradient(to bottom,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%)
 }
 
 @media (max-width: 47.99875em) {
     .homepage-gradients-wrapper {
-        background:url(../img/branding/bg-nodes-network-centred-4x.png) center top/contain no-repeat,radial-gradient(circle 35vw at 30vw 5vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 20vw at 52vw 1vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 35vw at 65vw 10vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 35vw at left 120vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 50vw at 85vw 140vh,rgba(158,237,150,.4) 0,transparent 100%),-webkit-gradient(linear,left top,left bottom,from(#0024ff),color-stop(33.33%,#010063),color-stop(33.34%,#010063),color-stop(66.66%,#0024ff),color-stop(66.67%,#0024ff),to(#010063));
-        background: url(../img/branding/bg-nodes-network-centred-4x.png) center top/contain no-repeat,-webkit-radial-gradient(30vw 5vh,circle 35vw,rgba(0,213,255,.5) 0,transparent 100%),-webkit-radial-gradient(52vw 1vh,circle 20vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-radial-gradient(65vw 10vh,circle 35vw,rgba(216,52,214,.75) 0,transparent 100%),-webkit-radial-gradient(left 120vh,circle 35vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(85vw 140vh,circle 50vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-linear-gradient(top,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%);
-        background: url(../img/branding/bg-nodes-network-centred-4x.png) center top/contain no-repeat,radial-gradient(circle 35vw at 30vw 5vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 20vw at 52vw 1vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 35vw at 65vw 10vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 35vw at left 120vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 50vw at 85vw 140vh,rgba(158,237,150,.4) 0,transparent 100%),linear-gradient(to bottom,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%)
+        background:url(/assets/cogesto-asset/bg-nodes-network-centred-4x.png) center top/contain no-repeat,radial-gradient(circle 35vw at 30vw 5vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 20vw at 52vw 1vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 35vw at 65vw 10vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 35vw at left 120vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 50vw at 85vw 140vh,rgba(158,237,150,.4) 0,transparent 100%),-webkit-gradient(linear,left top,left bottom,from(#0024ff),color-stop(33.33%,#010063),color-stop(33.34%,#010063),color-stop(66.66%,#0024ff),color-stop(66.67%,#0024ff),to(#010063));
+        background: url(/assets/cogesto-asset/bg-nodes-network-centred-4x.png) center top/contain no-repeat,-webkit-radial-gradient(30vw 5vh,circle 35vw,rgba(0,213,255,.5) 0,transparent 100%),-webkit-radial-gradient(52vw 1vh,circle 20vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-radial-gradient(65vw 10vh,circle 35vw,rgba(216,52,214,.75) 0,transparent 100%),-webkit-radial-gradient(left 120vh,circle 35vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(85vw 140vh,circle 50vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-linear-gradient(top,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%);
+        background: url(/assets/cogesto-asset/bg-nodes-network-centred-4x.png) center top/contain no-repeat,radial-gradient(circle 35vw at 30vw 5vh,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 20vw at 52vw 1vh,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 35vw at 65vw 10vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 35vw at left 120vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 50vw at 85vw 140vh,rgba(158,237,150,.4) 0,transparent 100%),linear-gradient(to bottom,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%)
     }
 }
 
 @media (max-width: 37.5em) {
     .homepage-gradients-wrapper {
-        background:url(../img/branding/bg-nodes-network-centred-4x.png) center -10vw/180vw no-repeat,radial-gradient(circle 50vw at 20vw top,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 30vw at 58vw top,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 70vw at right 5vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 60vw at left 142vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 120vw at 145vw 165vh,rgba(158,237,150,.4) 0,transparent 100%),-webkit-gradient(linear,left top,left bottom,from(#0024ff),color-stop(33.33%,#010063),color-stop(33.34%,#010063),color-stop(66.66%,#0024ff),color-stop(66.67%,#0024ff),to(#010063));
-        background: url(../img/branding/bg-nodes-network-centred-4x.png) center -10vw/180vw no-repeat,-webkit-radial-gradient(20vw top,circle 50vw,rgba(0,213,255,.5) 0,transparent 100%),-webkit-radial-gradient(58vw top,circle 30vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-radial-gradient(right 5vh,circle 70vw,rgba(216,52,214,.75) 0,transparent 100%),-webkit-radial-gradient(left 142vh,circle 60vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(145vw 165vh,circle 120vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-linear-gradient(top,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%);
-        background: url(../img/branding/bg-nodes-network-centred-4x.png) center -10vw/180vw no-repeat,radial-gradient(circle 50vw at 20vw top,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 30vw at 58vw top,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 70vw at right 5vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 60vw at left 142vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 120vw at 145vw 165vh,rgba(158,237,150,.4) 0,transparent 100%),linear-gradient(to bottom,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%)
+        background:url(/assets/cogesto-asset/bg-nodes-network-centred-4x.png) center -10vw/180vw no-repeat,radial-gradient(circle 50vw at 20vw top,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 30vw at 58vw top,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 70vw at right 5vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 60vw at left 142vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 120vw at 145vw 165vh,rgba(158,237,150,.4) 0,transparent 100%),-webkit-gradient(linear,left top,left bottom,from(#0024ff),color-stop(33.33%,#010063),color-stop(33.34%,#010063),color-stop(66.66%,#0024ff),color-stop(66.67%,#0024ff),to(#010063));
+        background: url(/assets/cogesto-asset/bg-nodes-network-centred-4x.png) center -10vw/180vw no-repeat,-webkit-radial-gradient(20vw top,circle 50vw,rgba(0,213,255,.5) 0,transparent 100%),-webkit-radial-gradient(58vw top,circle 30vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-radial-gradient(right 5vh,circle 70vw,rgba(216,52,214,.75) 0,transparent 100%),-webkit-radial-gradient(left 142vh,circle 60vw,rgba(216,52,214,.85) 0,transparent 100%),-webkit-radial-gradient(145vw 165vh,circle 120vw,rgba(158,237,150,.4) 0,transparent 100%),-webkit-linear-gradient(top,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%);
+        background: url(/assets/cogesto-asset/bg-nodes-network-centred-4x.png) center -10vw/180vw no-repeat,radial-gradient(circle 50vw at 20vw top,rgba(0,213,255,.5) 0,transparent 100%),radial-gradient(circle 30vw at 58vw top,rgba(158,237,150,.4) 0,transparent 100%),radial-gradient(circle 70vw at right 5vh,rgba(216,52,214,.75) 0,transparent 100%),radial-gradient(circle 60vw at left 142vh,rgba(216,52,214,.85) 0,transparent 100%),radial-gradient(circle 120vw at 145vw 165vh,rgba(158,237,150,.4) 0,transparent 100%),linear-gradient(to bottom,#0024ff 0,#010063 33.33%,#010063 33.34%,#0024ff 66.66%,#0024ff 66.67%,#010063 100%)
     }
 }
 
@@ -26062,7 +26062,7 @@ body.has-modal {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
-    background: url(/img/icons/quote-open.svg)
+    background: url(/assets/cogesto-asset/Icons/quote-open.svg)
 }
 
 .quote-block__quote--without-mark:before {
@@ -26201,7 +26201,7 @@ body {
 }
 
 .promo-block-container:hover .btn::after,.promo-block-container:hover .store-btn::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center;
     -webkit-transition: all .1s linear;
     transition: all .1s linear
 }
@@ -26378,7 +26378,7 @@ ul.mega-menu__list-container {
     position: absolute;
     right: 15px;
     padding-left: .5rem;
-    content: url(/img/icons/icon-arrow--cobalt.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg)
 }
 
 .mega-menu__btn-hamburger[aria-expanded=true] {
@@ -26509,7 +26509,7 @@ ul.mega-menu__list-container {
     width: 16px;
     height: 16px;
     margin-top: .125rem;
-    content: url(/img/icons/icon-arrow--dark-blue.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg)
 }
 
 .mega-menu__column-section-title {
@@ -26626,7 +26626,7 @@ ul.mega-menu__list-container {
 }
 
 .cta-section-style img[class*=label-icon] {
-    content: url(/img/icons/icon-arrow--dark-blue.svg);
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--dark-blue.svg);
     background: #9eed96;
     object-fit: scale-down;
     padding-left: 0;
@@ -26700,7 +26700,7 @@ ul.mega-menu__list-container {
         transform: translate(.625rem,0);
         -webkit-animation: bounce-in .5s ease-out;
         animation: bounce-in .5s ease-out;
-        content: url(/img/icons/icon-arrow--white.svg)
+        content: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg)
     }
 }
 
@@ -27200,7 +27200,7 @@ ul.mega-menu__list-container {
     }
 
     .nav-secondary__title-link:after {
-        background: url(/img/icons/icon-arrow--cobalt.svg) no-repeat center right;
+        background: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg) no-repeat center right;
         left: 8px;
         width: 16px;
         height: 16px
@@ -27221,8 +27221,8 @@ ul.mega-menu__list-container {
 
     .nav-secondary__title-link:after {
         background-color: #222;
-        -webkit-mask-image: url(/img/icons/icon-chevron-right--dark-blue.svg);
-        mask-image: url(/img/icons/icon-chevron-right--dark-blue.svg);
+        -webkit-mask-image: url(/assets/cogesto-asset/Icons/icon-chevron-right--dark-blue.svg);
+        mask-image: url(/assets/cogesto-asset/Icons/icon-chevron-right--dark-blue.svg);
         -webkit-mask-position: center right;
         mask-position: center right;
         -webkit-mask-repeat: no-repeat;
@@ -27742,7 +27742,7 @@ main.sticky-subnav {
     display: inline-block;
     width: .75rem;
     height: .75rem;
-    background-image: url(/img/icons/icon-tick-cobalt.svg);
+    background-image: url(/assets/cogesto-asset/Icons/icon-tick-cobalt.svg);
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: .75rem
@@ -28983,7 +28983,7 @@ main.sticky-subnav {
 }
 
 .cancel-filters-icon {
-    background: url(/img/icons/icon-close--cobalt.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-close--cobalt.svg) no-repeat center;
     display: inline-block;
     margin-left: .5rem;
     width: 1rem;
@@ -29167,11 +29167,11 @@ main.sticky-subnav {
 }
 
 .product-finder__summary-filter-button::after {
-    background: url(/img/icons/icon-filter--rich-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-filter--rich-blue.svg) no-repeat center
 }
 
 .product-finder__summary-filter-button:active::after,.product-finder__summary-filter-button:focus::after,.product-finder__summary-filter-button:hover::after {
-    background: url(/img/icons/icon-filter--light.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-filter--light.svg) no-repeat center
 }
 
 .product-finder__form {
@@ -29225,7 +29225,7 @@ main.sticky-subnav {
 }
 
 .product-finder .btn--default::after {
-    background: url(/img/icons/icon-arrow--dark-grey.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-grey.svg) no-repeat center;
     display: inline-block;
     content: "";
     margin-left: .75rem;
@@ -29355,7 +29355,7 @@ main.sticky-subnav {
 }
 
 .product-finder__active-filters:not(.hide) .active-filter-pill::after {
-    background: url(/img/icons/icon-close--white.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-close--white.svg) no-repeat center;
     display: inline-block;
     content: "";
     margin-left: .5rem;
@@ -29654,7 +29654,7 @@ main.sticky-subnav {
 }
 
 .product-card__footer--platform {
-    background: url(/content/img/branding/intersect.svg) no-repeat center top;
+    background: url(/assets/cogesto-asset/intersect.svg) no-repeat center top;
     width: 100%;
     height: 5.5rem;
     background-size: cover
@@ -29992,7 +29992,7 @@ main.sticky-subnav {
 }
 
 .body-copy-image__content-container.bg-core-branding-cobalt .btn--secondary::after,.body-copy-image__content-container.bg-core-branding-rich-blue .btn--secondary::after {
-    background: url(/img/icons/icon-arrow--white.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--white.svg) no-repeat center;
     -webkit-transition: all .1s linear;
     transition: all .1s linear
 }
@@ -30238,12 +30238,12 @@ main.sticky-subnav {
 
 .case-study-block__challenge-icon {
     margin-bottom: .5rem;
-    content: url(/img/icons/icon-challenge.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-challenge.svg)
 }
 
 .case-study-block__solution-icon {
     margin-bottom: .5rem;
-    content: url(/img/icons/icon-solution.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-solution.svg)
 }
 
 .case-study-block__title {
@@ -30449,7 +30449,7 @@ main.sticky-subnav {
 }
 
 .case-study-block__outcomes-icon {
-    content: url(/img/icons/icon-outcome-result.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-outcome-result.svg)
 }
 
 .case-study-block__outcome-item-title {
@@ -30533,19 +30533,19 @@ main.sticky-subnav {
 }
 
 .case-study-block .expand::after {
-    background: url(/img/icons/icon-open-expand--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-open-expand--dark-blue.svg) no-repeat center
 }
 
 .case-study-block .expand:hover::after {
-    background: url(/img/icons/icon-open-expand--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-open-expand--white.svg) no-repeat center
 }
 
 .case-study-block .download::after {
-    background: url(/img/icons/icon-download--dark-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download--dark-blue.svg) no-repeat center
 }
 
 .case-study-block .download:hover::after {
-    background: url(/img/icons/icon-download--white.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-download--white.svg) no-repeat center
 }
 
 .regular-padding {
@@ -30576,7 +30576,7 @@ main.sticky-subnav {
     position: absolute;
     padding-top: .125rem;
     padding-left: .5rem;
-    content: url(/img/icons/icon-arrow--cobalt.svg);
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg);
     -webkit-transition: margin-left ease .25s;
     transition: margin-left ease .25s
 }
@@ -30594,7 +30594,7 @@ main.sticky-subnav {
     position: absolute;
     padding-top: .125rem;
     padding-left: .5rem;
-    content: url(/img/icons/icon-arrow--light-green.svg);
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--light-green.svg);
     -webkit-transition: margin-left ease .25s;
     transition: margin-left ease .25s
 }
@@ -32025,7 +32025,7 @@ main:not(:has(article)) #image .col.small-12.pull-1--large.large-7.push-4--large
     position: absolute;
     padding-top: .3125rem;
     padding-left: .5rem;
-    content: url(/img/icons/icon-arrow--light-green.svg);
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--light-green.svg);
     -webkit-transition: margin-left ease .25s;
     transition: margin-left ease .25s
 }
@@ -32096,7 +32096,7 @@ main:not(:has(article)) #image .col.small-12.pull-1--large.large-7.push-4--large
 }
 
 .new-woodmac-video.new-woodmac-video--Cobalt .new-woodmac-video__cta::after {
-    content: url(/img/icons/icon-arrow--light-green.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--light-green.svg)
 }
 
 .new-woodmac-video.new-woodmac-video--Grey {
@@ -32116,7 +32116,7 @@ main:not(:has(article)) #image .col.small-12.pull-1--large.large-7.push-4--large
 }
 
 .new-woodmac-video.new-woodmac-video--Grey .new-woodmac-video__cta::after,.new-woodmac-video.new-woodmac-video--White .new-woodmac-video__cta::after {
-    content: url(/img/icons/icon-arrow--cobalt.svg)
+    content: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg)
 }
 
 .new-woodmac-video__description ol,.new-woodmac-video__description p,.new-woodmac-video__description span,.new-woodmac-video__description ul {
@@ -32665,7 +32665,7 @@ dialog:open::backdrop {
 .badge-internal-people-container:after {
     display: inline-block;
     margin-left: .3125rem;
-    content: url(/img/icons/badge_internal_people.svg)
+    content: url(/assets/cogesto-asset/Icons/badge_internal_people.svg)
 }
 
 @media (max-width: 47.99875em) {
@@ -33312,13 +33312,13 @@ dialog:open::backdrop {
     -webkit-border-radius: 6.25rem;
     border-radius: 6.25rem;
     border: .08em solid #0024ff;
-    background: url(/img/icons/icon-arrow--cobalt.svg) 55% no-repeat;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--cobalt.svg) 55% no-repeat;
     background-color: #fff
 }
 
 .use-cases__button-next.swiper-button-disabled,.use-cases__button-prev.swiper-button-disabled {
     border: .08em solid #f1f4ff;
-    background: url(/img/icons/icon-arrow--inactive.svg) 55% no-repeat
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--inactive.svg) 55% no-repeat
 }
 
 .use-cases__button-prev {
@@ -33671,7 +33671,7 @@ dialog:open::backdrop {
 }
 
 .page-finder__active-filters:not(.hide) .active-filter-pill::after {
-    background: url(/img/icons/icon-close--white.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-close--white.svg) no-repeat center;
     display: inline-block;
     content: "";
     margin-left: .5rem;
@@ -34109,7 +34109,7 @@ dialog:open::backdrop {
 }
 
 .cancel-filters-icon {
-    background: url(/img/icons/icon-close--cobalt.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-close--cobalt.svg) no-repeat center;
     display: inline-block;
     margin-left: .5rem;
     width: 1rem;
@@ -34299,11 +34299,11 @@ dialog:open::backdrop {
 }
 
 .page-finder__summary-filter-button::after {
-    background: url(/img/icons/icon-filter--rich-blue.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-filter--rich-blue.svg) no-repeat center
 }
 
 .page-finder__summary-filter-button:active::after,.page-finder__summary-filter-button:focus::after,.page-finder__summary-filter-button:hover::after {
-    background: url(/img/icons/icon-filter--light.svg) no-repeat center
+    background: url(/assets/cogesto-asset/Icons/icon-filter--light.svg) no-repeat center
 }
 
 .page-finder__form {
@@ -34357,7 +34357,7 @@ dialog:open::backdrop {
 }
 
 .page-finder .btn--default::after {
-    background: url(/img/icons/icon-arrow--dark-grey.svg) no-repeat center;
+    background: url(/assets/cogesto-asset/Icons/icon-arrow--dark-grey.svg) no-repeat center;
     display: inline-block;
     content: "";
     margin-left: .75rem;
@@ -34547,7 +34547,7 @@ dialog:open::backdrop {
 }
 
 .webinar-experts__woodmac::after {
-    content: url(/img/icons/badge_internal_people.svg);
+    content: url(/assets/cogesto-asset/Icons/badge_internal_people.svg);
     margin-left: .3125rem
 }
 
