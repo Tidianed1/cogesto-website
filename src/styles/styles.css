@@ -35200,3 +35200,10 @@ dialog:open::backdrop {
 .nav-utility.bg-primary-color {
     background-color: #010063 !important;
 }
+
+/* Hero Text Color Fix for Dark Blue */
+.hero-multi-template__container.bg-primary-color .hero-multi-template__introduction,
+.hero-multi-template__container.bg-primary-color .hero-multi-template__supertitle,
+.hero-multi-template__container.bg-primary-color .hero-multi-template__title {
+    color: #fff !important;
+}
