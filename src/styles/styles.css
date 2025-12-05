@@ -8638,7 +8638,7 @@ main.sticky-subnav {
 }
 
 .report-cover {
-    background-image: url(../img/global/bg-report-cover.svg);
+    background-image: url(/assets/cogesto-asset/bg-report-cover.svg);
     background-position: top left;
     background-size: contain;
     width: 100%;
@@ -16885,7 +16885,7 @@ button.swiper-pagination-bullet {
 
 .popup__inner {
     background: #fff;
-    background-image: url(../img/global/bg-popup.png);
+    background-image: url(/assets/cogesto-asset/bg-popup.png);
     background-repeat: no-repeat;
     background-size: 42% 100%;
     display: -webkit-box;
@@ -18781,7 +18781,7 @@ body.has-modal {
 
 @media (min-width: 48em) {
     .hero-store {
-        background-image:url(../img/global/bg-store-hero-small.png);
+        background-image:url(/assets/cogesto-asset/bg-store-hero-small.png);
         background-repeat: no-repeat;
         background-position: top right;
         background-size: 30%
@@ -18790,7 +18790,7 @@ body.has-modal {
 
 @media (min-width: 90.1em) {
     .hero-store {
-        background-image:url(../img/global/bg-store-hero.png);
+        background-image:url(/assets/cogesto-asset/bg-store-hero.png);
         background-size: 30%
     }
 }
